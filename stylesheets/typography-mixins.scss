@@ -1,0 +1,54 @@
+$DefaultFontSize: 1em;
+$DefaultLineHeight: 1.5em;
+$DefaultFontFamily: 'source-sans-pro', 'Source Sans Pro', sans-serif;
+$HeadlineFontFamily: 'adelle', 'Adelle Basic', serif;
+
+/* setfontsize /////////////////////////////////////////////////////////////
+// Change font size between several levels
+//////////////////////////////////////////////////////////////////////////*/
+@mixin setfontsize($level:0)	{
+	@if $level==0 {
+		font-size: $DefaultFontSize;
+	} @else { @if $level==1 {
+		font-size: 1.324 * $DefaultFontSize;
+	} @else { @if $level==2 {
+		font-size: 1.324 * 1.324 * $DefaultFontSize;
+	} @else { @if $level==3 {
+		font-size: 1.324 * 1.324 * 1.324 * $DefaultFontSize;
+	} @else { @if $level==-1 {
+		font-size: 0.869 * $DefaultFontSize;
+	}}}}}
+}
+
+/* pskip ///////////////////////////////////////////////////////////////////
+// Add a vertical space after element
+//////////////////////////////////////////////////////////////////////////*/
+@mixin pskip($height:1)	{ 
+	margin-bottom: ($height) * $VGutter; 
+}
+
+/* antiskip ////////////////////////////////////////////////////////////////
+// Cancels a pskip from the immediately preceding element
+//////////////////////////////////////////////////////////////////////////*/
+@mixin antiskip($height:1) { 
+	margin-top: -($height) * $VGutter; 
+}
+
+/* headlinetype, texttype, footnotetype ////////////////////////////////////
+// The main typographic styles
+//////////////////////////////////////////////////////////////////////////*/
+@mixin headlinetype { 
+	font-family: $HeadlineFontFamily; 
+	line-height: 0.75 * $DefaultLineHeight;
+}
+@mixin texttype { 
+	font-family: $DefaultFontFamily; 
+	@include setfontsize(0);
+	line-height: $DefaultLineHeight; 
+}
+@mixin footnotetype { 
+	font-family: $DefaultFontFamily; 
+	@include setfontsize(-1);
+	line-height: 0.9 * $DefaultLineHeight;
+	@include pskip(0.25);
+}
