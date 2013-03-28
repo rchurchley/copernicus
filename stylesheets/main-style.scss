@@ -21,49 +21,9 @@ $AltBackground: $Light;	/* caption and sidenote background */
 
 $LinkColour: $Red;
 
-/*###############
-## MAIN STYLES ##
-###############*/
-
-html {
-	background-image: url('../img/bg/pw_maze_white.png');
-	background-size: 46px auto;
-	@media screen and #{$RetinaScreen} {
-		background: url('../img/bg/pw_maze_white_@2X.png');
-	}
-}
-
-a { color: $LinkColour; }
-
-body { 
-	color: $Foreground;
-	background-color: $Background; 
-
-	-moz-box-shadow:
-        5px 0 5px -5px $Grey,
-        -5px 0 5px -5px $Grey;
-    -webkit-box-shadow:
-        5px 0 5px -5px $Grey,
-        -5px 0 5px -5px $Grey;
-    box-shadow:
-        5px 0 5px -5px $Grey,
-        -5px 0 5px -5px $Grey;
-}
-
-
-body > header, body > footer	{ 
-	color: $HeaderForeground; 	  	
-	background-color: $HeaderBackground; 
-	a { color: $HeaderForeground; }
-}
-
-blockquote, caption, code, pre, samp { 
-	color: $AltForeground; 
-}
-
-/*######################
-## MAIN GRID ELEMENTS ##
-######################*/
+/*##################
+## PAGE STRUCTURE ##
+##################*/
 
 body > header, body > footer {
 	width: 100%;
@@ -71,21 +31,6 @@ body > header, body > footer {
 
 body > section, body > article {
 	@include toplevelgutters;
-}
-
-.postheader {
-	@include fullcontent;
-}
-
-.column {
-	@include maincontent;
-	float: left;
-}
-
-.margin {
-	@include sidecontent;
-	clear: none;
-	float:left;
 }
 
 ul, ol, dd { 
@@ -104,6 +49,20 @@ figure {
 	figcaption { @include footnotetype; }
 }
 
+.postheader {
+	@include fullcontent;
+}
+
+.column {
+	@include maincontent;
+	float: left;
+}
+
+.margin {
+	@include sidecontent;
+	clear: none;
+	float:left;
+}
 
 /*##############
 ## TYPOGRAPHY ##
@@ -163,7 +122,6 @@ time {
 	@include footnotetype;
 }
 
-
 /*###########
 ## SPACING ##
 ###########*/
@@ -188,6 +146,50 @@ h2, h3, h4, h5, h6, p, dl, ul, ol, blockquote {
 
 dt { margin-top: 0.5* $HGutter; }
 
+/*###############
+## MAIN STYLES ##
+###############*/
+
+html {
+	background-image: url('../img/bg/pw_maze_white.png');
+	background-size: 46px auto;
+	@media screen and #{$RetinaScreen} {
+		background: url('../img/bg/pw_maze_white_@2X.png');
+	}
+}
+
+a { color: $LinkColour; }
+
+body { 
+	color: $Foreground;
+	background-color: $Background; 
+
+	-moz-box-shadow:
+        5px 0 5px -5px $Grey,
+        -5px 0 5px -5px $Grey;
+    -webkit-box-shadow:
+        5px 0 5px -5px $Grey,
+        -5px 0 5px -5px $Grey;
+    box-shadow:
+        5px 0 5px -5px $Grey,
+        -5px 0 5px -5px $Grey;
+}
+
+
+body > header, body > footer	{ 
+	color: $HeaderForeground; 	  	
+	background-color: $HeaderBackground; 
+	a { color: $HeaderForeground; }
+}
+
+blockquote, caption, code, pre, samp { 
+	color: $AltForeground; 
+}
+
+
+
+
+
 
 /*###########
 ## COLOURS ##
@@ -209,6 +211,64 @@ section .column {
 section:last-of-type .column {
 	border-bottom: none;
 }
+
+
+/*###################
+## NAVIGATION MENU ##
+###################*/
+.menu {
+	@include pskip(2);
+	@include headlinetype;
+	background-color: $Background;
+	border-bottom: 1px dotted $AltForeground;
+	padding-left: 0;
+	
+	> li {
+		@include sethorizontal(1/4,0,0);
+		display: inline-block;
+		position: relative;
+		vertical-align: bottom;
+	}
+	
+	a {  
+		@include paddedbox(0.5,1,0.5,1);
+		width: 100%; 
+		text-align: center;
+		margin-right: 0;
+		z-index: 2;
+	}
+	
+	.sub-menu {
+		@media screen and #{$ColumnatedScreen} {
+			position:absolute;
+			left: 0;
+			top: 100%;
+		}
+		padding-left: 0;
+		display: none;
+		z-index: 1;
+	}
+
+	li:hover .sub-menu {
+		display: block;
+		@include sethorizontal(1/4,0,0);
+		border: 1px solid $AltBackground;
+		list-style: none;
+		background-color: $Background;
+		-moz-box-shadow: 5px 5px 5px -5px $Grey;
+    	-webkit-box-shadow: 5px 5px 5px -5px $Grey;
+   		box-shadow: 5px 5px 5px -5px $Grey;
+	}
+}
+
+.menu a { color: $Grey; }
+.dark-menu a { background-color: $Dark; color: #fff; }
+.red-menu a { background-color: $Red; color: #fff; }
+.red-menu .sub-menu a { background-color: #fff; color: $Red; }
+.green-menu a { background-color: $Green; color: #fff; }
+.green-menu .sub-menu a { background-color: #fff; color: $Green; }
+.blue-menu a { background-color: $Blue; color: #fff; }
+.blue-menu .sub-menu a { background-color: #fff; color: $Blue; }
 
 /*///////////////////////
 // BASIC STYLE CLASSES //
@@ -245,47 +305,10 @@ body > header {
 	h1 {
 		@include paddedbox;
 	}
-}
-
-.menu {
-	@include pskip(2);
-	@include headlinetype;
-	background-color: $Background;
-	border-bottom: 1px dotted $AltForeground;
-	padding-left: 0;
-	li {
-		@include sethorizontal(1/4,0,0);
-		display: inline-block;
-		position: relative;
-		a {  
-			@include paddedbox(0.5,1,0.5,1);
-			width: 100%; 
-			text-align: center;
-			margin-right: 0;
-		}
-		> a { z-index: 2;}
-		.sub-menu {
-			@media screen and #{$ColumnatedScreen} {
-				position:absolute;
-				left: 0;
-				top: 100%;
-			}
-			padding-left: 0;
-			display: none;
-			border: 1px solid $AltBackground;
-			background-color: $Background;
-			z-index: 1;
-			-moz-box-shadow:
-        		5px 5px 5px -5px $Grey;
-    		-webkit-box-shadow:
-    		    5px 5px 5px -5px $Grey;
-   			box-shadow:
-    		    5px 5px 5px -5px $Grey;
-		}
-		&:hover .sub-menu {
-			display: block;
-		}
-	}
+	-moz-box-shadow: 0px 5px 5px -5px $Dark;
+    -webkit-box-shadow: 0px 5px 5px -5px $Dark;
+   	box-shadow: 0px 5px 5px -5px $Dark;
+   	z-index: 2;
 }
 
 body > footer {
@@ -487,7 +510,3 @@ input {
 		}
 	}
 }
-
-
-
-
