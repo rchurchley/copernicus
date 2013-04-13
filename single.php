@@ -2,11 +2,9 @@
 /**
  * The Template for displaying all single posts
  *
- * Please see /external/starkers-utilities.php for info on Starkers_Utilities::get_template_parts()
- *
  * @package 	WordPress
- * @subpackage 	Starkers
- * @since 		Starkers 4.0
+ * @subpackage 	Marginal
+ * @since 		Marginal 1.0
  */
 ?>
 
@@ -21,7 +19,6 @@
 			<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 			<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time>
 			</header>
-			<?php if ( has_post_thumbnail() ) { add_post_thumbnail_to_margin(); } ?>
 			<?php the_content(); ?>
 
 			<?php if ( get_the_author_meta( 'description' ) ) : ?>

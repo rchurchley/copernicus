@@ -7,11 +7,9 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * Please see /external/starkers-utilities.php for info on Starkers_Utilities::get_template_parts()
- *
  * @package 	WordPress
- * @subpackage 	Starkers
- * @since 		Starkers 4.0
+ * @subpackage 	Marginal
+ * @since 		Marginal 1.0
  */
 ?>
 
@@ -25,8 +23,6 @@
 			<header>
 			<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 			</header>
-
-		<?php if ( has_post_thumbnail() ) { add_post_thumbnail_to_margin(); } ?>
 		<?php the_content(); ?>
 		</div>
 		<div class="margin">

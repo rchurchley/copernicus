@@ -8,8 +8,8 @@
  * located in the functions.php file.
  *
  * @package 	WordPress
- * @subpackage 	Starkers
- * @since 		Starkers 4.0
+ * @subpackage 	Marginal
+ * @since 		Marginal 1.0
  */
 ?>
 <section id="comments">

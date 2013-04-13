@@ -1,7 +1,5 @@
 $DefaultFontSize: 1em;
 $DefaultLineHeight: 1.5em;
-$DefaultFontFamily: 'source-sans-pro', 'Source Sans Pro', sans-serif;
-$HeadlineFontFamily: 'adelle', 'Adelle Basic', serif;
 
 /* setfontsize /////////////////////////////////////////////////////////////
 // Change font size between several levels
@@ -13,10 +11,10 @@ $HeadlineFontFamily: 'adelle', 'Adelle Basic', serif;
 		font-size: 1.324 * $DefaultFontSize;
 	} @else { @if $level==2 {
 		font-size: 1.324 * 1.324 * $DefaultFontSize;
-	} @else { @if $level==3 {
-		font-size: 1.324 * 1.324 * 1.324 * $DefaultFontSize;
 	} @else { @if $level==-1 {
-		font-size: 0.869 * $DefaultFontSize;
+		font-size: 0.825 * $DefaultFontSize;
+	} @else { @if $level==-2 {
+		font-size: 0.755 * $DefaultFontSize;
 	}}}}}
 }
 
@@ -38,17 +36,19 @@ $HeadlineFontFamily: 'adelle', 'Adelle Basic', serif;
 // The main typographic styles
 //////////////////////////////////////////////////////////////////////////*/
 @mixin headlinetype { 
-	font-family: $HeadlineFontFamily; 
 	line-height: 0.75 * $DefaultLineHeight;
 }
 @mixin texttype { 
-	font-family: $DefaultFontFamily; 
 	@include setfontsize(0);
 	line-height: $DefaultLineHeight; 
 }
-@mixin footnotetype { 
-	font-family: $DefaultFontFamily; 
+@mixin commenttype { 
 	@include setfontsize(-1);
 	line-height: 0.9 * $DefaultLineHeight;
+	@include pskip(0.25);
+}
+@mixin footnotetype { 
+	@include setfontsize(-2);
+	line-height: 0.8 * $DefaultLineHeight;
 	@include pskip(0.25);
 }

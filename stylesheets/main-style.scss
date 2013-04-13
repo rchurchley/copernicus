@@ -21,6 +21,15 @@ $AltBackground: $Light;	/* caption and sidenote background */
 
 $LinkColour: $Red;
 
+.red 	{ h2, a {color: $Red; }}
+.orange { h2, a {color: $Orange; }}
+.yellow { h2, a {color: $Yellow; }}
+.green 	{ h2, a {color: $Green; }}
+.cyan 	{ h2, a {color: $Cyan; }}
+.blue 	{ h2, a {color: $Blue; }}
+.violet { h2, a {color: $Violet; }}
+.magenta{ h2, a {color: $Magenta; }}
+
 /*##################
 ## PAGE STRUCTURE ##
 ##################*/
@@ -46,11 +55,7 @@ blockquote {
 figure {
 	line-height: 0; /* ensures no gap between img and figcaption */
 	img { max-width: 100%; }
-	figcaption { @include footnotetype; }
-}
-
-.postheader {
-	@include fullcontent;
+	figcaption { line-height: 0.8 * $DefaultLineHeight; }
 }
 
 .column {
@@ -64,16 +69,26 @@ figure {
 	float:left;
 }
 
+.subsection {
+	position: static;
+}
+
 /*##############
 ## TYPOGRAPHY ##
 ##############*/
 
 body { 
 	@include texttype;
+	font-family: source-sans-pro, "Source Sans Pro", sans-serif;
 }
 
-header, h1, h2, h3, h4, th, dt { 
+header, h1, h2, h3, h4, th, dt, .menu { 
 	@include headlinetype;
+	font-family: adelle, Palatino, serif;
+}
+
+.menu { 
+	font-family: adelle, Palatino, serif;
 }
 
 h1		{ @include setfontsize(1); }
@@ -81,10 +96,9 @@ h2		{ @include setfontsize(1); }
 h3		{ @include setfontsize(1); }
 h4, dt	{ @include setfontsize(0); }
 
-figcaption {
+infobox {
 	h2 	{ @include setfontsize(1); 	@include pskip(0.5); }
 	h3 	{ @include setfontsize(0); 	@include pskip(0.5); }
-	p 	{ @include footnotetype; }
 }
 
 strong, b	{ font-weight: bold; }
@@ -120,6 +134,7 @@ figcaption, figcaption p { text-align: left; }
 
 time {
 	@include footnotetype;
+	color: $Grey;
 }
 
 /*###########
@@ -186,11 +201,6 @@ blockquote, caption, code, pre, samp {
 	color: $AltForeground; 
 }
 
-
-
-
-
-
 /*###########
 ## COLOURS ##
 ###########*/
@@ -201,30 +211,26 @@ figure figcaption	{
 }
 
 section .column {
-	border-bottom: 1px solid $AltForeground;
-	&:last-of-type { border-bottom: none; }
 	@media screen and #{$SmallScreen} {
 		@include pskip(0.5);
 	}
-}
-
-section:last-of-type .column {
-	border-bottom: none;
 }
 
 
 /*###################
 ## NAVIGATION MENU ##
 ###################*/
-.menu {
+#top-menus {
 	@include pskip(2);
-	@include headlinetype;
-	background-color: $Background;
-	border-bottom: 1px dotted $AltForeground;
+}
+.menu {
 	padding-left: 0;
+	margin-bottom: 0;
 	
 	> li {
-		@include sethorizontal(1/4,0,0);
+		@media screen and #{$SmallScreen} {
+			width: 50%;
+		}
 		display: inline-block;
 		position: relative;
 		vertical-align: bottom;
@@ -232,18 +238,15 @@ section:last-of-type .column {
 	
 	a {  
 		@include paddedbox(0.5,1,0.5,1);
-		width: 100%; 
-		text-align: center;
+		text-align: left;
 		margin-right: 0;
 		z-index: 2;
 	}
 	
 	.sub-menu {
-		@media screen and #{$ColumnatedScreen} {
-			position:absolute;
-			left: 0;
-			top: 100%;
-		}
+		position:absolute;
+		left: 0;
+		top: 100%;
 		padding-left: 0;
 		display: none;
 		z-index: 1;
@@ -251,7 +254,6 @@ section:last-of-type .column {
 
 	li:hover .sub-menu {
 		display: block;
-		@include sethorizontal(1/4,0,0);
 		border: 1px solid $AltBackground;
 		list-style: none;
 		background-color: $Background;
@@ -261,35 +263,32 @@ section:last-of-type .column {
 	}
 }
 
-.menu a { color: $Grey; }
-.dark-menu a { background-color: $Dark; color: #fff; }
-.red-menu a { background-color: $Red; color: #fff; }
-.red-menu .sub-menu a { background-color: #fff; color: $Red; }
-.green-menu a { background-color: $Green; color: #fff; }
-.green-menu .sub-menu a { background-color: #fff; color: $Green; }
-.blue-menu a { background-color: $Blue; color: #fff; }
-.blue-menu .sub-menu a { background-color: #fff; color: $Blue; }
+#primary-menu {
+	background-color: $Dark; 
+	a { color: $HeaderForeground; }
+	.sub-menu a { color: $AltForeground; } 
+}
+
+#secondary-menu {
+	border-bottom: 1px dotted $AltForeground;
+	a { color: $AltForeground; }
+}
+
 
 /*///////////////////////
 // BASIC STYLE CLASSES //
 ///////////////////////*/
 
-body > footer section {
-	@include sidecontent;
+body > footer {
+	@include fullcontent;
 	@include toplevelgutters;
 	@include footnotetype;
 	@include pskip;
-	float: left;
-	clear: none;
 
 	/* Styling */
 	color: $AltForeground;
 	a 	{ color: $AltForeground; }
 	p 	{ @include pskip(0.25); }
-	p:last-of-type { @include pskip; }
-	@media screen and #{$SmallScreen} {
-		@include pskip; 
-	}
 }
 
 /*/////////////////////
@@ -336,6 +335,8 @@ body > footer {
 
 body > article {
 	border-bottom: 1px dotted $Grey;
+	@include pskip(2);
+	padding-bottom: $VGutter;
 }
 body > article:last-of-type {
 	border: none;
@@ -352,7 +353,9 @@ article header, section header {
 		@include pskip(0);
 	}
 	time {
-		float: right;
+		display:block;
+		clear: left;
+		margin-bottom: 0;
 	}
 	@include pskip;
 }
@@ -405,11 +408,11 @@ aside:last-of-type {
 }
 
 .infobox {
+	@include headlinetype;
 	background-color: $AltBackground;
 	-moz-box-shadow: 5px 5px 5px -5px $Grey;
     -webkit-box-shadow: 5px 5px 5px -5px $Grey;
    	box-shadow: 5px 5px 5px -5px $Grey;
-    @include footnotetype;
     @include paddedbox(0.5,0.5,0.5,0.5);
     @include pskip;
 }
@@ -431,7 +434,7 @@ input {
 #comments {
 	width: 100%;
 	margin-top: 3*$VGutter;
-	
+	@include commenttype;
 	h2 { 
 		@include fullcontent;
 		margin-bottom: $VGutter; 
@@ -456,7 +459,8 @@ input {
 
 	header {
 		@include sidecontent;
-		@include footnotetype; 
+		h4 { @include pskip(0.25); }
+		time { clear: none; }
 
 		@media screen and (min-width: $MediumGrid)	{ 
 			position:absolute;
@@ -474,7 +478,6 @@ input {
 	
 	#respond {
 		@include sethorizontal(1.00, 0, 0);
-		@include footnotetype; 
 
 		h3, p { 
 			@include maincontent;

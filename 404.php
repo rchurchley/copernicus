@@ -2,15 +2,18 @@
 /**
  * The template for displaying 404 pages (Not Found)
  *
- * Please see /external/starkers-utilities.php for info on Starkers_Utilities::get_template_parts()
- *
  * @package 	WordPress
- * @subpackage 	Starkers
- * @since 		Starkers 4.0
+ * @subpackage 	Marginal
+ * @since 		Marginal 1.0
  */
 ?>
-<?php Starkers_Utilities::get_template_parts( array( 'parts/html-header', 'parts/header' ) ); ?>
+<?php get_template_part('parts/html-header'); ?>
+<?php get_template_part('parts/header'); ?>
 
-<section><div style="column"><h2>Page not found</h2></column></section>
+<section>
+	<div class="column"><h2>Page not found</h2></div>
+	<div class="margin"></div>
+</section>
 
-<?php Starkers_Utilities::get_template_parts( array( 'parts/footer','parts/html-footer' ) ); ?>
+<?php get_template_part('parts/footer'); ?>
+<?php get_template_part('parts/html-footer'); ?>
