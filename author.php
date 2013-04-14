@@ -15,7 +15,7 @@
 
 <?php if ( have_posts() ): the_post(); ?>
 
-<section class="fullwidth">
+<section class="guttered">
 	<h2>Author archive: <?php echo get_the_author() ; ?></h2>
 
 	<?php if ( get_the_author_meta( 'description' ) ) : ?>
@@ -35,7 +35,7 @@
 		}
 	endwhile;
 else:?>
-<section class="fullwidth">
+<section class="guttered">
 	<h2>No posts to display</h2>
 </section>
 <?php endif; ?>

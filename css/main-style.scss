@@ -1,26 +1,7 @@
 @import 'reset.scss';
 @import 'grid-mixins.scss';
 @import 'typography-mixins.scss';
-
-/* colour palettes /////////////////////////////////////////////////////////
-// Based on the Solarized pallette: http://ethanschoonover.com/solarized
-//////////////////////////////////////////////////////////////////////////*/
-
-$Red: #DC322F;			$Orange: #CB4B16;			$Yellow: #B58900;
-$Green: #859900;		$Cyan: #2AA198;				$Blue: #268BD2;
-$Violet: #6C71C4;		$Magenta: #D33682;			
-
-$Dark: #073642;			$Grey: #93A1A1;				$Light: #E4E6E6;
-$White: #FFFFFF;
-
-.red 	{ h2, a {color: $Red; }}
-.orange { h2, a {color: $Orange; }}
-.yellow { h2, a {color: $Yellow; }}
-.green 	{ h2, a {color: $Green; }}
-.cyan 	{ h2, a {color: $Cyan; }}
-.blue 	{ h2, a {color: $Blue; }}
-.violet { h2, a {color: $Violet; }}
-.magenta{ h2, a {color: $Magenta; }}
+@import 'palettes.scss';
 
 /* template colours ////////////////////////////////////////////////////////
 // Based on the Solarized pallette: http://ethanschoonover.com/solarized
@@ -48,6 +29,7 @@ header, h1, h2, h3, h4, th, dt, nav {
 }
 
 a { color: $Red; }
+button { background-color: $Red; }
 
 /*##############
 ## TYPOGRAPHY ##
@@ -173,9 +155,9 @@ figure {
 	position: static;
 }
 
-.fullwidth {
-	@include fullcontent;
-	@include toplevelgutters;
+.guttered {
+	margin-left: $HGutter;
+	margin-right: $HGutter;
 }
 
 /*###############
@@ -218,6 +200,13 @@ blockquote, caption, code, pre, samp {
 
 time {
 	color: $AltForeground;
+}
+
+button {
+	color: $HeaderForeground;
+	@include paddedbox;
+	-moz-border-radius: $VGutter;
+	border-radius: $VGutter;
 }
 
 /*###########
@@ -342,7 +331,6 @@ body > header {
 
 body > footer {
 	@include paddedbox(1,1,1,1);
-	@include toplevelgutters;
 	@include footnotetype;
 	width:100%;
 	margin-bottom: 0;

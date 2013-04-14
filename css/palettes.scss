@@ -1,0 +1,19 @@
+/* colour palettes /////////////////////////////////////////////////////////
+// Based on the Solarized pallette: http://ethanschoonover.com/solarized
+//////////////////////////////////////////////////////////////////////////*/
+
+$Red: #DC322F;			$Orange: #CB4B16;			$Yellow: #B58900;
+$Green: #859900;		$Cyan: #2AA198;				$Blue: #268BD2;
+$Violet: #6C71C4;		$Magenta: #D33682;			
+
+$Dark: #073642;			$Grey: #93A1A1;				$Light: #E4E6E6;
+$White: #FFFFFF;
+
+.red 	{ h2, a {color: $Red; }}
+.orange { h2, a {color: $Orange; }}
+.yellow { h2, a {color: $Yellow; }}
+.green 	{ h2, a {color: $Green; }}
+.cyan 	{ h2, a {color: $Cyan; }}
+.blue 	{ h2, a {color: $Blue; }}
+.violet { h2, a {color: $Violet; }}
+.magenta{ h2, a {color: $Magenta; }}

@@ -10,7 +10,7 @@
 <?php get_template_part('parts/html-header'); ?>
 <?php get_template_part('parts/header'); ?>
 
-<section class="fullwidth">
+<section class="guttered">
 	<h2>Page not found</h2>
 </section>
 

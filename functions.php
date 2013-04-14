@@ -141,6 +141,7 @@
          <style type="text/css">
             body > header { background-color:<?php echo get_option('header_background_color'); ?>; }
             a { color:<?php echo get_option('hyperlink_color'); ?>; }
+            button { background-color: <?php echo get_option('hyperlink_color'); ?>;}
             body { font-family:<?php echo get_option('body_font'); ?>; }
 			header, h1, h2, h3, h4, th, dt, .menu { font-family: <?php echo get_option('headline_font'); ?>; }
          </style>

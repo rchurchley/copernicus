@@ -26,7 +26,7 @@
 		}
 	endwhile;
 else:?>
-<section class="fullwidth">
+<section class="guttered">
 	<h2>No posts to display</h2>
 </section>
 <?php endif; ?>

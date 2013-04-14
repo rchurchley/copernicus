@@ -14,7 +14,7 @@
 ?>
 
 <?php if ( have_posts() ): ?>
-	<section class="fullwidth">
+	<section class="guttered">
 		<h2>Category archive: <?php echo single_cat_title( '', false ); ?></h2>
 	</section>
 
@@ -26,7 +26,7 @@
 		}
 	endwhile;
 else:?>
-<section class="fullwidth">
+<section class="guttered">
 	<h2>No posts to display in <?php echo single_cat_title( '', false ); ?></h2>
 </section>
 <?php endif; ?>

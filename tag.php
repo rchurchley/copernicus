@@ -14,7 +14,7 @@
 ?>
 
 <?php if ( have_posts() ): ?>
-	<section class="fullwidth">
+	<section class="guttered">
 		<h2>Tag archive: <?php echo single_tag_title( '', false ); ?></h2>
 	</section>
 
@@ -26,7 +26,7 @@
 		}
 	endwhile;
 else:?>
-<section class="fullwidth">
+<section class="guttered">
 	<h2>No posts tagged '<?php echo single_tag_title( '', false ); ?>' to display</h2>
 </section>
 <?php endif; ?>
