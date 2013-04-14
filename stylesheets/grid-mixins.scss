@@ -133,7 +133,7 @@ body { /* used like a page wrapper */
 ###############################*/
 
 /* fullcontent /////////////////////////////////////////////////////////////
-// Content taking up the whole width, assigned to .postheader
+// Content taking up the whole width
 //////////////////////////////////////////////////////////////////////////*/
 @mixin fullcontent($ExtraLMargin: 0, $ExtraRMargin: 0, $ExtraWidth: 0) {
 	@include sethorizontal(1, 1, 1, $ExtraLMargin, $ExtraRMargin, $ExtraWidth);

@@ -17,8 +17,14 @@
 	Add theme support for various features
 =========================================================================================== */
 
+	function untitled_list_pages() {
+		return wp_list_pages('title_li=');
+	}
 	register_nav_menus(array('primary' => 'Primary Navigation'));
 	register_nav_menus(array('secondary' => 'Secondary Navigation'));
+	
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-formats', array( 'link' ) );
 
 /* ===========================================================================================
 	Actions, Scripts, and Filters
@@ -30,29 +36,11 @@
         wp_enqueue_script( 'side-matter-js', get_template_directory_uri().'/js/side-matter.js', array( 'jquery' ), null, true );
 	}
 
-	function add_slug_to_body_class( $classes ) {
-    	global $post;
-	  
-    	if( is_home() ) {			
-    		$key = array_search( 'blog', $classes );
-    		if($key > -1) {
-    			unset( $classes[$key] );
-    		};
-    	} elseif( is_page() ) {
-    		$classes[] = sanitize_html_class( $post->post_name );
-    	} elseif(is_singular()) {
-    		$classes[] = sanitize_html_class( $post->post_name );
-    	};
-
-    	return $classes;
-    }
-
 	function remove_empty_p($content){
 	    return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#', '', $content);
 	}
 
 	add_action( 'wp_enqueue_scripts', 'marginal_script_enqueuer' );
-	add_filter( 'body_class', 'add_slug_to_body_class' );
 	remove_filter( 'the_content', 'wpautop' );
 	add_filter( 'the_content', 'wpautop' , 99);
     add_filter('the_content', 'remove_empty_p',100);

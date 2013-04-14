@@ -2,24 +2,16 @@
 @import 'grid-mixins.scss';
 @import 'typography-mixins.scss';
 
-/*/////////////////////
-// SOLARIZED COLOURS //
-/////////////////////*/
+/* colour palettes /////////////////////////////////////////////////////////
+// Based on the Solarized pallette: http://ethanschoonover.com/solarized
+//////////////////////////////////////////////////////////////////////////*/
 
 $Red: #DC322F;			$Orange: #CB4B16;			$Yellow: #B58900;
 $Green: #859900;		$Cyan: #2AA198;				$Blue: #268BD2;
-$Violet: #6C71C4;		$Magenta: #D33682;			$Dark: #073642;
-$Grey: #93A1A1;			$Light: #E4E6E6;			$White: #FFFFFF;
+$Violet: #6C71C4;		$Magenta: #D33682;			
 
-$Foreground: $Dark;		/* default text colour */
-$Background: $White;	/* default background */
-$HeaderForeground: $White;		/* default header colour */
-$HeaderBackground: $Dark;		/* default header background */
-
-$AltForeground: $Grey;	/* link and secondary text colour */
-$AltBackground: $Light;	/* caption and sidenote background */
-
-$LinkColour: $Red;
+$Dark: #073642;			$Grey: #93A1A1;				$Light: #E4E6E6;
+$White: #FFFFFF;
 
 .red 	{ h2, a {color: $Red; }}
 .orange { h2, a {color: $Orange; }}
@@ -30,48 +22,32 @@ $LinkColour: $Red;
 .violet { h2, a {color: $Violet; }}
 .magenta{ h2, a {color: $Magenta; }}
 
-/*##################
-## PAGE STRUCTURE ##
-##################*/
+/* template colours ////////////////////////////////////////////////////////
+// Based on the Solarized pallette: http://ethanschoonover.com/solarized
+//////////////////////////////////////////////////////////////////////////*/
 
-body > header, body > footer {
-	width: 100%;
+$Foreground: $Dark;				/* default text colour */
+$Background: $White;			/* default background */
+
+$HeaderForeground: $White;		/* default header colour */
+$HeaderBackground: $Dark;		/* default header background */
+
+$AltForeground: $Grey;			/* secondary text colour */
+$AltBackground: $Light;			/* caption and sidenote background */
+
+/*###############################
+## THEME CUSTOMIZABLE DEFAULTS ##
+###############################*/
+
+body {
+	font-family: source-sans-pro, "Source Sans Pro", sans-serif;
 }
 
-body > section, body > article {
-	@include toplevelgutters;
+header, h1, h2, h3, h4, th, dt, nav { 
+	font-family: adelle, Palatino, serif;
 }
 
-ul, ol, dd { 
-	/* lists get padding instead of margins so to avoid recalculating width */
-	padding-left: $HGutter; 
-}
-
-blockquote {
-	padding-left: $HGutter;
-	padding-right: $HGutter; 
-}
-
-figure {
-	line-height: 0; /* ensures no gap between img and figcaption */
-	img { max-width: 100%; }
-	figcaption { line-height: 0.8 * $DefaultLineHeight; }
-}
-
-.column {
-	@include maincontent;
-	float: left;
-}
-
-.margin {
-	@include sidecontent;
-	clear: none;
-	float:left;
-}
-
-.subsection {
-	position: static;
-}
+a { color: $Red; }
 
 /*##############
 ## TYPOGRAPHY ##
@@ -79,17 +55,17 @@ figure {
 
 body { 
 	@include texttype;
-	font-family: source-sans-pro, "Source Sans Pro", sans-serif;
 }
 
-header, h1, h2, h3, h4, th, dt, .menu { 
+header, h1, h2, h3, h4, th, dt, nav { 
 	@include headlinetype;
-	font-family: adelle, Palatino, serif;
 }
 
-.menu { 
-	font-family: adelle, Palatino, serif;
+.side-matter, time {
+	@include footnotetype;
 }
+
+dt,dd	{ line-height: 0.95 * $DefaultLineHeight; }
 
 h1		{ @include setfontsize(1); }
 h2		{ @include setfontsize(1); }
@@ -115,10 +91,6 @@ sup, sub {
 sup	{ top: -0.4em; }
 sub	{ top:  0.4em; }
 
-.side-matter {
-	@include footnotetype;
-}
-
 p, blockquote, dt, dd, li {
 	@media screen and #{$ColumnatedScreen} {
 		text-align: justify;
@@ -127,14 +99,6 @@ p, blockquote, dt, dd, li {
 		-moz-hyphens: auto;
     	hyphens: auto;
     }
-}
-
-figure { text-align: center; }
-figcaption, figcaption p { text-align: left; }
-
-time {
-	@include footnotetype;
-	color: $Grey;
 }
 
 /*###########
@@ -153,13 +117,66 @@ nav	a {
 	ul { margin: none; }
 }
 
-dt,dd	{ line-height: 0.95 * $DefaultLineHeight; }
-
 h2, h3, h4, h5, h6, p, dl, ul, ol, blockquote {
 	@include pskip;
 }
 
 dt { margin-top: 0.5* $HGutter; }
+
+/*##################
+## PAGE STRUCTURE ##
+##################*/
+
+body {
+	text-rendering: optimizeLegibility;
+}
+
+body > header, body > footer {
+	width: 100%;
+}
+
+body > section, body > article {
+	@include toplevelgutters;
+}
+
+ul, ol, dd { 
+	/* lists get padding instead of margins so to avoid recalculating width */
+	padding-left: $HGutter; 
+}
+
+blockquote {
+	padding-left: $HGutter;
+	padding-right: $HGutter; 
+}
+
+figure {
+	img { max-width: 100%; }
+	figcaption { line-height: 0.8 * $DefaultLineHeight; }
+	@media screen and #{$SmallScreen} {
+		text-align: center;
+		figcaption { text-align: left; }
+	}
+}
+
+.column {
+	@include maincontent;
+	float: left;
+}
+
+.margin {
+	@include sidecontent;
+	clear: none;
+	float:left;
+}
+
+.subsection {
+	position: static;
+}
+
+.fullwidth {
+	@include fullcontent;
+	@include toplevelgutters;
+}
 
 /*###############
 ## MAIN STYLES ##
@@ -172,8 +189,6 @@ html {
 		background: url('../img/bg/pw_maze_white_@2X.png');
 	}
 }
-
-a { color: $LinkColour; }
 
 body { 
 	color: $Foreground;
@@ -201,6 +216,10 @@ blockquote, caption, code, pre, samp {
 	color: $AltForeground; 
 }
 
+time {
+	color: $AltForeground;
+}
+
 /*###########
 ## COLOURS ##
 ###########*/
@@ -216,10 +235,10 @@ section .column {
 	}
 }
 
-
 /*###################
 ## NAVIGATION MENU ##
 ###################*/
+
 #top-menus {
 	@include pskip(2);
 }
@@ -233,14 +252,6 @@ section .column {
 		}
 		display: inline-block;
 		position: relative;
-		vertical-align: bottom;
-	}
-	
-	a {  
-		@include paddedbox(0.5,1,0.5,1);
-		text-align: left;
-		margin-right: 0;
-		z-index: 2;
 	}
 	
 	.sub-menu {
@@ -263,6 +274,13 @@ section .column {
 	}
 }
 
+nav a {  
+	@include paddedbox(0.5,1,0.5,1);
+	text-align: left;
+	margin-right: 0;
+	z-index: 2;
+}
+
 #primary-menu {
 	background-color: $Dark; 
 	a { color: $HeaderForeground; }
@@ -275,43 +293,64 @@ section .column {
 }
 
 
-/*///////////////////////
-// BASIC STYLE CLASSES //
-///////////////////////*/
+/*################
+## POST FORMATS ##
+################*/
 
-body > footer {
-	@include fullcontent;
-	@include toplevelgutters;
-	@include footnotetype;
-	@include pskip;
+.link-post {
+	margin-left: $HGutter;
+	margin-right: $HGutter;
+	@include paddedbox(1,1,1,1,1);
+	@include pskip(3);
+	background: $AltBackground no-repeat right top;
 
-	/* Styling */
-	color: $AltForeground;
-	a 	{ color: $AltForeground; }
-	p 	{ @include pskip(0.25); }
+	-moz-border-radius: 1em;
+	border-radius: 0.5em;
+
+	.column {
+		@include sethorizontal(4/5, 0, 0, 0, 0, -4*$HGutter);
+	}
+
+	.thumbnail {
+		position: absolute;
+		top: 0;
+		right: 0;
+		@include sethorizontal(1/5, 0, 0);
+		height: 100%;
+
+		background: $Foreground url('../img/link.png') no-repeat center center;
+
+		-moz-border-radius-topright: 0.5em;
+		-moz-border-radius-bottomleft: 0.5em;
+		border-top-right-radius: 0.5em;
+		border-bottom-right-radius: 0.5em;
+
+		@media screen and #{$SmallScreen} { display: none; }
+	}
 }
 
 /*/////////////////////
 // HEADER AND FOOTER //
 /////////////////////*/
 
-body {
-	text-rendering: optimizeLegibility;
-}
-
 body > header {
 	background-color: $HeaderBackground;
 	h1 {
 		@include paddedbox;
 	}
-	-moz-box-shadow: 0px 5px 5px -5px $Dark;
-    -webkit-box-shadow: 0px 5px 5px -5px $Dark;
-   	box-shadow: 0px 5px 5px -5px $Dark;
-   	z-index: 2;
 }
 
 body > footer {
-	@include paddedbox(1,0,1,0);
+	@include paddedbox(1,1,1,1);
+	@include toplevelgutters;
+	@include footnotetype;
+	width:100%;
+	margin-bottom: 0;
+
+	/* Styling */
+	color: $AltForeground;
+	a 	{ color: $Background; }
+	p 	{ @include pskip(0.25); }
 	#search label {
 		display: none;
 	}
@@ -319,7 +358,6 @@ body > footer {
 
 #prev-next {
 	@include texttype;
-	@include paddedbox;
 	background-color: $Background;
 	a { color: $Foreground; }
 	border-top: 1px dotted $AltForeground;
@@ -334,9 +372,7 @@ body > footer {
 ////////////////////*/
 
 body > article {
-	border-bottom: 1px dotted $Grey;
 	@include pskip(2);
-	padding-bottom: $VGutter;
 }
 body > article:last-of-type {
 	border: none;
@@ -423,12 +459,14 @@ aside:last-of-type {
 	}
 }
 
-/*////////////
-// COMMENTS //
-////////////*/
+/*############
+## COMMENTS ##
+############*/
 
-input {
+input, textarea {
 	padding: 0.5 * $VGutter;
+	border: 1px solid $Grey;
+	@include texttype;
 }
 
 #comments {
@@ -486,11 +524,6 @@ input {
 		
 		label {
 			margin-right: $HGutter;
-		}
-		
-		input, textarea {
-			border: 1px solid $Grey;
-			@include texttype;
 		}
 
 		.form-allowed-tags, .form-submit { 

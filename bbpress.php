@@ -17,18 +17,14 @@
 	get_template_part('parts/header'); 
 ?>
 
-<?php if (have_posts()) :
-	while (have_posts()) : the_post();
-		if(!get_post_format()) {
-			get_template_part('parts/standard', 'listed');
-		} else {
-			get_template_part('parts/'.get_post_format(), 'listed');
-		}
-	endwhile;
-else:?>
-<section class="fullwidth">
-	<h2>No posts to display</h2>
-</section>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<section class="fullwidth">
+		<header>
+		<h2><?php the_title(); ?></h2>
+		</header>
+	<?php the_content(); ?>
+	</section>
+<?php endwhile; ?>
 <?php endif; ?>
 
 <?php 
