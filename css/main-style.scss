@@ -155,7 +155,7 @@ figure {
 	position: static;
 }
 
-.guttered {
+.guttered, #bbpress-forums {
 	margin-left: $HGutter;
 	margin-right: $HGutter;
 }
@@ -452,9 +452,15 @@ aside:last-of-type {
 ############*/
 
 input, textarea {
+	width: 100%;
 	padding: 0.5 * $VGutter;
 	border: 1px solid $Grey;
 	@include texttype;
+}
+
+input[type=checkbox] {
+	float: left; 
+	margin-right: 5px;
 }
 
 #comments {
