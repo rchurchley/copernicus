@@ -158,6 +158,10 @@ figure {
 .guttered, #bbpress-forums {
 	margin-left: $HGutter;
 	margin-right: $HGutter;
+	@media screen and #{$HugeScreen} {
+		margin-left: 2 * $HGutter;
+		margin-right: 2 * $HGutter;
+	}
 }
 
 /*###############
@@ -459,7 +463,6 @@ input, textarea {
 }
 
 input[type=checkbox] {
-	float: left; 
 	margin-right: 5px;
 }
 
