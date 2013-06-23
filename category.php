@@ -14,21 +14,25 @@
 ?>
 
 <?php if ( have_posts() ): ?>
-	<section class="guttered">
-		<h2>Category archive: <?php echo single_cat_title( '', false ); ?></h2>
-	</section>
+	<h2 class="output-message">Category archive: <?php echo single_cat_title( '', false ); ?></h2>
 
 <?php while (have_posts()) : the_post();
 		if(!get_post_format()) {
-			get_template_part('parts/standard', 'listed');
+			if ( get_option('short_categories') ) {
+				get_template_part('parts/standard', 'short');
+			} else {
+				get_template_part('parts/standard', 'listed');
+			}
 		} else {
-			get_template_part('parts/'.get_post_format(), 'listed');
+			if ( get_option('short_categories') ) {
+				get_template_part('parts/'.get_post_format(), 'short');
+			} else {
+				get_template_part('parts/'.get_post_format(), 'listed');
+			}
 		}
 	endwhile;
 else:?>
-<section class="guttered">
-	<h2>No posts to display in <?php echo single_cat_title( '', false ); ?></h2>
-</section>
+<h2 class="output-message">No posts in <?php echo single_cat_title( '', false ); ?></h2>
 <?php endif; ?>
 
 

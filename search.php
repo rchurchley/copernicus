@@ -14,9 +14,7 @@
 ?>
 
 <?php if ( have_posts() ): ?>
-	<section class="guttered">
-		<h2>Search results for '<?php echo get_search_query(); ?>'</h2>
-	</section>
+	<h2 class="output-message">Search results for '<?php echo get_search_query(); ?>'</h2>
 
 <?php while (have_posts()) : the_post();
 		if(!get_post_format()) {
@@ -26,9 +24,7 @@
 		}
 	endwhile;
 else:?>
-<section class="guttered">
-	<h2>No search results for '<?php echo get_search_query(); ?>'</h2>
-</section>
+	<h2 class="output-message">No search results for '<?php echo get_search_query(); ?>'</h2>
 <?php endif; ?>
 
 

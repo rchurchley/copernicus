@@ -1,5 +1,8 @@
-$DefaultFontSize: 1em;
-$DefaultLineHeight: 1.5em;
+@import 'defaults.scss';
+
+/*##########
+## MIXINS ##
+##########*/
 
 /* setfontsize /////////////////////////////////////////////////////////////
 // Change font size between several levels
@@ -11,11 +14,13 @@ $DefaultLineHeight: 1.5em;
 		font-size: 1.324 * $DefaultFontSize;
 	} @else { @if $level==2 {
 		font-size: 1.324 * 1.324 * $DefaultFontSize;
+	} @else { @if $level==3 {
+		font-size: 1.324 * 1.324 * 1.324 * $DefaultFontSize;
 	} @else { @if $level==-1 {
 		font-size: 0.825 * $DefaultFontSize;
 	} @else { @if $level==-2 {
 		font-size: 0.755 * $DefaultFontSize;
-	}}}}}
+	}}}}}}
 }
 
 /* pskip ///////////////////////////////////////////////////////////////////
@@ -36,6 +41,11 @@ $DefaultLineHeight: 1.5em;
 // The main typographic styles
 //////////////////////////////////////////////////////////////////////////*/
 @mixin headlinetype { 
+	@include setfontsize(1);
+	line-height: 0.75 * $DefaultLineHeight;
+}
+@mixin subheadtype {
+	@include setfontsize(0);
 	line-height: 0.75 * $DefaultLineHeight;
 }
 @mixin texttype { 
@@ -45,10 +55,54 @@ $DefaultLineHeight: 1.5em;
 @mixin commenttype { 
 	@include setfontsize(-1);
 	line-height: 0.9 * $DefaultLineHeight;
-	@include pskip(0.25);
 }
 @mixin footnotetype { 
 	@include setfontsize(-2);
 	line-height: 0.8 * $DefaultLineHeight;
+}
+
+/*####################
+## BASIC TYPOGRAPHY ##
+####################*/
+
+body {
+	@include texttype;
+	text-rendering: optimizeLegibility;
+}
+
+body > footer {
+	@include footnotetype;
+}
+
+h1, h2, h3 { 
+	@include headlinetype;
+}
+
+h4, th, dt, nav {
+	@include subheadtype;
+}
+
+figcaption {
+	@include commenttype;
 	@include pskip(0.25);
+}
+
+dt,dd,th,td	{ line-height: 0.95 * $DefaultLineHeight; }
+
+strong, b	{ font-weight: bold; }
+em, i		{ font-style: italic; }
+
+sup, sub { 
+	@include commenttype; 
+	vertical-align: baseline; 
+	position: relative;
+}
+sup	{ top: -0.4em; }
+sub	{ top:  0.4em; }
+
+p, blockquote, dt, dd, li {
+	@media screen and #{$ColumnatedScreen} {
+		text-align: justify;
+		text-justify: distribute;
+    }
 }

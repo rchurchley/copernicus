@@ -1,31 +1,4 @@
-/*#######################
-## Basic document info ##
-#######################*/
-
-$HugeGrid: 1040px;
-$LargeGrid: 768px;
-$MediumGrid: 576px;
-$SmallGrid: 100%;
-
-$VGutter: 12px;
-$HGutter: 24px;
-
-$HugeScreen: "(min-width: 1024px)";
-$LargeScreen: "(min-width: 768px) and (max-width: 1023px)";
-$MediumScreen: "(min-width: 576px) and (max-width: 767px)";
-$ColumnatedScreen: "(min-width: 576px)";
-$SmallScreen: "(max-width: 575px)";
-
-$RetinaScreen: "(-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx)";
-
-body { /* used like a page wrapper */
-	width: $SmallGrid;
-	margin: 0 auto;
-	
-	@media screen and #{$MediumScreen} { width: $MediumGrid; }
-	@media screen and #{$LargeScreen} {	width: $LargeGrid; }
-	@media screen and #{$HugeScreen} {	width: $HugeGrid; }
-}
+@import 'defaults.scss';
 
 /* sethorizontal //////////////////////////////////////////////////////////
 // when screen gets big, set element as a column taking $GridFraction
@@ -63,17 +36,15 @@ body { /* used like a page wrapper */
 	}
 
 	@media screen and #{$MediumScreen} {
-		width: $GridFraction * ($MediumGrid) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
+		width: $GridFraction * ($MediumGrid - 2*$HGutter) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
 	}
 
 	@media screen and #{$LargeScreen} {
-		width: $GridFraction * ($LargeGrid) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
+		width: $GridFraction * ($LargeGrid - 2*$HGutter) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
 	}
 
 	@media screen and #{$HugeScreen} {
-		width: $GridFraction * ($HugeGrid) - 2 * ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
-		margin-left: 2 * ($LGutter + $LMargin) * $HGutter;
-		margin-right: 2 * ($RGutter + $RMargin) * $HGutter;
+		width: $GridFraction * ($HugeGrid - 2*$HGutter) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
 	}
 }
 
@@ -117,15 +88,11 @@ body { /* used like a page wrapper */
 // Adds gutters to inside of a box, so text looks nice against background
 //////////////////////////////////////////////////////////////////////////*/
 
-@mixin paddedbox($TPadding: 1, $RPadding: 1, $BPadding: 1, $LPadding: 1, $HugeExpand: 2) {
+@mixin paddedbox($TPadding: 1, $RPadding: 1, $BPadding: 1, $LPadding: 1) {
 	padding-top: $TPadding * $VGutter;
 	padding-right: $RPadding * $HGutter;
 	padding-bottom: $BPadding * $VGutter;
 	padding-left: $LPadding * $HGutter;
-	@media screen and #{$HugeScreen} {
-		padding-right: $HugeExpand * $RPadding * $HGutter;
-		padding-left: $HugeExpand * $LPadding * $HGutter;
-	}
 }
 
 /*###############################
@@ -143,12 +110,12 @@ body { /* used like a page wrapper */
 // Content set in a large column, assigned to div.column
 //////////////////////////////////////////////////////////////////////////*/
 @mixin maincontent($ExtraLMargin: 0, $ExtraRMargin: 0, $ExtraWidth: 0) {
-	@include sethorizontal(2/3, 1, 0, $ExtraLMargin, $ExtraRMargin, $ExtraWidth);
+	@include sethorizontal(2/3, 0, 0, $ExtraLMargin, $ExtraRMargin, $ExtraWidth);
 }
 
 /* sidecontent /////////////////////////////////////////////////////////////
 // Content set in a small column, assigned to div.margin
 //////////////////////////////////////////////////////////////////////////*/
 @mixin sidecontent($extra-left-margin: 0, $extra-right-margin: 0, $ExtraWidth: 0) {
-	@include sethorizontal(1/3, 1, 1, $extra-left-margin, $extra-right-margin, $ExtraWidth);
+	@include sethorizontal(1/3, 1, 0, $extra-left-margin, $extra-right-margin, $ExtraWidth);
 }

@@ -28,6 +28,8 @@
 
 	add_theme_support( ‘bbpress’ );
 
+	add_filter('widget_text', 'do_shortcode');
+
 /* ===========================================================================================
 	Actions, Scripts, and Filters
 =========================================================================================== */
@@ -60,21 +62,24 @@
 	add_shortcode('section', 'html5_section');
 
 /* ===========================================================================================
-	Footer widgets
+	Widgets
 =========================================================================================== */
 
-/*	function footer_widgets_init() {
+	register_sidebar(array(
+		'name' => 'Summary',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
+	));
 
-		register_sidebar( array(
-			'name' => 'Footer',
-			'id' => 'footer-widgets',
-			'before_widget' => '<section>',
-			'after_widget' => '</section>',
-			'before_title' => '<h2>',
-			'after_title' => '</h2>',
-		) );
-	}
-	add_action( 'widgets_init', 'footer_widgets_init' ); */
+	register_sidebar(array(
+		'name' => 'Page Summary',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
+	));
 
 /* ===========================================================================================
 	Theme customizations
@@ -106,9 +111,20 @@
 			'transport'   => 'refresh',
 		) );
 
+		$wp_customize->add_setting( 'short_categories' , array(
+			'default'     => '',
+			'type' => 'option',
+			'transport'   => 'refresh',
+		) );
+
 		// SECTIONS
 		$wp_customize->add_section( 'fonts' , array(
 		    'title'      => __('Fonts','marginal'),
+		    'priority'   => 30,
+		) );
+
+		$wp_customize->add_section( 'layout' , array(
+		    'title'      => __('Layout','marginal'),
 		    'priority'   => 30,
 		) );
 
@@ -136,6 +152,12 @@
 			'section'    => 'fonts',
 			'settings'   => 'body_font',
 		) ) );
+
+		$wp_customize->add_control( 'short_categories', array(
+			'type' => 'checkbox',
+			'label' => 'Shorten Category pages',
+			'section' => 'layout',
+    	) );
 	}
 
 	function marginal_customize_css() {

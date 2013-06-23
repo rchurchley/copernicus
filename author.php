@@ -15,8 +15,7 @@
 
 <?php if ( have_posts() ): the_post(); ?>
 
-<section class="guttered">
-	<h2>Author archive: <?php echo get_the_author() ; ?></h2>
+<h2 class="output-message">Author archive: <?php echo get_the_author() ; ?></h2>
 
 	<?php if ( get_the_author_meta( 'description' ) ) : ?>
 	<section class="author">
@@ -25,7 +24,7 @@
 		<?php the_author_meta( 'description' ); ?>
 	</section>
 	<?php endif; ?>
-</section>
+
 
 <?php rewind_posts(); while (have_posts()) : the_post();
 		if(!get_post_format()) {
@@ -35,9 +34,7 @@
 		}
 	endwhile;
 else:?>
-<section class="guttered">
-	<h2>No posts to display</h2>
-</section>
+<h2 class="output-message">No posts to display</h2>
 <?php endif; ?>
 
 <?php 

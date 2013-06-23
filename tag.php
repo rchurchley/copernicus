@@ -14,9 +14,7 @@
 ?>
 
 <?php if ( have_posts() ): ?>
-	<section class="guttered">
-		<h2>Tag archive: <?php echo single_tag_title( '', false ); ?></h2>
-	</section>
+	<h2 class="output-message">Tag archive: <?php echo single_tag_title( '', false ); ?></h2>
 
 <?php while (have_posts()) : the_post();
 		if(!get_post_format()) {
@@ -26,9 +24,7 @@
 		}
 	endwhile;
 else:?>
-<section class="guttered">
-	<h2>No posts tagged '<?php echo single_tag_title( '', false ); ?>' to display</h2>
-</section>
+<h2 class="output-message">No posts tagged '<?php echo single_tag_title( '', false ); ?>'</h2>
 <?php endif; ?>
 
 

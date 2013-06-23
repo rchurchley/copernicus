@@ -1,0 +1,24 @@
+.link-post {
+	background: $Dark no-repeat right top;
+	color: $Mid;
+
+	blockquote {
+		color: $MidLight;
+	}
+
+	.column {
+		@include sethorizontal(4/5);
+	}
+
+	.thumbnail {
+		position: absolute;
+		top: 0;
+		right: 0;
+		@include sethorizontal(1/5, 0, 0);
+		height: 100%;
+
+		background: $Dark url('../img/link.png') no-repeat center center;
+
+		@media screen and #{$SmallScreen} { display: none; }
+	}
+}

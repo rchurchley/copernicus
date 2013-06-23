@@ -18,6 +18,18 @@
 <?php get_template_part('parts/header'); ?>
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+	<?php if( has_post_thumbnail() ) : ?>
+		<figure id="featured-image"><img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
+		<header class="summary">
+			<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+			<p class="categories"><?php the_category(', '); ?></p>
+			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Page Summary") ) : ?>
+				Default summary stuff here…
+			<?php endif; ?>
+		</header>
+		</figure>
+	<?php endif;?>
+
 	<section class="<?php $category = get_the_category(); echo $category[0]->slug;?> single-page">
 		<div class="column">
 			<header>
