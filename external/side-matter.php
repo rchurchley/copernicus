@@ -37,6 +37,8 @@ class Side_Matter {
 		add_action( 'the_post', array( &$this, 'clear_notes' ) );
 		add_action( 'side_matter_featured_image', array( &$this, 'add_featured_image' ) );
 		
+		add_filter( 'side_matter_exists', array( &$this, 'side_matter_exists' ) );
+		
 		$this->content_index = 0;
 		$this->note_id = 0;
 		$this->figure_id = 0;
@@ -56,7 +58,7 @@ class Side_Matter {
 		return "<a id='link-sidenote-{$post_id}-{$this->note_id}' class='{$this->class}-link' href='#sidenote-{$post_id}-{$this->note_id}'><sup>{$this->note_id}</sup></a>"; 
 	}
 
-	public function cite_shortcode( $atts, $content = null ) {
+	function cite_shortcode( $atts, $content = null ) {
 		$post_id = get_the_id();
 		$this->content_index++;
 		$this->note_id++;
@@ -68,7 +70,7 @@ class Side_Matter {
 		return "<a id='link-cite-{$post_id}-{$this->note_id}' class='{$this->class}-link' href='#cite-{$post_id}-{$this->note_id}'><sup>{$this->note_id}</sup></a>"; // Return superscript reference numeral
 	}
 
-	public function sidefig_shortcode( $atts, $content = null ) {
+	function sidefig_shortcode( $atts, $content = null ) {
 		extract(shortcode_atts(array(
 			'caption' => ''
     	), $atts));
@@ -87,30 +89,17 @@ class Side_Matter {
 		}
 	}
 
-	public function infobox_shortcode( $atts, $content = null ) {
-		$post_id = get_the_id();
-		$this->content_index++;
-		
-		$this->margin_content[$this->content_index] = $content; // Add note to array
-		$this->content_type[$this->content_index] = 'infobox';
-		$this->content_id[$this->content_index] = 0;
-
-		return "";
-	}
-
-	public function list_notes() {
+	function list_notes() {
 		$post_id = get_the_id();
 		if ( isset( $this->margin_content) ) {
 			$margin_content_list = "";
 			foreach ( $this->margin_content as $index => $text ) {
 				$id = $this->content_id[$index];
 				$type = $this->content_type[$index];
-				if ($type == 'infobox') {
-					$margin_content_list .= "<aside class='infobox'>{$text}</aside>";
-				} elseif ($type == 'sidefig') {
+				if ($type == 'sidefig') {
 					$margin_content_list .= "<figure id='{$type}-{$post_id}-{$id}' class='{$this->class} sidefig'>{$text}</figure>";
 				} else {
-					$margin_content_list .= "<aside id='{$type}-{$post_id}-{$id}' class='{$this->class}'>{$id}. {$text}<a href='#link-{$type}-{$post_id}-{$this->note_id}' class='footnote-snapback'>↩</a></aside>";
+					$margin_content_list .= "<aside id='{$type}-{$post_id}-{$id}' class='{$this->class} {$type}'>{$id}. {$text}<a href='#link-{$type}-{$post_id}-{$this->note_id}' class='footnote-snapback'>↩</a></aside>";
 				}
 			}
 			echo $margin_content_list;
@@ -119,14 +108,18 @@ class Side_Matter {
 		}
 	}
 
-	public function clear_note_buffer() { // Clears the margin_content array for a new section
+	function clear_note_buffer() { // Clears the margin_content array for a new section
 		$this->content_index = 0;
 		$this->margin_content = array();
 		$this->content_type = array();
 		$this->content_id = array();
 	}
 
-	public function clear_notes() { // Clears the margin_content array and resets sidenote numbering
+	function side_matter_exists() {
+		return ( $this->note_id > 0);
+	}
+
+	function clear_notes() { // Clears the margin_content array and resets sidenote numbering
 		$this->note_id = 0;
 		$this->clear_note_buffer();
 	}

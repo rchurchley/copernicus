@@ -199,24 +199,24 @@ table {
 ## BASIC TYPOGRAPHY ##
 ####################*/
 body {
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.5em;
   text-rendering: optimizeLegibility; }
 
 body > footer {
-  font-size: 0.755em;
+  font-size: 0.755rem;
   line-height: 1.2em; }
 
 h1, h2, h3 {
-  font-size: 1.324em;
+  font-size: 1.324rem;
   line-height: 1.125em; }
 
 h4, th, dt, nav {
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.125em; }
 
 figcaption {
-  font-size: 0.825em;
+  font-size: 0.825rem;
   line-height: 1.35em;
   margin-bottom: 3px; }
 
@@ -230,7 +230,7 @@ em, i {
   font-style: italic; }
 
 sup, sub {
-  font-size: 0.825em;
+  font-size: 0.825rem;
   line-height: 1.35em;
   vertical-align: baseline;
   position: relative; }
@@ -241,7 +241,7 @@ sup {
 sub {
   top: 0.4em; }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 768px) {
   p, blockquote, dt, dd, li {
     text-align: justify;
     text-justify: distribute; } }
@@ -282,7 +282,7 @@ sub {
 #bbpress-forums ul.bbp-topics,
 #bbpress-forums ul.bbp-forums,
 #bbpress-forums ul.bbp-replies {
-  font-size: 0.825em;
+  font-size: 0.825rem;
   line-height: 1.35em;
   overflow: hidden;
   clear: both; }
@@ -433,7 +433,7 @@ span.bbp-author-ip {
 /* =Breadcrumb and Tags
 -------------------------------------------------------------- */
 div.bbp-breadcrumb {
-  font-size: 0.825em;
+  font-size: 0.825rem;
   line-height: 1.35em;
   float: left; }
   div.bbp-breadcrumb p {
@@ -496,7 +496,7 @@ td.bbp-topic-counts {
 /* =Pagination
 -------------------------------------------------------------- */
 .bbp-pagination {
-  font-size: 0.825em;
+  font-size: 0.825rem;
   line-height: 1.35em;
   float: right; }
   .bbp-pagination a {
@@ -520,7 +520,7 @@ td.bbp-topic-counts {
 /* =Forms
 -------------------------------------------------------------- */
 #bbpress-forums fieldset.bbp-form {
-  font-size: 0.825em;
+  font-size: 0.825rem;
   line-height: 1.35em;
   clear: both; }
 
@@ -907,6 +907,6 @@ body.my-account #bbpress-forums {
 
 /* Unwanted elements (set to display: none)
 -------------------------------------------------------------- */
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
   #bbpress-forums .bbp-forums .bbp-forum-reply-count, #bbpress-forums .bbp-topics .bbp-topic-voice-count {
     display: none; } }

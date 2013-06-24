@@ -1,7 +1,9 @@
 <?php if (get_next_posts_link() || get_previous_posts_link()) : ?>
 <nav id="prev-next">
-	<div class="prev"><?php previous_posts_link('&laquo; Newer Entries') ?></div>
-	<div class="next"><?php next_posts_link('Older Entries &raquo;','') ?></div>
+	<ul class="menu">
+		<li><?php previous_posts_link('&laquo; Newer Entries') ?></li>
+		<li><?php next_posts_link('Older Entries &raquo;','') ?></li>
+	</ul>
 </nav>
 <?php endif; ?>
 <footer>

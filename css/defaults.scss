@@ -2,16 +2,14 @@
 ## GRIDS AND BREAKPOINTS ##
 #########################*/
 
-$HugeGrid: 1024px;
-$LargeGrid: 768px;
-$MediumGrid: 576px;
+$LargeGrid: 1024px;
+$MediumGrid: 768px;
 $SmallGrid: 100%;
 
-$HugeScreen: "(min-width: 1024px)";
-$LargeScreen: "(min-width: 768px) and (max-width: 1023px)";
-$MediumScreen: "(min-width: 576px) and (max-width: 767px)";
-$ColumnatedScreen: "(min-width: 576px)";
-$SmallScreen: "(max-width: 575px)";
+$LargeScreen: "(min-width: 1024px)";
+$MediumScreen: "(min-width: 768px) and (max-width: 1023px)";
+$ColumnatedScreen: "(min-width: 768px)";
+$SmallScreen: "(max-width: 767px)";
 
 $RetinaScreen: "(-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx)";
 
@@ -22,7 +20,6 @@ $RetinaScreen: "(-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixe
 $VGutter: 12px;
 $HGutter: 24px;
 
-$DefaultFontSize: 1em;
 $DefaultLineHeight: 1.5em;
 
 /*###########

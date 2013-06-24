@@ -9,17 +9,17 @@
 //////////////////////////////////////////////////////////////////////////*/
 @mixin setfontsize($level:0)	{
 	@if $level==0 {
-		font-size: $DefaultFontSize;
+		font-size: 1rem;
 	} @else { @if $level==1 {
-		font-size: 1.324 * $DefaultFontSize;
+		font-size: 1.324rem;
 	} @else { @if $level==2 {
-		font-size: 1.324 * 1.324 * $DefaultFontSize;
+		font-size: 1.324 * 1.324rem;
 	} @else { @if $level==3 {
-		font-size: 1.324 * 1.324 * 1.324 * $DefaultFontSize;
+		font-size: 1.324 * 1.324 * 1.324rem;
 	} @else { @if $level==-1 {
-		font-size: 0.825 * $DefaultFontSize;
+		font-size: 0.825rem;
 	} @else { @if $level==-2 {
-		font-size: 0.755 * $DefaultFontSize;
+		font-size: 0.755rem;
 	}}}}}}
 }
 
