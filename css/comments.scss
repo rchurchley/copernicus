@@ -18,7 +18,7 @@ input[type=checkbox] {
 
 	article {
 		width:100%;
-		@extend .medskip;
+		@include pskip;
 		min-height: 64px + 2*$VGutter;
 		border-top: 1px dotted $MidLight;
 		padding-top: $VGutter;
@@ -30,13 +30,12 @@ input[type=checkbox] {
 
 	.children { 
 		padding: 0; 
-		margin-left: 0;
+		margin: 0;
+		article { border: none; }
 	}
 
 	header {
 		@include sidecontent;
-		h4 { @include pskip(0.25); }
-		time { clear: none; }
 
 		@media screen and (min-width: $MediumGrid)	{ 
 			position:absolute;

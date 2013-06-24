@@ -36,15 +36,11 @@
 	}
 
 	@media screen and #{$MediumScreen} {
-		width: $GridFraction * ($MediumGrid - 2*$HGutter) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
+		width: $GridFraction * ($MediumGrid) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
 	}
 
 	@media screen and #{$LargeScreen} {
-		width: $GridFraction * ($LargeGrid - 2*$HGutter) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
-	}
-
-	@media screen and #{$HugeScreen} {
-		width: $GridFraction * ($HugeGrid - 2*$HGutter) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
+		width: $GridFraction * ($LargeGrid) - ($LGutter + $LMargin + $RGutter + $RMargin) * $HGutter + $ExtraWidth;
 	}
 }
 

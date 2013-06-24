@@ -41,74 +41,36 @@ body > footer {
 	margin-bottom: 0;
 }
 
-body > section, body > article, body > figure {
+body > section, body > article {
 	width: $SmallGrid;
 	margin: 0 auto;
-	
+
 	@media screen and #{$MediumScreen} { width: $MediumGrid; }
 	@media screen and #{$LargeScreen} {	width: $LargeGrid; }
-	@media screen and #{$HugeScreen} {	width: $HugeGrid; }
 }
 
-body > section, body > article {
-	padding: 2*$VGutter $HGutter;
-}
-
-body > section, body > article, body > nav, body > figure {
+body > section, body > article, body > nav {
 	@include pskip(2);
 }
 
 body > nav {
 	@media screen and #{$SmallScreen} {
-		margin-bottom:0;
+		margin-bottom: 0;
 	}	
 }
 
-body > figure > img {
-	@include maincontent(0,0,$HGutter);
-	float:left;
-}
-
-article header, section header {
-	h2 { 
-		float:left;
-		@include pskip(0);
-	}
-	time {
-		display:block;
-		clear: left;
-		margin-bottom: 0;
-	}
-	@include pskip;
-}
-
-
-/*######################
-## ADVANCED STRUCTURE ##
-######################*/
-
-.column {
+#splash figure {
 	@include maincontent;
-	margin-bottom:0;
 	float:left;
-}
-
-.margin {
-	@include sidecontent;
-	clear:none;
-	float:left;
-}
-
-.subsection {
-	position:static;
-
-	&:not(:last-child) {
-		@include pskip(2);
+	line-height: 0;
+	img {
+		width: 100%;
+		height: auto;
 	}
 }
 
-.summary {
-	@include sidecontent(0,0,$HGutter);
+#splash header {
+	@include sidecontent;
 	@include paddedbox;
 	clear:none;
 	float:left;
@@ -118,6 +80,51 @@ article header, section header {
 		top: 0;
 		bottom: 0;
 		right: 0;
+	}
+}
+
+.column {
+	padding: 2*$VGutter $HGutter;
+	@include maincontent;
+	margin-bottom:0;
+	float:left;
+}
+
+article header, section header {
+	time {
+		display:block;
+		margin-bottom: 0;
+		@include antiskip;
+	}
+	@include pskip;
+}
+
+
+/*######################
+## ADVANCED STRUCTURE ##
+######################*/
+
+.margin {
+	@include sidecontent;
+	clear:none;
+	float:left;
+	@media screen and #{$SmallScreen} {
+		display: none;
+	}
+}
+
+.margin.has-sidenotes {
+	@media screen and #{$SmallScreen} {
+		display: block;
+		@include paddedbox;
+	}
+}
+
+.subsection {
+	position:static;
+
+	&:not(:last-child) {
+		@include pskip(2);
 	}
 }
 
@@ -154,21 +161,10 @@ blockquote {
 }
 
 figure {
-	img { max-width: 100%; }
-	figcaption { 
-		line-height: 0.8 * $DefaultLineHeight; 
-		clear:both;
-	}
 	@media screen and #{$SmallScreen} {
 		text-align: center;
 		figcaption { text-align: left; }
 	}
-}
-
-img { 
-	max-width: 100%; 
-	height: auto;
-	margin-right: $HGutter;
 }
 
 button {
@@ -225,12 +221,10 @@ nav a {
 
 #prev-next {
 	@include commenttype;
-	ul { padding-left: 0; }
-	li { display: inline-block; margin-right: $HGutter; @include pskip(0.5); }
 	text-align: center;
 }
 
-.summary {
+#splash header {
 	h2 {
 		text-align: center;
 	}
@@ -260,16 +254,29 @@ nav a {
 	}
 }
 
-.side-matter, time {
+.cite, .sidenote, time {
 	@include footnotetype;
 	@include pskip(0.25);
 }
 
-.sidefig {
+.margin figure {
+	line-height: 0;
+	@include pskip;
+
 	@media screen and #{$SmallScreen} {
 		display: none;
 	}
+
+	img { 
+		width: 100%;
+		height: auto;
+		margin: 0; 
+	}
+	figcaption {
+		@include paddedbox;
+	}
 }
+
 .sidefig-placeholder {
 	@media screen and #{$ColumnatedScreen} {
 		width: 0;
@@ -350,9 +357,22 @@ body > footer {
 	}
 }
 
-body > section, body > article, body > figure > img, body > figure > figcaption { 
+.column { 
 	background-color: $Background;
+	border: 1px solid $AltBackground;
 	@include shadows;
+}
+
+.margin.has-sidenotes {
+	@media screen and #{$SmallScreen} {
+		background-color: $AltBackground;
+		@include shadows;
+	}
+}
+
+.margin figure {
+	@include shadows;
+	background-color: $Background;
 }
 
 a { 
@@ -402,6 +422,7 @@ button {
 }
 
 #prev-next {
+	text-align: center;
 	a { color: $Foreground; }
 }
 
@@ -411,11 +432,19 @@ button {
 	a { color: $Foreground; }
 }
 
-.summary {
+#splash header {
 	@include shadows;
 	color: $MidLight;
 	background-color: $Dark;
 	a { color: $HeaderForeground; }
+}
+
+#splash figure {
+	@include shadows;
+}
+
+#comments header img {
+	@include shadows;
 }
 
 /*#######################

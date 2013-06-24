@@ -1,15 +1,16 @@
 <?php if( has_post_thumbnail() ) : ?>
-	<figure id="featured-image"><img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
-	<header class="summary">
+<section id="splash">
+	<figure>
+		<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
+	</figure>
+	<header>
 		<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 		<p class="categories"><?php the_category(', '); ?></p>
-		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Summary") ) : ?>
-			Default summary stuff here…
-		<?php endif; ?>
+		<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Summary") ) : endif; ?>
 	</header>
-	</figure>
+</section>
 <?php endif;?>
-<section class="<?php $category = get_the_category(); echo $category[0]->slug;?> single-post">
+<section id="content">
 	<div class="column">
 		
 		<?php if( !has_post_thumbnail() ) : ?>
