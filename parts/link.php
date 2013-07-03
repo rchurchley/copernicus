@@ -9,7 +9,7 @@
 			</figure>
 		<?php else:?>
 			<figure id="featured-image">
-				<img src="<?php bloginfo('template_directory'); ?>/img/link.png" alt=""/>
+				<img src="<?php bloginfo('template_directory'); ?>/img/link.svgz" alt=""/>
 			</figure>
 		<?php endif;?>
 	</div>

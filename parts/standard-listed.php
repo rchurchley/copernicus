@@ -9,7 +9,7 @@
 			<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
 		</figure>
 	<?php endif;?>
-	<?php the_content(); ?>
+	<?php the_content('Read more...'); ?>
 	</div>
 
 	<div class="margin <?php if ( apply_filters( 'side_matter_exists', '' ) ) : ?>has-sidenotes<?php endif;?>">

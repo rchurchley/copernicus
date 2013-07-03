@@ -9,11 +9,11 @@
 ###############################*/
 
 body {
-	font-family: source-sans-pro, "Source Sans Pro", sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 }
 
 header, h1, h2, h3, h4, th, dt, nav { 
-	font-family: adelle, "Adelle Basic", Palatino, serif;
+	font-family: "Roboto Slab", serif;
 }
 
 a { color: $AltForeground; }
@@ -59,6 +59,12 @@ body > nav {
 	}	
 }
 
+body > nav + .output-message {
+	@media screen and #{$SmallScreen} {
+		margin-top: $VGutter;
+	}	
+}
+
 #splash figure {
 	@include maincontent;
 	float:left;
@@ -69,9 +75,9 @@ body > nav {
 	}
 }
 
-#splash header {
+#splash header, .short .margin {
 	@include sidecontent;
-	@include paddedbox;
+	padding: 2*$VGutter $HGutter;
 	clear:none;
 	float:left;
 	margin-bottom: 0;
@@ -224,7 +230,7 @@ nav a {
 	text-align: center;
 }
 
-#splash header {
+#splash header, .short .margin {
 	h2 {
 		text-align: center;
 	}
@@ -250,7 +256,7 @@ nav a {
 	.categories {
 		text-align: center;
 		@include footnotetype;
-		a { color:$AltForeground; }
+		a { color:$MidLight; }
 	}
 }
 
@@ -322,14 +328,14 @@ address, .author {
 
 @mixin shadows {
 	-moz-box-shadow:
-        5px 5px 5px -5px $MidLight,
-        -5px 5px 5px -5px $MidLight;
-    -webkit-box-shadow:
-        5px 5px 5px -5px $MidLight,
-        -5px 5px 5px -5px $MidLight;
-    box-shadow:
-        5px 5px 5px -5px $MidLight,
-        -5px 5px 5px -5px $MidLight;
+		5px 5px 5px -5px $MidLight,
+		-5px 5px 5px -5px $MidLight;
+	-webkit-box-shadow:
+		5px 5px 5px -5px $MidLight,
+		-5px 5px 5px -5px $MidLight;
+	box-shadow:
+		5px 5px 5px -5px $MidLight,
+		-5px 5px 5px -5px $MidLight;
 }
 
 html {
@@ -432,7 +438,7 @@ button {
 	a { color: $Foreground; }
 }
 
-#splash header {
+#splash header, .short .margin {
 	@include shadows;
 	color: $MidLight;
 	background-color: $Dark;

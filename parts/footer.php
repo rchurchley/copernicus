@@ -7,5 +7,5 @@
 </nav>
 <?php endif; ?>
 <footer>
-	Powered by <a href="http://www.wordpress.org">Wordpress</a>. Marginal theme by <a href="http://rosschurchley.com">Ross Churchley</a>.
+	Powered by <a href="http://www.wordpress.org">Wordpress</a>. Marginal theme by <a href="http://rosschurchley.com">Ross Churchley</a>. <a href="<?php echo get_bloginfo ( 'rss2_url' );  ?>">RSS feed</a>
 </footer>

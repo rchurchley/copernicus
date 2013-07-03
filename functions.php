@@ -8,18 +8,42 @@
 	 */
 
 /* ===========================================================================================
+	Theme options
+=========================================================================================== */
+
+//	function marginal_admin_menus() {  
+//		add_submenu_page('themes.php', 'Marginal Theme Options', 'Theme Options', 'manage_options', 'marginal_theme_options', 'marginal_theme_options_page');
+//	}  
+  
+//	require_once( 'external/theme-options.php' );
+
+//	add_action("admin_menu", "marginal_admin_menus"); 
+
+	function marginal_customize_css() { ?>
+		 <style type="text/css">
+			body > header { background-color:<?php echo get_option('header_background_color'); ?>; }
+			a { color:<?php echo get_option('hyperlink_color'); ?>; }
+			button { background-color: <?php echo get_option('hyperlink_color'); ?>;}
+		</style>
+	<?php
+	}
+
+	add_action( 'customize_register', 'marginal_customize_register' ); 
+	add_action( 'wp_head', 'marginal_customize_css');
+
+
+/* ===========================================================================================
 	Required external files
 =========================================================================================== */
 
 	require_once( 'external/side-matter.php' );
+	require_once( 'external/scalable-vector-graphics.php' );
+	require_once( 'external/add-featured-image-to-rss-feed.php' );
 
 /* ===========================================================================================
 	Add theme support for various features
 =========================================================================================== */
 
-	function untitled_list_pages() {
-		return wp_list_pages('title_li=');
-	}
 	register_nav_menus(array('primary' => 'Primary Navigation'));
 	register_nav_menus(array('secondary' => 'Secondary Navigation'));
 	
@@ -30,33 +54,54 @@
 
 	add_filter('widget_text', 'do_shortcode');
 
+	remove_action('wp_head', 'wp_generator');
+	remove_action('wp_head', 'start_post_rel_link');
+	remove_action('wp_head', 'index_rel_link');
+	remove_action('wp_head', 'adjacent_posts_rel_link');
+
+
+/* ===========================================================================================
+	Security
+=========================================================================================== */
+	function _remove_script_version( $src ){
+		$parts = explode( '?', $src );
+		return $parts[0];
+	}
+	add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+	add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+
 /* ===========================================================================================
 	Actions, Scripts, and Filters
 =========================================================================================== */
 
+	function untitled_list_pages() {
+		return wp_list_pages('title_li=');
+	}
+
 	function marginal_script_enqueuer() {
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
-        wp_enqueue_style( 'screen' );
-        wp_enqueue_script( 'side-matter-js', get_template_directory_uri().'/js/side-matter.js', array( 'jquery' ), null, true );
+		wp_register_style( 'screen', get_stylesheet_directory_uri().'/css/combined.php', '', '', 'screen' );
+		wp_enqueue_style( 'screen' );
+
+		wp_enqueue_script( 'side-matter-js', get_template_directory_uri().'/js/side-matter.js', array( 'jquery' ), null, true );
 	}
 
 	function remove_empty_p($content){
-	    return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#', '', $content);
+		return preg_replace('#<p>\s*+(<br\s*/*>)?\s*</p>#', '', $content);
 	}
 
 	add_action( 'wp_enqueue_scripts', 'marginal_script_enqueuer' );
 	remove_filter( 'the_content', 'wpautop' );
 	add_filter( 'the_content', 'wpautop' , 99);
-    add_filter('the_content', 'remove_empty_p',100);
+	add_filter('the_content', 'remove_empty_p',100);
 
 /* ===========================================================================================
 	Shortcodes
 =========================================================================================== */
 
 	function html5_section($atts, $content = null ) {
-	    extract(shortcode_atts(array(
+		extract(shortcode_atts(array(
 			'class' => ''
-    	), $atts));
+		), $atts));
 		return "<section class='{$class} subsection'>".do_shortcode($content)."</section>";
 	}
 	add_shortcode('section', 'html5_section');
@@ -67,6 +112,14 @@
 
 	register_sidebar(array(
 		'name' => 'Summary',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h2>',
+		'after_title' => '</h2>',
+	));
+
+	register_sidebar(array(
+		'name' => 'Short Summary',
 		'before_widget' => '',
 		'after_widget' => '',
 		'before_title' => '<h2>',
@@ -89,102 +142,24 @@
 		'after_title' => '</h2>',
 	));
 
-/* ===========================================================================================
-	Theme customizations
-=========================================================================================== */
-
-	function marginal_customize_register($wp_customize) {
-		// SETTINGS
-		$wp_customize->add_setting( 'header_background_color' , array(
-			'default'     => '#073642',
-			'type' => 'option',
-			'transport'   => 'refresh',
-		) );
-
-		$wp_customize->add_setting( 'hyperlink_color' , array(
-			'default'     => '#DC322F',
-			'type' => 'option',
-			'transport'   => 'refresh',
-		) );
-
-		$wp_customize->add_setting( 'headline_font' , array(
-			'default'     => 'adelle, Palatino, serif',
-			'type' => 'option',
-			'transport'   => 'refresh',
-		) );
-
-		$wp_customize->add_setting( 'body_font' , array(
-			'default'     => 'source-sans-pro, "Source Sans Pro", sans-serif',
-			'type' => 'option',
-			'transport'   => 'refresh',
-		) );
-
-		$wp_customize->add_setting( 'short_categories' , array(
-			'default'     => '',
-			'type' => 'option',
-			'transport'   => 'refresh',
-		) );
-
-		// SECTIONS
-		$wp_customize->add_section( 'fonts' , array(
-		    'title'      => __('Fonts','marginal'),
-		    'priority'   => 30,
-		) );
-
-		$wp_customize->add_section( 'layout' , array(
-		    'title'      => __('Layout','marginal'),
-		    'priority'   => 30,
-		) );
-
-		// CONTROLS
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_background_color', array(
-			'label'      => __( 'Header Background Color', 'marginal' ),
-			'section'    => 'colors',
-			'settings'   => 'header_background_color',
-		) ) );
-
-		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'hyperlink_color', array(
-			'label'      => __( 'Link Color', 'marginal' ),
-			'section'    => 'colors',
-			'settings'   => 'hyperlink_color',
-		) ) );
-
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'headline_font', array(
-			'label'      => __( 'Headline Font', 'marginal' ),
-			'section'    => 'fonts',
-			'settings'   => 'headline_font',
-		) ) );
-
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'body_font', array(
-			'label'      => __( 'Body Font', 'marginal' ),
-			'section'    => 'fonts',
-			'settings'   => 'body_font',
-		) ) );
-
-		$wp_customize->add_control( 'short_categories', array(
-			'type' => 'checkbox',
-			'label' => 'Shorten Category pages',
-			'section' => 'layout',
-    	) );
-	}
-
-	function marginal_customize_css() {
-    ?>
-         <style type="text/css">
-            body > header { background-color:<?php echo get_option('header_background_color'); ?>; }
-            a { color:<?php echo get_option('hyperlink_color'); ?>; }
-            button { background-color: <?php echo get_option('hyperlink_color'); ?>;}
-            body { font-family:<?php echo get_option('body_font'); ?>; }
-			header, h1, h2, h3, h4, th, dt, .menu { font-family: <?php echo get_option('headline_font'); ?>; }
-         </style>
-    <?php
-	}
-	add_action( 'customize_register', 'marginal_customize_register' ); 
-	add_action( 'wp_head', 'marginal_customize_css');
 
 /* ===========================================================================================
 	Comments
 =========================================================================================== */
+	/**
+	 * Enqueue threaded comments Javascript only when necessary
+	 *
+	 * @author Michael Preuss
+	 */
+
+	function xtreme_enqueue_comments_reply() {
+		if( get_option( 'thread_comments' ) )  {
+			wp_enqueue_script( 'comment-reply' );
+		}
+	}
+
+	add_action( 'comment_form_before', 'xtreme_enqueue_comments_reply' );
+
 	/**
 	 * Custom callback for outputting comments 
 	 *
@@ -200,6 +175,9 @@
 				<?php echo get_avatar( $comment ); ?>
 				<h4>#<?php comment_ID() ?> – <?php comment_author_link() ?></h4>
 				<time><a href="#comment-<?php comment_ID() ?>" pubdate><?php comment_date() ?> at <?php comment_time() ?></a></time>
+				<p class="reply">
+					<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+				</p>
 			</header>
 			<div class="column">
 				<?php comment_text() ?>

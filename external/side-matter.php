@@ -1,15 +1,18 @@
 <?php
 
 /**
-* Side Matter Class v.1.0
+* Side Matter class v.1.0
 * @package 		WordPress
 * @subpackage 	Marginal
-* @since 		Marginal 1.0
+* @since 		Marginal 0.1
+* Code from 	Side Matter
+* URI: 			http://wordpress.org/plugins/side-matter/
+* Author:		Christopher Setzer, Ross Churchley
+* License: 		GPLv2
 *
-* Based on the Side Matter plugin by Christopher Setzer, this class allows the inclusion of Grantland-style footnotes, citations, and sidefigures.
-*
-* License: GPLv2
+* Allows the inclusion of Grantland-style footnotes, citations, and sidefigures.
 */
+
 
 $side_matter = new Side_Matter;
 
