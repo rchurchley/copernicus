@@ -5,10 +5,10 @@ Version 0.6
 
 jQuery(document).ready(function($) { // Allow use of $ shortcut
 	var isResponsive = true; // If true, reposition notes on resize/zoom
-	var noteSpace = 0; // Buffer spacing to add between tightly positioned notes, in px
+	var noteSpace = 5; // Buffer spacing to add between tightly positioned notes, in px
 	var noteAdjust = 0; // Distance to arbitrarily adjust note position upward (positive) or downward (negative), in px
 	function placeNotes() {
-		if ($(window).width() < 576) {
+		if ($(window).width() < 1024) {
 			$( ".side-matter" ).each(function(i) {
 				var note = '#' + $(this).attr( "id" );
 				$(note).css('marginTop', noteSpace); // Position note
@@ -16,7 +16,7 @@ jQuery(document).ready(function($) { // Allow use of $ shortcut
 		} else {
 			$( ".side-matter" ).each(function(i) {
 				var note = '#' + $(this).attr( "id" );
-  				var ref = '#link-' + $(this).attr( "id" );
+				var ref = '#link-' + $(this).attr( "id" );
 				var refPosition = $(ref).position().top; // Position of reference anchor
 				var notePosition = $(note).position().top; // Position of annotation item
 				var noteOffset = refPosition - notePosition - noteAdjust; // Get offset from reference to note, minus noteAdjust

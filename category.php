@@ -18,17 +18,9 @@
 
 <?php while (have_posts()) : the_post();
 		if(!get_post_format()) {
-			if ( get_option('short_categories') ) {
-				get_template_part('parts/standard', 'short');
-			} else {
-				get_template_part('parts/standard', 'listed');
-			}
+			get_template_part('parts/standard', 'listed');
 		} else {
-			if ( get_option('short_categories') ) {
-				get_template_part('parts/'.get_post_format(), 'short');
-			} else {
-				get_template_part('parts/'.get_post_format(), 'listed');
-			}
+			get_template_part('parts/'.get_post_format(), 'listed');
 		}
 	endwhile;
 else:?>

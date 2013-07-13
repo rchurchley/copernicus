@@ -171,15 +171,15 @@
 		?>
 		<?php if ( $comment->comment_approved == '1' ): ?>	
 		<article id="comment-<?php comment_ID() ?>">
-			<header>
+			<header class="comment-author">
 				<?php echo get_avatar( $comment ); ?>
-				<h4>#<?php comment_ID() ?> – <?php comment_author_link() ?></h4>
-				<time><a href="#comment-<?php comment_ID() ?>" pubdate><?php comment_date() ?> at <?php comment_time() ?></a></time>
+				<h4><?php comment_author_link() ?></h4>
+				<time><a href="#comment-<?php comment_ID() ?>" pubdate><?php comment_date('j M Y') ?></a></time>
 				<p class="reply">
 					<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 				</p>
 			</header>
-			<div class="column">
+			<div class="comment-body">
 				<?php comment_text() ?>
 			</div>
 		</article>

@@ -1,0 +1,122 @@
+@import 'defaults.scss';
+
+/* sethorizontal ////////////////////////////////////////////////////////*/
+
+@mixin sethorizontal($SmallRatio, $MediumRatio, $LargeRatio) {
+	@media screen and #{$SmallScreen} 	{	width: $SmallRatio * 100%;	}
+	@media screen and #{$MediumScreen} 	{	width: $MediumRatio * 100%;	}
+	@media screen and #{$LargeScreen} 	{	width: $LargeRatio * 100%;	}
+}
+
+/*###############################
+## ABSTRACT SECTION TEMPLATES  ##
+###############################*/
+
+.FullColumn			{ 	@include sethorizontal(1,1,1); }
+
+/* one column layout except on big screens //////////////////////////////*/
+
+.SideColumn 		{	@include sethorizontal(1,1,1/3); }
+.MainColumn 		{	@include sethorizontal(1,1,2/3); }
+
+/* two column layout except on small screens ////////////////////////////*/
+
+.ColumnColumn 		{	@include sethorizontal(1,1/3,1/3); }
+.BigColumnColumn	{	@include sethorizontal(1,2/3,2/3); }
+
+/* vskip after major elements ///////////////////////////////////////////*/
+
+.SkipBefore			{	margin-top: 1.5 * $VGutter;	}
+.NoSkipBefore		{	margin-top: 0; }
+
+/* attach columns to the right //////////////////////////////////////////*/
+
+.AttachColumnToRight {
+	@extend .NoSkipBefore;
+	clear: none;
+	float: right;
+	@media screen and #{$LargeScreen} {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+	}
+}
+
+.AttachColumnColumnToRight {
+	@extend .AttachColumnToRight;
+	@media screen and #{$MediumScreen} {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+	}
+}
+
+/*#################
+## BASIC LAYOUT  ##
+#################*/
+
+body {
+	width: 100%;
+}
+
+body > header, body > footer {
+	width: 100%;
+}
+
+body > section, body > article {
+	width: $SmallGrid;
+	@media screen and #{$MediumScreen} { width: $MediumGrid; }
+	@media screen and #{$LargeScreen} {	width: $LargeGrid; }
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body > section, body > article, body > footer {
+	@extend .SkipBefore;
+}
+
+#splash {
+	figure { 
+		@extend .BigColumnColumn;
+		float:left;
+		line-height: 0;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	header { 
+		@extend .ColumnColumn;
+		@extend .AttachColumnColumnToRight;
+	}
+	+ section { @extend .NoSkipBefore; }
+}
+
+.featured-image-banner {
+	width: 100%;
+	height: 10rem;
+	background-size: 100%;
+	background-position: 50% 33.3333%;
+	background-repeat: no-repeat;
+}
+
+.column {
+	@extend .MainColumn;
+	float:left;
+}
+
+.margin {
+	@extend .SideColumn;
+	@extend .AttachColumnToRight;
+	@extend .NoSkipBefore;
+	@media not screen and #{$LargeScreen} {	display: none; }
+}
+
+.margin.has-sidenotes {
+	@media not screen and #{$LargeScreen} {
+		display: block;
+		float: right;
+	}
+}

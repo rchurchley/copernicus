@@ -139,31 +139,6 @@ function marginal_customize_register($wp_customize) {
 		'transport'   => 'refresh',
 	) );
 
-	$wp_customize->add_setting( 'headline_font' , array(
-		'default'	 => 'adelle, Palatino, serif',
-		'type' => 'option',
-		'transport'   => 'refresh',
-	) );
-
-	$wp_customize->add_setting( 'body_font' , array(
-		'default'	 => 'source-sans-pro, "Source Sans Pro", sans-serif',
-		'type' => 'option',
-		'transport'   => 'refresh',
-	) );
-
-	$wp_customize->add_setting( 'short_categories' , array(
-		'default'	 => '',
-		'type' => 'option',
-		'transport'   => 'refresh',
-	) );
-
-	// SECTIONS
-
-	$wp_customize->add_section( 'layout' , array(
-		'title'	  => __('Layout','marginal'),
-		'priority'   => 30,
-	) );
-
 	// CONTROLS
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_background_color', array(
 		'label'	  => __( 'Header Background Color', 'marginal' ),
@@ -177,9 +152,4 @@ function marginal_customize_register($wp_customize) {
 		'settings'   => 'hyperlink_color',
 	) ) );
 
-	$wp_customize->add_control( 'short_categories', array(
-		'type' => 'checkbox',
-		'label' => 'Shorten Category pages',
-		'section' => 'layout',
-	) );
 }

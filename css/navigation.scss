@@ -1,0 +1,71 @@
+body > nav {
+	text-align: center;
+	@media screen and #{$SmallScreen} {
+		margin-bottom: 0;
+	}	
+}
+
+nav	a { 
+	display: table-cell;
+	float: left;
+	white-space: nowrap;
+	ul { margin: none; }
+	@include paddedbox(0.25,0.5,0.25,0.5);
+	text-align: left;
+	margin-right: 0;
+	z-index: 2;
+}
+
+.menu {
+	padding-left: 0;
+	margin-bottom: 0;
+	
+	> li {
+		display: inline-block;
+		position: relative;
+	}
+	
+	.sub-menu {
+		position:absolute;
+		left: 0;
+		top: 100%;
+		padding-left: 0;
+		display: none;
+		z-index: 1;
+	}
+
+	li:hover .sub-menu {
+		display: block;
+		list-style: none;
+	}
+}
+
+.menu li:hover .sub-menu {
+	border: 1px solid $AltBackground;
+	background-color: $Background;
+	@extend .Shadows;
+}
+
+#top-menus {
+	@extend .Shadows;
+	+ section {
+		@media screen and #{$SmallScreen} { margin-top: 0; }
+	}
+}
+
+#primary-menu {
+	background-color: $Dark; 
+	a { color: $HeaderForeground; }
+	.sub-menu a { color: $AltForeground; } 
+}
+
+#secondary-menu {
+	background-color: $Background; 
+	a { color: $AltForeground; }
+}
+
+#prev-next {
+	@include commenttype;
+	text-align: center;
+	a { color: $Foreground; }
+}

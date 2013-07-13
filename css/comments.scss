@@ -1,80 +1,106 @@
-input, textarea {
-	width: 100%;
-	padding: 0.5 * $VGutter;
-	border: 1px solid $MidLight;
-	@include texttype;
-}
-
-input[type=checkbox] {
-	margin-right: 5px;
-}
-
 #comments {
-	@include commenttype;
-	h2 { 
-		@include fullcontent;
-		margin-bottom: $VGutter; 
+	@extend .PreParSkip;
+
+	/*##########
+	## LAYOUT ##
+	##########*/
+
+	.comment-author {
+		@extend .ColumnColumn;
+		@extend .AttachColumnColumnToRight;
 	}
+
+	.comment-body {
+		@extend .BigColumnColumn
+	}
+
+	/*##########
+	## STYLES ##
+	##########*/
+
+
+	@extend .NoShadows;
+
+	h2 { 
+		@extend .FullColumn;
+		text-align: center;
+	}
+
 
 	article {
-		width:100%;
-		@include pskip;
-		min-height: 64px + 2*$VGutter;
-		border-top: 1px dotted $MidLight;
-		padding-top: $VGutter;
+		@extend .PreParSkip;
+		@extend .Shadows; 
 	}
 
-	> article:first-of-type {
-		border: none;
-	}
-
-	.children { 
-		padding: 0; 
-		margin: 0;
-		article { border: none; }
-	}
-
-	header {
-		@include sidecontent;
-
-		@media screen and (min-width: $MediumGrid)	{ 
-			position:absolute;
-			right: 0;
-			top: $VGutter;
-		}
-
+	.comment-author {
+		@extend .PaddedLayoutElement;
+		@media screen and #{$MediumScreen} { @include paddedbox(1,0.5,1,0.5); }
+		float: right;
+		background-color: $AltBackground;
 		img {
-			margin-right: $HGutter;
+			@extend .Shadows;
+			margin-right: 12px;
 			float: left;
 			width: 64px;
 			height: 64px;
 		}
-	}
-	
-	#respond {
-		@include sethorizontal(1.00, 0, 0);
+		img + h4 {
+			@extend .NoPreParSkip;
+		}
 
-		h3, p { 
-			@include maincontent;
-			@include pskip;
+		h4, h4 a {
+			-webkit-hyphens: auto;
+			-moz-hyphens: auto;
+			hyphens: auto;
+		}
+
+		z-index: 1;
+	}
+
+	.comment-body {
+		@extend .PaddedLayoutElement;
+		background-color: $Background;
+		min-height: 7em;
+		float: left;
+	}
+
+	.reply {
+		@include footnotetype;
+		margin-top: 0.25rem;
+	}
+
+	.children {
+		@extend .NoPreParSkip;
+		padding: 0 0 0 12px;
+		border-left: 4px solid $Light;
+	}
+		
+	#respond {
+		h3 {
+			@extend .FullColumn;
+			text-align: center;
+		}
+
+		p {
+			@extend .PreParSkip; // there's a :first-child of the form here
+			text-align: left;
+		}
+
+		//.logged-in-as {
+		//	@extend .comment-author;
+		//}
+
+		.comment-form-comment {
+		//	@extend .comment-body;
+			padding: 0;
+		//	label { display: none; }
+			textarea {
+				width: 100%;
+			}
 		}
 		
 		label {
 			margin-right: $HGutter;
-		}
-
-		.form-allowed-tags, .form-submit { 
-			@include sidecontent;
-			float: left;
-		}
-
-		.comment-form-comment {
-			float: left;
-
-			label { display: none; }
-			textarea {
-				width: 100%;
-			}
 		}
 
 		#submit {

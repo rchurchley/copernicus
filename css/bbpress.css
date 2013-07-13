@@ -24,9 +24,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
   font: inherit;
-  vertical-align: baseline;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -150,9 +148,150 @@ table {
 /* default header background */
 /* secondary text colour */
 /* caption and sidenote background */
+/* sethorizontal ////////////////////////////////////////////////////////*/
+/* paddedbox ////////////////////////////////////////////////////////////*/
 /*###############################
 ## ABSTRACT SECTION TEMPLATES  ##
 ###############################*/
+@media screen and (max-width: 767px) {
+  .FullColumn {
+    width: 100%; } }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .FullColumn {
+    width: 100%; } }
+@media screen and (min-width: 1024px) {
+  .FullColumn {
+    width: 100%; } }
+
+/* one column layout except on big screens //////////////////////////////*/
+@media screen and (max-width: 767px) {
+  .SideColumn, .margin {
+    width: 100%; } }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .SideColumn, .margin {
+    width: 100%; } }
+@media screen and (min-width: 1024px) {
+  .SideColumn, .margin {
+    width: 33.33333%; } }
+
+@media screen and (max-width: 767px) {
+  .MainColumn, .column {
+    width: 100%; } }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .MainColumn, .column {
+    width: 100%; } }
+@media screen and (min-width: 1024px) {
+  .MainColumn, .column {
+    width: 66.66667%; } }
+
+/* two column layout except on small screens ////////////////////////////*/
+@media screen and (max-width: 767px) {
+  .ColumnColumn, #splash header {
+    width: 100%; } }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .ColumnColumn, #splash header {
+    width: 33.33333%; } }
+@media screen and (min-width: 1024px) {
+  .ColumnColumn, #splash header {
+    width: 33.33333%; } }
+
+@media screen and (max-width: 767px) {
+  .BigColumnColumn, #splash figure {
+    width: 100%; } }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .BigColumnColumn, #splash figure {
+    width: 66.66667%; } }
+@media screen and (min-width: 1024px) {
+  .BigColumnColumn, #splash figure {
+    width: 66.66667%; } }
+
+/* vskip after major elements ///////////////////////////////////////////*/
+.SkipAfter, body > section, body > article, body > nav, #splash, .subsection:not(:last-child) {
+  margin-bottom: 1em; }
+
+.NoSkipAfter, .AttachColumnToRight, .AttachColumnColumnToRight, .margin, .column, body > footer {
+  margin-bottom: 0; }
+
+.AttachColumnToRight, .AttachColumnColumnToRight, .margin {
+  clear: none;
+  float: left; }
+  @media screen and (min-width: 1024px) {
+    .AttachColumnToRight, .AttachColumnColumnToRight, .margin {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0; } }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .AttachColumnColumnToRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0; } }
+
+/*###############################
+## ABSTRACT SECTION TEMPLATES  ##
+###############################*/
+body {
+  width: 100%; }
+
+body > header, body > footer {
+  width: 100%; }
+
+body > section, body > article {
+  width: 100%;
+  margin: 0 auto; }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    body > section, body > article {
+      width: 768px; } }
+  @media screen and (min-width: 1024px) {
+    body > section, body > article {
+      width: 1024px; } }
+
+.column {
+  float: left; }
+
+.margin {
+  clear: none;
+  float: left; }
+  @media not screen and (min-width: 1024px) {
+    .margin {
+      display: none; } }
+
+@media not screen and (min-width: 1024px) {
+  .margin.has-sidenotes {
+    display: block; } }
+
+.subsection {
+  position: static; }
+
+@media screen and (max-width: 767px) {
+  body > nav {
+    margin-bottom: 0; } }
+
+@media screen and (max-width: 767px) {
+  body > nav + .output-message {
+    margin-top: 1em; } }
+
+#splash figure {
+  float: left;
+  line-height: 0; }
+  #splash figure img {
+    width: 100%;
+    height: auto; }
+
+#splash header {
+  padding: 2em 3em;
+  clear: none;
+  float: left;
+  margin-bottom: 0; }
+  @media screen and (min-width: 768px) {
+    #splash header {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0; } }
+
 /*#########################
 ## GRIDS AND BREAKPOINTS ##
 #########################*/
@@ -218,7 +357,7 @@ h4, th, dt, nav {
 figcaption {
   font-size: 0.825rem;
   line-height: 1.35em;
-  margin-bottom: 3px; }
+  margin-bottom: 0.25em; }
 
 dt, dd, th, td {
   line-height: 1.425em; }
@@ -274,7 +413,7 @@ sub {
   list-style: none; }
 
 #bbpress-forums p.bbp-topic-meta {
-  margin-bottom: 3px; }
+  margin-bottom: 0.25em; }
   #bbpress-forums p.bbp-topic-meta span {
     white-space: nowrap; }
 
@@ -293,10 +432,10 @@ sub {
   clear: both; }
 
 #bbpress-forums li.bbp-header {
-  padding-top: 6px;
-  padding-right: 12px;
-  padding-bottom: 6px;
-  padding-left: 12px;
+  padding-top: 0.5em;
+  padding-right: 1.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1.5em;
   font-weight: bold;
   text-align: center;
   background: #e4e6e6; }
@@ -525,11 +664,11 @@ td.bbp-topic-counts {
   clear: both; }
 
 #bbpress-forums fieldset.bbp-form legend {
-  padding-top: 6px;
-  padding-right: 12px;
-  padding-bottom: 6px;
-  padding-left: 12px;
-  margin-bottom: 12px;
+  padding-top: 0.5em;
+  padding-right: 1.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1.5em;
+  margin-bottom: 1em;
   width: 100%;
   font-weight: bold;
   background-color: #e4e6e6; }
@@ -708,13 +847,13 @@ div.indicator-hint {
 div.bbp-template-notice.important {
   border: #e6db55 1px solid;
   background-color: #fffbcc;
-  margin-bottom: 12px; }
+  margin-bottom: 1em; }
 
 div.bbp-template-notice.error,
 div.bbp-template-notice.warning {
   background-color: #ffebe8;
   border-color: #c00;
-  margin-bottom: 12px; }
+  margin-bottom: 1em; }
 
 div.bbp-template-notice.error a,
 div.bbp-template-notice.warning a {
