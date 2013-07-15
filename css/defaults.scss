@@ -8,7 +8,6 @@ $SmallGrid: 100%;
 
 $LargeScreen: "(min-width: 1024px)";
 $MediumScreen: "(min-width: 768px) and (max-width: 1023px)";
-$ColumnatedScreen: "(min-width: 768px)";
 $SmallScreen: "(max-width: 767px)";
 
 $RetinaScreen: "(-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx)";
@@ -17,8 +16,9 @@ $RetinaScreen: "(-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixe
 ## LENGTHS ##
 ##########*/
 
-$VGutter: 12px;
-$HGutter: 24px;
+$PSkip: 1em;
+$VGutter: 1.5rem;
+$HGutter: 3rem;
 
 $DefaultLineHeight: 1.5em;
 
