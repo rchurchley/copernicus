@@ -4,8 +4,8 @@ header("Content-type: text/css");
 
 // Array of css files
 $css = array(
-    'http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Roboto+Slab',
-    'http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Roboto+Slab&text=ő'
+    'http://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Roboto+Slab&subset=latin-ext',
+    'http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400italic&subset=latin'
 );
 
 echo file_get_contents('main-style.css');

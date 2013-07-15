@@ -15,7 +15,7 @@
 //		add_submenu_page('themes.php', 'Marginal Theme Options', 'Theme Options', 'manage_options', 'marginal_theme_options', 'marginal_theme_options_page');
 //	}  
   
-//	require_once( 'external/theme-options.php' );
+	require_once( 'external/theme-options.php' );
 
 //	add_action("admin_menu", "marginal_admin_menus"); 
 
@@ -69,6 +69,13 @@
 	}
 	add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
 	add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+	
+	function wpt_remove_version() {
+		return '';  
+	}
+	add_filter('the_generator', 'wpt_remove_version'); 
+	remove_action('wp_head', 'wp_generator'); 
+	
 
 /* ===========================================================================================
 	Actions, Scripts, and Filters
@@ -109,7 +116,7 @@
 /* ===========================================================================================
 	Widgets
 =========================================================================================== */
-
+	
 	register_sidebar(array(
 		'name' => 'Summary',
 		'before_widget' => '',

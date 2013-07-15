@@ -2,3 +2,9 @@
 	@extend #splash;
 	margin-top: 1.5 * $VGutter;
 }
+
+.linkfigure {
+	background-color: $Dark;
+	background-position: center;
+	background-repeat: no-repeat;
+}

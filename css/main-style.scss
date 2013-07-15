@@ -114,19 +114,17 @@ footer address {
 ####################################*/
 
 html {
-	background-image: url('../img/bg/pw_maze_white.png');
-	background-size: 46px auto;
-	@media screen and #{$RetinaScreen} {
-		background: url('../img/bg/pw_maze_white_@2X.png');
-	}
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPjxyZWN0IGZpbGw9IiNFREVERUQiIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTI4IDY2bC0yOC0xNnYtMzRsMjgtMTYgMjggMTZ2MzRsLTI4IDE2djM0IiBmaWxsPSJub25lIi8+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0yOCAwdjM0bC0yOCAxNnYzNGwyOCAxNiAyOC0xNnYtMzRsLTI4LTE2IiBmaWxsPSJub25lIi8+PC9zdmc+);
+	background-size: 15px auto;
 }
 
 body {
 	color: $Foreground;
 }
 
-body > header {
-	padding: 0.5rem;
+body > header h1 {
+	display: inline-block;
+	@include paddedbox;
 }
 
 body > header, body > footer	{ 
@@ -166,12 +164,12 @@ body > section, body > article {
 
 }
 
-.column {
+.column, .columncolumn {
 	@extend .PaddedLayoutElement;
 	background-color: $Background;
 }
 
-.margin {
+.margin, .marginmargin {
 	@extend .PaddedLayoutElement;
 	background-color: $AltBackground;
 }

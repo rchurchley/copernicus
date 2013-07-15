@@ -21,8 +21,8 @@
 
 /* two column layout except on small screens ////////////////////////////*/
 
-.ColumnColumn 		{	@include sethorizontal(1,1/3,1/3); }
-.BigColumnColumn	{	@include sethorizontal(1,2/3,2/3); }
+.SideColumnColumn 	{	@include sethorizontal(1,1/3,1/3); }
+.MainColumnColumn	{	@include sethorizontal(1,2/3,2/3); }
 
 /* vskip after major elements ///////////////////////////////////////////*/
 
@@ -77,9 +77,13 @@ body > section, body > article, body > footer {
 	@extend .SkipBefore;
 }
 
+.output-message {
+	@extend .SkipBefore;
+}
+
 #splash {
 	figure { 
-		@extend .BigColumnColumn;
+		@extend .MainColumnColumn;
 		float:left;
 		line-height: 0;
 		img {
@@ -88,7 +92,7 @@ body > section, body > article, body > footer {
 		}
 	}
 	header { 
-		@extend .ColumnColumn;
+		@extend .SideColumnColumn;
 		@extend .AttachColumnColumnToRight;
 	}
 	+ section { @extend .NoSkipBefore; }
@@ -112,6 +116,18 @@ body > section, body > article, body > footer {
 	@extend .AttachColumnToRight;
 	@extend .NoSkipBefore;
 	@media not screen and #{$LargeScreen} {	display: none; }
+}
+
+.columncolumn {
+	@extend .MainColumnColumn;
+	float:left;
+}
+
+.marginmargin {
+	@extend .SideColumnColumn;
+	@extend .AttachColumnColumnToRight;
+	@extend .NoSkipBefore;
+	@media screen and #{$SmallScreen} { display: none; }
 }
 
 .margin.has-sidenotes {

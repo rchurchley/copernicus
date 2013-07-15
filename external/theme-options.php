@@ -7,7 +7,7 @@
 * @since 		Marginal 1.1
 *
 */
-
+/*
 function marginal_theme_options_page() {  
 	// Check that the user is allowed to update options  
 	if (!current_user_can('manage_options')) {  
@@ -124,7 +124,7 @@ function marginal_theme_options_page() {
 
 <?php
 } 
-
+*/
 function marginal_customize_register($wp_customize) {
 	// SETTINGS
 	$wp_customize->add_setting( 'header_background_color' , array(

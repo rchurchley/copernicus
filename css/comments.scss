@@ -1,17 +1,16 @@
 #comments {
-	@extend .PreParSkip;
 
 	/*##########
 	## LAYOUT ##
 	##########*/
 
 	.comment-author {
-		@extend .ColumnColumn;
+		@extend .SideColumnColumn;
 		@extend .AttachColumnColumnToRight;
 	}
 
 	.comment-body {
-		@extend .BigColumnColumn
+		@extend .MainColumnColumn
 	}
 
 	/*##########
