@@ -1,0 +1,82 @@
+@media screen and #{$SmallScreen} {
+	body > header + section { margin-top: 0; }
+	body > header h1 {
+		display: inline-block;
+		float: left;
+		width: 95%;
+		z-index: 4;
+	}
+	body > header h1:after {
+		content:'▾';
+		display: inline-block;
+		float:right;
+		text-align: right;
+		width: 5%;
+	}
+
+	body > header nav { display: none; }
+	body > header:hover nav { float: left; width: 100%; display: block; }
+}
+
+nav	a { 
+	display: table-cell;
+	float: left;
+	white-space: nowrap;
+	ul { margin: none; }
+	@include paddedbox(0.25,0.5,0.25,0.5);
+	text-align: left;
+	margin-right: 0;
+	z-index: 3;
+}
+
+.menu {
+	padding-left: 0;
+	margin-bottom: 0;
+	
+	> li {
+		display: inline-block;
+		position: relative;
+	}
+	
+	.sub-menu {
+		position:absolute;
+		left: 0;
+		top: 100%;
+		padding-left: 0;
+		display: none;
+		z-index: 2;
+	}
+
+	li:hover .sub-menu {
+		display: block;
+		list-style: none;
+	}
+}
+
+.menu li:hover .sub-menu {
+	border: 1px solid $AltBackground;
+	background-color: $Background;
+	@extend .Shadows;
+}
+
+#top-menus {
+	@extend .Shadows;
+}
+
+#primary-menu {
+	background-color: $Dark; 
+	a { color: $HeaderForeground; }
+	.sub-menu a { color: $AltForeground; } 
+}
+
+#secondary-menu {
+	background-color: $Background; 
+	a { color: $AltForeground; }
+}
+
+#prev-next {
+	@extend .SkipBefore;
+	@include commenttype;
+	text-align: center;
+	a { color: $Foreground; }
+}

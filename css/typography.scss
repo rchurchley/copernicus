@@ -23,20 +23,6 @@
 	}}}}}}
 }
 
-/* pskip ///////////////////////////////////////////////////////////////////
-// Add a vertical space after element
-//////////////////////////////////////////////////////////////////////////*/
-@mixin pskip($height:1)	{ 
-	margin-bottom: ($height) * $VGutter; 
-}
-
-/* antiskip ////////////////////////////////////////////////////////////////
-// Cancels a pskip from the immediately preceding element
-//////////////////////////////////////////////////////////////////////////*/
-@mixin antiskip($height:1) { 
-	margin-top: -($height) * $VGutter; 
-}
-
 /* headlinetype, texttype, footnotetype ////////////////////////////////////
 // The main typographic styles
 //////////////////////////////////////////////////////////////////////////*/
@@ -59,6 +45,12 @@
 @mixin footnotetype { 
 	@include setfontsize(-2);
 	line-height: 0.8 * $DefaultLineHeight;
+}
+
+.abbreviated {
+	@media screen and #{$SmallScreen} {
+		display: none;
+	}
 }
 
 /*####################
@@ -84,7 +76,14 @@ h4, th, dt, nav {
 
 figcaption {
 	@include commenttype;
-	@include pskip(0.25);
+}
+
+time {
+	@include footnotetype;
+}
+
+input, textarea {
+	@include texttype;
 }
 
 dt,dd,th,td	{ line-height: 0.95 * $DefaultLineHeight; }
@@ -101,7 +100,7 @@ sup	{ top: -0.4em; }
 sub	{ top:  0.4em; }
 
 p, blockquote, dt, dd, li {
-	@media screen and #{$ColumnatedScreen} {
+	@media not screen and #{$SmallScreen} {
 		text-align: justify;
 		text-justify: distribute;
     }

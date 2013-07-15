@@ -33,7 +33,7 @@
 		<?php endif; ?>
 
 	</div>
-	<div class="margin">
+	<div class="margin <?php if ( apply_filters( 'side_matter_exists', '' ) ) : ?>has-sidenotes<?php endif;?>">
 		<?php do_action( 'side_matter_list_notes' ); ?>
 	</div>		
 </section>

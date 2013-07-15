@@ -7,7 +7,7 @@
 * @since 		Marginal 1.1
 *
 */
-
+/*
 function marginal_theme_options_page() {  
 	// Check that the user is allowed to update options  
 	if (!current_user_can('manage_options')) {  
@@ -124,7 +124,7 @@ function marginal_theme_options_page() {
 
 <?php
 } 
-
+*/
 function marginal_customize_register($wp_customize) {
 	// SETTINGS
 	$wp_customize->add_setting( 'header_background_color' , array(
@@ -137,31 +137,6 @@ function marginal_customize_register($wp_customize) {
 		'default'	 => '#DC322F',
 		'type' => 'option',
 		'transport'   => 'refresh',
-	) );
-
-	$wp_customize->add_setting( 'headline_font' , array(
-		'default'	 => 'adelle, Palatino, serif',
-		'type' => 'option',
-		'transport'   => 'refresh',
-	) );
-
-	$wp_customize->add_setting( 'body_font' , array(
-		'default'	 => 'source-sans-pro, "Source Sans Pro", sans-serif',
-		'type' => 'option',
-		'transport'   => 'refresh',
-	) );
-
-	$wp_customize->add_setting( 'short_categories' , array(
-		'default'	 => '',
-		'type' => 'option',
-		'transport'   => 'refresh',
-	) );
-
-	// SECTIONS
-
-	$wp_customize->add_section( 'layout' , array(
-		'title'	  => __('Layout','marginal'),
-		'priority'   => 30,
 	) );
 
 	// CONTROLS
@@ -177,9 +152,4 @@ function marginal_customize_register($wp_customize) {
 		'settings'   => 'hyperlink_color',
 	) ) );
 
-	$wp_customize->add_control( 'short_categories', array(
-		'type' => 'checkbox',
-		'label' => 'Shorten Category pages',
-		'section' => 'layout',
-	) );
 }

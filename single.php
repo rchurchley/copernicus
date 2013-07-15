@@ -20,7 +20,7 @@
 		}
 	endwhile;
 else:?>
-<h2 class="output-message">No posts to display</h2>
+<h2 class="output-message">No post to display</h2>
 <?php endif; ?>
 
 <?php get_template_part('parts/footer'); ?>

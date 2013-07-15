@@ -1,12 +1,56 @@
 @import 'reset.scss';
 @import 'palettes.scss';
 @import 'defaults.scss';
-@import 'grid-mixins.scss';
+@import 'layout.scss';
 @import 'typography.scss';
 
-/*###############################
-## THEME CUSTOMIZABLE DEFAULTS ##
-###############################*/
+/*############################
+## ABSTRACT STYLE TEMPLATES ##
+############################*/
+
+/* Paddedbox ////////////////////////////////////////////////////////////*/
+
+@mixin paddedbox($TPadding: 1, $RPadding: 1, $BPadding: 1, $LPadding: 1) {
+	padding-top: $TPadding * $VGutter;
+	padding-right: $RPadding * $HGutter;
+	padding-bottom: $BPadding * $VGutter;
+	padding-left: $LPadding * $HGutter;
+}
+
+.PaddedLayoutElement {
+	@media not screen and #{$SmallScreen} {
+		@include paddedbox;
+	}
+	@media screen and #{$SmallScreen} {
+		@include paddedbox(1,1/2,1,1/2);
+	}
+}
+
+.PreParSkip {
+	margin-top: $PSkip;
+}
+
+.NoPreParSkip {
+	margin-top: 0;
+}
+
+/* Shadows ///////////////////////////////////////////////////////////*/
+
+.Shadows {
+	-moz-box-shadow:	2px 2px 2px -2px $MidLight, -2px 2px 2px -2px $MidLight;
+	-webkit-box-shadow:	2px 2px 2px -2px $MidLight,	-2px 2px 2px -2px $MidLight;
+	box-shadow:			2px 2px 2px -2px $MidLight,	-2px 2px 2px -2px $MidLight;
+}
+
+.NoShadows {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+/*############################
+## BASIC COLOURS AND STYLES ##
+############################*/
 
 body {
 	font-family: "Source Sans Pro", sans-serif;
@@ -16,161 +60,43 @@ header, h1, h2, h3, h4, th, dt, nav {
 	font-family: "Roboto Slab", serif;
 }
 
-a { color: $AltForeground; }
-button { background-color: $HeaderBackground; }
-
-/*###################
-## BASIC STRUCTURE ##
-###################*/
-
-body {
-	width: 100%;
+a 		{ 	color: $AltForeground; }
+button 	{ 	background-color: $HeaderBackground; 
+			color: $HeaderForeground;
 }
 
-body > header, body > footer {
-	width: 100%;
-	text-align:center;
+blockquote, caption, code, pre, samp, time { 
+	color: $AltForeground; 
 }
 
-body > header h1 {
-	@include paddedbox;
-}
-
-body > footer {
-	@include paddedbox(1,1,1,1);
-	margin-bottom: 0;
-}
-
-body > section, body > article {
-	width: $SmallGrid;
-	margin: 0 auto;
-
-	@media screen and #{$MediumScreen} { width: $MediumGrid; }
-	@media screen and #{$LargeScreen} {	width: $LargeGrid; }
-}
-
-body > section, body > article, body > nav {
-	@include pskip(2);
-}
-
-body > nav {
-	@media screen and #{$SmallScreen} {
-		margin-bottom: 0;
-	}	
-}
-
-body > nav + .output-message {
-	@media screen and #{$SmallScreen} {
-		margin-top: $VGutter;
-	}	
-}
-
-#splash figure {
-	@include maincontent;
-	float:left;
-	line-height: 0;
-	img {
-		width: 100%;
-		height: auto;
+a { 
+	text-decoration: none; 
+	&:hover {
+		text-decoration: underline;
 	}
 }
 
-#splash header, .short .margin {
-	@include sidecontent;
-	padding: 2*$VGutter $HGutter;
-	clear:none;
-	float:left;
-	margin-bottom: 0;
-	@media screen and #{$ColumnatedScreen} {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		right: 0;
-	}
+/*#################
+## BASIC SPACING ##
+#################*/
+
+h2:not(:first-child), h3:not(:first-child), h4:not(:first-child), h5:not(:first-child), h6:not(:first-child), p:not(:first-child), dl:not(:first-child), ul:not(:first-child), ol:not(:first-child), blockquote:not(:first-child) {
+	@extend .PreParSkip;
 }
 
-.column {
-	padding: 2*$VGutter $HGutter;
-	@include maincontent;
-	margin-bottom:0;
-	float:left;
-}
-
-article header, section header {
-	time {
-		display:block;
-		margin-bottom: 0;
-		@include antiskip;
-	}
-	@include pskip;
-}
-
-
-/*######################
-## ADVANCED STRUCTURE ##
-######################*/
-
-.margin {
-	@include sidecontent;
-	clear:none;
-	float:left;
-	@media screen and #{$SmallScreen} {
-		display: none;
-	}
-}
-
-.margin.has-sidenotes {
-	@media screen and #{$SmallScreen} {
-		display: block;
-		@include paddedbox;
-	}
-}
-
-.subsection {
-	position:static;
-
-	&:not(:last-child) {
-		@include pskip(2);
-	}
-}
-
-
-/*###################
-## BASIC ELEMENTS ##
-###################*/
-
-nav {
-	text-align: center;
-}
-
-nav	a { 
-	display: table-cell;
-	float: left;
-	margin-right: 0.5 * $VGutter;
-	white-space: nowrap;
-	ul { margin: none; }
-}
-
-h2, h3, h4, h5, h6, p:not(:last-child), dl:not(:last-child), ul:not(:last-child), ol:not(:last-child), blockquote:not(:last-child) {
-	@include pskip;
-}
-
-dt { margin-top: 0.5* $HGutter; }
+dt { margin-top: 0.5em; }
 
 ul, ol, dd {
 	padding-left: $HGutter; 
 }
 
+time {
+	display:block;
+}
+
 blockquote {
 	padding-left: $HGutter;
 	padding-right: $HGutter; 
-}
-
-figure {
-	@media screen and #{$SmallScreen} {
-		text-align: center;
-		figcaption { text-align: left; }
-	}
 }
 
 button {
@@ -183,253 +109,89 @@ footer address {
 	margin-top:0;
 }
 
-/*########################
-## EXCEPTIONAL ELEMENTS ##
-########################*/
-
-#top-menus ul { /* remove pskip */
-	margin-bottom:0;
-}
-
-.menu {
-	padding-left: 0;
-	margin-bottom: 0;
-	
-	> li {
-		@media screen and #{$SmallScreen} {
-			width: 50%;
-		}
-		display: inline-block;
-		position: relative;
-	}
-	
-	.sub-menu {
-		position:absolute;
-		left: 0;
-		top: 100%;
-		padding-left: 0;
-		display: none;
-		z-index: 1;
-	}
-
-	li:hover .sub-menu {
-		display: block;
-		list-style: none;
-	}
-}
-
-nav a {  
-	@include paddedbox(0.5,1,0.5,1);
-	text-align: left;
-	margin-right: 0;
-	z-index: 2;
-}
-
-#prev-next {
-	@include commenttype;
-	text-align: center;
-}
-
-#splash header, .short .margin {
-	h2 {
-		text-align: center;
-	}
-	.infobox {
-		width: 100%;
-		tr { width: 100%; }
-		th, td { width: 33%; }
-
-		@include pskip;
-	}
-
-	.infobox-key {
-		text-align: center;
-		@include commenttype;
-	}
-
-	.infobox-value {
-		text-align: center;
-		@include headlinetype;
-		@include setfontsize(3);
-	}
-
-	.categories {
-		text-align: center;
-		@include footnotetype;
-		a { color:$MidLight; }
-	}
-}
-
-.cite, .sidenote, time {
-	@include footnotetype;
-	@include pskip(0.25);
-}
-
-.margin figure {
-	line-height: 0;
-	@include pskip;
-
-	@media screen and #{$SmallScreen} {
-		display: none;
-	}
-
-	img { 
-		width: 100%;
-		height: auto;
-		margin: 0; 
-	}
-	figcaption {
-		@include paddedbox;
-	}
-}
-
-.sidefig-placeholder {
-	@media screen and #{$ColumnatedScreen} {
-		width: 0;
-		height: 0;
-		margin: 0;
-		clear:none;
-		* { display: none; }
-	}
-}
-
-.footnote-snapback {
-	@media screen and #{$ColumnatedScreen} {
-		display: none;
-	}
-}
-
-address, .author {
-	h3 { 
-		@include setfontsize(0);
-		@include pskip(0.5);
-	}
-	p  { 
-		@include footnotetype;
-		color: $AltForeground;
-	}
-	margin-top: 2*$VGutter;
-	img {
-		height: auto;
-		width: auto;
-		float: left;
-	}
-}
-
-.short h2 { margin-bottom:0; }
-
-/*###############
-## MAIN STYLES ##
-###############*/
-
-/* shadows /////////////////////////////////////////////////////////////
-// Adds small drop shadows around element
-//////////////////////////////////////////////////////////////////////////*/
-
-@mixin shadows {
-	-moz-box-shadow:
-		5px 5px 5px -5px $MidLight,
-		-5px 5px 5px -5px $MidLight;
-	-webkit-box-shadow:
-		5px 5px 5px -5px $MidLight,
-		-5px 5px 5px -5px $MidLight;
-	box-shadow:
-		5px 5px 5px -5px $MidLight,
-		-5px 5px 5px -5px $MidLight;
-}
+/*####################################
+## STYLES FOR BASIC LAYOUT ELEMENTS ##
+####################################*/
 
 html {
-	background-image: url('../img/bg/pw_maze_white.png');
-	background-size: 46px auto;
-	@media screen and #{$RetinaScreen} {
-		background: url('../img/bg/pw_maze_white_@2X.png');
-	}
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPjxyZWN0IGZpbGw9IiNFREVERUQiIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTI4IDY2bC0yOC0xNnYtMzRsMjgtMTYgMjggMTZ2MzRsLTI4IDE2djM0IiBmaWxsPSJub25lIi8+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0yOCAwdjM0bC0yOCAxNnYzNGwyOCAxNiAyOC0xNnYtMzRsLTI4LTE2IiBmaWxsPSJub25lIi8+PC9zdmc+);
+	background-size: 15px auto;
 }
 
 body {
 	color: $Foreground;
 }
 
+body > header h1 {
+	display: inline-block;
+	@include paddedbox;
+}
+
 body > header, body > footer	{ 
+	text-align:center;
 	color: $HeaderForeground; 	  	
 	background-color: $HeaderBackground; 
 	a { color: $HeaderForeground; }
 }
 
-body > footer {
-	color: $AltForeground;
-	#search label {
-		display: none;
+#top-menus ul {
+	@extend .NoSkipBefore;
+}
+
+#splash {
+	header { 
+		@extend .PaddedLayoutElement; 
+		h2 { text-align: center; }
+		.categories {
+			text-align: center;
+			@include footnotetype;
+			a { color:$MidLight; }
+		}
 	}
-}
-
-.column { 
-	background-color: $Background;
-	border: 1px solid $AltBackground;
-	@include shadows;
-}
-
-.margin.has-sidenotes {
-	@media screen and #{$SmallScreen} {
-		background-color: $AltBackground;
-		@include shadows;
+	figure {
+		z-index: 1;
 	}
-}
-
-.margin figure {
-	@include shadows;
-	background-color: $Background;
-}
-
-a { 
-	text-decoration: none; 
-	&:hover {
-		text-decoration: underline;
-	}
-}
-
-blockquote, caption, code, pre, samp, time { 
-	color: $AltForeground; 
-}
-
-button {
-	color: $HeaderForeground;
-}
-
-.strong { color: $MidLight; }
-
-.regular { color: $Mid; }
-
-.weak { color: $MidDark; }
-
-/*######################
-## EXCEPTIONAL STYLES ##
-######################*/
-
-#top-menus {
-	@include shadows;
-}
-
-.menu li:hover .sub-menu {
-	border: 1px solid $AltBackground;
-	background-color: $Background;
-	@include shadows;
-}
-
-#primary-menu {
-	background-color: $Dark; 
+	color: $MidLight;
+	background-color: $Dark;
 	a { color: $HeaderForeground; }
-	.sub-menu a { color: $AltForeground; } 
 }
 
-#secondary-menu {
-	background-color: $Background; 
-	a { color: $AltForeground; }
+body > section, body > article {
+	@extend .Shadows;
 }
 
-#prev-next {
-	text-align: center;
-	a { color: $Foreground; }
+.featured-image-banner {
+
+}
+
+.column, .columncolumn {
+	@extend .PaddedLayoutElement;
+	background-color: $Background;
+}
+
+.margin, .marginmargin {
+	@extend .PaddedLayoutElement;
+	background-color: $AltBackground;
+}
+
+body > footer {
+	@extend .PaddedLayoutElement;
+	color: $AltForeground;
+}
+
+/*##########################
+## ADVANCED LAYOUT STYLES ##
+##########################*/
+
+@import 'navigation.scss';
+@import 'comments.scss';
+@import 'sidematter.scss';
+@import 'forms.scss';
+@import 'postformats.scss';
+
+.subsection {
+	position:static;
+	&:not(:first-child) { @extend .SkipBefore; }
 }
 
 .output-message {
@@ -438,24 +200,8 @@ button {
 	a { color: $Foreground; }
 }
 
-#splash header, .short .margin {
-	@include shadows;
-	color: $MidLight;
-	background-color: $Dark;
-	a { color: $HeaderForeground; }
+.container { // for external plugins to use
+	@extend .PaddedLayoutElement;
+	@extend .Shadows;
+	background-color: $Background;
 }
-
-#splash figure {
-	@include shadows;
-}
-
-#comments header img {
-	@include shadows;
-}
-
-/*#######################
-## EXTERNAL COMPONENTS ##
-#######################*/
-
-@import 'postformats.scss';
-@import 'comments.scss';
