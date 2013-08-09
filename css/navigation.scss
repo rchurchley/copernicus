@@ -1,5 +1,4 @@
 @media screen and #{$SmallScreen} {
-	body > header + section { margin-top: 0; }
 	body > header h1 {
 		display: inline-block;
 		float: left;
@@ -72,6 +71,10 @@ nav	a {
 #secondary-menu {
 	background-color: $Background; 
 	a { color: $AltForeground; }
+}
+
+.output-message {
+	@extend .SkipBefore;
 }
 
 #prev-next {

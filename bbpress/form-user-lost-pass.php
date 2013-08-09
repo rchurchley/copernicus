@@ -4,7 +4,7 @@
  * User Lost Password Form
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -16,7 +16,7 @@
 		<div class="bbp-username">
 			<p>
 				<label for="user_login" class="hide"><?php _e( 'Username or Email', 'bbpress' ); ?>: </label>
-				<input type="text" name="user_login" value="" @subpackage Marginalid="user_login" tabindex="<?php bbp_tab_index(); ?>" />
+				<input type="text" name="user_login" value="" id="user_login" tabindex="<?php bbp_tab_index(); ?>" />
 			</p>
 		</div>
 

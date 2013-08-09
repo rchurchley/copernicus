@@ -31,7 +31,6 @@
 	add_action( 'customize_register', 'marginal_customize_register' ); 
 	add_action( 'wp_head', 'marginal_customize_css');
 
-
 /* ===========================================================================================
 	Required external files
 =========================================================================================== */
@@ -41,11 +40,113 @@
 	require_once( 'external/add-featured-image-to-rss-feed.php' );
 
 /* ===========================================================================================
+	Advanced custom fields
+=========================================================================================== */
+
+	define( 'ACF_LITE' , true );
+	include_once('external/advanced-custom-fields/acf.php' );
+
+	/**
+ *  Register Field Groups
+ *
+ *  The register_field_group function accepts 1 array which holds the relevant data to register a field group
+ *  You may edit the array as you see fit. However, this may result in errors if the array is not compatible with ACF
+ */
+
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_post-banner',
+		'title' => 'Post banner',
+		'fields' => array (
+			array (
+				'key' => 'field_52045fc28d171',
+				'label' => 'Post banner image',
+				'name' => 'post_banner_image',
+				'type' => 'image',
+				'instructions' => 'Image to be displayed above the post on archive pages',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_52045fe88d172',
+				'label' => 'Post banner alignment',
+				'name' => 'post_banner_alignment',
+				'type' => 'radio',
+				'instructions' => 'Horizontal alignment for the post banner',
+				'choices' => array (
+					'left' => 'left',
+					'center' => 'center',
+					'right' => 'right',
+				),
+				'other_choice' => 0,
+				'save_other_choice' => 0,
+				'default_value' => 'right',
+				'layout' => 'horizontal',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+
+	register_field_group(array (
+		'id' => 'acf_summary',
+		'title' => 'Summary',
+		'fields' => array (
+			array (
+				'key' => 'field_520517ad6af9d',
+				'label' => 'Caption',
+				'name' => 'caption',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'formatting' => 'html',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_format',
+					'operator' => '==',
+					'value' => 'image',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+/* ===========================================================================================
 	Add theme support for various features
 =========================================================================================== */
 
 	register_nav_menus(array('primary' => 'Primary Navigation'));
-	register_nav_menus(array('secondary' => 'Secondary Navigation'));
 	
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'post-formats', array( 'link', 'image' ) );
@@ -112,43 +213,6 @@
 		return "<section class='{$class} subsection'>".do_shortcode($content)."</section>";
 	}
 	add_shortcode('section', 'html5_section');
-
-/* ===========================================================================================
-	Widgets
-=========================================================================================== */
-	
-	register_sidebar(array(
-		'name' => 'Summary',
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
-	));
-
-	register_sidebar(array(
-		'name' => 'Short Summary',
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
-	));
-
-	register_sidebar(array(
-		'name' => 'Page Summary',
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
-	));
-
-	register_sidebar(array(
-		'name' => 'Image Summary',
-		'before_widget' => '',
-		'after_widget' => '',
-		'before_title' => '<h2>',
-		'after_title' => '</h2>',
-	));
-
 
 /* ===========================================================================================
 	Comments

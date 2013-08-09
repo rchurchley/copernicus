@@ -4,7 +4,7 @@
  * Password Protected
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>

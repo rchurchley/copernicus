@@ -4,7 +4,7 @@
  * Edit Topic Tag
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -33,12 +33,12 @@
 
 					<div>
 						<label for="tag-name"><?php _e( 'Name:', 'bbpress' ); ?></label>
-						<input type="text" id="tag-name" name="tag-name" @subpackage Marginalmaxlength="40" tabindex="<?php bbp_tab_index(); ?>" value="<?php echo esc_attr( bbp_get_topic_tag_name() ); ?>" />
+						<input type="text" id="tag-name" name="tag-name" maxlength="40" tabindex="<?php bbp_tab_index(); ?>" value="<?php echo esc_attr( bbp_get_topic_tag_name() ); ?>" />
 					</div>
 
 					<div>
 						<label for="tag-slug"><?php _e( 'Slug:', 'bbpress' ); ?></label>
-						<input type="text" id="tag-slug" name="tag-slug" @subpackage Marginalmaxlength="40" tabindex="<?php bbp_tab_index(); ?>" value="<?php echo esc_attr( apply_filters( 'editable_slug', bbp_get_topic_tag_slug() ) ); ?>" />
+						<input type="text" id="tag-slug" name="tag-slug" maxlength="40" tabindex="<?php bbp_tab_index(); ?>" value="<?php echo esc_attr( apply_filters( 'editable_slug', bbp_get_topic_tag_slug() ) ); ?>" />
 					</div>
 
 					<div class="bbp-submit-wrapper">
@@ -66,7 +66,7 @@
 
 					<div>
 						<label for="tag-existing-name"><?php _e( 'Existing tag:', 'bbpress' ); ?></label>
-						<input type="text" id="tag-existing-name" name="tag-existing-name" @subpackage Marginaltabindex="<?php bbp_tab_index(); ?>" maxlength="40" />
+						<input type="text" id="tag-existing-name" name="tag-existing-name" tabindex="<?php bbp_tab_index(); ?>" maxlength="40" />
 					</div>
 
 					<div class="bbp-submit-wrapper">

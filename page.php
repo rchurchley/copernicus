@@ -19,7 +19,7 @@
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 	<?php if( has_post_thumbnail() ) : ?>
-		<section id="splash">
+		<section class="gallery" id="splash">
 			<figure>
 				<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
 			</figure>
@@ -31,7 +31,7 @@
 		</section>
 	<?php endif;?>
 
-	<section class="<?php $category = get_the_category(); echo $category[0]->slug;?> single-page">
+	<section class="post-content">
 		<div class="column">
 			<?php if( !has_post_thumbnail() ) : ?>			
 				<header>
@@ -40,7 +40,7 @@
 			<?php endif;?>
 		<?php the_content(); ?>
 		</div>
-		<div class="margin">
+		<div class="margin <?php if (apply_filters('side_matter_exists','')) : ?>has-sidenotes<?php endif;?>">
 			<?php do_action( 'side_matter_list_notes' ); ?>
 		</div>
 	</section>

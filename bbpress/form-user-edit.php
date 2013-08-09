@@ -4,7 +4,7 @@
  * bbPress User Profile Edit Part
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -80,7 +80,7 @@
 
 		<div>
 			<label for="description"><?php _e( 'Biographical Info', 'bbpress' ); ?></label>
-			<textarea name="description" id="description" rows="5" @subpackage Marginaltabindex="<?php bbp_tab_index(); ?>"><?php echo esc_attr( bbp_get_displayed_user_field( 'description' ) ); ?></textarea>
+			<textarea name="description" id="description" rows="5" tabindex="<?php bbp_tab_index(); ?>"><?php echo esc_attr( bbp_get_displayed_user_field( 'description' ) ); ?></textarea>
 		</div>
 
 		<?php do_action( 'bbp_user_edit_after_about' ); ?>
@@ -123,10 +123,10 @@
 		<div id="password">
 			<label for="pass1"><?php _e( 'New Password', 'bbpress' ); ?></label>
 			<fieldset class="bbp-form password">
-				<input type="password" name="pass1" id="pass1" @subpackage Marginalvalue="" autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
+				<input type="password" name="pass1" id="pass1" value="" autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
 				<span class="description"><?php _e( 'If you would like to change the password type a new one. Otherwise leave this blank.', 'bbpress' ); ?></span>
 
-				<input type="password" name="pass2" id="pass2" @subpackage Marginalvalue="" autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
+				<input type="password" name="pass2" id="pass2" value="" autocomplete="off" tabindex="<?php bbp_tab_index(); ?>" />
 				<span class="description"><?php _e( 'Type your new password again.', 'bbpress' ); ?></span><br />
 
 				<div id="pass-strength-result"></div>

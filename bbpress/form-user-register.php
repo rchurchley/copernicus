@@ -4,7 +4,7 @@
  * User Registration Form
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -21,12 +21,12 @@
 
 		<div class="bbp-username">
 			<label for="user_login"><?php _e( 'Username', 'bbpress' ); ?>: </label>
-			<input type="text" name="user_login" value="<?php bbp_sanitize_val( 'user_login' ); ?>" @subpackage Marginalid="user_login" tabindex="<?php bbp_tab_index(); ?>" />
+			<input type="text" name="user_login" value="<?php bbp_sanitize_val( 'user_login' ); ?>" id="user_login" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
 		<div class="bbp-email">
 			<label for="user_email"><?php _e( 'Email', 'bbpress' ); ?>: </label>
-			<input type="text" name="user_email" value="<?php bbp_sanitize_val( 'user_email' ); ?>" @subpackage Marginalid="user_email" tabindex="<?php bbp_tab_index(); ?>" />
+			<input type="text" name="user_email" value="<?php bbp_sanitize_val( 'user_email' ); ?>" id="user_email" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
 		<?php do_action( 'register_form' ); ?>

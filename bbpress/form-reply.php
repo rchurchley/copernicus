@@ -4,7 +4,7 @@
  * New/Edit Reply
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -82,7 +82,7 @@
 
 						<p>
 							<label for="bbp_topic_tags"><?php _e( 'Tags:', 'bbpress' ); ?></label><br />
-							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" @subpackage Marginalname="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
 						</p>
 
 						<?php do_action( 'bbp_theme_after_reply_form_tags' ); ?>
@@ -126,7 +126,7 @@
 
 							<div>
 								<label for="bbp_reply_edit_reason"><?php printf( __( 'Optional reason for editing:', 'bbpress' ), bbp_get_current_user_name() ); ?></label><br />
-								<input type="text" value="<?php bbp_form_reply_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" @subpackage Marginalname="bbp_reply_edit_reason" id="bbp_reply_edit_reason" />
+								<input type="text" value="<?php bbp_form_reply_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" name="bbp_reply_edit_reason" id="bbp_reply_edit_reason" />
 							</div>
 						</fieldset>
 

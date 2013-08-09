@@ -4,7 +4,7 @@
  * Split Topic
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -37,7 +37,7 @@
 							<div>
 								<input name="bbp_topic_split_option" id="bbp_topic_split_option_reply" type="radio" checked="checked" value="reply" tabindex="<?php bbp_tab_index(); ?>" />
 								<label for="bbp_topic_split_option_reply"><?php printf( __( 'New topic in <strong>%s</strong> titled:', 'bbpress' ), bbp_get_forum_title( bbp_get_topic_forum_id( bbp_get_topic_id() ) ) ); ?></label>
-								<input type="text" id="bbp_topic_split_destination_title" value="<?php printf( __( 'Split: %s', 'bbpress' ), bbp_get_topic_title() ); ?>" tabindex="<?php bbp_tab_index(); ?>" @subpackage Marginalname="bbp_topic_split_destination_title" />
+								<input type="text" id="bbp_topic_split_destination_title" value="<?php printf( __( 'Split: %s', 'bbpress' ), bbp_get_topic_title() ); ?>" tabindex="<?php bbp_tab_index(); ?>" name="bbp_topic_split_destination_title" />
 							</div>
 
 							<?php if ( bbp_has_topics( array( 'show_stickies' => false, 'post_parent' => bbp_get_topic_forum_id( bbp_get_topic_id() ), 'post__not_in' => array( bbp_get_topic_id() ) ) ) ) : ?>
@@ -50,8 +50,8 @@
 										bbp_dropdown( array(
 											'post_type'   => bbp_get_topic_post_type(),
 											'post_parent' => bbp_get_topic_forum_id( bbp_get_topic_id() ),
-											'selected'    => -1,
-											'exclude'     => bbp_get_topic_id(),
+											'selected'	=> -1,
+											'exclude'	 => bbp_get_topic_id(),
 											'select_id'   => 'bbp_destination_topic',
 											'none_found'  => __( 'No other topics found!', 'bbpress' )
 										) );

@@ -3,76 +3,147 @@
 @import 'defaults.scss';
 @import 'layout.scss';
 @import 'typography.scss';
-
-/*############################
-## ABSTRACT STYLE TEMPLATES ##
-############################*/
-
-/* Paddedbox ////////////////////////////////////////////////////////////*/
-
-@mixin paddedbox($TPadding: 1, $RPadding: 1, $BPadding: 1, $LPadding: 1) {
-	padding-top: $TPadding * $VGutter;
-	padding-right: $RPadding * $HGutter;
-	padding-bottom: $BPadding * $VGutter;
-	padding-left: $LPadding * $HGutter;
-}
-
-.PaddedLayoutElement {
-	@media not screen and #{$SmallScreen} {
-		@include paddedbox;
-	}
-	@media screen and #{$SmallScreen} {
-		@include paddedbox(1,1/2,1,1/2);
-	}
-}
-
-.PreParSkip {
-	margin-top: $PSkip;
-}
-
-.NoPreParSkip {
-	margin-top: 0;
-}
-
-/* Shadows ///////////////////////////////////////////////////////////*/
-
-.Shadows {
-	-moz-box-shadow:	2px 2px 2px -2px $MidLight, -2px 2px 2px -2px $MidLight;
-	-webkit-box-shadow:	2px 2px 2px -2px $MidLight,	-2px 2px 2px -2px $MidLight;
-	box-shadow:			2px 2px 2px -2px $MidLight,	-2px 2px 2px -2px $MidLight;
-}
-
-.NoShadows {
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
+@import 'style-templates.scss';
 
 /*############################
 ## BASIC COLOURS AND STYLES ##
 ############################*/
-
-body {
-	font-family: "Source Sans Pro", sans-serif;
+html {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPjxyZWN0IGZpbGw9IiNGNEY3RjciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiLz48cGF0aCBzdHJva2U9IiNFNEU2RTYiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTI4IDY2bC0yOC0xNnYtMzRsMjgtMTYgMjggMTZ2MzRsLTI4IDE2djM0IiBmaWxsPSJub25lIi8+PHBhdGggc3Ryb2tlPSIjRTRFNkU2IiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0yOCAwdjM0bC0yOCAxNnYzNGwyOCAxNiAyOC0xNnYtMzRsLTI4LTE2IiBmaWxsPSJub25lIi8+PC9zdmc+);
+	background-size: 15px auto;
 }
 
-header, h1, h2, h3, h4, th, dt, nav { 
+body {
+	font-family: "Source Sans Pro", sans-serif;	
+	color: $Foreground;
+}
+
+header, h1, h2, h3, h4, th, dt, nav, code { 
 	font-family: "Roboto Slab", serif;
 }
 
-a 		{ 	color: $AltForeground; }
-button 	{ 	background-color: $HeaderBackground; 
-			color: $HeaderForeground;
+a { 
+	color: $AltForeground; 
 }
 
-blockquote, caption, code, pre, samp, time { 
+button {
+	background-color: $HeaderBackground; 
+	color: $HeaderForeground;
+}
+
+blockquote, caption, pre, samp, time, .meta, .meta a { 
 	color: $AltForeground; 
+}
+
+code {
+	background-color: $AltBackground;
 }
 
 a { 
 	text-decoration: none; 
 	&:hover {
 		text-decoration: underline;
+	}
+}
+
+.post-content {
+	border: 1px solid $AltLight;
+}
+
+/*#################
+## BASIC LAYOUT  ##
+#################*/
+
+body {
+	width: 100%;
+}
+
+body > header, body > footer {
+	width: 100%;
+}
+
+body > section, body > article {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	@media (min-width: $MediumGrid + 2*$HGutter) and (max-width: $LargeGrid - 1px) { 
+		width: $MediumGrid; 
+	}
+	@media (min-width: $LargeGrid + 2*$HGutter) {
+		width: $LargeGrid;
+	}
+}
+
+body > section, body > article, body > footer {
+	@extend .SkipBefore;
+}
+
+body > header + article, body > header + section, body > article + footer, body > section + footer {
+	@media #{$SmallScreen}, (min-width: $MediumGrid) and (max-width: $MediumGrid + 2*$HGutter), (min-width: $LargeGrid) and (max-width: $LargeGrid + 2*$HGutter) {
+		margin-top: 0;
+	}
+}
+
+.post-banner {
+	width: 100%;
+	height: 10rem;
+	background-position: 50% 33.3333%;
+	background-repeat: no-repeat;
+}
+
+.gallery {
+	figure { 
+		@extend .MainColumnColumn;
+		float:left;
+		line-height: 0;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	header { 
+		@extend .SideColumnColumn;
+		@extend .AttachColumnColumnToRight;
+	}
+}
+
+#splash {
+	+ section { @extend .NoSkipBefore; }
+}
+
+.column {
+	@extend .MainColumn;
+	float:left;
+}
+
+.margin {
+	@extend .SideColumn;
+	@extend .AttachColumnToRight;
+	@extend .NoSkipBefore;
+	@media not screen and #{$LargeScreen} {	display: none; }
+}
+
+.columncolumn {
+	@extend .MainColumnColumn;
+	float:left;
+}
+
+.marginmargin {
+	@extend .SideColumnColumn;
+	@extend .AttachColumnColumnToRight;
+	@extend .NoSkipBefore;
+	@media screen and #{$SmallScreen} { display: none; }
+}
+
+.column, .columncolumn, .margin, .marginmargin {
+	@extend .PaddedLayoutElement;
+}
+
+.margin.has-sidenotes {
+	@media not screen and #{$LargeScreen} {
+		display: block;
+		float: right;
 	}
 }
 
@@ -90,8 +161,8 @@ ul, ol, dd {
 	padding-left: $HGutter; 
 }
 
-time {
-	display:block;
+time, .meta {
+	display: inline;
 }
 
 blockquote {
@@ -101,8 +172,7 @@ blockquote {
 
 button {
 	@include paddedbox;
-	-moz-border-radius: $VGutter;
-	border-radius: $VGutter;
+	@extend .Shadows;
 }
 
 footer address {
@@ -112,15 +182,6 @@ footer address {
 /*####################################
 ## STYLES FOR BASIC LAYOUT ELEMENTS ##
 ####################################*/
-
-html {
-	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPjxyZWN0IGZpbGw9IiNFREVERUQiIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiLz48cGF0aCBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTI4IDY2bC0yOC0xNnYtMzRsMjgtMTYgMjggMTZ2MzRsLTI4IDE2djM0IiBmaWxsPSJub25lIi8+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0yOCAwdjM0bC0yOCAxNnYzNGwyOCAxNiAyOC0xNnYtMzRsLTI4LTE2IiBmaWxsPSJub25lIi8+PC9zdmc+);
-	background-size: 15px auto;
-}
-
-body {
-	color: $Foreground;
-}
 
 body > header h1 {
 	display: inline-block;
@@ -138,7 +199,7 @@ body > header, body > footer	{
 	@extend .NoSkipBefore;
 }
 
-#splash {
+.gallery {
 	header { 
 		@extend .PaddedLayoutElement; 
 		h2 { text-align: center; }
@@ -160,17 +221,11 @@ body > section, body > article {
 	@extend .Shadows;
 }
 
-.featured-image-banner {
-
-}
-
 .column, .columncolumn {
-	@extend .PaddedLayoutElement;
 	background-color: $Background;
 }
 
 .margin, .marginmargin {
-	@extend .PaddedLayoutElement;
 	background-color: $AltBackground;
 }
 
@@ -198,10 +253,4 @@ body > footer {
 	width:100%;
 	text-align:center;
 	a { color: $Foreground; }
-}
-
-.container { // for external plugins to use
-	@extend .PaddedLayoutElement;
-	@extend .Shadows;
-	background-color: $Background;
 }

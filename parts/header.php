@@ -9,11 +9,5 @@
 			'fallback_cb'		=> 'untitled_list_pages'
 		)); ?>
 		</ul>
-		<?php wp_nav_menu( array( 
-			'theme_location'	=> 'secondary', 
-			'container'			=> false,
-			'menu_id'			=> 'secondary-menu',
-			'fallback_cb'		=> 'false'
-		)); ?>
 	</nav>
 </header>

@@ -78,7 +78,7 @@ figcaption {
 	@include commenttype;
 }
 
-time {
+time, .meta {
 	@include footnotetype;
 }
 

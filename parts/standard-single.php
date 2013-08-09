@@ -1,5 +1,5 @@
 <?php if( has_post_thumbnail() ) : ?>
-<section id="splash">
+<section class="gallery" id="splash">
 	<figure>
 		<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
 	</figure>
@@ -10,7 +10,7 @@
 	</header>
 </section>
 <?php endif;?>
-<section id="content">
+<section  class="post-content">
 	<div class="column">
 		
 		<?php if( !has_post_thumbnail() ) : ?>
@@ -18,6 +18,7 @@
 			<header>
 			<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
 			<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time>
+			<p class="meta">— <?php the_category(', '); ?></p>
 			</header>
 
 		<?php endif; ?>

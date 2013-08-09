@@ -4,7 +4,7 @@
  * User Login Form
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -15,12 +15,12 @@
 
 		<div class="bbp-username">
 			<label for="user_login"><?php _e( 'Username', 'bbpress' ); ?>: </label>
-			<input type="text" name="log" value="<?php bbp_sanitize_val( 'user_login', 'text' ); ?>" @subpackage Marginalid="user_login" tabindex="<?php bbp_tab_index(); ?>" />
+			<input type="text" name="log" value="<?php bbp_sanitize_val( 'user_login', 'text' ); ?>" id="user_login" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
 		<div class="bbp-password">
 			<label for="user_pass"><?php _e( 'Password', 'bbpress' ); ?>: </label>
-			<input type="password" name="pwd" value="<?php bbp_sanitize_val( 'user_pass', 'password' ); ?>" @subpackage Marginalid="user_pass" tabindex="<?php bbp_tab_index(); ?>" />
+			<input type="password" name="pwd" value="<?php bbp_sanitize_val( 'user_pass', 'password' ); ?>" id="user_pass" tabindex="<?php bbp_tab_index(); ?>" />
 		</div>
 
 		<div class="bbp-remember-me">

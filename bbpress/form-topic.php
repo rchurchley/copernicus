@@ -4,7 +4,7 @@
  * New/Edit Topic
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -61,7 +61,7 @@
 
 					<p>
 						<label for="bbp_topic_title"><?php printf( __( 'Topic Title (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?></label><br />
-						<input type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" @subpackage Marginalname="bbp_topic_title" maxlength="<?php bbp_title_max_length(); ?>" />
+						<input type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" name="bbp_topic_title" maxlength="<?php bbp_title_max_length(); ?>" />
 					</p>
 
 					<?php do_action( 'bbp_theme_after_topic_form_title' ); ?>
@@ -72,7 +72,7 @@
 
 						<p>
 							<label for="bbp_reply_content"><?php _e( 'Reply:', 'bbpress' ); ?></label><br />
-							<textarea id="bbp_topic_content" tabindex="<?php bbp_tab_index(); ?>" name="bbp_topic_content" @subpackage Marginalrows="6"><?php bbp_form_topic_content(); ?></textarea>
+							<textarea id="bbp_topic_content" tabindex="<?php bbp_tab_index(); ?>" name="bbp_topic_content" rows="6"><?php bbp_form_topic_content(); ?></textarea>
 						</p>
 
 					<?php else : ?>
@@ -174,7 +174,7 @@
 
 							<div>
 								<label for="bbp_topic_edit_reason"><?php printf( __( 'Optional reason for editing:', 'bbpress' ), bbp_get_current_user_name() ); ?></label><br />
-								<input type="text" value="<?php bbp_form_topic_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" @subpackage Marginalname="bbp_topic_edit_reason" id="bbp_topic_edit_reason" />
+								<input type="text" value="<?php bbp_form_topic_edit_reason(); ?>" tabindex="<?php bbp_tab_index(); ?>" name="bbp_topic_edit_reason" id="bbp_topic_edit_reason" />
 							</div>
 						</fieldset>
 

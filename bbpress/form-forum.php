@@ -4,7 +4,7 @@
  * New/Edit Forum
  *
  * @package bbPress
- * @subpackage Theme
+ * @subpackage Marginal
  */
 
 ?>
@@ -63,7 +63,7 @@
 
 					<p>
 						<label for="bbp_forum_title"><?php printf( __( 'Forum Name (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?></label><br />
-						<input type="text" id="bbp_forum_title" value="<?php bbp_form_forum_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" @subpackage Marginalname="bbp_forum_title" maxlength="<?php bbp_title_max_length(); ?>" />
+						<input type="text" id="bbp_forum_title" value="<?php bbp_form_forum_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" name="bbp_forum_title" maxlength="<?php bbp_title_max_length(); ?>" />
 					</p>
 
 					<?php do_action( 'bbp_theme_after_forum_form_title' ); ?>
@@ -74,7 +74,7 @@
 
 						<p>
 							<label for="bbp_forum_content"><?php _e( 'Forum Description:', 'bbpress' ); ?></label><br />
-							<textarea id="bbp_forum_content" tabindex="<?php bbp_tab_index(); ?>" name="bbp_forum_content" @subpackage Marginalrows="10"><?php bbp_form_forum_content(); ?></textarea>
+							<textarea id="bbp_forum_content" tabindex="<?php bbp_tab_index(); ?>" name="bbp_forum_content" rows="10"><?php bbp_form_forum_content(); ?></textarea>
 						</p>
 
 					<?php else : ?>
