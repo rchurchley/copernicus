@@ -4,11 +4,12 @@ header("Content-type: text/css");
 
 // Array of css files
 $css = array(
-    'http://fonts.googleapis.com/css?family=Source+Sans+Pro:400|Roboto+Slab&subset=latin-ext',
-    'http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400italic&subset=latin'
+	'http://fonts.googleapis.com/css?family=Open+Sans:400&subset=latin-ext',
+	'http://fonts.googleapis.com/css?family=Open+Sans:700,400italic&subset=latin'
 );
 
-echo file_get_contents('main-style.css');
+echo file_get_contents('../fonts/genericons.css');
+echo file_get_contents('style.css');
 
 // Loop the css Array
 foreach ($css as $css_file) {

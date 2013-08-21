@@ -1,5 +1,43 @@
-.linkfigure {
-	background-color: $Dark;
-	background-position: center center;
-	background-repeat: no-repeat;
+@import 'palettes.scss';
+@import 'type.scss';
+
+.format-aside .post-title:before, .format-link .post-title:before, .format-image .post-title:before, {
+	position: relative;
+	top: -2px;
+	margin-right: 5px;
+	font-size: $PostTitleFontSize;
+}
+
+.format-aside .post-header {
+	background-color: $AsideHeaderBackground;
+}
+.format-aside .post-title {
+	color: $AsideHeaderForeground;
+}
+.format-aside .post-title:before {
+	content: '\f425';
+}
+
+.format-image .post-header {
+	background-color: $ImageHeaderBackground;
+}
+.format-image .post-title {
+	color: $ImageHeaderForeground;
+}
+.format-image .post-title:before {
+	content: '\f102';
+}
+
+.format-link .post-header {
+	background-color: $LinkHeaderBackground;
+}
+
+.format-link .post-title {
+	color: $LinkForeground;
+}
+.format-link .post-title a {
+	color: $LinkForeground;
+}
+.format-link .post-title:before {
+	content: '\f107';
 }

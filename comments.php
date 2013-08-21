@@ -1,41 +1,64 @@
 <?php
-/**
- * The template for displaying Comments.
- *
- * The area of the page that contains both current comments
- * and the comment form. The actual display of comments is
- * handled by a callback to starkers_comment() which is
- * located in the functions.php file.
- *
- * @package 	WordPress
- * @subpackage 	Marginal
- * @since 		Marginal 1.0
- */
-?>
-<section id="comments">
-	<?php if ( post_password_required() ) : ?>
-	<p>This post is password protected. Enter the password to view any comments</p>
-</section>
 
-	<?php
-			/* Stop the rest of comments.php from being processed,
-			 * but don't kill the script entirely -- we still have
-			 * to fully load the template.
-			 */
-			return;
+/* Comments ===================================================================
+
+	The template for displaying comments.
+	
+	The area of the page that contains current comments and the comment form. 
+	
+	@package 	WordPress
+	@subpackage Copernicus
+	@since 		Copernicus 1.0
+
+============================================================================ */
+
+	echo '<section id="comments-list">';
+
+		if ( post_password_required() ) :
+			echo '<p>This post is password protected. Enter the password to view any comments</p>';
+			echo '</section>';
+			return; // Stop the rest of comments.php from being processed
+		endif; 
+
+		if ( have_comments() ) : 
+			echo '<h2 class="comments-list-title">';
+			comments_number();
+			echo '</h2>';
+			wp_list_comments( array( 'callback' => 'copernicus_comment' ) ); 
 		endif;
-	?>
 
-	<?php // You can start editing here -- including this comment! ?>
+		comment_form();
 
-	<?php if ( have_comments() ) : ?>
+	echo '</section>';
 
-	<h2><?php comments_number(); ?></h2>
 
-	<?php wp_list_comments( array( 'callback' => 'starkers_comment' ) ); ?>
+	/* copernicus_comment -----------------------------------------------------
+	 * Custom callback for displaying comments
+	------------------------------------------------------------------------ */
 
-	<?php endif; ?>
+	function copernicus_comment( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment; 
+		if ( $comment->comment_approved == '1' ): ?>
 
-	<?php comment_form(); ?>
+			<article id="comment-<?php comment_ID() ?>" class="comment">
+				<header class="comment-header">
+					<?php echo get_avatar( $comment ); ?>
+					<div class="comment-meta">
+						<h4><?php comment_author_link() ?></h4>
+						<time>
+							<a href="#comment-<?php comment_ID() ?>" pubdate>
+								<?php comment_date('j M Y') ?>
+							</a>
+						</time>
+						<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+					</div>
+				</header>
+				<div class="comment-content">
+					<?php comment_text() ?>
+				</div>
+			</article>
+			
+		<?php endif;
+	}
 
-</section><!-- #comments -->
+?>

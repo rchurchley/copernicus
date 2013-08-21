@@ -1,0 +1,8 @@
+@import 'palettes.scss';
+@import 'type.scss';
+
+.footnotes {
+	color: $FootnoteForeground;
+	font-size: $FootnoteFontSize;
+	margin: 20px 40px;
+}

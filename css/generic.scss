@@ -1,0 +1,66 @@
+@import 'palettes.scss';
+@import 'type.scss';
+
+body {
+	text-rendering: optimizeLegibility;
+}
+
+h2 {
+	margin: 20px 0;
+	border-bottom: 2px solid $PostSubheadUnderline;
+	font-size: $PostSubheadFontSize;
+	font-family: $HeadlineTypeface;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+a {
+	color: $LinkForeground;
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.alignleft {
+	float: left;
+	margin-right: 10px;
+}
+
+.alignright {
+	float:right;
+	margin-left: 10px;
+}
+
+ul {
+	margin-bottom: 10px;
+	margin-left: 40px;
+}
+
+dt, dd, th, td { 
+	line-height: 1.1; 
+}
+
+blockquote {
+	padding: 0 20px;
+	color: $QuoteForeground;
+}
+
+strong, b {
+	font-weight: bold; 
+}
+em, i { 
+	font-style: italic;
+}
+
+sup, sub { 
+	position: relative; 
+	vertical-align: baseline; 
+	font-size:$FootnoteFontSize;
+}
+sup	{ top: -0.4em; }
+sub	{ top:  0.4em; }
+

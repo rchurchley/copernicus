@@ -1,51 +1,49 @@
 <?php
-/**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package 	WordPress
- * @subpackage 	Marginal
- * @since 		Marginal 1.0
- */
-?>
 
+/* Page =======================================================================
+	
+	The template for displaying all pages.
+	
+	This is the template that displays all WordPress pages by default.
+	
+	@package 	WordPress
+	@subpackage Copernicus
+	@since 		Copernicus 1.0
+	
+============================================================================ */
 
-<?php get_template_part('parts/html-header'); ?>
-<?php get_template_part('parts/header'); ?>
+	get_template_part('parts/html-header');
+	get_template_part('parts/header');
 
-<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-	<?php if( has_post_thumbnail() ) : ?>
-		<section class="gallery" id="splash">
-			<figure>
-				<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
-			</figure>
-			<header>
-				<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-				<p class="categories"><?php the_category(', '); ?></p>
-				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Page Summary") ) : endif; ?>
-			</header>
-		</section>
-	<?php endif;?>
-
-	<section class="post-content">
-		<div class="column">
-			<?php if( !has_post_thumbnail() ) : ?>			
-				<header>
-				<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-				</header>
+	if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+		
+		<article class="page">
+			<?php if( has_post_thumbnail() ) : ?>
+				<figure class="post-thumbnail">
+					<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
+				</figure>
 			<?php endif;?>
-		<?php the_content(); ?>
-		</div>
-		<div class="margin <?php if (apply_filters('side_matter_exists','')) : ?>has-sidenotes<?php endif;?>">
-			<?php do_action( 'side_matter_list_notes' ); ?>
-		</div>
-	</section>
+			<header class="post-header">
+				<h2 class="post-title">
+					<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
+						<?php the_title(); ?>
+					</a>
+				</h2>
+				<div class="post-meta">
+					<?php copernicus_post_meta(); ?>
+					<?php edit_post_link( __( 'Edit', 'copernicus' ), '<span class="edit-link">', '</span>' ); ?>
+				</div>
+			</header>
 
-<?php endwhile; ?>
+			<div class="post-content">
+				<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'copernicus' ) ); ?>
+				<?php wp_link_pages( array( 'before' => '<nav class="post-pagination"><span class="post-pagination-title">' . __( 'Pages:', 'copernicus' ) . '</span>', 'after' => '</nav>' ) ); ?>
+			</div>
+		</article>
 
-<?php get_template_part('parts/footer'); ?>
-<?php get_template_part('parts/html-footer'); ?>
+	<?php endwhile; 
+
+	get_template_part('parts/footer');
+	get_template_part('parts/html-footer'); 
+
+?>

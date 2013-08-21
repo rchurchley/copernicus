@@ -1,20 +1,61 @@
-/* colour palettes /////////////////////////////////////////////////////////
-// Based on the Solarized pallette: http://ethanschoonover.com/solarized
-//////////////////////////////////////////////////////////////////////////*/
+/*  Colour palettes ===========================================================
+	Based on the Solarized pallette: http://ethanschoonover.com/solarized
+=============================================================================*/
 
-$Red: #DC322F;			$Orange: #CB4B16;			$Yellow: #B58900;
-$Green: #859900;		$Cyan: #2AA198;				$Blue: #268BD2;
-$Violet: #6C71C4;		$Magenta: #D33682;			
+$Red: #DC322F;
+$Orange: #CB4B16;
+$Yellow: #B58900;
+$Green: #859900;
+$Cyan: #2AA198;
+$Blue: #268BD2;
+$Violet: #6C71C4;
+$Magenta: #D33682;			
 
-$Dark: #073642;			$MidDark: #475B62;			$Mid: #708284;				
-$MidLight: #93A1A1;		$AltLight: #E4E6E6; 		$Light: #F4F7F7;
-$White: #FFFFFF;
+$Darkest: #042029;
+$Darker: #0A2933;
+$Dark: #475B62;
+$Darkish: #536870;
+$Lightish: #708284;
+$Light: #819090;
+$Lighter: #EAE3CB;
+$Lightest: #FCF4DC;
 
-.red 	{ h2, a {color: $Red; }}
-.orange { h2, a {color: $Orange; }}
-.yellow { h2, a {color: $Yellow; }}
-.green 	{ h2, a {color: $Green; }}
-.cyan 	{ h2, a {color: $Cyan; }}
-.blue 	{ h2, a {color: $Blue; }}
-.violet { h2, a {color: $Violet; }}
-.magenta{ h2, a {color: $Magenta; }}
+$SiteTitleForeground: #FFF;
+$SiteTitleBackground: $Blue;
+$SiteNavForeground: #FFF;
+$SiteNavBackground: $Darker;
+
+$PostHeaderBackground: $Lighter;
+$PostTitleForeground: $Darkish;
+$PostMetaForeground: $Light;
+
+$AsideHeaderForeground: $Lightish;
+$AsideHeaderBackground: $Lightest;
+$ImageHeaderForeground: $Green;
+$ImageHeaderBackground: #E4E3C7;
+$LinkHeaderBackground: #D5DBE0;
+
+$BodyForeground: $Dark;
+$PostContentBackground: #FFF;
+
+$PostSubheadUnderline: $Lighter;
+$LinkForeground: $Blue;
+$QuoteForeground: $Light;
+
+$CommentHeaderForeground: $Lightish;
+$CommentHeaderBackground: $Lighter;
+$CommentContentBackground: #FFF;
+
+$InputBorderColour: $Lighter;
+$ActiveInputBorderColour: $Lightish;
+$CommentSubmitForeground:#FFF;
+$CommentSubmitBackground:$Blue;
+
+$FootnoteForeground: $Light;
+
+$SitePaginationForeground: #FFF;
+$SitePaginationBackground: $Light;
+
+$ColophonBackground: $Darker;
+$ColophonForeground: $Light;
+$ColophonLink: #FFF;

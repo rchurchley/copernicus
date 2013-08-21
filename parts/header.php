@@ -1,13 +1,16 @@
-<header ontouchstart="">
-	<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-	<nav id="top-menus">
-		<ul id="primary-menu" class="menu">
-		<?php wp_nav_menu( array( 
-			'theme_location'	=> 'primary', 
-			'container'			=> false,
-			'items_wrap'		=> '%3$s',
-			'fallback_cb'		=> 'untitled_list_pages'
-		)); ?>
-		</ul>
+<header class="site-header" role="banner">
+	<a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+		<?php bloginfo( 'name' ); ?>
+	</a>
+	<nav class="site-navigation" role="navigation">
+		<h3 class="menu-toggle"><?php _e( 'Menu', 'copernicus' ); ?></h3>
+		<?php $menuParameters = array(
+		  'container'       => false,
+		  'echo'            => false,
+		  'items_wrap'      => '%3$s',
+		  'depth'           => 0,
+		);
+
+		echo strip_tags(wp_nav_menu( $menuParameters ), '<a>' ); ?>
 	</nav>
 </header>

@@ -1,17 +1,19 @@
 <?php
 
-/**
-* Featured Image RSS class v.1.0
-* @package 		WordPress
-* @subpackage 	Marginal
-* @since 		Marginal 0.2
-* Code from: 	Add featured image to RSS feed
-* URI: 			http://www.tacticaltechnique.com/wordpress/
-* Author: 		Corey Salzano
-* Author URI: 	http://twitter.com/salzano
-*
-* Adds the featured image attached to your posts to the RSS feed.
-*/
+/* ============================================================================
+
+	Featured Image RSS
+	@package 		WordPress
+	@subpackage 	Copernicus
+	@since 			Copernicus 1.0
+	Code from: 		Add featured image to RSS feed (plugin)
+	URI: 			http://www.tacticaltechnique.com/wordpress/
+	Author: 		Corey Salzano
+	Author URI: 	http://twitter.com/salzano
+
+	Adds the featured image attached to your posts to the RSS feed.
+
+============================================================================ */
 
 	function add_featured_image_to_feed($content) {
 		global $post;
