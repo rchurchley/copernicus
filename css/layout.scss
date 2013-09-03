@@ -57,6 +57,13 @@ body {
 		}
 	}
 
+	.site-navigation-separator {
+		padding: 10px 5px;
+		@media screen and (max-width: 479px) {
+			display: none;
+		}
+	}
+
 	.site-navigation a:hover, .site-navigation a:active {
 		background-color: $SiteNavForeground;
 		color: $SiteNavBackground;
@@ -101,7 +108,7 @@ body {
 	font-size: $SiteTitleFontSize;
 }
 
-.post, .page {
+.post {
 	margin: 36px auto 0 auto;
 	max-width: 768px;
 	width: 100%;

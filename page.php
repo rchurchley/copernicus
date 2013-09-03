@@ -17,18 +17,16 @@
 
 	if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 		
-		<article class="page">
+		<article class="post">
 			<?php if( has_post_thumbnail() ) : ?>
 				<figure class="post-thumbnail">
 					<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>" alt=""/>
 				</figure>
 			<?php endif;?>
 			<header class="post-header">
-				<h2 class="post-title">
-					<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
-						<?php the_title(); ?>
-					</a>
-				</h2>
+				<a class="post-title" href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
+					<?php the_title(); ?>
+				</a>
 				<div class="post-meta">
 					<?php copernicus_post_meta(); ?>
 					<?php edit_post_link( __( 'Edit', 'copernicus' ), '<span class="edit-link">', '</span>' ); ?>

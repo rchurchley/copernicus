@@ -5,7 +5,7 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-h2 {
+h1, h2 {
 	margin: 20px 0;
 	border-bottom: 2px solid $PostSubheadUnderline;
 	font-size: $PostSubheadFontSize;
@@ -25,28 +25,63 @@ a:hover {
 	text-decoration: underline;
 }
 
-.alignleft {
-	float: left;
-	margin-right: 10px;
+img {
+	max-width: 100%;
+	height: auto;
 }
 
-.alignright {
-	float:right;
-	margin-left: 10px;
+.alignleft, .alignright {
+	max-width: 100%;
+	height: auto;
 }
 
-ul {
-	margin-bottom: 10px;
+@media screen and (max-width: 479px) {
+	img, .alighleft, .alignright {
+		display: block;
+		margin-bottom: 10px;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 480px) {
+	.alignleft {
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 10px;
+		max-width: 50%;
+	}
+
+	.alignright {
+		float:right;
+		margin-bottom: 10px;
+		margin-left: 20px;
+		max-width: 50%;
+	}
+}
+
+dt {
+	font-style: italic;
+}
+
+dd {
 	margin-left: 40px;
 }
 
-dt, dd, th, td { 
-	line-height: 1.1; 
+dt:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+dd, li {
+	margin-bottom: 10px;
 }
 
 blockquote {
 	padding: 0 20px;
 	color: $QuoteForeground;
+}
+
+code {
+	font-family: monospace;
 }
 
 strong, b {
@@ -64,3 +99,28 @@ sup, sub {
 sup	{ top: -0.4em; }
 sub	{ top:  0.4em; }
 
+table {
+	width: 100%;
+}
+
+thead {
+	width: 100%;
+	background-color: $THeadBackground;
+	font-family: $HeadlineTypeface;
+}
+
+th:first-child, td:first-child {
+	padding-left: 40px;
+}
+
+th:last-child, td:last-child {
+	padding-right: 40px;
+}
+
+thead th {
+	padding: 10px;
+}
+
+tbody td {
+	padding: 5px 0;
+}

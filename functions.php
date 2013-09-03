@@ -38,9 +38,9 @@
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 768 );
 
-		// This theme uses wp_nav_menu() in one location.
+		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menu( 'primary', __( 'Navigation Menu', 'copernicus' ) );
-
+		register_nav_menu( 'secondary', __( 'Secondary Menu', 'copernicus' ) );
 	}
 	add_action( 'after_setup_theme', 'copernicus_setup' );
 
@@ -64,7 +64,8 @@
 		endif;
 
 		wp_enqueue_script( 'copernicus-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
-		wp_enqueue_style( 'copernicus-style', get_stylesheet_directory_uri().'/css/combined.php', array(), '2013-08-12' );
+		wp_enqueue_style( 'copernicus-genericons', get_stylesheet_directory_uri().'/fonts/genericons.css', array(), '2013-08-12' );
+		wp_enqueue_style( 'copernicus-style', get_stylesheet_directory_uri().'/css/style.css', array(), '2013-08-12' );
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
 
@@ -83,6 +84,7 @@
 		add_filter( 'upload_mimes', 'copernicus_mime_types' );
 	
 		require_once( 'external/add-featured-image-to-rss-feed.php' );
+
 
 	/*  Simplify <head> -------------------------------------------------------
 		Removes version and pointless links from <head> for security and simplicity. Removes version queries from script and style requests to improve caching.

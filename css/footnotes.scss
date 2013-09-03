@@ -4,5 +4,9 @@
 .footnotes {
 	color: $FootnoteForeground;
 	font-size: $FootnoteFontSize;
-	margin: 20px 40px;
+	margin: 20px 0;
+}
+
+.footnotes p {
+	margin: 0;
 }

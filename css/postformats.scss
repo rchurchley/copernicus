@@ -12,7 +12,7 @@
 	background-color: $AsideHeaderBackground;
 }
 .format-aside .post-title {
-	color: $AsideHeaderForeground;
+	color: $AsideTitleForeground;
 }
 .format-aside .post-title:before {
 	content: '\f425';
@@ -22,7 +22,7 @@
 	background-color: $ImageHeaderBackground;
 }
 .format-image .post-title {
-	color: $ImageHeaderForeground;
+	color: $ImageTitleForeground;
 }
 .format-image .post-title:before {
 	content: '\f102';
@@ -33,10 +33,10 @@
 }
 
 .format-link .post-title {
-	color: $LinkForeground;
+	color: $LinkTitleForeground;
 }
 .format-link .post-title a {
-	color: $LinkForeground;
+	color: $LinkTitleForeground;
 }
 .format-link .post-title:before {
 	content: '\f107';
