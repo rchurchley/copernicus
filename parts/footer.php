@@ -15,5 +15,6 @@
 endif;?>
 
 <footer class="colophon">
-	Powered by <a href="http://www.wordpress.org">Wordpress</a>. Copernicus theme by <a href="http://rosschurchley.com">Ross Churchley</a>.
+	Powered by <a href="http://www.wordpress.org">Wordpress</a>. <br/>
+	Copernicus theme by <a href="http://rosschurchley.com">Ross Churchley</a>.
 </footer>

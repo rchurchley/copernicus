@@ -8,6 +8,7 @@ body {
 	font-size: $BodyFontSize;
 	font-family: $BodyTypeface;
 	line-height: 1.4;
+	margin: 0 0 65px 0;
 }
 
 /*  Site Header ===============================================================
@@ -130,6 +131,7 @@ body {
 
 	.post-thumbnail img {
 		max-width: 100%;
+		margin: 0;
 	}
 
 	//  Post Header -----------------------------------------------------------
@@ -228,12 +230,17 @@ body {
 }
 
 .colophon {
-	padding: 20px;
-	width: 100%;
+	padding: 10px;
 	background-color: $ColophonBackground;
 	color: $ColophonForeground;
 	text-align: center;
 	font-size: $FootnoteFontSize;
+	position: absolute;
+	left: 0;
+	bottom:0;
+	right: 0;
+	height: 65px;
+	width: 100%;
 }
 
 .colophon a {

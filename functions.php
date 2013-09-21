@@ -149,15 +149,6 @@
 			if ( $tag_list ) {
 				echo '<span class="tags-links">' . $tag_list . '</span>';
 			}
-
-			// Post author
-			if ( 'post' == get_post_type() ) {
-				printf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-					esc_attr( sprintf( __( 'View all posts by %s', 'copernicus' ), get_the_author() ) ),
-					get_the_author()
-				);
-			}
 		}
 
 	endif;
