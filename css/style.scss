@@ -7,25 +7,3 @@
 @import 'comments.scss';
 
 @import 'footnotes.scss';
-
-.menu-toggle:after,
-.date a:before,
-.post-meta .author a:before,
-.comments-link a:before,
-.tags-links a:first-child:before,
-.categories-links a:first-child:before,
-.edit-link a:before,
-.format-aside .post-title:before,
-.format-link .post-title:before,
-.format-image .post-title:before,
-.comment-awaiting-moderation:before,
-.comment-reply-link:before,
-.comment-reply-login:before,
-.comment-reply-title small a:before,
-.error404 .page-title:before {
-	-webkit-font-smoothing: antialiased;
-	display: inline-block;
-	font-family: Genericons;
-	line-height: 1;
-	vertical-align: text-bottom;
-}

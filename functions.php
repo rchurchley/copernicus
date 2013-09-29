@@ -64,8 +64,8 @@
 		endif;
 
 		wp_enqueue_script( 'copernicus-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
-		wp_enqueue_style( 'copernicus-genericons', get_stylesheet_directory_uri().'/fonts/genericons.css', array(), '2013-08-12' );
-		wp_enqueue_style( 'copernicus-style', get_stylesheet_directory_uri().'/css/style.css', array(), '2013-08-12' );
+		wp_enqueue_style( 'copernicus-genericons', get_template_directory_uri().'/fonts/genericons.css', array(), '2013-08-12' );
+		wp_enqueue_style( 'copernicus-style', get_template_directory_uri().'/style.css', array(), '2013-08-12' );
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
 
@@ -143,11 +143,6 @@
 			$categories_list = get_the_category_list( __( ', ', 'copernicus' ) );
 			if ( $categories_list ) {
 				echo '<span class="categories-links">' . $categories_list . '</span>';
-			}
-
-			$tag_list = get_the_tag_list( '', __( ', ', 'copernicus' ) );
-			if ( $tag_list ) {
-				echo '<span class="tags-links">' . $tag_list . '</span>';
 			}
 		}
 

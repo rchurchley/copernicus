@@ -17,26 +17,27 @@ $Dark: #475B62;
 $Darkish: #536870;
 $Lightish: #708284;
 $Light: #819090;
-$Lighter: #EAE3CB;
-$Lightest: #FCF4DC;
+$Lighter: #CED4D4;
+$Lightest: #E4E6E6;
 
-$SiteTitleForeground: #FFF;
-$SiteTitleBackground: $Blue;
+$SiteTitleForeground: $Darker;
 $SiteNavForeground: #FFF;
 $SiteNavBackground: $Darker;
 
 $PostHeaderBackground: $Lighter;
-$PostTitleForeground: $Darkish;
+$PostTitleForeground: $Darker;
 $PostMetaForeground: $Light;
 
-$AsideTitleForeground: $Lightish;
-$AsideHeaderBackground: $Lightest;
-$ImageTitleForeground: $Green;
-$ImageHeaderBackground: #E4E3C7;
-$LinkTitleForeground: $Darkish;
-$LinkHeaderBackground: #D5DBE0;
+$AsideBackground: $Lighter;
+$AsideIconForeground: $Darker;
+$AsideIconBorder: $Darker;
+$ImagePostForeground: #FFF;
+$ImagePostBackground: $Darker;
+$LinkIconForeground: $Lighter;
+$LinkIconBorder: $Lighter;
+$LinkPostBackground: $Lightest;
 
-$BodyForeground: $Dark;
+$BodyForeground: $Darker;
 $PostContentBackground: #FFF;
 
 $PostSubheadUnderline: $Lighter;

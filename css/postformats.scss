@@ -1,43 +1,89 @@
 @import 'palettes.scss';
 @import 'type.scss';
 
-.format-aside .post-title:before, .format-link .post-title:before, .format-image .post-title:before, {
-	position: relative;
-	top: -2px;
-	margin-right: 5px;
-	font-size: $PostTitleFontSize;
+.post.format-aside {
+	padding: 0;
+
+	.post-content {
+		margin-left: 40px;
+		padding: 20px 40px 20px 20px;
+		background-color: $AsideBackground;
+
+		&:before{
+			@extend .genericons;
+			content: '\f425';
+			position:absolute;
+			top: 0;
+			left: -43px;
+			height:40px;
+			font-size:40px;
+			color: $AsideIconForeground;
+		}
+		border-left: 3px solid $AsideIconBorder;
+	}
+
+	.edit-link {
+		float: right;
+		font-size: $PostMetaFontSize;
+	}
 }
 
-.format-aside .post-header {
-	background-color: $AsideHeaderBackground;
-}
-.format-aside .post-title {
-	color: $AsideTitleForeground;
-}
-.format-aside .post-title:before {
-	content: '\f425';
+
+.post.format-image {
+	padding: 0;
+	background-color: $ImagePostBackground;
+	color: $ImagePostForeground;
+
+	.post-content {
+		margin-left: 40px;
+		padding: 20px 40px 20px 20px;
+
+		&:before{
+			@extend .genericons;
+			content: '\f102';
+			position:absolute;
+			top: 50%;
+			margin-top: -20px;
+			left: -30px;
+			height:40px;
+			font-size:36px;
+			color: $ImagePostForeground;
+		}
+	}
+
+	.edit-link {
+		float: right;
+		font-size: $PostMetaFontSize;
+		a { 
+			color: $ImagePostForeground;
+		}
+	}
 }
 
-.format-image .post-header {
-	background-color: $ImageHeaderBackground;
-}
-.format-image .post-title {
-	color: $ImageTitleForeground;
-}
-.format-image .post-title:before {
-	content: '\f102';
-}
+.post.format-link {
+	padding: 0;
 
-.format-link .post-header {
-	background-color: $LinkHeaderBackground;
-}
+	.post-content {
+		margin-right: 40px;
+		padding: 20px 20px 20px 40px;
+		background-color: $Lightest;
+		border-right: 3px solid $LinkIconBorder;
+	}
 
-.format-link .post-title {
-	color: $LinkTitleForeground;
-}
-.format-link .post-title a {
-	color: $LinkTitleForeground;
-}
-.format-link .post-title:before {
-	content: '\f107';
+	.post-link {
+		&:after{
+			@extend .genericons;
+			content: '\f442';
+			position:absolute;
+			top: 0;
+			height:40px;
+			font-size:40px;
+			color: $LinkIconForeground;
+		}
+		position:absolute;
+		top: 0;
+		right:0;
+		height:40px;
+		width: 40px;
+	}
 }

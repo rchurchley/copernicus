@@ -23,10 +23,11 @@ body {
 
 	.site-title {
 		display: inline-block;
-		padding: 20px 40px;
+		padding: 0.3em 40px;
 		width: 100%;
-		background-color: $SiteTitleBackground;
+		color: $SiteTitleForeground;
 		font-size: $SiteTitleFontSize;
+		line-height: 1.2;
 		font-family: $HeadlineTypeface;
 	}
 
@@ -58,13 +59,6 @@ body {
 		}
 	}
 
-	.site-navigation-separator {
-		padding: 10px 5px;
-		@media screen and (max-width: 479px) {
-			display: none;
-		}
-	}
-
 	.site-navigation a:hover, .site-navigation a:active {
 		background-color: $SiteNavForeground;
 		color: $SiteNavBackground;
@@ -81,6 +75,7 @@ body {
 	}
 
 	.menu-toggle:after{
+		@extend .genericons;
 		position: relative;
 		top: -2px;
 		margin-left: 5px;
@@ -90,6 +85,7 @@ body {
 	}
 
 	.toggled-on .menu-toggle:after{
+		@extend .genericons;
 		content: '\f432';
 	}
 
@@ -104,21 +100,19 @@ body {
 
 .page-title {
 	display: block;
-	padding: 20px 40px;
 	width: 100%;
-	font-size: $SiteTitleFontSize;
 }
 
 .post {
-	margin: 36px auto 0 auto;
+	margin: 20px auto 0 auto;
 	max-width: 768px;
 	width: 100%;
+	padding: 0 40px;
+	background-color: $PostContentBackground;
 }
 
-@media screen and (max-width:768px) {
-	.site-header + .post {
-		margin: 0 auto;
-	}
+.post-content >:last-child {
+	margin-bottom: 0;
 }
 
 	//  Post Thumbnail --------------------------------------------------------
@@ -136,21 +130,18 @@ body {
 
 	//  Post Header -----------------------------------------------------------
 
-	.post-header {
-		padding: 10px 40px;
-		background-color: $PostHeaderBackground;
-	}
-
-	a.post-title {
+	.post-title a {
 		color: $PostTitleForeground;
 		font-size: $PostTitleFontSize;
 		font-family: $HeadlineTypeface;
+		padding-bottom: 5px;
 	}
 
 	//  Post Meta -------------------------------------------------------------
 
 	.post-meta {
 		font-size: $PostMetaFontSize;
+		margin-bottom: 20px;
 	}
 
 	.post-meta > span {
@@ -167,30 +158,21 @@ body {
 	}
 
 	.post-meta .date a:before {
+		@extend .genericons;
 		position: relative;
 		top: -2px;
 		content: "\f303";
 	}
 
-	.post-meta .author a:before {
-		position: relative;
-		top: -2px;
-		content: "\f304";
-	}
-
 	.categories-links a:first-child:before {
+		@extend .genericons;
 		position: relative;
 		top: -2px;
 		content: "\f301";
 	}
 
-	.tags-links a:first-child:before {
-		position: relative;
-		top: -1px;
-		content: "\f302";
-	}
-
 	.comments-link a:before {
+		@extend .genericons;
 		position: relative;
 		top: -1px;
 		margin-right: 2px;
@@ -198,17 +180,10 @@ body {
 	}
 
 	.edit-link a:before {
+		@extend .genericons;
 		position: relative;
 		top: -1px;
 		content: "\f411";
-	}
-
-
-	//  Post Content ----------------------------------------------------------
-
-	.post-content {
-		padding: 20px 40px;
-		background-color: $PostContentBackground;
 	}
 
 

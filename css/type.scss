@@ -1,13 +1,21 @@
 $HeadlineTypeface: "Avenir Next", Avenir, Trebuchet, sans-serif;
 $BodyTypeface: "Avenir Next", Avenir, Trebuchet, sans-serif;
 
-$SiteTitleFontSize: 24px;
-$PostTitleFontSize: 20px;
+$SiteTitleFontSize: 36px;
+$PostTitleFontSize: 30px;
 $PostMetaFontSize: 12px;
-$PostSubheadFontSize: 20px;
+$PostSubheadFontSize: 24px;
 
 $BodyFontSize: 16px;
 $FootnoteFontSize: 14px;
 $CaptionFontSize: 14px;
 
 $CommentMetaFontSize: 12px;
+
+.genericons {
+	-webkit-font-smoothing: antialiased;
+	display: inline-block;
+	font-family: Genericons;
+	line-height: 1;
+	vertical-align: text-bottom;
+}

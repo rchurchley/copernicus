@@ -12,7 +12,6 @@
 			'items_wrap'      => '%3$s',
 			'depth'           => 0,
 		) ), '<a>' );
-		echo '<span class="site-navigation-separator">›</span> ';
 		echo strip_tags(wp_nav_menu( array(
 			'theme_location'  => 'secondary',
 			'container'       => false,
