@@ -7,19 +7,11 @@
 .comments-list-title, .comment-reply-title {
 	padding: 10px 40px;
 	background-color: $CommentHeaderBackground;
+	color: $CommentHeaderForeground;
 }
 
 .comment {
-	padding: 18px 0;
-}
-
-.comment-header {
-	background-color: $CommentHeaderBackground;
-	color: $CommentHeaderForeground;
-}
-
-.comment-header a {
-	color: $CommentHeaderForeground;
+	margin: 18px 0;
 }
 
 .comment-meta {
@@ -85,7 +77,7 @@
 
 @media screen and (min-width:768px) {
 	.comment {
-		border-bottom: 3px solid $CommentHeaderBackground;
+		border-bottom: 1px solid $Lighter;
 	}
 
 	.comment-header {
@@ -99,10 +91,6 @@
 	.comment-header img {
 		float: right;
 		margin-left: 10px;
-	}
-
-	.comment-meta {
-		padding: 10px 0 0 10px;
 	}
 
 	.comment-meta h4, .comment-meta time {

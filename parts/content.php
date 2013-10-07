@@ -3,7 +3,7 @@
 			<?php the_title(); ?>
 	</a></h1>
 	<div class="post-meta">
-		<?php copernicus_post_meta(); ?>
+		<?php copernicus_post_date(); ?>
 		<?php edit_post_link( __( 'Edit', 'copernicus' ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
 

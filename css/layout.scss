@@ -8,7 +8,7 @@ body {
 	font-size: $BodyFontSize;
 	font-family: $BodyTypeface;
 	line-height: 1.4;
-	margin: 0 0 65px 0;
+	margin: 0 0 4em 0;
 }
 
 /*  Site Header ===============================================================
@@ -104,7 +104,7 @@ body {
 }
 
 .post {
-	margin: 20px auto 0 auto;
+	margin: 40px auto 0 auto;
 	max-width: 768px;
 	width: 100%;
 	padding: 0 40px;
@@ -130,11 +130,14 @@ body {
 
 	//  Post Header -----------------------------------------------------------
 
-	.post-title a {
-		color: $PostTitleForeground;
+	.post-title {
+		margin:0 0 5px 0;
 		font-size: $PostTitleFontSize;
 		font-family: $HeadlineTypeface;
-		padding-bottom: 5px;
+
+		a {
+			color: $PostTitleForeground;
+		}
 	}
 
 	//  Post Meta -------------------------------------------------------------
@@ -144,31 +147,29 @@ body {
 		margin-bottom: 20px;
 	}
 
-	.post-meta > span {
-		display: inline-block;
-	}
-
-	.post-meta > span:not(:last-of-type) {
-		margin-right: 20px;
-	}
-
-	.post-meta a, .post-meta a:visited {
+	.post-meta, .post-meta a, .post-meta a:visited {
 		color: $PostMetaForeground;
 		text-decoration: none;
 	}
 
-	.post-meta .date a:before {
+	.post-meta > time:not(:last-child) {
+		margin-right: 20px;
+	}
+
+	.post-date:before {
 		@extend .genericons;
 		position: relative;
 		top: -2px;
+		margin-right: 3px;
 		content: "\f303";
 	}
 
-	.categories-links a:first-child:before {
+	.post-updated:before {
 		@extend .genericons;
 		position: relative;
 		top: -2px;
-		content: "\f301";
+		margin-right: 3px;
+		content: '\f420';
 	}
 
 	.comments-link a:before {
@@ -195,7 +196,6 @@ body {
 	margin-top: 36px;
 	padding: 5px 40px;
 	width: 100%;
-	background-color: $SitePaginationBackground;
 	text-align: center;
 	font-size: $FootnoteFontSize;
 }
@@ -214,7 +214,7 @@ body {
 	left: 0;
 	bottom:0;
 	right: 0;
-	height: 65px;
+	height: 4em;
 	width: 100%;
 }
 

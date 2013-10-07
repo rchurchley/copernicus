@@ -20,11 +20,24 @@ $Light: #819090;
 $Lighter: #CED4D4;
 $Lightest: #E4E6E6;
 
-$SiteTitleForeground: $Darker;
-$SiteNavForeground: #FFF;
-$SiteNavBackground: $Darker;
+$PrimaryColour: $Darker;
+$ReverseColour: #FFF;
+$DefaultTextColour: $Darker;
+$SecondaryTextColour: $Light;
+$DefaultLinkColour: $Blue;
 
-$PostHeaderBackground: $Lighter;
+$SiteTitleForeground: $PrimaryColour;
+$SiteNavBackground: $PrimaryColour;
+$ColophonBackground: $PrimaryColour;
+$SitePaginationForeground: $PrimaryColour;
+$CommentHeaderBackground: $PrimaryColour;
+
+$SiteNavForeground: $ReverseColour;
+$ColophonForeground: $ReverseColour;
+$ColophonLink: $ReverseColour;
+$CommentHeaderForeground: $ReverseColour;
+
+
 $PostTitleForeground: $Darker;
 $PostMetaForeground: $Light;
 
@@ -48,20 +61,12 @@ $CaptionBackground: $Lighter;
 $THeadForeground: $Darkish;
 $THeadBackground: $Lighter;
 
-$CommentHeaderForeground: $Lightish;
-$CommentHeaderBackground: $Lighter;
-$CommentContentBackground: #FFF;
-
 $InputBorderColour: $Lighter;
 $ActiveInputBorderColour: $Lightish;
 $CommentSubmitForeground:#FFF;
-$CommentSubmitBackground:$Blue;
+$CommentSubmitBackground:$DefaultTextColour;
 
 $FootnoteForeground: $Light;
 
-$SitePaginationForeground: #FFF;
-$SitePaginationBackground: $Light;
 
-$ColophonBackground: $Darker;
-$ColophonForeground: $Light;
-$ColophonLink: #FFF;
+
