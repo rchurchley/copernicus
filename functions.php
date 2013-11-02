@@ -36,7 +36,7 @@
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 		add_theme_support( 'post-formats', array('aside','image', 'link') );
 		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 768 );
+		set_post_thumbnail_size( 688 );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menu( 'primary', __( 'Navigation Menu', 'copernicus' ) );
@@ -68,6 +68,15 @@
 		wp_enqueue_style( 'copernicus-style', get_template_directory_uri().'/style.css', array(), '2013-08-12' );
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
+
+/*  Shortcodes ---------------------------------------------------------------
+		Provides [foldable] foo [/foldable] shortcode. On page load, all content except <h2> tags will be hidden. When a <h2> is clicked, all content between it and the next <h2> tag will slide out. 
+	------------------------------------------------------------------------ */
+
+	function foldable_shortcode( $atts, $content = null ) {
+		return '<section class="foldable">' . $content . '</section>';
+	}
+	add_shortcode( 'foldable', 'foldable_shortcode' );
 
 
 	/*  More Theme Support ----------------------------------------------------

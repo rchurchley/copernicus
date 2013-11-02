@@ -5,28 +5,12 @@
  */
 
 ( function( $ ) {
-	/**
-	 * Enables menu toggle for small screens.
-	 */
-	( function() {
-		var nav = $( '.site-navigation' ), button, menu;
-		if ( ! nav )
-			return;
 
-		button = nav.find( '.menu-toggle' );
-		if ( ! button )
-			return;
+	$('.foldable > h2, .foldable > h3').on( 'click.copernicus', function() {
+		$(this).toggleClass('toggled-on');
+		$(this).nextUntil('h2,h3').toggleClass('toggled-on');
 
-		// Hide button if menu is missing or empty.
-		menu = nav.find( 'a' );
-		if ( ! menu ) {
-			button.hide();
-			return;
-		}
-
-		$( '.menu-toggle' ).on( 'click.copernicus', function() {
-			nav.toggleClass( 'toggled-on' );
-		} );
-	} )();
+		return false;
+	});
 
 } )( jQuery );

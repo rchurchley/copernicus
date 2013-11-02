@@ -37,13 +37,19 @@ img {
 	height: auto;
 }
 
-.alignleft, .alignright {
+.alignleft, .alignright, .aligncenter {
 	max-width: 100%;
 	height: auto;
 }
 
+.aligncenter {
+	display: block;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
 @media screen and (max-width: 479px) {
-	img, .alighleft, .alignright {
+	img, .alignleft, .alignright {
 		display: block;
 		margin-bottom: 10px;
 		width: 100%;
@@ -118,14 +124,6 @@ thead {
 	width: 100%;
 	background-color: $THeadBackground;
 	font-family: $HeadlineTypeface;
-}
-
-th:first-child, td:first-child {
-	padding-left: 40px;
-}
-
-th:last-child, td:last-child {
-	padding-right: 40px;
 }
 
 thead th {

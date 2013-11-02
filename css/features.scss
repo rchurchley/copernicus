@@ -1,0 +1,28 @@
+@import 'type.scss';
+
+.foldable > *:not(.toggled-on) {
+	display: none;
+}
+
+.foldable > h2:not(.toggled-on), .foldable > h3:not(.toggled-on) {
+	display: block;
+}
+
+.foldable h2, .foldable h3 {
+	cursor: pointer;
+
+	&:after {
+		@extend .genericons;
+		position: relative;
+		top: -2px;
+		margin-left: 5px;
+		content: '\f431';
+		font-weight: bold;
+		font-size: $BodyFontSize;
+	}
+}
+
+.foldable h2.toggled-on:after, .foldable h3.toggled-on:after {
+	@extend .genericons;
+	content: '\f432';
+}

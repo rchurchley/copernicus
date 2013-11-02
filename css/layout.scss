@@ -47,15 +47,21 @@ body {
 		width: 100%;
 		background-color: $SiteNavBackground;
 	}
+	
 
 	.site-navigation a {
-		display: inline-block;
 		padding: 10px 20px;
 		color: $SiteNavForeground;
 		text-decoration: none;
 
 		@media screen and (max-width: 479px) {
-			display: none;
+			display: block;
+		}
+	}
+
+	.site-navigation a:not(.toggled-on) {
+		@media screen and (min-width: 480px) {
+			display: inline-block;
 		}
 	}
 
@@ -64,7 +70,7 @@ body {
 		color: $SiteNavBackground;
 	}
 
-	.menu-toggle {
+	.site-navigation.foldable h3, .site-navigation.foldable h3:not(.toggled-on) {
 		display: none;
 		@media screen and (max-width: 479px) {
 			display: block;
@@ -72,25 +78,6 @@ body {
 			color: $SiteNavForeground;
 			text-decoration: none;
 		}
-	}
-
-	.menu-toggle:after{
-		@extend .genericons;
-		position: relative;
-		top: -2px;
-		margin-left: 5px;
-		content: '\f431';
-		font-weight: bold;
-		font-size: $BodyFontSize;
-	}
-
-	.toggled-on .menu-toggle:after{
-		@extend .genericons;
-		content: '\f432';
-	}
-
-	.toggled-on a {
-		display: block;
 	}
 
 
