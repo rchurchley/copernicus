@@ -12,7 +12,7 @@
 	
 ============================================================================ */
 
-	get_template_part('parts/html-header');
+	get_template_part('parts/preamble');
 	get_template_part('parts/header');
 
 	if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
@@ -27,6 +27,5 @@
 	<?php endwhile; 
 
 	get_template_part('parts/footer');
-	get_template_part('parts/html-footer'); 
 
 ?>

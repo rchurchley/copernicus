@@ -18,3 +18,8 @@ endif;?>
 	Powered by <a href="http://www.wordpress.org">Wordpress</a>. <br/>
 	Copernicus theme by <a href="http://rosschurchley.com">Ross Churchley</a>.
 </footer>
+
+
+	<?php wp_footer(); ?>
+	</body>
+</html>
