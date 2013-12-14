@@ -36,6 +36,12 @@
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 		add_theme_support( 'post-formats', array('aside','image', 'link') );
 		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'custom-header', array(
+			'width'         => 50,
+			'height'        => 50,
+			'default-image' => get_template_directory_uri() . '/img/header.jpg',
+			'uploads'		=> true,
+		) );
 		set_post_thumbnail_size( 688 );
 
 		// This theme uses wp_nav_menu() in two locations.
@@ -63,9 +69,9 @@
 			wp_enqueue_script( 'comment-reply' );
 		endif;
 
-		wp_enqueue_script( 'copernicus-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
-		wp_enqueue_style( 'copernicus-genericons', get_template_directory_uri().'/fonts/genericons.css', array(), '2013-08-12' );
-		wp_enqueue_style( 'copernicus-style', get_template_directory_uri().'/style.css', array(), '2013-08-12' );
+		wp_enqueue_script( 'copernicus-navcollapse', get_template_directory_uri() . '/components/responsive-nav.min.js', '2013-07-18', true );
+		wp_enqueue_style( 'copernicus-navcollapsecss', get_template_directory_uri().'/components/responsive-nav.css', array(), '2013-08-12' );
+		wp_enqueue_style( 'copernicus-style', get_template_directory_uri().'/css/style.css', array(), '2013-08-12' );
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
 
@@ -92,7 +98,7 @@
 		}
 		add_filter( 'upload_mimes', 'copernicus_mime_types' );
 	
-		require_once( 'external/add-featured-image-to-rss-feed.php' );
+		require_once( 'components/add-featured-image-to-rss-feed.php' );
 
 
 	/*  Simplify <head> -------------------------------------------------------
@@ -120,25 +126,10 @@
 
 /*  THEME OPTIONS ========================================================== */
 
-	require_once( 'external/theme-options.php' );
+	require_once( 'components/theme-options.php' );
 
-	function marginal_customize_css() { ?>
-		 <style type="text/css">
-			.site-title, a.site-title, .site-pagination a { 
-				color:<?php echo get_option('header_background_color'); ?>; 
-			}
-			a {
-				color:<?php echo get_option('hyperlink_color'); ?>; 
-			}
-			.site-navigation, .colophon, .comments-list-title, .comment-reply-title { 
-				background-color: <?php echo get_option('header_background_color'); ?>;
-			}
-		</style>
-	<?php
-	}
 
-	add_action( 'customize_register', 'marginal_customize_register' ); 
-	add_action( 'wp_head', 'marginal_customize_css');
+
 
 
 /*  CUSTOM THEME CALLBACKS ================================================= */

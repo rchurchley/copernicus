@@ -1,9 +1,175 @@
 @import 'reset.scss';
-@import 'palettes.scss';
-@import 'type.scss';
-@import 'generic.scss';
-@import 'layout.scss';
-@import 'postformats.scss';
-@import 'comments.scss';
-@import 'features.scss';
-@import 'footnotes.scss';
+
+$Typeface-Headline: "Avenir Next", Avenir, Trebuchet, sans-serif;
+$Typeface-Body: "Avenir Next", Avenir, Trebuchet, sans-serif;
+
+$Fontsize-Title: 36px;
+$Fontsize-Huge: 30px;
+$Fontsize-Large: 24px;
+$Fontsize-Default: 16px;
+$Fontsize-Small: 14px;
+$Fontsize-Tiny: 12px;
+
+//  Default text ===============================================================
+
+body {
+    font-family: $Typeface-Body;
+    font-size: $Fontsize-Default;
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $Typeface-Headline;
+    line-height: 1.2;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1 { font-size: $Fontsize-Huge; }
+h2 { font-size: $Fontsize-Large; }
+
+p {
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
+    margin-left: 20px;
+}
+
+strong, b {
+    font-weight: bold; 
+}
+em, i { 
+    font-style: italic;
+}
+
+sup, sub { 
+    position: relative; 
+    vertical-align: baseline; 
+    font-size: $Fontsize-Small;
+}
+sup { top: -0.4em; }
+sub { top:  0.4em; }
+
+//  Default block elements ===============================================================
+
+main {
+    padding: 0 20px;
+    max-width: 40em;
+    margin: 0 auto;
+}
+
+article {
+    margin-bottom: 20px;
+}
+
+
+//  Images ===============================================================
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.aligncenter {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+@media screen and (max-width: 479px) {
+    img, .alignleft, .alignright {
+        display: block;
+        margin-bottom: 10px;
+        margin-left: -20px;
+        max-width: calc(100% + 40px);
+        width: calc(100% + 40px);
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .alignleft {
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        max-width: 50%;
+    }
+
+    .alignright {
+        float:right;
+        margin-bottom: 10px;
+        margin-left: 20px;
+        max-width: 50%;
+    }
+}
+
+//  Site header ===============================================================
+
+#site-header {
+    text-align: center;
+    margin-bottom: 20px;
+    img {
+        height: 50px;
+        width: 50px;
+        border-radius: 5px;
+        margin-top: 15px;
+    }
+    h1 {
+        margin-bottom: 15px; 
+    }
+}
+
+#site-navigation {
+    border-top: 3px solid;
+    background-color: white;
+    padding: 0;
+    ul, li { 
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+    }
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    #site-header {
+        text-align: left;
+        img {
+            display: none;
+        }
+        h1 {
+            margin: 0;
+        
+            a {
+                padding: 15px 20px;
+                width: calc(100% - 70px);
+                float: left;
+            }
+        }
+    }
+    .nav-toggle {
+        display: inline-block;
+        padding: 15px 0;
+        width: 70px;
+        height: 66px;
+    }
+    #site-navigation {
+        li, a {
+            display: block;
+            width: 100%;
+        }
+        li:not(:last-child) {
+            border-bottom: 1px solid;
+        }
+    }
+}

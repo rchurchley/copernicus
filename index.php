@@ -18,7 +18,6 @@
 ?>
 
 <main>
-
 <?php
 
 	if (have_posts()) :
@@ -30,7 +29,6 @@
 	endif;
 
 ?>
-
 </main>
 
 <?php
