@@ -46,7 +46,7 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: "Avenir Next", Avenir, Trebuchet, sans-serif;
   line-height: 1.2;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px; }
 
 h1 {
@@ -62,7 +62,14 @@ p {
 a {
   text-decoration: none; }
 
-ul, ol {
+ul, ol, dl {
+  line-height: 1.4;
+  margin-bottom: 10px; }
+
+li, dt, dd {
+  margin-bottom: 5px; }
+
+ul, ol, dd {
   margin-left: 20px; }
 
 strong, b {
@@ -165,3 +172,5 @@ img {
     width: 100%; }
   #site-navigation li:not(:last-child) {
     border-bottom: 1px solid; } }
+.site-pagination {
+  text-align: center; }

@@ -3,7 +3,6 @@
 $Typeface-Headline: "Avenir Next", Avenir, Trebuchet, sans-serif;
 $Typeface-Body: "Avenir Next", Avenir, Trebuchet, sans-serif;
 
-$Fontsize-Title: 36px;
 $Fontsize-Huge: 30px;
 $Fontsize-Large: 24px;
 $Fontsize-Default: 16px;
@@ -21,7 +20,7 @@ body {
 h1, h2, h3, h4, h5 {
     font-family: $Typeface-Headline;
     line-height: 1.2;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
@@ -37,7 +36,16 @@ a {
     text-decoration: none;
 }
 
-ul, ol {
+ul, ol, dl {
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+li, dt, dd {
+    margin-bottom: 5px;
+}
+
+ul, ol, dd {
     margin-left: 20px;
 }
 
@@ -172,4 +180,10 @@ img {
             border-bottom: 1px solid;
         }
     }
+}
+
+// Site Footer ==========================================================
+
+.site-pagination {
+    text-align: center;
 }

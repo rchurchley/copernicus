@@ -20,6 +20,7 @@
 		- Default core markup switched to valid HTML5 for forms
 		- Post formats (see http://codex.wordpress.org/Post_Formats)
 		- Post thumbnails
+		- Header icon
 
 		@uses add_theme_support() To add support for automatic feed links, post formats, and post thumbnails.
 		@uses register_nav_menu() To add support for a navigation menu.
@@ -69,28 +70,18 @@
 			wp_enqueue_script( 'comment-reply' );
 		endif;
 
-		wp_enqueue_script( 'copernicus-navcollapse', get_template_directory_uri() . '/components/responsive-nav.min.js', '2013-07-18', true );
-		wp_enqueue_style( 'copernicus-navcollapsecss', get_template_directory_uri().'/components/responsive-nav.css', array(), '2013-08-12' );
+		wp_enqueue_script( 'copernicus-responsive-nav', get_template_directory_uri() . '/features/responsive-nav.min.js', '2013-12-13', true );
+		wp_enqueue_style( 'copernicus-responsive-nav-style', get_template_directory_uri().'/features/responsive-nav.css', array(), '2013-12-13' );
 		wp_enqueue_style( 'copernicus-style', get_template_directory_uri().'/css/style.css', array(), '2013-08-12' );
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
-
-/*  Shortcodes ---------------------------------------------------------------
-		Provides [foldable] foo [/foldable] shortcode. On page load, all content except <h2> tags will be hidden. When a <h2> is clicked, all content between it and the next <h2> tag will slide out. 
-	------------------------------------------------------------------------ */
-
-	function foldable_shortcode( $atts, $content = null ) {
-		return '<section class="foldable">' . $content . '</section>';
-	}
-	add_shortcode( 'foldable', 'foldable_shortcode' );
-
 
 	/*  More Theme Support ----------------------------------------------------
 		Sets content width, and adds support for SVG uploads and custom headers
 	------------------------------------------------------------------------ */
 
 		if ( ! isset( $content_width ) )
-			$content_width = 604;
+			$content_width = 640;
 
 		function copernicus_mime_types( $mimes ){
 			$mimes['svg'] = 'image/svg+xml';
@@ -98,7 +89,7 @@
 		}
 		add_filter( 'upload_mimes', 'copernicus_mime_types' );
 	
-		require_once( 'components/add-featured-image-to-rss-feed.php' );
+		require_once( 'features/add-featured-image-to-rss-feed.php' );
 
 
 	/*  Simplify <head> -------------------------------------------------------
@@ -122,14 +113,6 @@
 
 		remove_action('wp_head', 'start_post_rel_link', 10, 0 );
 		remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-
-
-/*  THEME OPTIONS ========================================================== */
-
-	require_once( 'components/theme-options.php' );
-
-
-
 
 
 /*  CUSTOM THEME CALLBACKS ================================================= */

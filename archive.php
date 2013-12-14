@@ -23,9 +23,11 @@
 <?php
 
 	if (have_posts()) :
-		while (have_posts()) : the_post();
-			get_template_part('parts/content-templates/format', get_post_format() );
-		endwhile;
+		while (have_posts()) : the_post(); ?>
+			<article>
+				<?php get_template_part('parts/content-templates/format', get_post_format() ); ?>
+			</article>
+		<?php endwhile;
 	else:
 		get_template_part('parts/content-templates/format', 'noposts' );
 	endif;

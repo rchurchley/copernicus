@@ -1,6 +1,6 @@
 <header id="site-header" role="banner">
     <img src="<?php header_image(); ?>" height="50px" width="50px"/>
-	<h1><a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+	<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 		<?php bloginfo( 'name' ); ?>
 	</a></h1>
 
