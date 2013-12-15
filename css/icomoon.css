@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot');
+    src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf') format('truetype'),
+        url('../fonts/icomoon.woff') format('woff'),
+        url('../fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Provides the following icons:
+
+.icon-file-pdf
+    content: "\e600";
+
+.icon-file-zip
+    content: "\e601";
+
+.icon-file-xml
+    content: "\e602";
+
+.icon-file-css
+    content: "\e603";
+
+.icon-linkedin
+    content: "\e604";
+
+.icon-github
+    content: "\e605";
+
+.icon-flickr
+    content: "\e606";
+
+.icon-twitter
+    content: "\e607";
+
+.icon-new-tab
+    content: "\e609";
+
+.icon-stackoverflow
+    content: "\e60b";
+
+.icon-folder-open
+    content: "\e60c";
+
+.icon-envelope
+    content: "\e60d";
+
+.icon-calendar
+    content: "\e60e";
+
+.icon-search
+    content: "\e60f";
+
+.icon-settings
+    content: "\e610";
+
+.icon-menu
+    content: "\e611";
+
+.icon-cancel-circle
+    content: "\e613";
+
+.icon-checkmark-circle
+    content: "\e614";
+
+.icon-quill
+    content: "\e615";
+
+.icon-tag
+    content: "\e616";
+
+.icon-feed
+    content: "\e617";
+
+.icon-google-plus
+    content: "\e618";
+
+.icon-location
+    content: "\e61b";
+
+.icon-phone
+    content: "\e61c";
+
+.icon-bars
+    content: "\e61e";
+
+.icon-facebook
+    content: "\e60a";
+
+.icon-cc
+    content: "\e608";
+
+
+*/

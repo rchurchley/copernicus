@@ -1,3 +1,4 @@
+@import url(icomoon.css);
 html {
   overflow-y: scroll;
   font-size: 100%;
@@ -39,15 +40,15 @@ table {
   clear: both; }
 
 body {
-  font-family: "Avenir Next", Avenir, Trebuchet, sans-serif;
   font-size: 16px;
+  font-family: "Avenir Next", Avenir, Trebuchet, sans-serif;
   text-rendering: optimizeLegibility; }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Avenir Next", Avenir, Trebuchet, sans-serif;
-  line-height: 1.2;
   margin-top: 20px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  font-family: "Avenir Next", Avenir, Trebuchet, sans-serif;
+  line-height: 1.2; }
 
 h1 {
   font-size: 30px; }
@@ -56,15 +57,15 @@ h2 {
   font-size: 24px; }
 
 p {
-  line-height: 1.4;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  line-height: 1.4; }
 
 a {
   text-decoration: none; }
 
 ul, ol, dl {
-  line-height: 1.4;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  line-height: 1.4; }
 
 li, dt, dd {
   margin-bottom: 5px; }
@@ -90,11 +91,11 @@ sub {
   top: 0.4em; }
 
 main {
+  margin: 0 auto 20px auto;
   padding: 0 20px;
-  max-width: 40em;
-  margin: 0 auto; }
+  max-width: 40em; }
 
-article {
+article:not(:last-child) {
   margin-bottom: 20px; }
 
 img {
@@ -126,20 +127,20 @@ img {
     margin-left: 20px;
     max-width: 50%; } }
 #site-header {
-  text-align: center;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  text-align: center; }
   #site-header img {
-    height: 50px;
+    margin-top: 15px;
     width: 50px;
-    border-radius: 5px;
-    margin-top: 15px; }
+    height: 50px;
+    border-radius: 5px; }
   #site-header h1 {
     margin-bottom: 15px; }
 
 #site-navigation {
+  padding: 0;
   border-top: 3px solid;
-  background-color: white;
-  padding: 0; }
+  background-color: white; }
   #site-navigation ul, #site-navigation li {
     margin: 0;
     padding: 0; }
@@ -157,9 +158,9 @@ img {
     #site-header h1 {
       margin: 0; }
       #site-header h1 a {
+        float: left;
         padding: 15px 20px;
-        width: calc(100% - 70px);
-        float: left; }
+        width: calc(100% - 70px); }
 
   .nav-toggle {
     display: inline-block;
@@ -172,5 +173,76 @@ img {
     width: 100%; }
   #site-navigation li:not(:last-child) {
     border-bottom: 1px solid; } }
+.external-link:after {
+  margin-left: 20px;
+  width: 40px;
+  content: "\e609";
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 16px;
+  font-family: 'icomoon';
+  line-height: 1;
+  speak: none; }
+
+.format-image figcaption {
+  padding: 10px;
+  text-align: center; }
+
+hr.footnotes {
+  margin-bottom: 10px;
+  border-top: 1px solid;
+  border-right: 20px solid;
+  border-left: 20px solid; }
+
+ol.footnotes {
+  font-size: 14px; }
+
+.post-meta {
+  margin-top: 25px;
+  font-size: 14px; }
+
+.post-meta ul {
+  margin-left: 0;
+  list-style: none; }
+  .post-meta ul li {
+    margin-right: 20px;
+    margin-bottom: 10px;
+    vertical-align: top; }
+    @media screen and (min-width: 480px) {
+      .post-meta ul li {
+        display: inline-block;
+        width: calc(50% - 0.5em - 20px); } }
+  .post-meta ul li:before {
+    margin-right: 10px;
+    width: 40px;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'icomoon';
+    line-height: 1;
+    speak: none; }
+  .post-meta ul .author:before {
+    content: "\e615"; }
+  .post-meta ul .posted:before {
+    content: "\e60e"; }
+  .post-meta ul .updated:before {
+    content: "\e61a"; }
+  .post-meta ul .categories:before {
+    content: "\e60c"; }
+  .post-meta ul .tags:before {
+    content: "\e616"; }
+  .post-meta ul .credits:before {
+    content: "\e619"; }
+  .post-meta ul .photo-credits:before {
+    content: "\e612"; }
+
 .site-pagination {
+  margin-bottom: 30px;
+  text-align: center; }
+
+#site-footer {
+  margin-bottom: 50px;
   text-align: center; }

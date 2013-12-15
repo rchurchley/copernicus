@@ -13,6 +13,12 @@
 	?>
 	</nav>
 
+	<footer id="site-footer">
+		<?php if ( dynamic_sidebar('footer') ) : else : ?>
+			&sect;
+		<?php endif; ?>
+	</footer>
+
 	<?php wp_footer(); ?>
 	</body>
 </html>

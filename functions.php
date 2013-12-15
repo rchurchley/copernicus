@@ -11,25 +11,25 @@
 ============================================================================ */
 
 
-//  SETUP  ====================================================================
+/*  SETUP  --------------------------------------------------------------------
+	Sets up theme defaults and registers the various WordPress features that 
+	Copernicus supports:
 
-	/*  Initial setup ---------------------------------------------------------
-		Sets up theme defaults and registers the various WordPress features that Copernicus supports:
+	- RSS feed links added to preamble
+	- Default core markup switched to valid HTML5 for forms
+	- Post formats (see http://codex.wordpress.org/Post_Formats)
+	- Post thumbnails
+	- Header icon
 
-		- RSS feed links added to <head>
-		- Default core markup switched to valid HTML5 for forms
-		- Post formats (see http://codex.wordpress.org/Post_Formats)
-		- Post thumbnails
-		- Header icon
+	@uses add_theme_support() To add support for automatic feed links, post 
+	formats, and post thumbnails.
+	@uses register_nav_menu() To add support for a navigation menu.
+	@uses set_post_thumbnail_size() To set a custom post thumbnail size.
 
-		@uses add_theme_support() To add support for automatic feed links, post formats, and post thumbnails.
-		@uses register_nav_menu() To add support for a navigation menu.
-		@uses set_post_thumbnail_size() To set a custom post thumbnail size.
+	@since Copernicus 1.0
 
-		@since Copernicus 1.0
-
-		@return void
-	------------------------------------------------------------------------ */
+	@return void
+---------------------------------------------------------------------------- */
 
 	function copernicus_setup() {
 
@@ -52,17 +52,17 @@
 	add_action( 'after_setup_theme', 'copernicus_setup' );
 
 
-	/*  Scripts and Styles ----------------------------------------------------
-		Enqueues scripts and styles for the front end:
-		
-		- JavaScript for pages with threaded comments
-		- Theme-specific JavaScript
-		- Main stylesheet
+/*  Scripts and Styles --------------------------------------------------------
+	Enqueues scripts and styles for the front end:
+	
+	- JavaScript for pages with threaded comments
+	- Theme-specific JavaScript
+	- Main stylesheet
 
-		@since Copernicus 1.0
+	@since Copernicus 1.0
 
-		@return void
-	------------------------------------------------------------------------ */
+	@return void
+---------------------------------------------------------------------------- */
 
 	function copernicus_scripts_styles() {
 
@@ -76,71 +76,130 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
 
-	/*  More Theme Support ----------------------------------------------------
-		Sets content width, and adds support for SVG uploads and custom headers
+/*  More Theme Support --------------------------------------------------------
+	Sets content width, and adds support for SVG uploads and custom headers
+---------------------------------------------------------------------------- */
+
+	if ( ! isset( $content_width ) )
+		$content_width = 640;
+
+	function copernicus_mime_types( $mimes ){
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
+	add_filter( 'upload_mimes', 'copernicus_mime_types' );
+
+	require_once( 'features/add-featured-image-to-rss-feed.php' );
+
+
+/*  Simplify preamble ---------------------------------------------------------
+	Removes version and pointless links from head for security and simplicity. 
+	Removes version queries from script and style requests to improve caching.
+---------------------------------------------------------------------------- */
+	
+	function copernicus_remove_version() {
+		return '';  
+	}
+	add_filter('the_generator', 'copernicus_remove_version'); 
+
+	function _remove_script_version( $src ){
+		$parts = explode( '?', $src );
+		return $parts[0];
+	}
+	add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+	add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'rsd_link');
+
+	remove_action('wp_head', 'start_post_rel_link', 10, 0 );
+	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+
+/*  THEME CUSTOMIZATION ==================================================== */
+
+	/*  Widgets ---------------------------------------------------------------
+	 	A footer widget to allow writers to easily add copyright notice,
+	 	contact info, or a link to a colophon page. Defaults to a simple
+	 	centred section symbol.
+		
+	 	@since Copernicus 2.0
 	------------------------------------------------------------------------ */
 
-		if ( ! isset( $content_width ) )
-			$content_width = 640;
+		function copernicus_widgets_init() {
 
-		function copernicus_mime_types( $mimes ){
-			$mimes['svg'] = 'image/svg+xml';
-			return $mimes;
+			register_sidebar( array(
+				'name' => 'Footer',
+				'id' => 'footer',
+				'before_widget' => '',
+				'after_widget' => '',
+				'before_title' => '<h3>',
+				'after_title' => '</h3>',
+			) );
 		}
-		add_filter( 'upload_mimes', 'copernicus_mime_types' );
-	
-		require_once( 'features/add-featured-image-to-rss-feed.php' );
+		add_action( 'widgets_init', 'copernicus_widgets_init' );
 
+/*  CUSTOM FIELDS -------------------------------------------------------------
+	Provides fields to credit others for content or inspiration for a post.
 
-	/*  Simplify <head> -------------------------------------------------------
-		Removes version and pointless links from <head> for security and simplicity. Removes version queries from script and style requests to improve caching.
-	------------------------------------------------------------------------ */
-	
-		function copernicus_remove_version() {
-			return '';  
-		}
-		add_filter('the_generator', 'copernicus_remove_version'); 
+	@uses Advanced Custom Fields plugin (http://www.advancedcustomfields.com)
 
-		function _remove_script_version( $src ){
-			$parts = explode( '?', $src );
-			return $parts[0];
-		}
-		add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
-		add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+	@since Copernicus 2.0
+---------------------------------------------------------------------------- */
 
-		remove_action('wp_head', 'wlwmanifest_link');
-		remove_action('wp_head', 'rsd_link');
+	define( 'ACF_LITE' , true );
+	include_once('features/advanced-custom-fields/acf.php' );
 
-		remove_action('wp_head', 'start_post_rel_link', 10, 0 );
-		remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+	if(function_exists("register_field_group")) {
+		register_field_group(array (
+			'id' => 'acf_attribution',
+			'title' => 'Attribution',
+			'fields' => array (
+				array (
+					'key' => 'field_52ad5454e45ad',
+					'label' => 'Credits',
+					'name' => 'credits',
+					'type' => 'textarea',
+					'instructions' => 'Acknowledge your sources',
+					'default_value' => '',
+					'placeholder' => '',
+					'maxlength' => '',
+					'formatting' => 'html',
+				),
+				array (
+					'key' => 'field_52ad562fe45ae',
+					'label' => 'Photo credits',
+					'name' => 'photo_credits',
+					'type' => 'textarea',
+					'instructions' => 'Acknowledge the creator of any photos you\'ve used',
+					'default_value' => '',
+					'placeholder' => '',
+					'maxlength' => '',
+					'formatting' => 'html',
+				),
+			),
+			'location' => array (
+				array (
+					array (
+						'param' => 'post_type',
+						'operator' => '==',
+						'value' => 'post',
+						'order_no' => 0,
+						'group_no' => 0,
+					),
+				),
+			),
+			'options' => array (
+				'position' => 'normal',
+				'layout' => 'default',
+				'hide_on_screen' => array (
+				),
+			),
+			'menu_order' => 0,
+		));
+	}
 
 
 /*  CUSTOM THEME CALLBACKS ================================================= */
-
-	if ( ! function_exists( 'copernicus_post_date' ) ) :
-
-		function copernicus_post_date() {
-
-			$date = sprintf( '<time class="post-date" datetime="%1$s">%2$s</time>',
-				esc_attr( get_the_date( 'c' ) ),
-				get_the_date() 
-			);
-
-			echo $date;
-			
-			if( (get_the_modified_time( 'U' ) - get_the_time( 'U' )) > 1*60*60*24 ) {
-				$updated = sprintf( '<time class="post-updated" datetime="%1$s">%2$s</time>',
-					esc_attr( get_the_modified_date( 'c' ) ),
-					get_the_modified_date() 
-				);
-
-				echo $updated;
-			}
-
-		}
-
-	endif;
-
 
 	/*  Link ------------------------------------------------------------------
 	 	@uses get_url_in_content() to get the URL in the post meta (if it exists)

@@ -1,4 +1,5 @@
 @import 'reset.scss';
+@import 'icomoon.css';
 
 $Typeface-Headline: "Avenir Next", Avenir, Trebuchet, sans-serif;
 $Typeface-Body: "Avenir Next", Avenir, Trebuchet, sans-serif;
@@ -12,24 +13,24 @@ $Fontsize-Tiny: 12px;
 //  Default text ===============================================================
 
 body {
-    font-family: $Typeface-Body;
     font-size: $Fontsize-Default;
+    font-family: $Typeface-Body;
     text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: $Typeface-Headline;
-    line-height: 1.2;
     margin-top: 20px;
     margin-bottom: 10px;
+    font-family: $Typeface-Headline;
+    line-height: 1.2;
 }
 
 h1 { font-size: $Fontsize-Huge; }
 h2 { font-size: $Fontsize-Large; }
 
 p {
-    line-height: 1.4;
     margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 a {
@@ -37,8 +38,8 @@ a {
 }
 
 ul, ol, dl {
-    line-height: 1.4;
     margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 li, dt, dd {
@@ -67,12 +68,12 @@ sub { top:  0.4em; }
 //  Default block elements ===============================================================
 
 main {
+    margin: 0 auto 20px auto;
     padding: 0 20px;
     max-width: 40em;
-    margin: 0 auto;
 }
 
-article {
+article:not(:last-child) {
     margin-bottom: 20px;
 }
 
@@ -119,13 +120,13 @@ img {
 //  Site header ===============================================================
 
 #site-header {
-    text-align: center;
     margin-bottom: 20px;
+    text-align: center;
     img {
-        height: 50px;
-        width: 50px;
-        border-radius: 5px;
         margin-top: 15px;
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
     }
     h1 {
         margin-bottom: 15px; 
@@ -133,9 +134,9 @@ img {
 }
 
 #site-navigation {
+    padding: 0;
     border-top: 3px solid;
     background-color: white;
-    padding: 0;
     ul, li { 
         margin: 0;
         padding: 0;
@@ -159,9 +160,9 @@ img {
             margin: 0;
         
             a {
+                float: left;
                 padding: 15px 20px;
                 width: calc(100% - 70px);
-                float: left;
             }
         }
     }
@@ -182,8 +183,101 @@ img {
     }
 }
 
+// Post Formats =========================================================
+
+.external-link:after {
+    margin-left: 20px;
+    width: 40px;
+    content: "\e609";
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-size: $Fontsize-Default;
+    font-family: 'icomoon';
+    line-height: 1;
+    speak: none;
+}
+
+.format-image figcaption {
+    padding: 10px;
+    text-align: center;
+}
+
+hr.footnotes {
+    margin-bottom: 10px;
+    border-top: 1px solid;
+    border-right: 20px solid;
+    border-left: 20px solid;
+}
+
+ol.footnotes {
+    font-size: $Fontsize-Small;
+}
+
+// Post Meta ============================================================
+
+.post-meta {
+    margin-top: 25px;
+    font-size: $Fontsize-Small;
+}
+
+.post-meta ul {
+    margin-left: 0;
+    list-style: none;
+    li {
+        margin-right: 20px;
+        margin-bottom: 10px;
+        vertical-align: top;
+        @media screen and (min-width: 480px) { 
+            display: inline-block;
+            width: calc( 50% - 0.5em - 20px);
+        }
+    }
+
+    li:before {
+        margin-right: 10px;
+        width: 40px;
+        text-transform: none;
+        font-weight: normal;
+        font-style: normal;
+        font-variant: normal;
+        font-family: 'icomoon';
+        line-height: 1;
+        speak: none;    
+    }
+
+    .author:before {
+        content: "\e615";
+    }
+    .posted:before {
+        content: "\e60e";
+    }
+    .updated:before {
+        content: "\e61a";
+    }
+    .categories:before {
+        content: "\e60c";
+    }
+    .tags:before {
+        content: "\e616";
+    }
+    .credits:before {
+        content: "\e619";
+    }
+    .photo-credits:before {
+        content: "\e612";
+    }
+}
+
 // Site Footer ==========================================================
 
 .site-pagination {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#site-footer {
+    margin-bottom: 50px;
     text-align: center;
 }
