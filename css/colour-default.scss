@@ -1,0 +1,121 @@
+$Background: #F6F3EF;
+$Foreground: #302E2C;
+
+$Head: #302E2C;
+$Primary: #0087BD;
+$Secondary: #009F6B;
+$Accent: #E77E81;
+
+$Minor: #7E7C79;
+$Primary-Minor: #47ADD3;
+
+
+//  Default text --------------------------------------------------------------
+
+body {
+    background-color: $Background;
+    color: $Foreground;
+}
+
+a, a:visited {
+    color: $Primary;
+}
+
+a:hover{
+    color: $Secondary;
+}
+
+blockquote {
+    color: $Minor;
+    border-left: 3px solid $Secondary;
+}
+
+
+//  Images --------------------------------------------------------------------
+
+figcaption {
+    background-color: $Head;
+    color: $Background;
+}
+
+figcaption a, figcaption a:visited {
+    color: $Primary-Minor;
+}
+
+//  Site header ---------------------------------------------------------------
+
+#site-header {
+    background-color: $Head;
+    color: $Background;
+    a, a:visited { color: $Background; }
+}
+
+#site-navigation {
+    background-color: $Background;
+    color: $Primary;
+    a, a:visited { color: $Primary; }
+}
+
+#site-navigation .current_page_item {
+    color: $Background;
+    a, a:visited { color: $Background; }
+    background-color: $Primary;
+}
+
+@media screen and (max-width: 567px) {
+    #site-navigation {
+        background-color: $Primary;
+        color: $Background;
+        a, a:visited { color: $Background; }
+    }
+}
+
+//  Posts ---------------------------------------------------------------------
+
+h2 {
+    color: $Secondary;
+}
+
+h2:before {
+    background-color: $Secondary;
+    color: $Background;
+}
+
+//  Post footers --------------------------------------------------------------
+
+.footnoteref {
+    background-color: $Accent;
+    a { color: $Background; }
+}
+
+.footnotes li:before {
+    background-color: $Minor;
+    color: $Background;
+}
+
+.backlink, .backlink:visited {
+    color: $Accent;
+}
+
+.post-meta {
+    li:before {
+        color: $Secondary;
+    }
+}
+
+footer {
+    color: $Minor;
+    a { color: $Primary-Minor; }
+}
+
+
+// Site footer ----------------------------------------------------------------
+
+.site-pagination a, .pagination a:visited {
+    color: $Secondary;
+}
+
+.site-pagination .current {
+    color: $Background;
+    background-color: $Secondary;
+}

@@ -71,7 +71,6 @@
 		endif;
 
 		wp_enqueue_script( 'copernicus-responsive-nav', get_template_directory_uri() . '/features/responsive-nav.min.js', '2013-12-13', true );
-		wp_enqueue_style( 'copernicus-responsive-nav-style', get_template_directory_uri().'/features/responsive-nav.css', array(), '2013-12-13' );
 		wp_enqueue_style( 'copernicus-style', get_template_directory_uri().'/css/style.css', array(), '2013-08-12' );
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
@@ -109,11 +108,21 @@
 	add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
 	add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 
-	remove_action('wp_head', 'wlwmanifest_link');
-	remove_action('wp_head', 'rsd_link');
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'rel_canonical' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+	remove_action( 'wp_head', 'start_post_rel_link' );
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head');
 
-	remove_action('wp_head', 'start_post_rel_link', 10, 0 );
-	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+	// Absurdly, Wordpress does not seem to provide a way to remove just the comments feed
+	remove_action( 'wp_head', 'feed_links', 2 ); 
+	add_action('wp_head', 'addBackPostFeed');
+	function addBackPostFeed() {
+    	echo '<link rel="alternate" type="application/rss+xml" title="'.get_bloginfo('name').' Feed" href="'.get_bloginfo('rss2_url').'" />'; 
+	}
+
+
 
 /*  THEME CUSTOMIZATION ==================================================== */
 

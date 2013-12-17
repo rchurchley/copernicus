@@ -1,5 +1,6 @@
 @import 'reset.scss';
-@import 'icomoon.css';
+@import 'icomoon.scss';
+@import 'colour-default.scss';
 
 $Typeface-Headline: "Avenir Next", Avenir, Trebuchet, sans-serif;
 $Typeface-Body: "Avenir Next", Avenir, Trebuchet, sans-serif;
@@ -10,7 +11,8 @@ $Fontsize-Default: 16px;
 $Fontsize-Small: 14px;
 $Fontsize-Tiny: 12px;
 
-//  Default text ===============================================================
+
+//  Default text --------------------------------------------------------------
 
 body {
     font-size: $Fontsize-Default;
@@ -35,6 +37,10 @@ p {
 
 a {
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 ul, ol, dl {
@@ -65,7 +71,12 @@ sup, sub {
 sup { top: -0.4em; }
 sub { top:  0.4em; }
 
-//  Default block elements ===============================================================
+blockquote {
+    padding-left: 20px;
+}
+
+
+//  Default block elements ----------------------------------------------------
 
 main {
     margin: 0 auto 20px auto;
@@ -73,12 +84,20 @@ main {
     max-width: 40em;
 }
 
+main footer {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid;
+    font-size: $Fontsize-Small;
+}
+
+
 article:not(:last-child) {
     margin-bottom: 20px;
 }
 
 
-//  Images ===============================================================
+//  Images --------------------------------------------------------------------
 
 img {
     max-width: 100%;
@@ -91,7 +110,7 @@ img {
     width: 100%;
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 567px) {
     img, .alignleft, .alignright {
         display: block;
         margin-bottom: 10px;
@@ -101,7 +120,7 @@ img {
     }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 568px) {
     .alignleft {
         float: left;
         margin-right: 20px;
@@ -117,7 +136,8 @@ img {
     }
 }
 
-//  Site header ===============================================================
+
+//  Site header ---------------------------------------------------------------
 
 #site-header {
     margin-bottom: 20px;
@@ -129,6 +149,7 @@ img {
         border-radius: 5px;
     }
     h1 {
+        margin-top: 10px;
         margin-bottom: 15px; 
     }
 }
@@ -136,7 +157,6 @@ img {
 #site-navigation {
     padding: 0;
     border-top: 3px solid;
-    background-color: white;
     ul, li { 
         margin: 0;
         padding: 0;
@@ -150,7 +170,7 @@ img {
     }
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 567px) {
     #site-header {
         text-align: left;
         img {
@@ -171,6 +191,9 @@ img {
         padding: 15px 0;
         width: 70px;
         height: 66px;
+        border-left: 1px solid;
+        text-align: center;
+        font-size: $Fontsize-Huge;
     }
     #site-navigation {
         li, a {
@@ -183,7 +206,8 @@ img {
     }
 }
 
-// Post Formats =========================================================
+
+// Post Formats ---------------------------------------------------------------
 
 .external-link:after {
     margin-left: 20px;
@@ -204,23 +228,68 @@ img {
     text-align: center;
 }
 
-hr.footnotes {
-    margin-bottom: 10px;
-    border-top: 1px solid;
-    border-right: 20px solid;
-    border-left: 20px solid;
+
+// Subsections ----------------------------------------------------------------
+
+article, main {
+    counter-reset: subsection;
 }
 
-ol.footnotes {
-    font-size: $Fontsize-Small;
+h2 {
+    margin-left: 50px;
 }
 
-// Post Meta ============================================================
-
-.post-meta {
-    margin-top: 25px;
-    font-size: $Fontsize-Small;
+h2:before {
+    position: absolute;
+    left: 0;
+    width: 30px;
+    border-radius: 5px;
+    content: counter(subsection);
+    counter-increment: subsection;
+    text-align: center;
 }
+
+main > h2:before {
+    left: 20px;
+}
+
+
+// Post footnotes -------------------------------------------------------------
+
+.footnoteref {
+    top: 0;
+    margin: 0 5px;
+}
+
+.footnoteref, .footnotes li:before {
+    display: inline-block;
+    padding: 1px 3px;
+    min-width: 19px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+
+.footnotes ol {
+    margin-left: 40px; /* Remove the default left margin */
+    list-style: none;
+    counter-reset: li;
+}
+
+.footnotes li {
+    position: relative;
+    list-style: none;
+}
+
+.footnotes li:before {
+    position: absolute;
+    left: -41px;
+    content: counter(li);
+    counter-increment: li;
+}
+
+
+// Post Meta ------------------------------------------------------------------
 
 .post-meta ul {
     margin-left: 0;
@@ -229,7 +298,7 @@ ol.footnotes {
         margin-right: 20px;
         margin-bottom: 10px;
         vertical-align: top;
-        @media screen and (min-width: 480px) { 
+        @media screen and (min-width: 568px) { 
             display: inline-block;
             width: calc( 50% - 0.5em - 20px);
         }
@@ -270,14 +339,31 @@ ol.footnotes {
     }
 }
 
-// Site Footer ==========================================================
+
+// Site Footer ----------------------------------------------------------------
 
 .site-pagination {
     margin-bottom: 30px;
     text-align: center;
 }
 
+.site-pagination .current {
+    display: inline-block;
+    padding: 3px;
+    border-radius: 3px;
+    min-width: 19px;
+}
+
+.page-numbers {
+    padding: 10px;
+}
+
 #site-footer {
     margin-bottom: 50px;
     text-align: center;
 }
+
+
+// Features -------------------------------------------------------------------
+
+@import 'responsive-nav.scss';
