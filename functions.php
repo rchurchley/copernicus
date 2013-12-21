@@ -75,6 +75,7 @@
 	}
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
 
+
 /*  More Theme Support --------------------------------------------------------
 	Sets content width, and adds support for SVG uploads and custom headers
 ---------------------------------------------------------------------------- */
@@ -108,20 +109,26 @@
 	add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
 	add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 
-	remove_action( 'wp_head', 'wlwmanifest_link' );
-	remove_action( 'wp_head', 'rsd_link' );
-	remove_action( 'wp_head', 'rel_canonical' );
-	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
-	remove_action( 'wp_head', 'start_post_rel_link' );
-	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head');
+    function copernicus_head_cleanup() {
 
-	// Absurdly, Wordpress does not seem to provide a way to remove just the comments feed
-	remove_action( 'wp_head', 'feed_links', 2 ); 
-	add_action('wp_head', 'addBackPostFeed');
-	function addBackPostFeed() {
+        remove_action('wp_head', 'rsd_link');
+        remove_action('wp_head', 'wlwmanifest_link');
+        remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+        remove_action('wp_head', 'wp_generator');
+        remove_action( 'wp_head', 'start_post_rel_link' );
+        remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+
+        // Absurdly, Wordpress does not seem to provide a way to remove just the comments feed
+        remove_action( 'wp_head', 'feed_links', 2 );
+        remove_action('wp_head', 'feed_links_extra', 3);
+        add_action('wp_head', 'add_back_post_feed');
+    }
+
+    add_action('init', 'copernicus_head_cleanup');
+	
+	function add_back_post_feed() {
     	echo '<link rel="alternate" type="application/rss+xml" title="'.get_bloginfo('name').' Feed" href="'.get_bloginfo('rss2_url').'" />'; 
 	}
-
 
 
 /*  THEME CUSTOMIZATION ==================================================== */
@@ -146,6 +153,28 @@
 			) );
 		}
 		add_action( 'widgets_init', 'copernicus_widgets_init' );
+
+    /*  Most widgets will not properly fit in the footer. In addition, the
+        Recent Comments widget injects pointless CSS into single.php.
+        This disables all currently unsupported widgets, i.e. all the default
+        ones except for Text */
+        
+        function unregister_default_widgets() {
+            unregister_widget('WP_Widget_Pages');
+            unregister_widget('WP_Widget_Calendar');
+            unregister_widget('WP_Widget_Archives');
+            unregister_widget('WP_Widget_Links');
+            unregister_widget('WP_Widget_Meta');
+            unregister_widget('WP_Widget_Search');
+            unregister_widget('WP_Widget_Categories');
+            unregister_widget('WP_Widget_Recent_Posts');
+            unregister_widget('WP_Widget_Recent_Comments');
+            unregister_widget('WP_Widget_RSS');
+            unregister_widget('WP_Widget_Tag_Cloud');
+            unregister_widget('WP_Nav_Menu_Widget');
+        }
+        add_action('widgets_init', 'unregister_default_widgets', 11);
+
 
 /*  CUSTOM FIELDS -------------------------------------------------------------
 	Provides fields to credit others for content or inspiration for a post.
