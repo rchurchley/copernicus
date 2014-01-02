@@ -1,12 +1,24 @@
+/*  style.scss ================================================================
+
+    Main layout and typographic styles. Does not include colours, footnotes, or
+    mobile navigation menu.
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
+
 @import 'reset.scss';
 @import 'icomoon.scss';
-@import 'colour-default.scss';
+@import 'colour.scss';
 
 $Typeface-Headline: "Avenir Next", Avenir, Trebuchet, sans-serif;
 $Typeface-Body: "Avenir Next", Avenir, Trebuchet, sans-serif;
+$Code-Body: Inconsolata, monospace;
 
 $Fontsize-Huge: 30px;
-$Fontsize-Large: 24px;
+$Fontsize-Large: 20px;
 $Fontsize-Default: 16px;
 $Fontsize-Small: 14px;
 $Fontsize-Tiny: 12px;
@@ -43,6 +55,30 @@ a:hover {
     text-decoration: underline;
 }
 
+a[href$=".tex"]:after, a[href$=".pdf"]:after, a[href$=".zip"]:after, a[href$=".gz"]:after {
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 40px;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-size: $Fontsize-Default;
+    font-family: 'icomoon';
+    line-height: 1;
+    speak: none;
+}
+
+a[href$=".tex"]:after {
+    content: "\e603";
+}
+a[href$=".pdf"]:after {
+    content: "\e600";
+}
+a[href$=".zip"]:after, a[href$=".gz"]:after {
+    content: "\e601";
+}
+
 ul, ol, dl {
     margin-bottom: 10px;
     line-height: 1.4;
@@ -75,6 +111,10 @@ blockquote {
     padding-left: 20px;
 }
 
+code {
+    font-family: $Code-Body;
+}
+
 
 //  Default block elements ----------------------------------------------------
 
@@ -90,7 +130,6 @@ main footer {
     border-top: 1px solid;
     font-size: $Fontsize-Small;
 }
-
 
 article:not(:last-child) {
     margin-bottom: 20px;
@@ -111,12 +150,16 @@ img {
 }
 
 @media screen and (max-width: 567px) {
-    img, .alignleft, .alignright {
+    img, .alignleft, .alignright, figcaption {
         display: block;
         margin-bottom: 10px;
         margin-left: -20px;
         max-width: calc(100% + 40px);
         width: calc(100% + 40px);
+    }
+
+    figure img {
+        margin-bottom: 0;
     }
 }
 
@@ -226,66 +269,7 @@ img {
 .format-image figcaption {
     padding: 10px;
     text-align: center;
-}
-
-
-// Subsections ----------------------------------------------------------------
-
-article, main {
-    counter-reset: subsection;
-}
-
-h2 {
-    margin-left: 50px;
-}
-
-h2:before {
-    position: absolute;
-    left: 0;
-    width: 30px;
-    border-radius: 5px;
-    content: counter(subsection);
-    counter-increment: subsection;
-    text-align: center;
-}
-
-main > h2:before {
-    left: 20px;
-}
-
-
-// Post footnotes -------------------------------------------------------------
-
-.footnoteref {
-    top: 0;
-    margin: 0 5px;
-}
-
-.footnoteref, .footnotes li:before {
-    display: inline-block;
-    padding: 1px 3px;
-    min-width: 19px;
-    border-radius: 7px;
-    text-align: center;
-}
-
-
-.footnotes ol {
-    margin-left: 40px; /* Remove the default left margin */
-    list-style: none;
-    counter-reset: li;
-}
-
-.footnotes li {
-    position: relative;
-    list-style: none;
-}
-
-.footnotes li:before {
-    position: absolute;
-    left: -41px;
-    content: counter(li);
-    counter-increment: li;
+    p { margin: 0; }
 }
 
 
@@ -367,3 +351,4 @@ main > h2:before {
 // Features -------------------------------------------------------------------
 
 @import 'responsive-nav.scss';
+@import 'footnotes.scss';

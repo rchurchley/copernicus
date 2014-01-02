@@ -1,3 +1,45 @@
+/*  icomoon.scss ==============================================================
+
+    @uses font-family: 'icomoon' to provide the following icons:
+
+    - pdf file              \e600
+    - zip file              \e601
+    - xml file              \e602
+    - css file              \e603
+
+    - email                 \e60d
+    - location              \e61b
+    - linkedin profile      \e604
+    - github profile        \e605
+    - flickr profile        \e606
+    - twitter profile       \e607
+    - stackoverflow profile \e60b
+    - googleplus profile    \e618
+    - facebook profile:     \e60a
+    
+    - calendar              \e60e
+    - refresh               \e61a
+    - folder                \e60c
+    - tag                   \e616
+    - camera                \e612
+    - add person            \e619
+
+    - checkmark             \e614
+    - cancel                \e613
+
+    - creative commons      \e608
+    - external link         \e609
+    - search                \e60f
+    - settings              \e610
+    - RSS feed              \e617
+    - chart                 \e61e
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
+
 @font-face {
     font-family: 'icomoon';
     src:url('../fonts/icomoon.eot');
@@ -8,89 +50,3 @@
     font-weight: normal;
     font-style: normal;
 }
-
-/* Provides the following icons:
-
-.icon-file-pdf
-    content: "\e600";
-
-.icon-file-zip
-    content: "\e601";
-
-.icon-file-xml
-    content: "\e602";
-
-.icon-file-css
-    content: "\e603";
-
-.icon-linkedin
-    content: "\e604";
-
-.icon-github
-    content: "\e605";
-
-.icon-flickr
-    content: "\e606";
-
-.icon-twitter
-    content: "\e607";
-
-.icon-new-tab
-    content: "\e609";
-
-.icon-stackoverflow
-    content: "\e60b";
-
-.icon-folder-open
-    content: "\e60c";
-
-.icon-envelope
-    content: "\e60d";
-
-.icon-calendar
-    content: "\e60e";
-
-.icon-search
-    content: "\e60f";
-
-.icon-settings
-    content: "\e610";
-
-.icon-menu
-    content: "\e611";
-
-.icon-cancel-circle
-    content: "\e613";
-
-.icon-checkmark-circle
-    content: "\e614";
-
-.icon-quill
-    content: "\e615";
-
-.icon-tag
-    content: "\e616";
-
-.icon-feed
-    content: "\e617";
-
-.icon-google-plus
-    content: "\e618";
-
-.icon-location
-    content: "\e61b";
-
-.icon-phone
-    content: "\e61c";
-
-.icon-bars
-    content: "\e61e";
-
-.icon-facebook
-    content: "\e60a";
-
-.icon-cc
-    content: "\e608";
-
-
-*/

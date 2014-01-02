@@ -1,3 +1,22 @@
+/*  style.scss ================================================================
+
+    Main layout and typographic styles. Does not include colours, footnotes, or
+    mobile navigation menu.
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
+/*  reset.scss ================================================================
+
+    Reset default CSS rendering for predictable results across modern browsers.
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
 html {
   overflow-y: scroll;
   font-size: 100%;
@@ -38,6 +57,47 @@ table {
 .clearfix:after, body:after, section:after, article:after, aside:after, figure:after, header:after, footer:after, div:after, nav:after {
   clear: both; }
 
+/*  icomoon.scss ==============================================================
+
+    @uses font-family: 'icomoon' to provide the following icons:
+
+    - pdf file              \e600
+    - zip file              \e601
+    - xml file              \e602
+    - css file              \e603
+
+    - email                 \e60d
+    - location              \e61b
+    - linkedin profile      \e604
+    - github profile        \e605
+    - flickr profile        \e606
+    - twitter profile       \e607
+    - stackoverflow profile \e60b
+    - googleplus profile    \e618
+    - facebook profile:     \e60a
+    
+    - calendar              \e60e
+    - refresh               \e61a
+    - folder                \e60c
+    - tag                   \e616
+    - camera                \e612
+    - add person            \e619
+
+    - checkmark             \e614
+    - cancel                \e613
+
+    - creative commons      \e608
+    - external link         \e609
+    - search                \e60f
+    - settings              \e610
+    - RSS feed              \e617
+    - chart                 \e61e
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
 @font-face {
   font-family: 'icomoon';
   src: url("../fonts/icomoon.eot");
@@ -45,91 +105,15 @@ table {
   font-weight: normal;
   font-style: normal; }
 
-/* Provides the following icons:
+/*  colour.scss ===============================================================
 
-.icon-file-pdf
-    content: "\e600";
+    The default colour scheme.
 
-.icon-file-zip
-    content: "\e601";
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
 
-.icon-file-xml
-    content: "\e602";
-
-.icon-file-css
-    content: "\e603";
-
-.icon-linkedin
-    content: "\e604";
-
-.icon-github
-    content: "\e605";
-
-.icon-flickr
-    content: "\e606";
-
-.icon-twitter
-    content: "\e607";
-
-.icon-new-tab
-    content: "\e609";
-
-.icon-stackoverflow
-    content: "\e60b";
-
-.icon-folder-open
-    content: "\e60c";
-
-.icon-envelope
-    content: "\e60d";
-
-.icon-calendar
-    content: "\e60e";
-
-.icon-search
-    content: "\e60f";
-
-.icon-settings
-    content: "\e610";
-
-.icon-menu
-    content: "\e611";
-
-.icon-cancel-circle
-    content: "\e613";
-
-.icon-checkmark-circle
-    content: "\e614";
-
-.icon-quill
-    content: "\e615";
-
-.icon-tag
-    content: "\e616";
-
-.icon-feed
-    content: "\e617";
-
-.icon-google-plus
-    content: "\e618";
-
-.icon-location
-    content: "\e61b";
-
-.icon-phone
-    content: "\e61c";
-
-.icon-bars
-    content: "\e61e";
-
-.icon-facebook
-    content: "\e60a";
-
-.icon-cc
-    content: "\e608";
-
-
-*/
+============================================================================ */
 body {
   background-color: #f6f3ef;
   color: #302e2c; }
@@ -138,11 +122,7 @@ a, a:visited {
   color: #0087bd; }
 
 a:hover {
-  color: #009f6b; }
-
-blockquote {
-  color: #7e7c79;
-  border-left: 3px solid #009f6b; }
+  color: #e77e81; }
 
 figcaption {
   background-color: #302e2c;
@@ -175,32 +155,33 @@ figcaption a, figcaption a:visited {
     color: #f6f3ef; }
     #site-navigation a, #site-navigation a:visited {
       color: #f6f3ef; } }
-h2 {
-  color: #009f6b; }
-
-h2:before {
-  background-color: #009f6b;
-  color: #f6f3ef; }
+h1, h2 {
+  color: #0087bd; }
 
 .footnoteref {
-  background-color: #e77e81; }
+  background-color: #009f6b; }
   .footnoteref a {
     color: #f6f3ef; }
+
+.footnoteref:hover {
+  background-color: #e77e81; }
 
 .footnotes li:before {
   background-color: #7e7c79;
   color: #f6f3ef; }
 
 .backlink, .backlink:visited {
-  color: #e77e81; }
+  color: #009f6b; }
 
 .post-meta li:before {
   color: #009f6b; }
 
 footer {
   color: #7e7c79; }
-  footer a {
+  footer a, footer a:visited {
     color: #47add3; }
+  footer a:hover {
+    color: #fcb7b7; }
 
 .site-pagination a, .pagination a:visited {
   color: #009f6b; }
@@ -224,7 +205,7 @@ h1 {
   font-size: 30px; }
 
 h2 {
-  font-size: 24px; }
+  font-size: 20px; }
 
 p {
   margin-bottom: 10px;
@@ -235,6 +216,28 @@ a {
 
 a:hover {
   text-decoration: underline; }
+
+a[href$=".tex"]:after, a[href$=".pdf"]:after, a[href$=".zip"]:after, a[href$=".gz"]:after {
+  margin-left: 5px;
+  margin-right: 10px;
+  width: 40px;
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-size: 16px;
+  font-family: 'icomoon';
+  line-height: 1;
+  speak: none; }
+
+a[href$=".tex"]:after {
+  content: "\e603"; }
+
+a[href$=".pdf"]:after {
+  content: "\e600"; }
+
+a[href$=".zip"]:after, a[href$=".gz"]:after {
+  content: "\e601"; }
 
 ul, ol, dl {
   margin-bottom: 10px;
@@ -266,6 +269,9 @@ sub {
 blockquote {
   padding-left: 20px; }
 
+code {
+  font-family: Inconsolata, monospace; }
+
 main {
   margin: 0 auto 20px auto;
   padding: 0 20px;
@@ -290,12 +296,15 @@ img {
   width: 100%; }
 
 @media screen and (max-width: 567px) {
-  img, .alignleft, .alignright {
+  img, .alignleft, .alignright, figcaption {
     display: block;
     margin-bottom: 10px;
     margin-left: -20px;
     max-width: calc(100% + 40px);
-    width: calc(100% + 40px); } }
+    width: calc(100% + 40px); }
+
+  figure img {
+    margin-bottom: 0; } }
 @media screen and (min-width: 568px) {
   .alignleft {
     float: left;
@@ -374,51 +383,8 @@ img {
 .format-image figcaption {
   padding: 10px;
   text-align: center; }
-
-article, main {
-  counter-reset: subsection; }
-
-h2 {
-  margin-left: 50px; }
-
-h2:before {
-  position: absolute;
-  left: 0;
-  width: 30px;
-  border-radius: 5px;
-  content: counter(subsection);
-  counter-increment: subsection;
-  text-align: center; }
-
-main > h2:before {
-  left: 20px; }
-
-.footnoteref {
-  top: 0;
-  margin: 0 5px; }
-
-.footnoteref, .footnotes li:before {
-  display: inline-block;
-  padding: 1px 3px;
-  min-width: 19px;
-  border-radius: 7px;
-  text-align: center; }
-
-.footnotes ol {
-  margin-left: 40px;
-  /* Remove the default left margin */
-  list-style: none;
-  counter-reset: li; }
-
-.footnotes li {
-  position: relative;
-  list-style: none; }
-
-.footnotes li:before {
-  position: absolute;
-  left: -41px;
-  content: counter(li);
-  counter-increment: li; }
+  .format-image figcaption p {
+    margin: 0; }
 
 .post-meta ul {
   margin-left: 0;
@@ -473,7 +439,15 @@ main > h2:before {
   margin-bottom: 50px;
   text-align: center; }
 
-/*! responsive-nav.js 1.0.25 by @viljamis */
+/*  responsive-nav.scss =======================================================
+
+    Styles for the main navigation menu appearing on small screens.
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
 .nav-collapse {
   clear: both; }
 
@@ -513,3 +487,41 @@ main > h2:before {
 
   .nav-toggle {
     display: none; } }
+/*  footnotes.scss ============================================================
+
+    Styles for footnotes provided in /features/footnotes.php.
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
+.footnoteref {
+  top: 0;
+  margin: 0 5px; }
+
+.footnoteref a:hover {
+  text-decoration: none; }
+
+.footnoteref, .footnotes li:before {
+  display: inline-block;
+  padding: 1px 3px;
+  min-width: 19px;
+  border-radius: 7px;
+  text-align: center; }
+
+.footnotes ol {
+  margin-left: 40px;
+  /* Remove the default left margin */
+  list-style: none;
+  counter-reset: li; }
+
+.footnotes li {
+  position: relative;
+  list-style: none; }
+
+.footnotes li:before {
+  position: absolute;
+  left: -41px;
+  content: counter(li);
+  counter-increment: li; }

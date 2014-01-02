@@ -2,7 +2,7 @@
 
 /*  functions.php =============================================================
 
-	Copernicus functions and definitions
+	Copernicus functions and definitions.
 
 	@package 	WordPress
 	@subpackage Copernicus
@@ -40,15 +40,18 @@
 		add_theme_support( 'custom-header', array(
 			'width'         => 50,
 			'height'        => 50,
-			'default-image' => get_template_directory_uri() . '/img/header.jpg',
+			'default-image' => get_template_directory_uri() . '/img/header.png',
 			'uploads'		=> true,
-		) );
+			) );
+
 		set_post_thumbnail_size( 688 );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menu( 'primary', __( 'Navigation Menu', 'copernicus' ) );
 		register_nav_menu( 'secondary', __( 'Secondary Menu', 'copernicus' ) );
+
 	}
+
 	add_action( 'after_setup_theme', 'copernicus_setup' );
 
 
@@ -72,92 +75,95 @@
 
 		wp_enqueue_script( 'copernicus-responsive-nav', get_template_directory_uri() . '/features/responsive-nav.min.js', '2013-12-13', true );
 		wp_enqueue_style( 'copernicus-style', get_template_directory_uri().'/css/style.css', array(), '2013-08-12' );
+		
 	}
+
 	add_action( 'wp_enqueue_scripts', 'copernicus_scripts_styles' );
 
 
-/*  More Theme Support --------------------------------------------------------
-	Sets content width, and adds support for SVG uploads and custom headers
+/*  Theme features ------------------------------------------------------------
+	SVG uploads, featured image added to RSS feed, Civil Footnotes.
 ---------------------------------------------------------------------------- */
-
-	if ( ! isset( $content_width ) )
-		$content_width = 640;
 
 	function copernicus_mime_types( $mimes ){
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
 	}
+
 	add_filter( 'upload_mimes', 'copernicus_mime_types' );
 
 	require_once( 'features/add-featured-image-to-rss-feed.php' );
+	require_once( 'features/footnotes.php' );
 
 
 /*  Simplify preamble ---------------------------------------------------------
 	Removes version and pointless links from head for security and simplicity. 
 	Removes version queries from script and style requests to improve caching.
 ---------------------------------------------------------------------------- */
-	
+
 	function copernicus_remove_version() {
 		return '';  
 	}
-	add_filter('the_generator', 'copernicus_remove_version'); 
 
 	function _remove_script_version( $src ){
 		$parts = explode( '?', $src );
 		return $parts[0];
 	}
-	add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
-	add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
 
     function copernicus_head_cleanup() {
-
-        remove_action('wp_head', 'rsd_link');
-        remove_action('wp_head', 'wlwmanifest_link');
-        remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
-        remove_action('wp_head', 'wp_generator');
+        remove_action( 'wp_head', 'rsd_link' );
+        remove_action( 'wp_head', 'wlwmanifest_link' );
+        remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+        remove_action( 'wp_head', 'wp_generator' );
         remove_action( 'wp_head', 'start_post_rel_link' );
-        remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+        remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 
         // Absurdly, Wordpress does not seem to provide a way to remove just the comments feed
         remove_action( 'wp_head', 'feed_links', 2 );
-        remove_action('wp_head', 'feed_links_extra', 3);
-        add_action('wp_head', 'add_back_post_feed');
+        remove_action( 'wp_head', 'feed_links_extra', 3 );
+        add_action(    'wp_head', 'add_back_post_feed' );
     }
 
-    add_action('init', 'copernicus_head_cleanup');
-	
 	function add_back_post_feed() {
     	echo '<link rel="alternate" type="application/rss+xml" title="'.get_bloginfo('name').' Feed" href="'.get_bloginfo('rss2_url').'" />'; 
 	}
+	
+	add_filter( 'the_generator', 'copernicus_remove_version' );
+	add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+	add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+    add_action( 'init', 'copernicus_head_cleanup' );
 
 
-/*  THEME CUSTOMIZATION ==================================================== */
+/*  Widgets -------------------------------------------------------------------
+ 	Makes site footer a widget area, allowing writers to easily add copyright 
+ 	notice, contact info, or a link to a colophon page using a Text widget. 
+ 	Defaults to a simple centred section symbol.
+	
+ 	@since Copernicus 2.0
 
-	/*  Widgets ---------------------------------------------------------------
-	 	A footer widget to allow writers to easily add copyright notice,
-	 	contact info, or a link to a colophon page. Defaults to a simple
-	 	centred section symbol.
-		
-	 	@since Copernicus 2.0
-	------------------------------------------------------------------------ */
+ 	@return void
+---------------------------------------------------------------------------- */
 
-		function copernicus_widgets_init() {
+	function copernicus_widgets_init() {
+		register_sidebar( array(
+			'name' => 'Footer',
+			'id' => 'footer',
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3>',
+			'after_title' => '</h3>',
+		) );
+	}
 
-			register_sidebar( array(
-				'name' => 'Footer',
-				'id' => 'footer',
-				'before_widget' => '',
-				'after_widget' => '',
-				'before_title' => '<h3>',
-				'after_title' => '</h3>',
-			) );
-		}
-		add_action( 'widgets_init', 'copernicus_widgets_init' );
+	add_action( 'widgets_init', 'copernicus_widgets_init' );
 
-    /*  Most widgets will not properly fit in the footer. In addition, the
-        Recent Comments widget injects pointless CSS into single.php.
-        This disables all currently unsupported widgets, i.e. all the default
-        ones except for Text */
+    /**  
+     *  We only want to allow Text widgets in the footer, and some other 
+     *	default	widgets can be troublesome even when not added (I'm looking at 
+     *	you, WP Recent Comments and your pointless CSS injections). The 
+     *	easiest solution to both problems is to just disable all unsupported 
+     *	default widgets. 
+     */
         
         function unregister_default_widgets() {
             unregister_widget('WP_Widget_Pages');
@@ -173,10 +179,11 @@
             unregister_widget('WP_Widget_Tag_Cloud');
             unregister_widget('WP_Nav_Menu_Widget');
         }
-        add_action('widgets_init', 'unregister_default_widgets', 11);
+
+    add_action('widgets_init', 'unregister_default_widgets', 11);
 
 
-/*  CUSTOM FIELDS -------------------------------------------------------------
+/*  Custom Fields -------------------------------------------------------------
 	Provides fields to credit others for content or inspiration for a post.
 
 	@uses Advanced Custom Fields plugin (http://www.advancedcustomfields.com)
@@ -237,21 +244,19 @@
 	}
 
 
-/*  CUSTOM THEME CALLBACKS ================================================= */
+/*  Link Callback -------------------------------------------------------------
+ 	@uses get_url_in_content() to get the URL in the post meta (if it exists)
+ 	or the first link found in the post content.
+	
+ 	Falls back to the post permalink if no URL is found in the post.
+	
+ 	@since Copernicus 1.0
+ 	@return string The Link format URL.
+---------------------------------------------------------------------------- */
+	
+	function copernicus_get_link_url() {
+		$content = get_the_content();
+		$has_url = get_url_in_content( $content );
 
-	/*  Link ------------------------------------------------------------------
-	 	@uses get_url_in_content() to get the URL in the post meta (if it exists)
-	 	or the first link found in the post content.
-		
-	 	Falls back to the post permalink if no URL is found in the post.
-		
-	 	@since Copernicus 1.0
-	 	@return string The Link format URL.
-	------------------------------------------------------------------------ */
-
-		function copernicus_get_link_url() {
-			$content = get_the_content();
-			$has_url = get_url_in_content( $content );
-
-			return ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
-		}
+		return ( $has_url ) ? $has_url : apply_filters( 'the_permalink', get_permalink() );
+	}

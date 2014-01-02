@@ -1,13 +1,27 @@
+/*  colour.scss ===============================================================
+
+    The default colour scheme.
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
+
 $Background: #F6F3EF;
 $Foreground: #302E2C;
 
-$Head: #302E2C;
+$Header-Background: #302E2C;
+$Header-Foreground: #F6F3EF;
+
 $Primary: #0087BD;
 $Secondary: #009F6B;
 $Accent: #E77E81;
 
-$Minor: #7E7C79;
-$Primary-Minor: #47ADD3;
+$Minor-Foreground: #7E7C79;
+$Minor-Primary: #47ADD3;
+$Minor-Secondary: #55C496;
+$Minor-Accent: #FCB7B7;
 
 
 //  Default text --------------------------------------------------------------
@@ -22,32 +36,27 @@ a, a:visited {
 }
 
 a:hover{
-    color: $Secondary;
-}
-
-blockquote {
-    color: $Minor;
-    border-left: 3px solid $Secondary;
+    color: $Accent;
 }
 
 
 //  Images --------------------------------------------------------------------
 
 figcaption {
-    background-color: $Head;
-    color: $Background;
+    background-color: $Header-Background;
+    color: $Header-Foreground;
 }
 
 figcaption a, figcaption a:visited {
-    color: $Primary-Minor;
+    color: $Minor-Primary;
 }
 
 //  Site header ---------------------------------------------------------------
 
 #site-header {
-    background-color: $Head;
-    color: $Background;
-    a, a:visited { color: $Background; }
+    background-color: $Header-Background;
+    color: $Header-Foreground;
+    a, a:visited { color: $Header-Foreground; }
 }
 
 #site-navigation {
@@ -57,8 +66,8 @@ figcaption a, figcaption a:visited {
 }
 
 #site-navigation .current_page_item {
-    color: $Background;
-    a, a:visited { color: $Background; }
+    color: $Header-Foreground;
+    a, a:visited { color: $Header-Foreground; }
     background-color: $Primary;
 }
 
@@ -72,29 +81,29 @@ figcaption a, figcaption a:visited {
 
 //  Posts ---------------------------------------------------------------------
 
-h2 {
-    color: $Secondary;
+h1, h2 {
+    color: $Primary;
 }
 
-h2:before {
-    background-color: $Secondary;
-    color: $Background;
-}
 
 //  Post footers --------------------------------------------------------------
 
 .footnoteref {
+    background-color: $Secondary;
+    a { color: $Header-Foreground; }
+}
+
+.footnoteref:hover {
     background-color: $Accent;
-    a { color: $Background; }
 }
 
 .footnotes li:before {
-    background-color: $Minor;
-    color: $Background;
+    background-color: $Minor-Foreground;
+    color: $Header-Foreground;
 }
 
 .backlink, .backlink:visited {
-    color: $Accent;
+    color: $Secondary;
 }
 
 .post-meta {
@@ -104,8 +113,13 @@ h2:before {
 }
 
 footer {
-    color: $Minor;
-    a { color: $Primary-Minor; }
+    color: $Minor-Foreground;
+    a, a:visited {
+        color: $Minor-Primary;
+    }
+    a:hover {
+        color: $Minor-Accent;
+    }
 }
 
 
@@ -116,6 +130,6 @@ footer {
 }
 
 .site-pagination .current {
-    color: $Background;
+    color: $Header-Foreground;
     background-color: $Secondary;
 }

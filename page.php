@@ -2,9 +2,7 @@
 
 /* Page =======================================================================
 	
-	The template for displaying all pages.
-	
-	This is the template that displays all WordPress pages by default.
+	The template for displaying all WordPress pages by default.
 	
 	@package 	WordPress
 	@subpackage Copernicus

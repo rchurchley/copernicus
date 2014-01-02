@@ -1,0 +1,44 @@
+/*  footnotes.scss ============================================================
+
+    Styles for footnotes provided in /features/footnotes.php.
+
+    @package    WordPress
+    @subpackage Copernicus
+    @since      Copernicus 2.0
+
+============================================================================ */
+
+.footnoteref {
+    top: 0;
+    margin: 0 5px;
+}
+
+.footnoteref a:hover {
+    text-decoration: none;
+}
+
+.footnoteref, .footnotes li:before {
+    display: inline-block;
+    padding: 1px 3px;
+    min-width: 19px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.footnotes ol {
+    margin-left: 40px; /* Remove the default left margin */
+    list-style: none;
+    counter-reset: li;
+}
+
+.footnotes li {
+    position: relative;
+    list-style: none;
+}
+
+.footnotes li:before {
+    position: absolute;
+    left: -41px;
+    content: counter(li);
+    counter-increment: li;
+}
