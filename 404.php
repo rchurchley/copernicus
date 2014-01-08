@@ -1,24 +1,31 @@
 <?php
 
-/*  404 =======================================================================
-	
-	The template for displaying 404 (Not Found) pages.
-	
-	@package 	WordPress
-	@subpackage Copernicus
-	@since 		Copernicus 1.0
-	
-============================================================================ */
+/*  404
+ *  
+ *  The template for displaying 404 (Not Found) pages.
+ *
+ *  @package    WordPress
+ *  @subpackage Copernicus
+ *  @since      Copernicus 1.0
+ *
+ */
 
-	get_template_part('parts/preamble');
-	get_template_part('parts/header'); 
+    get_template_part('parts/preamble');
+    get_template_part('parts/header'); 
 
 ?>
 
-	<h1 id="page-title">404 Not Found</h1>
+<main class="not-found">
+    <h1>404 Not Found</h1>
+
+    <p>Maybe a search will turn up what you're looking for:</p>
+    
+    <form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+        <input type="search" placeholder="Search …" value="" name="s" title="Search for:" />
+        <input type="submit" class="search-submit" value="&#xe60f;"/>
+    </form>
+</main>
 
 <?php 
-
-	get_template_part('parts/footer');
-
+    get_template_part('parts/footer');
 ?>

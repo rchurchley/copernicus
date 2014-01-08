@@ -1,16 +1,16 @@
 <?php
 
-/*  Archive
+/*  Category Template: Default
  *
- *  The template for displaying Archive-type pages if nothing more specific
- *  matches a query. For example, puts together date-based pages if no 
- *  date.php file exists.
+ *  The template for displaying Category pages by default, unless overridden
+ *  per category by Custom Category Templates. Currently identical to
+ *  archive.php.
  *
  *  Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  *  @package    WordPress
  *  @subpackage Copernicus
- *  @since      Copernicus 1.0
+ *  @since      Copernicus 2.0
  *
  */
 

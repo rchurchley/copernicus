@@ -119,7 +119,7 @@ code {
 //  Default block elements ----------------------------------------------------
 
 main {
-    margin: 0 auto 20px auto;
+    margin: 0 auto 50px auto;
     padding: 0 20px;
     max-width: 40em;
 }
@@ -342,9 +342,26 @@ img {
     padding: 10px;
 }
 
-#site-footer {
-    margin-bottom: 50px;
+
+// 404 ------------------------------------------------------------------------
+
+.not-found {
     text-align: center;
+
+    h1 {
+        font-size: 50px;
+        margin: 40px 0;
+    }
+}
+
+.search-submit {
+    background: none;
+    margin-left: 20px;
+    font-size: $Fontsize-Default;
+    font-family: 'icomoon';
+    line-height: 1;
+    speak: none;
+    cursor: pointer;
 }
 
 
