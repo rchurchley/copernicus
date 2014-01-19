@@ -73,7 +73,7 @@ function copernicus_scripts_styles()
     );
     wp_enqueue_style(
         'copernicus-style',
-        get_template_directory_uri().'/css/main.css'
+        get_template_directory_uri().'/styles/main.css'
     );
 }
 
@@ -81,7 +81,7 @@ function copernicus_colourize()
 {
     wp_enqueue_style(
         'copernicus-colours',
-        get_template_directory_uri().'/css/colour.css'
+        get_template_directory_uri().'/styles/colour.css'
     );
 }
 
