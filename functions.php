@@ -77,7 +77,16 @@ function copernicus_scripts_styles()
     );
 }
 
+function copernicus_colourize()
+{
+    wp_enqueue_style(
+        'copernicus-colours',
+        get_template_directory_uri().'/css/colour.css'
+    );
+}
+
 add_action('wp_enqueue_scripts', 'copernicus_scripts_styles');
+add_action('wp_enqueue_scripts', 'copernicus_colourize');
 
 
 /*  WordPress enhancements
