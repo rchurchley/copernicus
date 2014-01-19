@@ -1,20 +1,34 @@
+<?php
+
+/*  Site header
+ * 
+ *  The template for the title banner displayed at the top of all pages.
+ * 
+ *  @package    WordPress
+ *  @subpackage Copernicus
+ *  @since      Copernicus 2.0
+ * 
+ */
+
+?>
+
 <header id="site-header" role="banner">
     <img src="<?php header_image(); ?>" height="50px" width="50px"/>
-	<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-		<?php bloginfo( 'name' ); ?>
-	</a></h1>
+    <h1><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+        <?php bloginfo('name'); ?>
+    </a></h1>
 
-	<nav id="site-navigation" role="navigation">
-		<?php 
-		echo strip_tags(wp_nav_menu( array(
-			'theme_location'  => 'primary',
-			'container'       => '',
+    <nav id="site-navigation" role="navigation">
+        <?php 
+        echo strip_tags(wp_nav_menu(array(
+            'theme_location'  => 'primary',
+            'container'       => '',
             'echo'            => false,
-		) ), '<ul><li><a>' );
-		?>
-	</nav>
+        )), '<ul><li><a>');
+        ?>
+    </nav>
 
-	<script>
+    <script>
       var navigation = responsiveNav("#site-navigation", {
         animate: true,        // Boolean: Use CSS3 transitions, true or false
         transition: 250,      // Integer: Speed of the transition, in milliseconds

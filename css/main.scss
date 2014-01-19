@@ -1,13 +1,12 @@
-/*  style.scss ================================================================
-
-    Main layout and typographic styles. Does not include colours, footnotes, or
-    mobile navigation menu.
-
-    @package    WordPress
-    @subpackage Copernicus
-    @since      Copernicus 2.0
-
-============================================================================ */
+/*  Main Stylesheet
+ *
+ *  Defines the main layout and typographic styles (excluding colours).
+ *
+ *  @package    WordPress
+ *  @subpackage Copernicus
+ *  @since      Copernicus 2.0
+ *
+ */
 
 @import 'reset.scss';
 @import 'icomoon.scss';
@@ -24,7 +23,11 @@ $Fontsize-Small: 14px;
 $Fontsize-Tiny: 12px;
 
 
-//  Default text --------------------------------------------------------------
+/*  Default text
+ *
+ *  Styles for plain text and basic HTML tags.
+ *
+ */
 
 body {
     font-size: $Fontsize-Default;
@@ -39,8 +42,13 @@ h1, h2, h3, h4, h5 {
     line-height: 1.2;
 }
 
-h1 { font-size: $Fontsize-Huge; }
-h2 { font-size: $Fontsize-Large; }
+h1 {
+    font-size: $Fontsize-Huge;
+}
+
+h2 {
+    font-size: $Fontsize-Large;
+}
 
 p {
     margin-bottom: 10px;
@@ -55,26 +63,30 @@ a:hover {
     text-decoration: underline;
 }
 
-a[href$=".tex"]:after, a[href$=".pdf"]:after, a[href$=".zip"]:after, a[href$=".gz"]:after {
-    margin-left: 5px;
-    margin-right: 10px;
-    width: 40px;
-    text-transform: none;
-    font-weight: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-size: $Fontsize-Default;
-    font-family: 'icomoon';
-    line-height: 1;
-    speak: none;
+a[href$=".tex"], a[href$=".pdf"], a[href$=".zip"], a[href$=".gz"] {
+    &:after{
+        margin-left: 5px;
+        margin-right: 10px;
+        width: 40px;
+        text-transform: none;
+        font-weight: normal;
+        font-style: normal;
+        font-variant: normal;
+        font-size: $Fontsize-Default;
+        font-family: 'icomoon';
+        line-height: 1;
+        speak: none;
+    }
 }
 
 a[href$=".tex"]:after {
     content: "\e603";
 }
+
 a[href$=".pdf"]:after {
     content: "\e600";
 }
+
 a[href$=".zip"]:after, a[href$=".gz"]:after {
     content: "\e601";
 }
@@ -93,19 +105,26 @@ ul, ol, dd {
 }
 
 strong, b {
-    font-weight: bold; 
+    font-weight: bold;
 }
-em, i { 
+
+em, i {
     font-style: italic;
 }
 
-sup, sub { 
-    position: relative; 
-    vertical-align: baseline; 
+sup, sub {
+    position: relative;
+    vertical-align: baseline;
     font-size: $Fontsize-Small;
 }
-sup { top: -0.4em; }
-sub { top:  0.4em; }
+
+sup {
+    top: -0.4em;
+}
+
+sub {
+    top:  0.4em;
+}
 
 blockquote {
     padding-left: 20px;
@@ -116,7 +135,11 @@ code {
 }
 
 
-//  Default block elements ----------------------------------------------------
+/*  Default blocks
+ *
+ *  Styles for basic block-level tags, including the main content wrapper.
+ *
+ */
 
 main {
     margin: 0 auto 50px auto;
@@ -136,7 +159,11 @@ article:not(:last-child) {
 }
 
 
-//  Images --------------------------------------------------------------------
+/*  Default images
+ *
+ *  Styles for img tags and their common WordPress-added classes.
+ *
+ */
 
 img {
     max-width: 100%;
@@ -180,33 +207,42 @@ img {
 }
 
 
-//  Site header ---------------------------------------------------------------
+/*  Site header
+ *
+ *  Styles for the main banner at the top of every page.
+ *
+ */
 
 #site-header {
     margin-bottom: 20px;
     text-align: center;
+
     img {
         margin-top: 15px;
         width: 50px;
         height: 50px;
         border-radius: 5px;
     }
+
     h1 {
         margin-top: 10px;
-        margin-bottom: 15px; 
+        margin-bottom: 15px;
     }
 }
 
 #site-navigation {
     padding: 0;
     border-top: 3px solid;
-    ul, li { 
+
+    ul, li {
         margin: 0;
         padding: 0;
     }
+
     li {
         display: inline-block;
     }
+
     a {
         display: inline-block;
         padding: 10px 20px;
@@ -216,12 +252,14 @@ img {
 @media screen and (max-width: 567px) {
     #site-header {
         text-align: left;
+
         img {
             display: none;
         }
+
         h1 {
             margin: 0;
-        
+       
             a {
                 float: left;
                 padding: 15px 20px;
@@ -229,6 +267,7 @@ img {
             }
         }
     }
+
     .nav-toggle {
         display: inline-block;
         padding: 15px 0;
@@ -238,11 +277,13 @@ img {
         text-align: center;
         font-size: $Fontsize-Huge;
     }
+
     #site-navigation {
         li, a {
             display: block;
             width: 100%;
         }
+
         li:not(:last-child) {
             border-bottom: 1px solid;
         }
@@ -250,7 +291,72 @@ img {
 }
 
 
-// Post Formats ---------------------------------------------------------------
+/*  Responsive navigation
+ *
+ *  Styles for the main navigation menu appearing in the title banner on small
+ *  screens.
+ *
+ *  @since      Copernicus 2.0
+ *
+ */
+
+.nav-collapse {
+    clear: both;
+}
+
+.nav-collapse ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+}
+
+.js .nav-collapse {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.nav-collapse.opened {
+    max-height: 9999px;
+}
+
+.nav-collapse.disable-pointer-events {
+    pointer-events: none !important;
+}
+
+.nav-toggle {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media screen and (min-width: 568px) {
+    .js .nav-collapse {
+        position: relative;
+    }
+
+    .js .nav-collapse.closed {
+        max-height: none;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+}
+
+
+/*  Posts
+ *
+ *  Styles for individual post formats and features which override the
+ *  default behaviours.
+ *
+ */
 
 .external-link:after {
     margin-left: 20px;
@@ -269,20 +375,76 @@ img {
 .format-image figcaption {
     padding: 10px;
     text-align: center;
-    p { margin: 0; }
+    p {margin: 0;}
 }
 
 
-// Post Meta ------------------------------------------------------------------
+/*  Footnotes
+ *
+ *  Styles for footnotes provided by the WP Markdown on Save Improved and
+ *  JetPack plugins.
+ *
+ *  @since      Copernicus 2.0
+ *
+ */
+
+sup[id^="fnref"] {
+    top: 0;
+    margin: 0 5px;
+}
+
+sup[id^="fnref"] a:hover {
+    text-decoration: none;
+}
+
+sup[id^="fnref"], .footnotes li:before {
+    display: inline-block;
+    padding: 1px 3px;
+    min-width: 19px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.footnotes {
+    margin-top: 20px;
+}
+
+.footnotes ol {
+    margin-left: 40px;/* Remove the default left margin */
+    list-style: none;
+    counter-reset: li;
+}
+
+.footnotes li {
+    position: relative;
+    list-style: none;
+}
+
+.footnotes li:before {
+    position: absolute;
+    left: -41px;
+    content: counter(li);
+    counter-increment: li;
+}
+
+
+/*  Post meta
+ *
+ *  Styles for post metadata displayed on the bottom of single posts.
+ *
+ *  @since      Copernicus 2.0
+ *
+ */
 
 .post-meta ul {
     margin-left: 0;
     list-style: none;
+
     li {
         margin-right: 20px;
         margin-bottom: 10px;
         vertical-align: top;
-        @media screen and (min-width: 568px) { 
+        @media screen and (min-width: 568px) {
             display: inline-block;
             width: calc( 50% - 0.5em - 20px);
         }
@@ -297,34 +459,44 @@ img {
         font-variant: normal;
         font-family: 'icomoon';
         line-height: 1;
-        speak: none;    
+        speak: none;
     }
 
     .author:before {
         content: "\e615";
     }
+
     .posted:before {
         content: "\e60e";
     }
+
     .updated:before {
         content: "\e61a";
     }
+
     .categories:before {
         content: "\e60c";
     }
+
     .tags:before {
         content: "\e616";
     }
+
     .credits:before {
         content: "\e619";
     }
+
     .photo-credits:before {
         content: "\e612";
     }
 }
 
 
-// Site Footer ----------------------------------------------------------------
+/*  Site footer
+ *
+ *  Styles for pagination at the bottom of archive-type pages.
+ *
+ */
 
 .site-pagination {
     margin-bottom: 30px;
@@ -343,7 +515,11 @@ img {
 }
 
 
-// 404 ------------------------------------------------------------------------
+/*  404
+ *
+ *  Special styles for error pages.
+ *
+ */
 
 .not-found {
     text-align: center;
@@ -362,10 +538,4 @@ img {
     line-height: 1;
     speak: none;
     cursor: pointer;
-}
-
-
-// Features -------------------------------------------------------------------
-
-@import 'responsive-nav.scss';
-@import 'footnotes.scss';
+} 

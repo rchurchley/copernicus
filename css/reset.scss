@@ -1,20 +1,20 @@
-/*  reset.scss ================================================================
-
-    Reset default CSS rendering for predictable results across modern browsers.
-
-    @package    WordPress
-    @subpackage Copernicus
-    @since      Copernicus 2.0
-
-============================================================================ */
+/*  Reset
+ *
+ *   Reset default CSS rendering for predictable results across modern browsers.
+ * 
+ *   @package    WordPress
+ *   @subpackage Copernicus
+ *   @since      Copernicus 2.0
+ *
+ */
 
 html {
+	position: relative;
 	overflow-y: scroll;
+    min-height: 100%;
 	font-size: 100%;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
-	position: relative;
-    min-height: 100%;
 }
 
 body {
@@ -22,35 +22,39 @@ body {
 }
 
 header, main, footer, article, section, aside, details, figure, figcaption, nav, section, div {
-	display: block;
 	position: relative;
+	display: block;
 }
 
 * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font: inherit;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }
 
 blockquote, q {
 	quotes: none;
-	&:before, &:after { content: ''; content: none; }
+	&:before, &:after {content: '';content: none;}
 }
 
 table {
-	border-collapse: collapse;
 	border-spacing: 0;
+	border-collapse: collapse;
 }
 
 /* The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/ */
-.clearfix {
-	&:before, &:after { content:''; display:table; }
-	&:after { clear:both; }
-}
 
-body, section, article, aside, figure, header, footer, div, nav { 
-	@extend .clearfix; 
-} 
+body, section, article, aside, figure, header, footer, div, nav {
+	&:before, &:after {
+		display:table;
+		content:'';
+	}
+	
+	&:after {
+		clear:both;
+	}
+}

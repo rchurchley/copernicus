@@ -11,7 +11,7 @@
  */
 
     get_template_part('parts/preamble');
-    get_template_part('parts/header'); 
+    get_template_part('parts/header');
 
 ?>
 
@@ -20,7 +20,7 @@
 
     <p>Maybe a search will turn up what you're looking for:</p>
     
-    <form role="search" method="get" action="<?php echo home_url( '/' ); ?>">
+    <form role="search" method="get" action="<?php echo home_url('/'); ?>">
         <input type="search" placeholder="Search …" value="" name="s" title="Search for:" />
         <input type="submit" class="search-submit" value="&#xe60f;"/>
     </form>
@@ -28,4 +28,3 @@
 
 <?php 
     get_template_part('parts/footer');
-?>
