@@ -3,7 +3,7 @@
 /*  functions.php
  *
  *  Copernicus functions and definitions.
-
+ *
  *  @package    WordPress
  *  @subpackage Copernicus
  *  @since      Copernicus 1.0
@@ -77,16 +77,18 @@ function copernicus_scripts_styles()
     );
 }
 
-function copernicus_colourize()
-{
-    wp_enqueue_style(
-        'copernicus-colours',
-        get_template_directory_uri().'/styles/colour.css'
-    );
+if (!function_exists('colourize')) {
+    function colourize()
+    {
+        wp_enqueue_style(
+            'copernicus-colours',
+            get_template_directory_uri().'/styles/colour.css'
+        );
+    }
 }
 
 add_action('wp_enqueue_scripts', 'copernicus_scripts_styles');
-add_action('wp_enqueue_scripts', 'copernicus_colourize');
+add_action('wp_enqueue_scripts', 'colourize');
 
 
 /*  WordPress enhancements
