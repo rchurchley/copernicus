@@ -40,7 +40,7 @@ function copernicus_setup()
     add_theme_support('custom-header', array(
         'width'         => 50,
         'height'        => 50,
-        'default-image' => get_template_directory_uri() . '/img/header.png',
+        'default-image' => get_stylesheet_directory_uri() . '/img/header.png',
         'uploads'       => true,
        ));
 
