@@ -205,6 +205,15 @@ img {
     }
 }
 
+.thumbnail {
+    float: left;
+    margin-right: 15px;
+    margin-left: 0;
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    border: 1px solid;
+}
 
 /*  Site header
  *
@@ -379,6 +388,15 @@ img {
 
 
 /*  Footnotes
+.subcategories {
+    list-style: none;
+    margin-left: 0;
+    text-align: center;
+    li {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+}
  *
  *  Styles for footnotes provided by the WP Markdown on Save Improved and
  *  JetPack plugins.

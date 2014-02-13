@@ -5,7 +5,7 @@
  *  This is the most generic template file in a WordPress theme and one of the 
  *  two required files for a theme (the other being style.css). It is used to 
  *  display a page when nothing more specific matches a query. For example, it 
- *  puts together the home page when no home.php file.
+ *  puts together the home page when there is no home.php file.
  *
  *  @package    WordPress
  *  @subpackage Copernicus
@@ -18,25 +18,25 @@
 
 ?>
 
-<main>
+<main class="<?php (have_posts() ? 'listed' : 'not-found') ?>">
+
 <?php
+
+if (is_category()) {
+    copernicus_list_subcategories();
+}
 
 if (have_posts()) {
     while (have_posts()) {
         the_post();
-        ?>
-        <article>
-            <?php get_template_part('parts/content-templates/format', get_post_format()); ?>
-        </article>
-        <?php 
+        get_template_part('parts/listed', get_post_format());
     }
 } else {
-    ?>
-    <h1>There's nothing here.</h1>
-    <?php
+    get_template_part('parts/empty');
 }
 
 ?>
+
 </main>
 
 <?php
