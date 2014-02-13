@@ -47,7 +47,7 @@ if (has_category()) {
 
 if (has_tag()) {
     ?>
-    <li class="tags"><?php the_tags('', ' # '); ?></li>
+    <li class="tags"><?php the_tags('', ', '); ?></li>
     <?php
 }
 

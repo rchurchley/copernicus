@@ -17,8 +17,6 @@
 
 <main class="not-found">
     <h1>404 Not Found</h1>
-
-    <p>Maybe a search will turn up what you're looking for:</p>
     
     <form role="search" method="get" action="<?php echo home_url('/'); ?>">
         <input type="search" placeholder="Search …" value="" name="s" title="Search for:" />

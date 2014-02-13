@@ -6,32 +6,52 @@
  *  @subpackage Copernicus
  *  @since      Copernicus 2.0
  *
+ *  Contents
+ *  ========
+ *
+ *  I.      Default text
+ *  II.     Default blocks
+ *  III.    Images
+ *  IV.     Site header
+ *  V.      Responsive menu
+ *  VI.     Posts and archives
+ *  VII.    Footnotes
+ *  VIII.   Post meta
+ *  IX.     Pagination
+ *  X.      404
+ *
  */
 
 @import 'reset.scss';
 @import 'icomoon.scss';
 
-$Typeface-Headline: "Avenir Next", Avenir, Trebuchet, sans-serif;
+$Typeface-Headline: "Avenir Next Condensed", Avenir, Trebuchet, sans-serif;
 $Typeface-Body: "Avenir Next", Avenir, Trebuchet, sans-serif;
 $Code-Body: Inconsolata, monospace;
 
 $Fontsize-Huge: 30px;
+$Fontsize-LARGE: 25px;
 $Fontsize-Large: 20px;
 $Fontsize-Default: 16px;
 $Fontsize-Small: 14px;
 $Fontsize-Tiny: 12px;
 
 
-/*  Default text
+/*  I. Default text
  *
- *  Styles for plain text and basic HTML tags.
- *
+ *  Define default text and headline styles, and styles for the following basic
+ *  "text-level" tags:
+ *  a, ul, ol, dl, blockquote, code.
  */
 
 body {
     font-size: $Fontsize-Default;
     font-family: $Typeface-Body;
     text-rendering: optimizeLegibility;
+}
+
+header {
+    font-family: $Typeface-Headline;
 }
 
 h1, h2, h3, h4, h5 {
@@ -46,7 +66,12 @@ h1 {
 }
 
 h2 {
+    font-size: $Fontsize-LARGE;
+}
+
+th {
     font-size: $Fontsize-Large;
+    font-family: $Typeface-Headline;
 }
 
 p {
@@ -62,10 +87,18 @@ a:hover {
     text-decoration: underline;
 }
 
-a[href$=".tex"], a[href$=".pdf"], a[href$=".zip"], a[href$=".gz"] {
+.external-link:after {
+    content: "\e609";
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, header a:hover {
+    text-decoration: none;
+}
+
+a[href$=".tex"], a[href$=".pdf"], a[href$=".zip"], a[href$=".gz"], .external-link {
     &:after{
-        margin-left: 5px;
         margin-right: 10px;
+        margin-left: 5px;
         width: 40px;
         text-transform: none;
         font-weight: normal;
@@ -134,9 +167,10 @@ code {
 }
 
 
-/*  Default blocks
+/*  II. Default blocks
  *
- *  Styles for basic block-level tags, including the main content wrapper.
+ *  Define styles for basic "block-level" tags: the main content wrapper and 
+ *  the article tags displayed on archive pages.
  *
  */
 
@@ -158,38 +192,31 @@ article:not(:last-child) {
 }
 
 
-/*  Default images
+/*  III. Images
  *
- *  Styles for img tags and their common WordPress-added classes.
+ *  Define default image styles. In addition to the img and figure tags, there
+ *  are several options for classes.
+ *
+ *  WordPress image classes
+ *  :   .aligncenter, .alignleft, .alignright
+ *
+ *  Copernicus image classes
+ *  :   .thumbnail, .banner
  *
  */
 
-img {
+img, figure, figcaption {
     max-width: 100%;
     height: auto;
 }
 
-.aligncenter {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-@media screen and (max-width: 567px) {
-    img, .alignleft, .alignright, figcaption {
+@media screen and (min-width: 568px) {
+    .aligncenter {
         display: block;
         margin-bottom: 10px;
-        margin-left: -20px;
-        max-width: calc(100% + 40px);
-        width: calc(100% + 40px);
+        width: 100%;
     }
 
-    figure img {
-        margin-bottom: 0;
-    }
-}
-
-@media screen and (min-width: 568px) {
     .alignleft {
         float: left;
         margin-right: 20px;
@@ -205,23 +232,45 @@ img {
     }
 }
 
+@media screen and (max-width: 567px) {
+    img, figure, figcaption, .aligncenter, .alignleft, .alignright {
+        display: block;
+        margin-bottom: 10px;
+        margin-left: -20px;
+        max-width: calc(100% + 40px);
+        width: calc(100% + 40px);
+    }
+
+    figure img {
+        margin-bottom: 0;
+    }
+}
+
 .thumbnail {
     float: left;
     margin-right: 15px;
     margin-left: 0;
     width: 75px;
     height: 75px;
-    border-radius: 5px;
     border: 1px solid;
+    border-radius: 5px;
 }
 
-/*  Site header
+@media screen and (max-width: 567px) {
+    // The banner should nestle up to the title/menu bar on small screens
+    main > .banner:first-child, .format-image img {
+        margin-top: -20px;
+    }
+}
+
+
+/*  IV. Site header
  *
- *  Styles for the main banner at the top of every page.
+ *  Display the title banner at the top of every page.
  *
  */
 
-#site-header {
+.site-header {
     margin-bottom: 20px;
     text-align: center;
 
@@ -258,7 +307,7 @@ img {
 }
 
 @media screen and (max-width: 567px) {
-    #site-header {
+    .site-header {
         text-align: left;
 
         img {
@@ -271,7 +320,7 @@ img {
             a {
                 float: left;
                 padding: 15px 20px;
-                width: calc(100% - 70px);
+                width: calc(100% - 50px);
             }
         }
     }
@@ -279,14 +328,15 @@ img {
     .nav-toggle {
         display: inline-block;
         padding: 15px 0;
-        width: 70px;
+        width: 50px;
         height: 66px;
-        border-left: 1px solid;
         text-align: center;
         font-size: $Fontsize-Huge;
     }
 
     #site-navigation {
+        border-top: 0;
+
         li, a {
             display: block;
             width: 100%;
@@ -299,12 +349,12 @@ img {
 }
 
 
-/*  Responsive navigation
+/*  V. Responsive navigation
  *
- *  Styles for the main navigation menu appearing in the title banner on small
+ *  Display the main navigation menu appearing in the title banner on small
  *  screens.
  *
- *  @since      Copernicus 2.0
+ *  @since Copernicus 2.0
  *
  */
 
@@ -313,18 +363,18 @@ img {
 }
 
 .nav-collapse ul {
+    display: block;
     margin: 0;
     padding: 0;
     width: 100%;
-    display: block;
 }
 
 .js .nav-collapse {
-    clip: rect(0 0 0 0);
-    max-height: 0;
     position: absolute;
     display: block;
     overflow: hidden;
+    clip: rect(0 0 0 0);
+    max-height: 0;
     zoom: 1;
 }
 
@@ -359,26 +409,12 @@ img {
 }
 
 
-/*  Posts
+/*  VI. Posts and archives
  *
- *  Styles for individual post formats and features which override the
- *  default behaviours.
+ *  Define styles for displaying single posts and list-style archive pages.
+ *  Includes styles unique to particular post formats.
  *
  */
-
-.external-link:after {
-    margin-left: 20px;
-    width: 40px;
-    content: "\e609";
-    text-transform: none;
-    font-weight: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-size: $Fontsize-Default;
-    font-family: 'icomoon';
-    line-height: 1;
-    speak: none;
-}
 
 .format-image figcaption {
     padding: 10px;
@@ -386,20 +422,33 @@ img {
     p {margin: 0;}
 }
 
+.format-image + .post-meta {
+    border-top: none;
+}
 
-/*  Footnotes
+// Section III contains a rule causing .format-image to get margin-top: -20px 
+// on small screens.
+
+.listed article h1, .listed article h2 {
+    margin-top: 0;
+    font-size: $Fontsize-Large;
+}
+
 .subcategories {
-    list-style: none;
     margin-left: 0;
+    list-style: none;
     text-align: center;
     li {
         display: inline-block;
         margin: 5px 10px;
     }
 }
+
+
+/*  VII. Footnotes
  *
- *  Styles for footnotes provided by the WP Markdown on Save Improved and
- *  JetPack plugins.
+ *  Define styles for footnotes. Assumes the syntax provided by the WP Markdown
+ *  on Save Improved plugin.
  *
  *  @since      Copernicus 2.0
  *
@@ -407,14 +456,14 @@ img {
 
 sup[id^="fnref"] {
     top: 0;
-    margin: 0 5px;
+    margin: 0 5px 0 2px;
 }
 
-sup[id^="fnref"] a:hover {
+a[href^="#fn-"] {
     text-decoration: none;
 }
 
-sup[id^="fnref"], .footnotes li:before {
+a[href^="#fn-"], .footnotes li:before {
     display: inline-block;
     padding: 1px 3px;
     min-width: 19px;
@@ -424,6 +473,7 @@ sup[id^="fnref"], .footnotes li:before {
 
 .footnotes {
     margin-top: 20px;
+    font-size: $Fontsize-Tiny;
 }
 
 .footnotes ol {
@@ -445,9 +495,17 @@ sup[id^="fnref"], .footnotes li:before {
 }
 
 
-/*  Post meta
+/*  VIII. Post meta
  *
- *  Styles for post metadata displayed on the bottom of single posts.
+ *  Define styles for post metadata displayed on the bottom of single posts.
+ *  Supported fields:
+ *
+ *  .posted
+ *  .updated
+ *  .categories
+ *  .tags
+ *  .credits
+ *  .photo-credits
  *
  *  @since      Copernicus 2.0
  *
@@ -479,10 +537,6 @@ sup[id^="fnref"], .footnotes li:before {
         speak: none;
     }
 
-    .author:before {
-        content: "\e615";
-    }
-
     .posted:before {
         content: "\e60e";
     }
@@ -509,9 +563,9 @@ sup[id^="fnref"], .footnotes li:before {
 }
 
 
-/*  Site footer
+/*  IX. Pagination
  *
- *  Styles for pagination at the bottom of archive-type pages.
+ *  Define styles for pagination at the bottom of archive pages.
  *
  */
 
@@ -522,19 +576,20 @@ sup[id^="fnref"], .footnotes li:before {
 
 .site-pagination .current {
     display: inline-block;
+    margin: 7px;
     padding: 3px;
-    border-radius: 3px;
     min-width: 19px;
+    border-radius: 3px;
 }
 
 .page-numbers {
-    padding: 10px;
+    margin: 10px;
 }
 
 
-/*  404
+/*  X. 404
  *
- *  Special styles for error pages.
+ *  Define styles for the display of 404 (Not Found) error page.
  *
  */
 
@@ -542,17 +597,17 @@ sup[id^="fnref"], .footnotes li:before {
     text-align: center;
 
     h1 {
-        font-size: 50px;
         margin: 40px 0;
+        font-size: 50px;
     }
 }
 
 .search-submit {
-    background: none;
     margin-left: 20px;
+    background: none;
     font-size: $Fontsize-Default;
     font-family: 'icomoon';
     line-height: 1;
-    speak: none;
     cursor: pointer;
+    speak: none;
 } 

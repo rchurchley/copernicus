@@ -2,8 +2,8 @@
 
 /*  Footer
  * 
- *  The template for displaying site pagination in the footer, and the
- *  body and html closing tags.
+ *  The template for displaying site pagination in the footer, the closing body
+ *  tag, and the closing html tag.
  * 
  *  @package    WordPress
  *  @subpackage Copernicus

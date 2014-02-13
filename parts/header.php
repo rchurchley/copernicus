@@ -12,8 +12,8 @@
 
 ?>
 
-<header id="site-header" role="banner">
-    <img src="<?php header_image(); ?>" height="50px" width="50px"/>
+<header class="site-header">
+    <img src="<?php header_image(); ?>" height="50px" width="50px" alt="" />
     <h1><a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
         <?php bloginfo('name'); ?>
     </a></h1>
@@ -32,8 +32,8 @@
       var navigation = responsiveNav("#site-navigation", {
         animate: true,        // Boolean: Use CSS3 transitions, true or false
         transition: 250,      // Integer: Speed of the transition, in milliseconds
-        label: "&#9776;",        // String: Label for the navigation toggle
-        insert: "before",      // String: Insert the toggle before or after the navigation
+        label: "&#9776;",     // String: Label for the navigation toggle
+        insert: "before",     // String: Insert the toggle before or after the navigation
         customToggle: "",     // Selector: Specify the ID of a custom toggle
         openPos: "relative",  // String: Position of the opened nav, relative or static
         jsClass: "js",        // String: 'JS enabled' class which is added to <html> el

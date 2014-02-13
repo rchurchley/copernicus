@@ -6,6 +6,20 @@
  *  @subpackage Copernicus
  *  @since      Copernicus 2.0
  *
+ *  Contents (same section numbers as `main.scss`)
+ *  ========
+ *
+ *  I.      Default text
+ *  II.     n/a
+ *  III.    Images
+ *  IV.     Site header
+ *  V.      n/a
+ *  VI.     Posts and archives
+ *  VII.    Footnotes
+ *  VIII.   Post meta
+ *  IX.     Pagination
+ *  X.      404
+ *
  */
 
 $Background: #F6F3EF;
@@ -24,41 +38,35 @@ $Minor-Secondary: #55C496;
 $Minor-Accent: #FCB7B7;
 
 
-/*  Default text
- *
- *  Styles for plain text and basic HTML tags.
- *
- */
+/*  I. Default text  */
 
 body {
     background-color: $Background;
     color: $Foreground;
 }
 
-h1, h2, h1 a, h1 a:visited {
+h1, h2 {
     color: $Primary;
 }
 
-a, a:visited {
+a {
     color: $Primary;
 }
 
-a:visited{
+a:hover {
+    color: $Secondary;
+}
+
+a:visited {
     color: $Accent;
 }
 
-a[href$=".tex"], a[href$=".pdf"], a[href$=".zip"], a[href$=".gz"] {
-    &:after{
-        color: $Secondary;
-    }
+a:after {
+    color: $Minor-Foreground;
 }
 
 
-/*  Default images
- *
- *  Styles for img tags and their common WordPress-added classes.
- *
- */
+/*  III. Images  */
 
 figcaption {
     background-color: $Header-Background;
@@ -69,67 +77,58 @@ figcaption a, figcaption a:visited {
     color: $Minor-Primary;
 }
 
+.thumbnail {
+    border-color: $Minor-Foreground;
+}
 
-/*  Site header
- *
- *  Styles for the main banner at the top of every page.
- *
- */
 
-#site-header {
+/*  IV. Site header  */
+
+.site-header {
     background-color: $Header-Background;
     color: $Header-Foreground;
-    a, a:visited {color: $Header-Foreground;}
+    a, a:visited {
+        color: $Header-Foreground;
+    }
 }
 
 #site-navigation {
     background-color: $Background;
     color: $Primary;
-    a, a:visited {color: $Primary;}
+    a, a:visited {
+        color: $Primary;
+    }
 }
 
-#site-navigation .current_page_item {
-    color: $Header-Foreground;
-    a, a:visited {color: $Header-Foreground;}
+#site-navigation .current-menu-item, #site-navigation li:hover {
     background-color: $Primary;
+    color: $Background;
+    a, a:visited {
+        color: $Background;
+    }
 }
 
 @media screen and (max-width: 567px) {
-    #site-navigation {
+    #site-navigation li {
         background-color: $Primary;
         color: $Background;
-        a, a:visited {color: $Background;}
+        a, a:visited {
+            color: $Background;
+        }
     }
 }
 
 
-/*  Posts
- *
- *  Styles for individual post formats and features which override the
- *  default behaviours.
- *
- */
+/*  VI. Posts and archives  */
 
-.external-link:after {
-    color: $Secondary;
-}
+/*  VII. Footnotes  */
 
-
-/*  Footnotes
- *
- *  Styles for footnotes provided by the WP Markdown on Save Improved and
- *  JetPack plugins.
- *
- *  @since      Copernicus 2.0
- *
- */
-
-sup[id^="fnref"] {
+a[href^="#fn-"] {
     background-color: $Secondary;
-    a {color: $Header-Foreground;}
+    color: $Header-Foreground;
 }
 
-sup[id^="fnref"]:visited {
+a[href^="#fn-"]:visited {
     background-color: $Accent;
 }
 
@@ -139,41 +138,34 @@ sup[id^="fnref"]:visited {
 
 .footnotes li:before {
     background-color: $Minor-Foreground;
-    color: $Header-Foreground;
+    color: $Background;
 }
 
 a[rev="footnote"], a[rev="footnote"]:visited {
     color: $Secondary;
 }
 
+
+/*  VIII. Post meta  */
+
 .post-meta {
-    li:before {
-        color: $Secondary;
-    }
-}
-
-footer {
     color: $Minor-Foreground;
+
     a, a:visited {
-        color: $Minor-Primary;
-    }
-    a:visited {
-        color: $Minor-Accent;
+        color: $Minor-Foreground;
     }
 }
 
-
-/*  Site footer
- *
- *  Styles for pagination at the bottom of archive-type pages.
- *
- */
+/*  IX. Pagination */
 
 .site-pagination a, .pagination a:visited {
     color: $Secondary;
 }
 
 .site-pagination .current {
-    color: $Header-Foreground;
     background-color: $Secondary;
+    color: $Header-Foreground;
 }
+
+
+/*  X. 404  */
