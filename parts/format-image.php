@@ -12,8 +12,8 @@
  */
 
 ?>
-
-<figure class="format-image">
+<main class="format-image">
+<figure>
 <?php
 
 if (has_post_thumbnail()) {
@@ -30,3 +30,4 @@ if (has_post_thumbnail()) {
         <?php the_content(); ?>
     </figcaption>
 </figure>
+</main>

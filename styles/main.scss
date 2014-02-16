@@ -1,6 +1,6 @@
 /*  Main Stylesheet
  *
- *  Defines the main layout and typographic styles (excluding colours).
+ *  Define the main layout and typographic styles (excluding colours).
  *
  *  @package    WordPress
  *  @subpackage Copernicus
@@ -175,7 +175,7 @@ code {
  */
 
 main {
-    margin: 0 auto 50px auto;
+    margin: 30px auto 50px auto;
     padding: 0 20px;
     max-width: 40em;
 }
@@ -257,9 +257,8 @@ img, figure, figcaption {
 }
 
 @media screen and (max-width: 567px) {
-    // The banner should nestle up to the title/menu bar on small screens
-    main > .banner:first-child, .format-image img {
-        margin-top: -20px;
+    .has-banner, .format-image {
+        margin-top: 0;
     }
 }
 
@@ -271,7 +270,6 @@ img, figure, figcaption {
  */
 
 .site-header {
-    margin-bottom: 20px;
     text-align: center;
 
     img {
@@ -419,7 +417,9 @@ img, figure, figcaption {
 .format-image figcaption {
     padding: 10px;
     text-align: center;
-    p {margin: 0;}
+    p {
+        margin: 0;
+    }
 }
 
 .format-image + .post-meta {
@@ -435,6 +435,7 @@ img, figure, figcaption {
 }
 
 .subcategories {
+    margin-bottom: 30px;
     margin-left: 0;
     list-style: none;
     text-align: center;

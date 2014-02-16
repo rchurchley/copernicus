@@ -10,13 +10,8 @@
  * 
  */
 
-    get_template_part('parts/preamble');
-    get_template_part('parts/header');
-
-?>
-
-<main>
-<?php
+get_template_part('parts/preamble');
+get_template_part('parts/header');
 
 if (have_posts()) {
     while (have_posts()) {
@@ -26,8 +21,4 @@ if (have_posts()) {
     }
 }
 
-?>
-</main>
-
-<?php
-    get_template_part('parts/footer');
+get_template_part('parts/footer');

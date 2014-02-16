@@ -18,8 +18,7 @@
 
 ?>
 
-<main class="<?php (have_posts() ? 'listed' : 'not-found') ?>">
-
+<main class="<?php echo (have_posts() ? 'listed' : 'not-found') ?>">
 <?php
 
 if (is_category()) {

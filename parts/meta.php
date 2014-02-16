@@ -41,7 +41,7 @@ if ((get_the_modified_time('U') - get_the_time('U')) > 1*60*60*24) {
 
 if (has_category()) {
     ?>
-    <li class="categories"><?php the_category(' &bull; '); ?></li>
+    <li class="categories"><?php the_category(', '); ?></li>
     <?php
 }
 

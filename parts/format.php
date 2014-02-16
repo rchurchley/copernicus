@@ -12,9 +12,14 @@
 
 if (has_post_thumbnail()) {
     ?>
+    <main class="has-banner">
     <img class='banner' src='<?php 
         echo esc_url(wp_get_attachment_url(get_post_thumbnail_id()));
     ?>' alt="" />
+    <?php
+} else {
+    ?>
+    <main>
     <?php
 }
 ?>
