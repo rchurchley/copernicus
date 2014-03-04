@@ -13,14 +13,22 @@
     get_template_part('parts/preamble');
     get_template_part('parts/header');
 
-?>
-
-<main>
-<?php
-
 if (have_posts()) {
     while (have_posts()) {
         the_post();
+        if (has_post_thumbnail()) {
+            ?>
+            <main class="has-banner page">
+            <img class="banner" src="<?php 
+                echo esc_url(wp_get_attachment_url(get_post_thumbnail_id()));
+            ?>" alt="" />
+            <?php
+        } else {
+            ?>
+            <main class="page">
+            <?php
+        }
+
         the_content();
     }
 }

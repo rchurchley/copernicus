@@ -19,6 +19,7 @@
  *  VIII.   Post meta
  *  IX.     Pagination
  *  X.      404
+ *  XI.     Experimental
  *
  */
 
@@ -166,6 +167,10 @@ code {
     font-family: $Code-Body;
 }
 
+address {
+    margin-top: 20px;
+}
+
 
 /*  II. Default blocks
  *
@@ -254,6 +259,10 @@ img, figure, figcaption {
     height: 75px;
     border: 1px solid;
     border-radius: 5px;
+}
+
+.page .banner {
+    margin-bottom: 30px;
 }
 
 @media screen and (max-width: 567px) {
@@ -521,7 +530,8 @@ a[href^="#fn-"], .footnotes li:before {
         margin-bottom: 10px;
         vertical-align: top;
         @media screen and (min-width: 568px) {
-            display: inline-block;
+            display: block;
+            float: left;
             width: calc( 50% - 0.5em - 20px);
         }
     }
@@ -546,12 +556,19 @@ a[href^="#fn-"], .footnotes li:before {
         content: "\e61a";
     }
 
+    .categories {
+        clear: left;
+    }
     .categories:before {
         content: "\e60c";
     }
 
     .tags:before {
         content: "\e616";
+    }
+
+    .credits {
+        clear: left;
     }
 
     .credits:before {
@@ -612,3 +629,40 @@ a[href^="#fn-"], .footnotes li:before {
     cursor: pointer;
     speak: none;
 } 
+
+
+/*  XI. Experimental
+ *
+ *  Styles added during testing and provisional rules for 
+ *  experimental features.
+ *
+ */
+
+address ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+address ul li:before {
+    margin-right: 10px;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-size: $Fontsize-Default;
+    font-family: 'icomoon';
+    line-height: 1;
+    speak: none;
+}
+
+.mail {
+    font-family: $Code-Body;
+}
+
+.mail:before {
+    content: "\e60d";
+}
+
+.location:before {
+    content: "\e61b";
+}
