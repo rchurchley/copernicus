@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+# Compiling rules
+
+compile '*' do
+  case item[:extension]
+  when 'md', 'markdown'
+    filter :redcarpet, options: { footnotes: true }
+  when 'sass', 'scss'
+    filter :sass, syntax: :scss
+  when 'erb'
+    filter :erb
+  end
+
+  if item[:layout]
+    layout item[:layout]
+  elsif item[:extension] == 'md' || item[:extension] == 'html'
+    layout 'default'
+  end
+end
+
+# Routing rules
+#
+# Stylesheets/scripts and binary files with identifier /foo/ write to /foo.ext
+# All other (presumably HTML) files write to /foo/index.html
+
+route '*' do
+  case item[:kind]
+  when 'index'
+    item.identifier + 'index.html'
+  when 'htaccess'
+    item.parent.identifier + '.htaccess'
+  else
+    case item[:extension]
+    when 'md', 'markdown', 'html', 'htm'
+      item.identifier.chop + '.html'
+    when 'css', 'sass', 'scss'
+      item.identifier.chop + '.css'
+    else
+      item.identifier.chop + '.' + item[:extension]
+    end
+  end
+
+end
+
+layout '*', :erb

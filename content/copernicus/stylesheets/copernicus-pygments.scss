@@ -1,0 +1,98 @@
+$Background: #F6F5F1;
+$Foreground: #302E2C;
+$Comments: #C8C6C4;
+
+$Red: #C40233;
+$Orange: #FD8236;
+$Yellow: #FFC300;
+$Olive: #A6BD24;
+$Green: #009F6B;
+$Cyan: #009697;
+$Blue: #0087BD;
+$Magenta: #833F87;
+ 
+pre {
+    border-left: 20px solid #EBEAE7;
+    background-color: $Background;
+}
+
+code { 
+    background-color: $Background;
+}
+
+pre code .w     { color: $Background }  /* Text.Whitespace */
+
+pre code .err   { color: $Red }         /* Error */
+pre code .l     { color: $Foreground }  /* Literal */
+pre code .n     { color: $Foreground }  /* Name */
+pre code .o     { color: $Olive }       /* Operator */
+pre code .x     { color: $Orange }      /* Other */
+pre code .p     { color: $Foreground }  /* Punctuation */
+
+pre code .k     { color: $Blue }        /* Keyword */
+pre code .kc    { color: $Orange }      /* Keyword.Constant */
+pre code .kd    { color: $Blue }        /* Keyword.Declaration */
+pre code .kn    { color: $Olive }       /* Keyword.Namespace */
+pre code .kp    { color: $Olive }       /* Keyword.Pseudo */
+pre code .kr    { color: $Blue }        /* Keyword.Reserved */
+pre code .kt    { color: $Red }         /* Keyword.Type */
+
+pre code .g     { color: $Foreground }  /* Generic */
+pre code .gi    { color: $Olive }       /* Generic.Inserted */
+pre code .gd    { color: $Red }         /* Generic.Deleted */
+pre code .gr    { color: $Red }         /* Generic.Error */
+pre code .gh    { color: $Blue }        /* Generic.Heading */
+pre code .gu    { color: $Blue }        /* Generic.Subheading */
+pre code .go    { color: $Background }  /* Generic.Output */
+pre code .gp    { color: $Background }  /* Generic.Prompt */
+pre code .gt    { color: $Foreground }  /* Generic.Traceback */
+pre code .ge    { color: $Foreground; font-style: italic }          /* Generic.Emph */
+pre code .gs    { color: $Foreground; font-weight: bold }           /* Generic.Strong */
+
+pre code .c     { color: $Comments }    /* Comment */
+pre code .cm    { color: $Comments }    /* Comment.Multiline */
+pre code .cp    { color: $Comments }    /* Comment.Preproc */
+pre code .c1    { color: $Comments }    /* Comment.Single */
+pre code .cs    { color: $Comments }    /* Comment.Special */
+
+
+pre code .ld    { color: $Background }  /* Literal.Date */
+pre code .m     { color: $Green }       /* Literal.Number */
+pre code .s     { color: $Olive }       /* Literal.String */
+pre code .na    { color: $Green }       /* Name.Attribute */
+pre code .nb    { color: $Green }       /* Name.Builtin */
+pre code .nc    { color: $Blue }        /* Name.Class */
+pre code .no    { color: $Orange }      /* Name.Constant */
+pre code .nd    { color: $Blue }        /* Name.Decorator */
+pre code .ni    { color: $Orange }      /* Name.Entity */
+pre code .ne    { color: $Orange }      /* Name.Exception */
+pre code .nf    { color: $Blue }        /* Name.Function */
+pre code .nl    { color: $Background }  /* Name.Label */
+pre code .nn    { color: $Background }  /* Name.Namespace */
+pre code .nx    { color: $Background }  /* Name.Other */
+pre code .py    { color: $Background }  /* Name.Property */
+pre code .nt    { color: $Blue }        /* Name.Tag */
+pre code .nv    { color: $Magenta }     /* Name.Variable */
+pre code .ow    { color: $Olive }       /* Operator.Word */
+
+
+pre code .mf    { color: $Green }        /* Literal.Number.Float */
+pre code .mh    { color: $Green }        /* Literal.Number.Hex */
+pre code .mi    { color: $Green }        /* Literal.Number.Integer */
+pre code .mo    { color: $Green }        /* Literal.Number.Oct */
+pre code .sb    { color: $Comments }    /* Literal.String.Backtick */
+pre code .sc    { color: $Green }        /* Literal.String.Char */
+pre code .sd    { color: $Background }  /* Literal.String.Doc */
+pre code .s2    { color: $Green }        /* Literal.String.Double */
+pre code .se    { color: $Orange }      /* Literal.String.Escape */
+pre code .sh    { color: $Background }  /* Literal.String.Heredoc */
+pre code .si    { color: $Green }        /* Literal.String.Interpol */
+pre code .sx    { color: $Green }        /* Literal.String.Other */
+pre code .sr    { color: $Red }         /* Literal.String.Regex */
+pre code .s1    { color: $Green }        /* Literal.String.Single */
+pre code .ss    { color: $Green }        /* Literal.String.Symbol */
+pre code .bp    { color: $Blue }        /* Name.Builtin.Pseudo */
+pre code .vc    { color: $Blue }        /* Name.Variable.Class */
+pre code .vg    { color: $Blue }        /* Name.Variable.Global */
+pre code .vi    { color: $Blue }        /* Name.Variable.Instance */
+pre code .il    { color: $Green }        /* Literal.Number.Integer.Long */

@@ -1,0 +1,7 @@
+title: Copernicus
+base_url: http://example.com
+header_img: http://example.com/img/header.png
+
+branches: [
+  { name: 'Home',     id: 'home',     url: 'http://example.com' }
+]

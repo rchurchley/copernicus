@@ -1,0 +1,114 @@
+/*  IcoMoon
+ *
+ *  @uses font-family: 'icomoon' to provide the following icons:
+ *
+ *  - pdf file              \e600
+ *  - zip file              \e601
+ *  - xml file              \e602
+ *  - css file              \e603
+ *
+ *  - mail                  \e60d
+ *  - location              \e61b
+ *  - linkedin              \e604
+ *  - github                \e605
+ *  - flickr                \e606
+ *  - twitter               \e607
+ *  - stackoverflow         \e60b
+ *  - googleplus            \e618
+ *  - facebook              \e60a
+ *  
+ *  - calendar              \e60e
+ *  - refresh               \e61a
+ *  - folder                \e60c
+ *  - tag                   \e616
+ *  - camera                \e612
+ *  - add person            \e619
+ *
+ *  - checkmark             \e614
+ *  - cancel                \e613
+ *
+ *  - creative commons      \e608
+ *  - external link         \e609
+ *  - search                \e60f
+ *  - settings              \e610
+ *  - RSS feed              \e617
+ *  - chart                 \e61e
+ *
+ */
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon-eot.eot');
+    src:url('../fonts/icomoon-eot.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon-ttf.ttf') format('truetype'),
+        url('../fonts/icomoon-woff.woff') format('woff'),
+        url('../fonts/icomoon-svg.svg#icomoon') format('svg');
+}
+
+.icon {
+    position: relative;
+    margin-left: 2em;
+}
+
+.icon:before {
+    margin-right: 1em;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'icomoon';
+    line-height: 1;
+    speak: none;
+    position: absolute;
+    width: 1em;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+}
+
+.mail {
+    @extend .icon;
+    &:before { content: "\e60d"; }
+}
+
+.location {
+    @extend .icon;
+    &:before { content: "\e61b"; }
+}
+
+.linkedin {
+    @extend .icon;
+    &:before { content: "\e604"; }
+}
+
+.github {
+    @extend .icon;
+    &:before { content: "\e605"; }
+}
+
+.flickr {
+    @extend .icon;
+    &:before { content: "\e606"; }
+}
+
+.twitter {
+    @extend .icon;
+    &:before { content: "\e607"; }
+}
+
+.stackoverflow {
+    @extend .icon;
+    &:before { content: "\e60b"; }
+}
+
+.googleplus {
+    @extend .icon;
+    &:before { content: "\e618"; }
+}
+
+.facebook { 
+    @extend .icon;
+    &:before { content: "\e60a"; }
+}

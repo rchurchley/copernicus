@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<%= render 'parts/head', :page_title => @item[:title] %>
+<body>
+  <%= render 'parts/header', :page_branch => @item[:branch] %>
+  <main>
+    <%= yield %>
+  </main>
+</body>
+<%= render 'parts/foot' %>
+</html>
