@@ -2,38 +2,6 @@
  *
  *  @uses font-family: 'icomoon' to provide the following icons:
  *
- *  - pdf file              \e600
- *  - zip file              \e601
- *  - xml file              \e602
- *  - css file              \e603
- *
- *  - mail                  \e60d
- *  - location              \e61b
- *  - linkedin              \e604
- *  - github                \e605
- *  - flickr                \e606
- *  - twitter               \e607
- *  - stackoverflow         \e60b
- *  - googleplus            \e618
- *  - facebook              \e60a
- *  
- *  - calendar              \e60e
- *  - refresh               \e61a
- *  - folder                \e60c
- *  - tag                   \e616
- *  - camera                \e612
- *  - add person            \e619
- *
- *  - checkmark             \e614
- *  - cancel                \e613
- *
- *  - creative commons      \e608
- *  - external link         \e609
- *  - search                \e60f
- *  - settings              \e610
- *  - RSS feed              \e617
- *  - chart                 \e61e
- *
  */
 
 @font-face {
@@ -70,45 +38,45 @@
 
 .mail {
     @extend .icon;
-    &:before { content: "\e60d"; }
+    &:before { content: "\e760"; }
 }
 
 .location {
     @extend .icon;
-    &:before { content: "\e61b"; }
+    &:before { content: "\e642"; }
 }
 
 .linkedin {
     @extend .icon;
-    &:before { content: "\e604"; }
+    &:before { content: "\e79f"; }
 }
 
 .github {
     @extend .icon;
-    &:before { content: "\e605"; }
+    &:before { content: "\e788"; }
 }
 
 .flickr {
     @extend .icon;
-    &:before { content: "\e606"; }
+    &:before { content: "\e77a"; }
 }
 
 .twitter {
     @extend .icon;
-    &:before { content: "\e607"; }
+    &:before { content: "\e76d"; }
 }
 
 .stackoverflow {
     @extend .icon;
-    &:before { content: "\e60b"; }
+    &:before { content: "\e7a5"; }
 }
 
 .googleplus {
     @extend .icon;
-    &:before { content: "\e618"; }
+    &:before { content: "\e766"; }
 }
 
 .facebook { 
     @extend .icon;
-    &:before { content: "\e60a"; }
+    &:before { content: "\e769"; }
 }
