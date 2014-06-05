@@ -137,8 +137,9 @@ ul, ol, dl {
     line-height: 1.4;
 }
 
-li, dt, dd {
+li {
     margin-bottom: 5px;
+    position: relative;
 }
 
 li ul, li ol {
@@ -153,6 +154,23 @@ ul, ol, dd {
 
 ul {
     list-style-type: none;
+}
+
+main > ul > li:before {
+    margin-right: 1em;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'icomoon';
+    line-height: 1;
+    speak: none;
+    position: absolute;
+    width: 0.5em;
+    top: 3px;
+    bottom: 0;
+    right: 100%;
+    content: "\e70a";
 }
 
 strong, b {
