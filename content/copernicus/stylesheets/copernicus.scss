@@ -1,545 +1,557 @@
-/*  Main Stylesheet
- *
- *  Define the main layout and typographic styles (excluding colours).
- *
- *  Contents
- *  ========
- *
- *  0.      Define constants
- *  I.      Default text
- *  II.     Default blocks
- *  III.    Images
- *  IV.     Site header
- *  V.      Responsive menu
- *  VI.     Footnotes
- *  VII.    Experimental
- *
- */
+//  Main Stylesheet
+//
+//  Define the main layout and typographic styles (excluding colours).
+//
+//  Contents
+//  ========
+//
+//  0.    Define constants
+//  I.    Default text
+//  II.   Default blocks
+//  III.  Images
+//  IV.   Site header
+//  V.    Responsive menu
+//  VI.   Footnotes
+//  VII.  Experimental
+//
 
 @import 'copernicus-reset.scss';
 @import 'copernicus-icomoon.scss';
-@import 'copernicus-colour.scss';
-@import 'copernicus-pygments.scss';
-
-/*  0. Define constants
- *
- *  Define parameters used in other styles
- *
- */
-
-$Typeface-Headline: "Avenir Next Condensed", Avenir, Trebuchet, sans-serif;
-$Typeface-Body: "Avenir Next", Avenir, Trebuchet, sans-serif;
-$Code-Body: Inconsolata, monospace;
-
-$Fontsize-Huge: 2.25rem;
-$Fontsize-Large: 1.5rem;
-$Fontsize-Plus: 1.1rem;     // corrects apparent size of condensed default font 
-$Fontsize-Default: medium;
-$Fontsize-Small: 0.8rem;
-$Fontsize-Tiny: 0.5rem;
 
 
-/*  I. Default text
- *
- *  Define default text and headline styles, and styles for the following basic
- *  "text-level" tags:
- *  a, ul, ol, dl, blockquote, code.
- *
- */
+//  0. Define constants
+
+$headline-type: 'Avenir Next Condensed', Avenir, Trebuchet, sans-serif;
+$body-type: 'Avenir Next', Avenir, Trebuchet, sans-serif;
+$code-type: Inconsolata, monospace;
+
+$huge:   2.25rem;
+$large:   1.5rem;
+$plus:    1.1rem;   // corrects apparent size of condensed default font 
+$default: medium;
+$small:    .8rem;
+$tiny:     .5rem;
+
+
+//  I. Default text
+//
+//  Define default text and headline styles, and styles for the following basic
+//  'text-level' tags:
+//  a, ul, ol, dl, blockquote, code.
+//
+//
 
 body {
-    font-size: $Fontsize-Default;
-    font-family: $Typeface-Body;
-    text-rendering: optimizeLegibility;
+  font-family: $body-type;
+  font-size: $default;
+  text-rendering: optimizeLegibility;
 }
 
 header {
-    font-family: $Typeface-Headline;
+  font-family: $headline-type;
 }
 
-h1, h2, h3, h4, h5 {
-    margin-bottom: 10px;
-    font-family: $Typeface-Headline;
-    line-height: 1.2;
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $headline-type;
+  line-height: 1.2;
+  margin-bottom: 10px;
 }
 
 h1 {
-    margin-top: 30px;
-    font-size: $Fontsize-Huge;
+  font-size: $huge;
+  margin-top: 30px;
 }
 
 h2 {
-    margin-top: 20px;
-    font-size: $Fontsize-Large;
+  font-size: $large;
+  margin-top: 20px;
 }
 
 h3 {
-    margin-top: 20px;
-    font-size: $Fontsize-Plus;
+  font-size: $plus;
+  margin-top: 20px;
 }
 
 th {
-    font-size: $Fontsize-Default;
-    font-family: $Typeface-Headline;
+  font-family: $headline-type;
+  font-size: $default;
 }
 
 p {
-    margin-bottom: 10px;
-    line-height: 1.4;
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .external-link:after {
-    content: "\e609";
+  content: '\e609';
 }
 
-h1 a:hover, h2 a:hover, h3 a:hover, header a:hover {
-    text-decoration: none;
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+header a:hover {
+  text-decoration: none;
 }
 
-a[href$=".tex"], a[href$=".pdf"], a[href$=".zip"], a[href$=".gz"], .external-link {
-    &:after{
-        margin-right: 10px;
-        margin-left: 5px;
-        width: 40px;
-        text-transform: none;
-        font-weight: normal;
-        font-style: normal;
-        font-variant: normal;
-        font-size: $Fontsize-Default;
-        font-family: 'icomoon';
-        line-height: 1;
-        speak: none;
-    }
+a[href$='.tex'],
+a[href$='.pdf'],
+a[href$='.zip'],
+a[href$='.gz'],
+.external-link {
+  &:after {
+    @extend %icon;
+    font-size: $default;
+    margin-left: 5px;
+    margin-right: 10px;
+    width: 40px;
+  }
 }
 
-a[href$=".tex"]:after {
-    content: "\e603";
+a[href$='.tex']:after {
+  content: '\e603';
 }
 
-a[href$=".pdf"]:after {
-    content: "\e600";
+a[href$='.pdf']:after {
+  content: '\e600';
 }
 
-a[href$=".zip"]:after, a[href$=".gz"]:after {
-    content: "\e601";
+a[href$='.zip']:after,
+a[href$='.gz']:after {
+  content: '\e601';
 }
 
-ul, ol, dl {
-    margin-bottom: 10px;
-    line-height: 1.4;
+ul,
+ol,
+dl {
+  line-height: 1.4;
+  margin-bottom: 10px;
 }
 
 li {
-    margin-bottom: 5px;
-    position: relative;
+  margin-bottom: 5px;
+  position: relative;
 }
 
-li ul, li ol {
-    margin-top: 5px;
-    margin-bottom: 0;
+li ul,
+li ol {
+  margin-bottom: 0;
+  margin-top: 5px;
 }
 
-ul, ol, dd {
-    margin-left: 0px;
-    padding-left: 20px;
+ul,
+ol,
+dd {
+  margin-left: 0;
+  padding-left: 20px;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 main > ul > li:before {
-    margin-right: 1em;
-    text-transform: none;
-    font-weight: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-family: 'icomoon';
-    line-height: 1;
-    speak: none;
-    position: absolute;
-    width: 0.5em;
-    top: 3px;
-    bottom: 0;
-    right: 100%;
-    content: "\e70a";
+  @extend %icon;
+  bottom: 0;
+  content: '\e70a';
+  margin-right: 1em;
+  position: absolute;
+  right: 100%;
+  top: 3px;
+  width: .5em;
 }
 
-strong, b {
-    font-weight: bold;
+strong,
+b {
+  font-weight: bold;
 }
 
-em, i {
-    font-style: italic;
+em,
+i {
+  font-style: italic;
 }
 
-sup, sub {
-    position: relative;
-    vertical-align: baseline;
-    font-size: $Fontsize-Tiny;
+sup,
+sub {
+  font-size: $tiny;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sup {
-    top: -0.8em;
+  top: -.8em;
 }
 
 sub {
-    top:  0.4em;
+  top: .4em;
 }
 
 blockquote {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
-.details {
-    clear: both;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    p:last-child {
-        margin-bottom: 0;
-    }
-}
+address,
+pre,
+blockquote,
+main > ul {
+  border-left-style: solid;
+  border-left-width: 20px;
+  clear: both;
+  margin-bottom: 10px;
+  padding: 10px 20px;
 
-address, pre, blockquote, main > ul {
-    @extend .details;
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 pre {
-    white-space: pre-wrap;       /* css-3 */
-    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-    white-space: -pre-wrap;      /* Opera 4-6 */
-    white-space: -o-pre-wrap;    /* Opera 7 */
-    word-wrap: break-word;       /* Internet Explorer 5.5+ */
-    line-height: 1.2;
+  line-height: 1.2;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 code {
-    padding: 2px 5px;
-    font-family: $Code-Body;
+  font-family: $code-type;
+  padding: 2px 5px;
 }
 
 address {
-    margin-top: 20px;
+  margin-top: 20px;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 hr {
-    clear: both;
-    margin: 20px 0;
-    border: 1px dotted #F6F5F1;
+  border-style: dotted;
+  border-width: 1px;
+  clear: both;
+  margin: 20px 0;
 }
 
 
-/*  II. Default blocks
- *
- *  Define styles for basic "block-level" tags: the main content wrapper and 
- *  the article tags displayed on archive pages.
- *
- */
+//  II. Default blocks
+//
+//  Define styles for basic 'block-level' tags: the main content wrapper and 
+//  the article tags displayed on archive pages.
+//
+//
 
 main {
-    margin: 30px auto 50px auto;
-    padding: 0 20px;
-    max-width: 40em;
+  margin: 30px auto 50px;
+  max-width: 40em;
+  padding: 0 20px;
 }
 
 @media screen and (max-width: 567px) {
-    main {
-       margin: 20px auto 20px auto;
-    }
+  main {
+    margin: 20px auto;
+  }
 }
 
 
-/*  III. Images
- *
- *  Define default image and figure styles.
- *  
- *  .center, .right
- *  .thumbnail
- *  .banner
- *  .gallery
- *
- */
+//  III. Images
+//
+//  Define default image and figure styles.
+//  
+//  .center, .right
+//  .thumbnail
+//  .banner
+//  .gallery
+//
+//
 
-img, figure, figcaption {
-    max-width: 100%;
-    height: auto;
+img,
+figure,
+figcaption {
+  height: auto;
+  max-width: 100%;
 }
 
 .right {
-    float:right;
-    margin: 0 0 5px 20px;
+  float: right;
+  margin: 0 0 5px 20px;
 }
 
 .gallery img {
-        width: calc(33% - 0.33em);
+  width: calc(33% - 0.33em);
 }
 
 @media screen and (min-width: 568px) {
-    figure {
-        float: left;
-        margin: 0 20px 5px 0;
-        max-width: 50%;
-    }
+  figure {
+    float: left;
+    margin: 0 20px 5px 0;
+    max-width: 50%;
+  }
 
-    .center, .banner, .gallery {
-        display: block;
-        float: none;
-        margin: 0 0 10px 0;
-        max-width: 100%;
-        width: 100%;
-    }
+  .center,
+  .banner,
+  .gallery {
+    display: block;
+    float: none;
+    margin: 0 0 10px;
+    max-width: 100%;
+    width: 100%;
+  }
 
-    .thumbnail {
-        width: 200px;
-        height: 200px;
-    }
+  .thumbnail {
+    height: 200px;
+    width: 200px;
+  }
 }
 
 @media screen and (max-width: 567px) {
-    figure, figcaption, .aligncenter, .alignright, .gallery {
-        display: block;
-        margin-bottom: 5px;
-        margin-left: -20px;
-        max-width: calc(100% + 40px);
-        width: calc(100% + 40px);
-    }
+  figure,
+  figcaption,
+  .aligncenter,
+  .alignright,
+  .gallery {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: -20px;
+    max-width: calc(100% + 40px);
+    width: calc(100% + 40px);
+  }
 
-    figure img {
-        margin-bottom: 0;
-    }
+  figure img {
+    margin-bottom: 0;
+  }
 
-    .thumbnail {
-        float: left;
-        margin-right: 20px;
-        margin-left: 0;
-        width: 100px;
-        height: 100px;
-    }
+  .thumbnail {
+    float: left;
+    height: 100px;
+    margin-left: 0;
+    margin-right: 20px;
+    width: 100px;
+  }
 
-    .banner {
-        margin-top: -20px;
-    }
+  .banner {
+    margin-top: -20px;
+  }
 }
 
 .thumbnail img {
-    border: 1px solid;
-    border-radius: 5px;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
 .thumbnail + h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 
 
-/*  IV. Site header
- *
- *  Display the title banner at the top of every page.
- *
- */
+//  IV. Site header
+//
+//  Display the title banner at the top of every page.
+//
+//
 
 .site-header {
-    text-align: center;
+  text-align: center;
 
-    img {
-        margin-top: 15px;
-        width: 50px;
-        height: 50px;
-        border-radius: 5px;
-    }
+  img {
+    border-radius: 5px;
+    height: 50px;
+    margin-top: 15px;
+    width: 50px;
+  }
 
-    h1 {
-        margin-top: 10px;
-        margin-bottom: 15px;
-    }
+  h1 {
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
 }
 
 #site-navigation {
+  border-top: 3px solid;
+  font-size: $plus;
+  padding: 0;
+
+  ul,
+  li {
+    margin: 0;
     padding: 0;
-    border-top: 3px solid;
-    font-size: $Fontsize-Plus;
+  }
 
-    ul, li {
-        margin: 0;
-        padding: 0;
-    }
+  li {
+    display: inline-block;
+  }
 
-    li {
-        display: inline-block;
-    }
-
-    a {
-        display: inline-block;
-        padding: 10px 20px;
-    }
+  a {
+    display: inline-block;
+    padding: 10px 20px;
+  }
 }
 
 @media screen and (max-width: 567px) {
-    .site-header {
-        img {
-            display: none;
-        }
-
-        a {
-            display: block;
-            width: 100%;
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        h1 a {
-            padding: 15px 20px;
-        }
+  .site-header {
+    img {
+      display: none;
     }
 
-    #site-navigation {
-        border-top: 0;
-
-        li {
-            display: block;
-            float: left;
-            width: 50%;
-        }
-
-        li:not(:last-child) {
-            border-bottom: 1px solid;
-        }
+    a {
+      display: block;
+      width: 100%;
     }
 
-    .js .site-header h1 {
-        text-align: left;
+    h1 {
+      margin: 0;
+
+      a {
+        padding: 15px 20px;
+      }
+    }
+  }
+
+  #site-navigation {
+    border-top: 0;
+
+    li {
+      display: block;
+      float: left;
+      width: 50%;
     }
 
-    .js .site-header h1 a {
+    li:not(:last-child) {
+      border-bottom: 1px solid;
+    }
+  }
+
+  .js {
+    .site-header h1 {
+      text-align: left;
+
+      a {
         float: left;
         width: calc(100% - 50px);
+      }
     }
 
-    .js .nav-toggle {
-        display: inline-block;
-        padding: 15px 0;
-        width: 50px;
-        height: 66px;
-        text-align: center;
-        font-size: $Fontsize-Huge;
+    .nav-toggle {
+      display: inline-block;
+      font-size: $huge;
+      height: 66px;
+      padding: 15px 0;
+      text-align: center;
+      width: 50px;
     }
+  }
 }
 
 
-/*  V. Responsive navigation
- *
- *  Display the main navigation menu appearing in the title banner on small
- *  screens.
- *
- */
+//  V. Responsive navigation
+//
+//  Display the main navigation menu appearing in the title banner on small
+//  screens.
+//
+//
 
 .nav-collapse {
-    clear: both;
-}
+  clear: both;
 
-.nav-collapse ul {
+  &.opened {
+    max-height: 9999px;
+  }
+
+  &.disable-pointer-events {
+    pointer-events: none !important;
+  }
+
+  ul {
     display: block;
     margin: 0;
     padding: 0;
     width: 100%;
+  }
 }
 
 .js .nav-collapse {
-    position: absolute;
-    display: block;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    max-height: 0;
-    zoom: 1;
-}
-
-.nav-collapse.opened {
-    max-height: 9999px;
-}
-
-.nav-collapse.disable-pointer-events {
-    pointer-events: none !important;
+  clip: rect(0 0 0 0);
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  zoom: 1;
 }
 
 .nav-toggle {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @media screen and (min-width: 568px) {
-    .js .nav-collapse {
-        position: relative;
-    }
+  .js .nav-collapse {
+    position: relative;
+  }
 
-    .js .nav-collapse.closed {
-        max-height: none;
-    }
+  .js .nav-collapse.closed {
+    max-height: none;
+  }
 
-    .nav-toggle {
-        display: none;
-    }
+  .nav-toggle {
+    display: none;
+  }
 }
 
 
-/*  VI. Footnotes
- *
- *  Define styles for the Markdown footnote extension.
- *
- */
+//  VI. Footnotes
+//
+//  Define styles for the Markdown footnote extension.
+//
+//
 
 .footnotes {
-    font-size: $Fontsize-Small;
+  font-size: $small;
 }
 
-a[rev="footnote"]{
-    font-size: $Fontsize-Tiny;
+a[rev='footnote'] {
+  font-size: $tiny;
 }
 
-a[rel="footnote"], a[rev="footnote"] {
-    display: inline-block;
-    padding: 1px;
-    min-width: 19px;
-    border-radius: 7px;
-    text-align: center;
-    text-decoration: none;
+a[rel='footnote'],
+a[rev='footnote'] {
+  border-radius: 7px;
+  display: inline-block;
+  min-width: 19px;
+  padding: 1px;
+  text-align: center;
+  text-decoration: none;
 }
 
-a[rel="footnote"]:hover, a[rev="footnote"]:hover {
-    text-decoration: none;
+a[rel='footnote']:hover,
+a[rev='footnote']:hover {
+  text-decoration: none;
 }
 
 
-/*  VII. Experimental
- *
- *  Styles added during testing and provisional rules for 
- *  experimental features.
- *
- */
-
-address p {
-    margin-bottom: 0px;
-}
+//  VII. Experimental
+//
+//  Styles added during testing and provisional rules for 
+//  experimental features.
+//
+//
 
 .mail {
-    font-family: $Code-Body;
-}
-
-.pin-tags {
-    margin-top: -5px;
-    text-align: right;
-    font-size: $Fontsize-Small;
+  font-family: $code-type;
 }
 

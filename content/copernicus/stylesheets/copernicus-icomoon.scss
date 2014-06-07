@@ -1,82 +1,114 @@
-/*  IcoMoon
- *
- *  @uses font-family: 'icomoon' to provide the following icons:
- *
- */
+//  IcoMoon
+//
+//  @uses font-family: 'icomoon' to provide the following icons:
+//
+//
 
 @font-face {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'icomoon';
-    src:url('../fonts/icomoon-eot.eot');
-    src:url('../fonts/icomoon-eot.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon-ttf.ttf') format('truetype'),
-        url('../fonts/icomoon-woff.woff') format('woff'),
-        url('../fonts/icomoon-svg.svg#icomoon') format('svg');
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/icomoon-eot.eot');
+  src: url('../fonts/icomoon-eot.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/icomoon-ttf.ttf') format('truetype'),
+       url('../fonts/icomoon-woff.woff') format('woff'),
+       url('../fonts/icomoon-svg.svg#icomoon') format('svg');
 }
 
-.icon {
-    position: relative;
-    margin-left: 2em;
+%icon {
+  font-family: 'icomoon';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
 }
 
-.icon:before {
-    margin-right: 1em;
-    text-transform: none;
-    font-weight: normal;
-    font-style: normal;
-    font-variant: normal;
-    font-family: 'icomoon';
-    line-height: 1;
-    speak: none;
-    position: absolute;
-    width: 1em;
-    top: 0;
-    bottom: 0;
-    right: 100%;
+%has-icon {
+  margin-left: 2em;
+  position: relative;
+}
+
+%has-icon:before {
+  @extend %icon;
+  bottom: 0;
+  margin-right: 1em;
+  position: absolute;
+  right: 100%;
+  text-transform: none;
+  top: 0;
+  width: 1em;
 }
 
 .mail {
-    @extend .icon;
-    &:before { content: "\e760"; }
+  @extend %has-icon;
+
+  &:before { 
+    content: '\e760'; 
+  }
 }
 
 .location {
-    @extend .icon;
-    &:before { content: "\e642"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e642'; 
+  }
 }
 
 .linkedin {
-    @extend .icon;
-    &:before { content: "\e79f"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e79f'; 
+  }
 }
 
 .github {
-    @extend .icon;
-    &:before { content: "\e788"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e788'; 
+  }
 }
 
 .flickr {
-    @extend .icon;
-    &:before { content: "\e77a"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e77a'; 
+  }
 }
 
 .twitter {
-    @extend .icon;
-    &:before { content: "\e76d"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e76d'; 
+  }
 }
 
 .stackoverflow {
-    @extend .icon;
-    &:before { content: "\e7a5"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e7a5'; 
+  }
 }
 
 .googleplus {
-    @extend .icon;
-    &:before { content: "\e766"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e766'; 
+  }
 }
 
 .facebook { 
-    @extend .icon;
-    &:before { content: "\e769"; }
+  @extend %has-icon;
+    
+  &:before { 
+    content: '\e769'; 
+  }
 }

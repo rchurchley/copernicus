@@ -6,6 +6,7 @@ compile '*' do
   when 'md', 'markdown'
     filter :redcarpet, options: { footnotes: true }
   when 'sass', 'scss'
+    filter :erb
     filter :sass, syntax: :scss
   when 'erb'
     filter :erb

@@ -1,149 +1,167 @@
-/*  Colour
- *
- *  The default colour scheme.
- *
- *  Contents (same section numbers as `main.scss`)
- *  ========
- *
- *  0.      Colour definitions
- *  I.      Default text
- *  II.     n/a
- *  III.    Images
- *  IV.     Site header
- *  V.      n/a
- *  VI.     Footnotes
- *  VII.    Experimental
- *
- */
-
-/*  0. Colour definitions  */
-
-$Background: #FFFFFF;
-$Foreground: #302E2C;
-
-$Header-Background: #302E2C;
-$Header-Foreground: #F6F3EF;
-
-$Primary: #0087BD;
-$Secondary: #009F6B;
-$Accent: #833F87;
-
-$Minor-Foreground: #7E7C79;
-$Minor-Primary: #47ADD3;
+//  Colour
+//
+//  The default colour scheme.
+//
+//  Contents (same section numbers as `main.scss`)
+//  ========
+//
+//  0.      Colour definitions
+//  I.      Default text
+//  II.     n/a
+//  III.    Images
+//  IV.     Site header
+//  V.      n/a
+//  VI.     Footnotes
+//  VII.    Experimental
+//
 
 
-/*  I. Default text  */
+//  0. Colour definitions
+
+$background:    <%= @site.config[:colours][:background] %>;
+$foreground:    <%= @site.config[:colours][:foreground] %>;
+
+$header-bg:     <%= @site.config[:colours][:header_bg] %>;
+$header-fg:     <%= @site.config[:colours][:header_fg] %>;
+
+$block-bg:      <%= @site.config[:colours][:block_bg] %>;
+$block-fg:      <%= @site.config[:colours][:block_fg] %>;
+$block-border:  <%= @site.config[:colours][:block_border] %>;
+
+$menu:          <%= @site.config[:colours][:menu] %>;
+$headlines:     <%= @site.config[:colours][:headlines] %>;
+$links:         <%= @site.config[:colours][:links] %>;
+$links-hover:   <%= @site.config[:colours][:links_hover] %>;
+$footnote-bg:   <%= @site.config[:colours][:footnote_bg] %>;
+$footnote-fg:   <%= @site.config[:colours][:footnote_fg] %>;
+
+$minor:         <%= @site.config[:colours][:minor] %>;
+$minor-links:   <%= @site.config[:colours][:minor_links] %>;
+
+$hr:            <%= @site.config[:colours][:hr] %>;
+
+
+//  I. Default text
 
 body {
-    background-color: $Background;
-    color: $Foreground;
+  background-color: $background;
+  color: $foreground;
 }
 
-h1, h2 {
-    color: $Primary;
+h1, 
+h2,
+h3 {
+  color: $headlines;
 }
 
-a {
-    color: $Primary;
+a,
+a:visited {
+  color: $links;
 }
 
 a:hover {
-    color: $Secondary;
-}
-
-a:visited {
-    color: $Accent;
+  color: $links-hover;
 }
 
 a:after {
-    color: $Minor-Foreground;
+  color: $minor;
 }
 
-.details { // @extended by address, pre, blockquote 
-    border-left: 20px solid #EBEAE7;
-    background-color: #F6F5F1;
+code {
+  background-color: $block-bg;
+}
+
+address,
+pre,
+blockquote,
+ul { 
+  border-color: $block-border;
+  background-color: $block-bg;
+  color: $block-fg;
 }
 
 main > ul > li:before {
-    color: #EBEAE7;
+  color: $block-border;
+}
+
+hr {
+  border-color: $hr;
 }
 
 
-/*  III. Images  */
+//  III. Images
 
 figcaption {
-    background-color: $Header-Background;
-    color: $Header-Foreground;
-}
-
-figcaption a, figcaption a:visited {
-    color: $Minor-Primary;
+  background-color: $header-bg;
+  color: $header-fg;
 }
 
 .thumbnail {
-    border-color: $Minor-Foreground;
+  border-color: $block-border;
 }
 
 
-/*  IV. Site header  */
+//  IV. Site header
 
 .site-header {
-    background-color: $Header-Background;
-    color: $Header-Foreground;
-    a, a:visited {
-        color: $Header-Foreground;
-    }
+  background-color: $header-bg;
+  color: $header-fg;
+  
+  a,
+  a:visited {
+    color: $header-fg;
+  }
 }
 
 #site-navigation {
-    background-color: $Background;
-    color: $Primary;
-    a, a:visited {
-        color: $Primary;
-    }
+  background-color: $background;
+  color: $menu;
+  
+  ul {
+    background-color: $background;
+  }
+
+  a,
+  a:visited {
+    color: $menu;
+  }
 }
 
-#site-navigation .current-menu-item, #site-navigation li:hover {
-    background-color: $Primary;
-    color: $Background;
-    a, a:visited {
-        color: $Background;
-    }
+#site-navigation .current-menu-item, 
+#site-navigation li:hover {
+  background-color: $menu;
+  color: $background;
+    
+  a,
+  a:visited {
+    color: $background;
+  }
 }
 
 @media screen and (max-width: 567px) {
-    #site-navigation {
-        background-color: $Primary;
-        color: $Background;
-        a, a:visited {
-            color: $Background;
-        }
+  #site-navigation {
+    background-color: $menu;
+    color: $background;
+    
+    a, 
+    a:visited {
+      color: $background;
     }
+  }
 }
 
 
-/*  VI. Footnotes  */
+//  VI. Footnotes  */
+
 a[rel="footnote"] {
-    background-color: $Secondary;
-    color: $Header-Foreground;
-}
-
-a[rel="footnote"]:visited {
-    background-color: $Accent;
+  background-color: $footnote-bg;
+  color: $footnote-fg;
 }
 
 a[rev="footnote"] {
-    color: $Secondary;
+  color: $footnote-bg;
 }
 
 .footnotes {
-    color: $Minor-Foreground;
-}
-
-
-/* VII. Experimental */
-
-
-.pin-tag, .category-link {
-    color: $Secondary;
+  color: $minor;
 }
