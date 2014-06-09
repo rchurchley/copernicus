@@ -475,14 +475,6 @@ figcaption {
 .nav-collapse {
   clear: both;
 
-  &.opened {
-    max-height: 9999px;
-  }
-
-  &.disable-pointer-events {
-    pointer-events: none !important;
-  }
-
   ul {
     display: block;
     margin: 0;
@@ -506,6 +498,14 @@ figcaption {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.nav-collapse.opened {
+  max-height: 250px;
+}
+
+.nav-collapse.disable-pointer-events {
+  pointer-events: none !important;
 }
 
 @media screen and (min-width: 568px) {
