@@ -130,37 +130,83 @@ a[href$='.pdf']:after {
 a[href$='.zip']:after,
 a[href$='.gz']:after {
   content: '\e601';
+address,
+dl,
+pre,
+blockquote,
+main > ul {
+  border-left-style: solid;
+  border-left-width: 20px;
+  clear: both;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
-ul,
+@media screen and (max-width: 567px) {
+  address,
+  dl,
+  pre,
+  blockquote,
+  main > ul {
+    margin-left: -20px;
+    max-width: calc(100% + 40px);
+    width: calc(100% + 40px);
+  }
+}
+
+address {
+  margin-top: 20px;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+pre {
+  line-height: 1.2;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+code {
+  font-family: $code-type;
+  padding: 2px 5px;
+}
+
+dl,
 ol,
-dl {
+ul {
   line-height: 1.4;
   margin-bottom: 10px;
+  margin-left: 0;
+  padding-left: 20px;
 }
 
+dt,
+dd,
 li {
   margin-bottom: 5px;
   position: relative;
 }
 
-li ul,
-li ol {
+li ol,
+li ul {
   margin-bottom: 0;
   margin-top: 5px;
-}
-
-ul,
-ol,
-dd {
-  margin-left: 0;
-  padding-left: 20px;
 }
 
 ul {
   list-style-type: none;
 }
 
+dt:before,
 main > ul > li:before {
   @extend %icon;
   bottom: 0;
@@ -199,43 +245,6 @@ sub {
 
 blockquote {
   padding-left: 20px;
-}
-
-address,
-pre,
-blockquote,
-main > ul {
-  border-left-style: solid;
-  border-left-width: 20px;
-  clear: both;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-pre {
-  line-height: 1.2;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-code {
-  font-family: $code-type;
-  padding: 2px 5px;
-}
-
-address {
-  margin-top: 20px;
-
-  p {
-    margin-bottom: 0;
-  }
 }
 
 hr {

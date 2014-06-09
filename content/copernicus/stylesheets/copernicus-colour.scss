@@ -72,14 +72,16 @@ code {
 }
 
 address,
-pre,
 blockquote,
+dl,
+pre,
 ul { 
   border-color: $block-border;
   background-color: $block-bg;
   color: $block-fg;
 }
 
+dt:before,
 main > ul > li:before {
   color: $block-border;
 }
