@@ -22,4 +22,5 @@ colours: {
   footnote_fg:  '#fff',
   minor:        '#a7adba',
   minor_links:  '#60c7c4',
+  hr:           '#dfe1e8'
 }
