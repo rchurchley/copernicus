@@ -120,16 +120,18 @@ a[href$='.gz'],
 }
 
 a[href$='.tex']:after {
-  content: '\e603';
+  content: '\e7b9';
 }
 
 a[href$='.pdf']:after {
-  content: '\e600';
+  content: '\e7b2';
 }
 
 a[href$='.zip']:after,
 a[href$='.gz']:after {
-  content: '\e601';
+  content: '\e7b6';
+}
+
 address,
 dl,
 pre,
