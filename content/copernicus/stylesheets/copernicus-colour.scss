@@ -141,6 +141,10 @@ figcaption {
 }
 
 @media screen and (max-width: 567px) {
+  #site-navigation ul {
+    color: $background;
+  }
+
   #site-navigation {
     background-color: $menu;
     color: $background;
