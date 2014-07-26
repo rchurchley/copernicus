@@ -48,7 +48,7 @@ body {
   color: $foreground;
 }
 
-h1, 
+h1,
 h2,
 h3 {
   color: $headlines;
@@ -71,19 +71,25 @@ code {
   background-color: $block-bg;
 }
 
-address,
-blockquote,
-dl,
-pre,
-ul { 
+%gutterblock {
   border-color: $block-border;
   background-color: $block-bg;
   color: $block-fg;
 }
 
-dt:before,
-main > ul > li:before {
+%gutterbullet {
   color: $block-border;
+}
+
+blockquote,
+address,
+pre,
+main > ul {
+  @extend %gutterblock;
+}
+
+main > ul > li:before {
+  @extend %gutterbullet;
 }
 
 hr {
@@ -108,7 +114,7 @@ figcaption {
 .site-header {
   background-color: $header-bg;
   color: $header-fg;
-  
+
   a,
   a:visited {
     color: $header-fg;
@@ -118,7 +124,7 @@ figcaption {
 #site-navigation {
   background-color: $background;
   color: $menu;
-  
+
   ul {
     background-color: $background;
   }
@@ -129,11 +135,11 @@ figcaption {
   }
 }
 
-#site-navigation .current-menu-item, 
+#site-navigation .current-menu-item,
 #site-navigation li:hover {
   background-color: $menu;
   color: $background;
-    
+
   a,
   a:visited {
     color: $background;
@@ -148,8 +154,8 @@ figcaption {
   #site-navigation {
     background-color: $menu;
     color: $background;
-    
-    a, 
+
+    a,
     a:visited {
       color: $background;
     }

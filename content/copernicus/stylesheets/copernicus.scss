@@ -6,18 +6,24 @@
 //  ========
 //
 //  0.    Define constants
-//  I.    Default text
-//  II.   Default blocks
-//  III.  Images
-//  IV.   Site header
-//  V.    Responsive menu
-//  VI.   Footnotes
-//  VII.  Experimental
+//  I.    Text
+//  II.   Blocks
+//        a   Defaults
+//        b   Custom classes
+//  III.  Images and figures
+//        a   Default images
+//        b   Default figures
+//        c   Custom classes
+//  IV.   Site structure
+//        a   Header
+//        b   Responsive navigation
+//        c   main
+//  V.    Footnotes
+//  VI.   Experimental
 //
 
 @import 'copernicus-reset.scss';
 @import 'copernicus-icomoon.scss';
-
 
 //  0. Define constants
 
@@ -27,7 +33,7 @@ $code-type: Inconsolata, monospace;
 
 $huge:   2.25rem;
 $large:   1.5rem;
-$plus:    1.1rem;   // corrects apparent size of condensed default font 
+$plus:    1.1rem;   // corrects apparent size of condensed default font
 $default: medium;
 $small:    .8rem;
 $tiny:     .5rem;
@@ -35,9 +41,7 @@ $tiny:     .5rem;
 
 //  I. Default text
 //
-//  Define default text and headline styles, and styles for the following basic
-//  'text-level' tags:
-//  a, ul, ol, dl, blockquote, code.
+//  Define default text and headline styles, and styles for inline tags
 //
 //
 
@@ -94,10 +98,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.external-link:after {
-  content: '\e609';
-}
-
 h1 a:hover,
 h2 a:hover,
 h3 a:hover,
@@ -108,8 +108,7 @@ header a:hover {
 a[href$='.tex'],
 a[href$='.pdf'],
 a[href$='.zip'],
-a[href$='.gz'],
-.external-link {
+a[href$='.gz'] {
   &:after {
     @extend %icon;
     font-size: $default;
@@ -130,94 +129,6 @@ a[href$='.pdf']:after {
 a[href$='.zip']:after,
 a[href$='.gz']:after {
   content: '\e7b6';
-}
-
-address,
-dl,
-pre,
-blockquote,
-main > ul {
-  border-left-style: solid;
-  border-left-width: 20px;
-  clear: both;
-  margin-bottom: 10px;
-  padding: 10px 20px;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-}
-
-@media screen and (max-width: 567px) {
-  address,
-  dl,
-  pre,
-  blockquote,
-  main > ul {
-    margin-left: -20px;
-    max-width: calc(100% + 40px);
-    width: calc(100% + 40px);
-  }
-}
-
-address {
-  margin-top: 20px;
-
-  p {
-    margin-bottom: 0;
-  }
-}
-
-pre {
-  line-height: 1.2;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-code {
-  font-family: $code-type;
-  padding: 2px 5px;
-}
-
-dl,
-ol,
-ul {
-  line-height: 1.4;
-  margin-bottom: 10px;
-  margin-left: 0;
-  padding-left: 20px;
-}
-
-dt,
-dd,
-li {
-  margin-bottom: 5px;
-  position: relative;
-}
-
-li ol,
-li ul {
-  margin-bottom: 0;
-  margin-top: 5px;
-}
-
-ul {
-  list-style-type: none;
-}
-
-dt:before,
-main > ul > li:before {
-  @extend %icon;
-  bottom: 0;
-  content: '\e70a';
-  margin-right: 1em;
-  position: absolute;
-  right: 100%;
-  top: 3px;
-  width: .5em;
 }
 
 strong,
@@ -245,8 +156,102 @@ sub {
   top: .4em;
 }
 
+code {
+  font-family: $code-type;
+  padding: 2px 5px;
+}
+
+
+//  II. Blocks
+//
+//  Define styles for basic block tags, including pre, lists, blockquote
+//
+//
+
+//  IIa. Default tags
+
+%gutterblock {
+  border-left-style: solid;
+  border-left-width: 20px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 567px) {
+    margin-left: -20px;
+    max-width: calc(100% + 40px);
+    width: calc(100% + 40px);
+  }
+}
+
+%gutterbullet {
+  @extend %icon;
+  bottom: 0;
+  content: '\e70a';
+  margin-right: 1em;
+  position: absolute;
+  right: 100%;
+  top: 3px;
+  width: .5em;
+}
+
 blockquote {
+  @extend %gutterblock;
+}
+
+address {
+  @extend %gutterblock;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+pre {
+  @extend %gutterblock;
+  line-height: 1.2;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+ol,
+ul {
+  line-height: 1.4;
+  margin-bottom: 10px;
+  margin-left: 0;
   padding-left: 20px;
+
+  li {
+    margin-bottom: 5px;
+    position: relative;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+main > ul {
+  @extend %gutterblock;
+  list-style-type: none;
+
+  & > li:before {
+    @extend %gutterbullet;
+  }
 }
 
 hr {
@@ -257,24 +262,8 @@ hr {
 }
 
 
-//  II. Default blocks
-//
-//  Define styles for basic 'block-level' tags: the main content wrapper and 
-//  the article tags displayed on archive pages.
-//
-//
+//  IIb. Custom classes
 
-main {
-  margin: 30px auto 50px;
-  max-width: 40em;
-  padding: 0 20px;
-}
-
-@media screen and (max-width: 567px) {
-  main {
-    margin: 20px auto;
-  }
-}
 
 
 //  III. Images
