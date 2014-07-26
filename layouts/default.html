@@ -4,6 +4,11 @@
 <body>
   <%= render 'parts/header', :page_branch => @item[:branch] %>
   <main>
+    <% if @item.attributes.has_key?(:banner) %>
+      <figure class="banner">
+        <img src="<%= @site.config[:base_url] + @items[@item[:banner]].path %>" alt="<%= @item[:title] %>" />
+      </figure>
+    <% end %>
     <%= yield %>
   </main>
 </body>
