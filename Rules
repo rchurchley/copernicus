@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 # Compiling rules
 
 compile '*' do
@@ -8,7 +9,7 @@ compile '*' do
   when 'sass', 'scss'
     filter :erb
     filter :sass, syntax: :scss
-  when 'erb'
+  when 'erb', 'html'
     filter :erb
   end
 
