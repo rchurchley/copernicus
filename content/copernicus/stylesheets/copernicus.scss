@@ -266,100 +266,134 @@ hr {
 
 
 
-//  III. Images
+
+//  III. Images and figures
 //
-//  Define default image and figure styles.
-//  
-//  .center, .right
-//  .thumbnail
-//  .banner
-//  .gallery
+//  Define default styles for displaying pictures
 //
 //
 
-img,
-figure,
-figcaption {
+// IIIa. Images
+
+%smallcircle {
+  border-radius: 25px;
+  height: 50px;
+  width: 50px;
+}
+
+img {
   height: auto;
   max-width: 100%;
+  width: 100%;
 }
 
-.right {
-  float: right;
-  margin: 0 0 5px 20px;
+li img {
+  @extend %smallcircle;
 }
 
-.center {
-  text-align: center;
-}
+// IIIb. Figures
 
-.gallery img {
-  width: calc(33% - .33em);
-}
-
-@media screen and (min-width: 568px) {
-  figure {
-    float: left;
-    margin: 0 20px 5px 0;
-    max-width: 50%;
+%fullwidth-mobile {
+  @media screen and (max-width: 567px) {
+    margin-left: -20px;
+    margin-right: -20px;
+    max-width: calc(100% + 40px);
+    width: calc(100% + 40px);
   }
+}
 
-  .center,
-  .banner,
-  .gallery {
-    display: block;
+%fullwidth-widescreen {
+  @media screen and (min-width: 568px) {
     float: none;
-    margin: 0 0 10px;
     max-width: 100%;
     width: 100%;
   }
+}
 
-  .thumbnail {
+%halfwidth-widescreen {
+  @media screen and (min-width: 568px) {
+    max-width: 50%;
+    width: 50%;
+  }
+}
+
+%square-mobile {
+  @media screen and (max-width: 567px) {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+%square-widescreen {
+  @media screen and (min-width: 568px) {
     height: 200px;
     width: 200px;
   }
 }
 
-@media screen and (max-width: 567px) {
-  figure,
-  figcaption,
-  .center,
-  .right,
-  .gallery {
-    display: block;
-    margin-bottom: 5px;
-    margin-left: -20px;
-    max-width: calc(100% + 40px);
-    width: calc(100% + 40px);
-  }
+@mixin floatleft {
+  float: left;
+  margin-left: 0;
+  margin-right: 20px;
 
-  figure img {
-    margin-bottom: 0;
+  & + h1,
+  & + h2,
+  & + h3 {
+    margin-top: 0;
   }
+}
 
-  .thumbnail {
-    float: left;
-    height: 100px;
-    margin-left: 0;
-    margin-right: 20px;
-    width: 100px;
+@mixin floatright {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+figure,
+figcaption {
+  @extend %fullwidth-mobile;
+  @extend %halfwidth-widescreen;
+
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 568px) {
+    @include floatleft;
   }
+}
 
-  .banner {
+.banner {
+  @extend %fullwidth-mobile;
+  @extend %fullwidth-widescreen;
+
+  @media screen and (max-width: 567px) {
     margin-top: -20px;
   }
 }
 
-.thumbnail img {
-  border: 1px solid;
-  border-radius: 5px;
+.gallery {
+  @extend %fullwidth-mobile;
+  @extend %fullwidth-widescreen;
+
+  img {
+    width: 1 / 3 * 100%;
+  }
 }
 
-.thumbnail + h2 {
-  margin-top: 0;
+.right {
+  @media screen and (min-width: 568px) {
+    @include floatright;
+  }
 }
 
+.thumbnail {
+  @extend %square-mobile;
+  @extend %square-widescreen;
+  @include floatleft;
 
+  &.right {
+    @include floatright;
+  }
+}
 
 //  IV. Site header
 //
