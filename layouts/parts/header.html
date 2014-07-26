@@ -5,7 +5,7 @@
   </a></h1>
 
   <label for="show-navigation" class="show-navigation">&#9776;</label>
-  <input type="checkbox" id="show-navigation" role="button">
+  <input type="checkbox" id="show-navigation" role="button" />
   <nav id="site-navigation" role="navigation">
     <ul><% for branch in @site.config[:branches] %>
       <li<%= @page_branch == branch[:id] ? " class='current-menu-item'" : "" %>>
