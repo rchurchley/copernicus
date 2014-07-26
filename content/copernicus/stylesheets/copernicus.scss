@@ -395,27 +395,53 @@ figcaption {
   }
 }
 
-//  IV. Site header
+
+//  IV. Site structure
 //
-//  Display the title banner at the top of every page.
+//  Define the title banner and main content
 //
 //
+
+//  IVa. Header
 
 .site-header {
   text-align: center;
 
   img {
-    border-radius: 5px;
-    height: 50px;
+    @extend %smallcircle;
     margin-top: 15px;
-    width: 50px;
   }
 
   h1 {
     margin-bottom: 15px;
     margin-top: 10px;
   }
+
+  @media screen and (max-width: 567px) {
+    img {
+      display: none;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+    }
+
+    h1 {
+      display: inline-block;
+      float: left;
+      margin: 0;
+      text-align: left;
+      width: calc(100% - 50px);
+
+      a {
+        padding: 15px 20px;
+      }
+    }
+  }
 }
+
+//  IVb. Responsive navigation
 
 #site-navigation {
   border-top: 3px solid;
@@ -436,29 +462,8 @@ figcaption {
     display: inline-block;
     padding: 10px 20px;
   }
-}
 
-@media screen and (max-width: 567px) {
-  .site-header {
-    img {
-      display: none;
-    }
-
-    a {
-      display: block;
-      width: 100%;
-    }
-
-    h1 {
-      margin: 0;
-
-      a {
-        padding: 15px 20px;
-      }
-    }
-  }
-
-  #site-navigation {
+  @media screen and (max-width: 567px) {
     border-top: 0;
 
     li {
@@ -471,25 +476,42 @@ figcaption {
       border-bottom: 1px solid;
     }
   }
+}
 
-  .js {
-    .site-header h1 {
-      text-align: left;
+label.show-navigation {
+  display: inline-block;
+  font-size: $huge;
+  line-height: 1.2;
+  padding: 15px 0;
+  text-align: center;
+  width: 50px;
 
-      a {
-        float: left;
-        width: calc(100% - 50px);
-      }
-    }
+  @media screen and (min-width: 568px) {
+    display: none;
+  }
+}
 
-    .nav-toggle {
-      display: inline-block;
-      font-size: $huge;
-      height: 66px;
-      padding: 15px 0;
-      text-align: center;
-      width: 50px;
-    }
+#show-navigation {
+  display: none;
+}
+
+#show-navigation:not(:checked) + #site-navigation {
+  @media screen and (max-width: 567px) {
+    display: none;
+  }
+}
+
+//  IVc. Main
+
+main {
+  margin: 30px auto 50px;
+  max-width: 45em;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 567px) {
+  main {
+    margin: 20px auto;
   }
 }
 
@@ -501,55 +523,7 @@ figcaption {
 //
 //
 
-.nav-collapse {
-  clear: both;
 
-  ul {
-    display: block;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-}
-
-.js .nav-collapse {
-  clip: rect(0 0 0 0);
-  display: block;
-  max-height: 0;
-  overflow: hidden;
-  position: absolute;
-  zoom: 1;
-}
-
-.nav-toggle {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.nav-collapse.opened {
-  max-height: 250px;
-}
-
-.nav-collapse.disable-pointer-events {
-  pointer-events: none !important;
-}
-
-@media screen and (min-width: 568px) {
-  .js .nav-collapse {
-    position: relative;
-  }
-
-  .js .nav-collapse.closed {
-    max-height: none;
-  }
-
-  .nav-toggle {
-    display: none;
-  }
-}
 
 
 //  VI. Footnotes
@@ -584,7 +558,7 @@ a[rev='footnote']:hover {
 
 //  VII. Experimental
 //
-//  Styles added during testing and provisional rules for 
+//  Styles added during testing and provisional rules for
 //  experimental features.
 //
 //

@@ -4,6 +4,8 @@
     <%= @site.config[:title] %>
   </a></h1>
 
+  <label for="show-navigation" class="show-navigation">&#9776;</label>
+  <input type="checkbox" id="show-navigation" role="button">
   <nav id="site-navigation" role="navigation">
     <ul><% for branch in @site.config[:branches] %>
       <li<%= @page_branch == branch[:id] ? " class='current-menu-item'" : "" %>>
@@ -11,19 +13,4 @@
       </li>
     <% end %></ul>
   </nav>
-
-  <script>
-    var navigation = responsiveNav("#site-navigation", {
-      animate: true,        // Boolean: Use CSS3 transitions, true or false
-      transition: 250,      // Integer: Speed of the transition, in milliseconds
-      label: "&#9776;",     // String: Label for the navigation toggle
-      insert: "before",     // String: Insert the toggle before or after the navigation
-      customToggle: "",     // Selector: Specify the ID of a custom toggle
-      openPos: "relative",  // String: Position of the opened nav, relative or static
-      jsClass: "js",        // String: 'JS enabled' class which is added to <html> el
-      init: function(){},   // Function: Init callback
-      open: function(){},   // Function: Open callback
-      close: function(){}   // Function: Close callback
-    });
-  </script>
 </header>
