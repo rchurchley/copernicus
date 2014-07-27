@@ -267,11 +267,25 @@ hr {
 
 // IIIa. Images
 
+%circle {
+  @media screen and (max-width: 567px) {
+    border-radius: 25px;
+    height: 50px;
+    width: 50px;
+  }
+  @media screen and (min-width: 568px) {
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+  }
+}
+
 %smallcircle {
   border-radius: 25px;
   height: 50px;
   width: 50px;
 }
+
 
 img {
   height: auto;
@@ -303,20 +317,6 @@ img {
   @media screen and (min-width: 568px) {
     max-width: 50%;
     width: 50%;
-  }
-}
-
-%square-mobile {
-  @media screen and (max-width: 567px) {
-    height: 100px;
-    width: 100px;
-  }
-}
-
-%square-widescreen {
-  @media screen and (min-width: 568px) {
-    height: 200px;
-    width: 200px;
   }
 }
 
@@ -375,13 +375,21 @@ figcaption {
 }
 
 .thumbnail {
-  @extend %square-mobile;
-  @extend %square-widescreen;
   @include floatleft;
+  @extend %circle;
+
+  img {
+    @extend %circle;
+  }
 
   &.right {
     @include floatright;
   }
+}
+
+.list-thumbnail {
+  @include floatleft;
+  @extend %smallcircle;
 }
 
 
