@@ -165,22 +165,22 @@ figcaption {
   }
 
   .current-menu-item {
-    background-color: $menu;
-    color: $background;
+    background-color: $menu-bg;
+    color: $menu-fg;
 
     a,
     a:visited {
-      color: $background;
+      color: $menu-fg;
     }
   }
 
   @media screen and (max-width: 567px) {
-    background-color: $menu;
-    color: $background;
+    background-color: $menu-bg;
+    color: $menu-fg;
 
     a,
     a:visited {
-      color: $background;
+      color: $menu-fg;
     }
   }
 }
@@ -194,6 +194,7 @@ footer {
     color: $minor;
   }
 }
+
 
 //  V. Footnotes
 //
