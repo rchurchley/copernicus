@@ -18,7 +18,6 @@
 //        c   Main
 //        d   Footer
 //  V.    Footnotes
-//  VI.   Experimental
 //
 
 @import 'copernicus-reset.scss';
@@ -459,17 +458,3 @@ a[rev='footnote'] {
 a[rel='footnote']:hover,
 a[rev='footnote']:hover {
   text-decoration: none;
-}
-
-
-//  VI. Experimental
-//
-//  Styles added during testing and provisional rules for
-//  experimental features.
-//
-//
-
-.mail {
-  font-family: $code-type;
-}
-
