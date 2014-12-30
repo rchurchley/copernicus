@@ -5,14 +5,13 @@
 //  Contents (same section numbers as `main.scss`)
 //  ========
 //
-//  0.      Colour definitions
-//  I.      Default text
-//  II.     n/a
-//  III.    Images
-//  IV.     Site header
-//  V.      n/a
-//  VI.     Footnotes
-//  VII.    Experimental
+//  0.    Colour definitions
+//  I.    Text
+//  II.   Blocks
+//  III.  Images and figures
+//  IV.   Site structure
+//  V.    Footnotes
+//  VI.   Experimental
 //
 
 
@@ -42,6 +41,10 @@ $hr:            <%= @site.config[:colours][:hr] %>;
 
 
 //  I. Default text
+//
+//  Define default text and headline colours, and colours for inline tags
+//
+//
 
 body {
   background-color: $background;
@@ -67,9 +70,21 @@ a:after {
   color: $minor;
 }
 
+h1 a,
+h1 a:visited {
+  color: $headlines;
+}
+
 code {
   background-color: $block-bg;
 }
+
+
+//  II. Blocks
+//
+//  Define colours for basic block tags, including pre, lists, blockquote
+//
+//
 
 %gutterblock {
   border-color: $block-border;
@@ -77,20 +92,11 @@ code {
   color: $block-fg;
 }
 
-%gutterbullet {
-  color: $block-border;
-}
-
 aside,
 blockquote,
 address,
-pre,
-main > ul {
+pre {
   @extend %gutterblock;
-}
-
-main > ul > li:before {
-  @extend %gutterbullet;
 }
 
 hr {
@@ -98,7 +104,11 @@ hr {
 }
 
 
-//  III. Images
+//  III. Images and figures
+//
+//  Define default colours for picture borders and backgrounds
+//
+//
 
 figcaption {
   background-color: $header-bg;
@@ -110,29 +120,31 @@ figcaption {
 }
 
 
-//  IV. Site header
+//  IV. Site structure
+//
+//  Define colours for the title banner and main content
+//
+//
 
 .site-header {
   background-color: $header-bg;
   color: $header-fg;
 
   a,
-  a:visited {
+  a:visited,
+  a h1 {
     color: $header-fg;
   }
 }
 
 #site-navigation {
-  background-color: $background;
-  color: $menu;
-
   ul {
     background-color: $background;
   }
 
   a,
   a:visited {
-    color: $menu;
+    color: $header-fg;
   }
 }
 
@@ -163,8 +175,21 @@ figcaption {
   }
 }
 
+footer {
+  color: $minor;
 
-//  VI. Footnotes  */
+  a,
+  a:visited,
+  a:hover {
+    color: $minor;
+  }
+}
+
+//  V. Footnotes
+//
+//  Define colours for the Markdown footnote extension.
+//
+//
 
 a[rel="footnote"] {
   background-color: $footnote-bg;

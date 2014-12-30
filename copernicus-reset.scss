@@ -4,6 +4,19 @@
 //
 //
 
+%clearfix {
+  // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
 html {
   font-size: 100%;
   min-height: 100%;
@@ -30,6 +43,45 @@ table {
   border-spacing: 0;
 }
 
+a {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+header,
+nav {
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+sup,
+sub {
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -.8em;
+}
+
+sub {
+  top: .4em;
+}
+
 article,
 aside,
 body,
@@ -40,17 +92,7 @@ header,
 main,
 nav,
 section {
+  @extend %clearfix;
   display: block;
   position: relative;
-
-  // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
-  &:before,
-  &:after {
-    content: '';
-    display: table;
-  }
-
-  &:after {
-    clear: both;
-  }
 }
