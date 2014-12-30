@@ -11,7 +11,6 @@
 //  III.  Images and figures
 //  IV.   Site structure
 //  V.    Footnotes
-//  VI.   Experimental
 //
 
 
@@ -141,10 +140,6 @@ figcaption {
   color: $header-fg;
 }
 
-.thumbnail {
-  border-color: $block-border;
-}
-
 
 //  IV. Site structure
 //
@@ -164,10 +159,6 @@ figcaption {
 }
 
 #site-navigation {
-  ul {
-    background-color: $background;
-  }
-
   a,
   a:visited {
     color: $header-fg;
