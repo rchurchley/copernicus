@@ -5,7 +5,7 @@
 //  Contents (same section numbers as `main.scss`)
 //  ========
 //
-//  0.    Colour definitions
+//  0.    Define colour constants
 //  I.    Text
 //  II.   Blocks
 //  III.  Images and figures
@@ -15,7 +15,32 @@
 //
 
 
-//  0. Colour definitions
+//  0. Define colour constants
+//
+//  These defaults can be changed however you like, provided the new colours
+//  satisfy a few constraints.
+//
+//  The following must be readable:
+//
+//    - $foreground  on $background
+//    - $headlines   on $background
+//    - $links       on $background
+//    - $links-hover on $background
+//    - $minor       on $background
+//    - $minor-links on $background
+//
+//    - $header-fg   on $header-bg
+//    - $block-fg    on $block-bg
+//    - $menu-fg     on $menu-bg
+//    - $footnote-fg on $footnote-bg
+//
+//  The following should be distinguishable:
+//
+//    - $links       and $foreground
+//    - $footnote-bg and $background
+//    - $hr          and $background
+//
+//
 
 $background:   #fff;
 $foreground:   #2b303a;
