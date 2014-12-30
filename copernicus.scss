@@ -186,19 +186,6 @@ hr {
 
 // IIIa. Images
 
-%circle {
-  @media screen and (max-width: 567px) {
-    border-radius: 25px;
-    height: 50px;
-    width: 50px;
-  }
-  @media screen and (min-width: 568px) {
-    border-radius: 50px;
-    height: 100px;
-    width: 100px;
-  }
-}
-
 %smallcircle {
   border: 2px solid;
   border-radius: 27px;
@@ -284,31 +271,6 @@ figure:not([class]) {
   @media screen and (min-width: 568px) {
     @include floatright;
   }
-}
-
-.thumbnail {
-  @include floatleft;
-  @extend %circle;
-  clear: left;
-  margin-bottom: 10px;
-
-  img {
-    @extend %circle;
-  }
-
-  &.right {
-    @include floatright;
-    clear: right;
-  }
-
-  & + p {
-    @extend %clearfix;
-  }
-}
-
-.list-thumbnail {
-  @include floatleft;
-  @extend %smallcircle;
 }
 
 
