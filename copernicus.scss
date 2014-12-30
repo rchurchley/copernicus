@@ -10,8 +10,7 @@
 //  II.   Blocks
 //  III.  Images and figures
 //        a   Default images
-//        b   Default figures
-//        c   Custom classes
+//        b   Figure classes
 //  IV.   Site structure
 //        a   Header
 //        b   Responsive navigation
@@ -21,9 +20,10 @@
 //
 
 @import 'copernicus-reset.scss';
-@import 'copernicus-icomoon.scss';
 
 //  0. Define constants
+//
+//
 
 $max-width: 800px;
 
@@ -89,10 +89,6 @@ th {
 p {
   line-height: 1.4;
   margin-bottom: 10px;
-}
-
-a:after {
-  font-size: small;
 }
 
 sup,
@@ -384,10 +380,7 @@ main {
 
 footer {
   text-align: center;
-
-  a {
-    font-size: $default;
-  }
+}
 }
 
 
