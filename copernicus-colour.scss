@@ -163,25 +163,18 @@ figcaption {
   a:visited {
     color: $header-fg;
   }
-}
 
-#site-navigation .current-menu-item,
-#site-navigation li:hover {
-  background-color: $menu;
-  color: $background;
-
-  a,
-  a:visited {
+  .current-menu-item {
+    background-color: $menu;
     color: $background;
-  }
-}
 
-@media screen and (max-width: 567px) {
-  #site-navigation ul {
-    color: $background;
+    a,
+    a:visited {
+      color: $background;
+    }
   }
 
-  #site-navigation {
+  @media screen and (max-width: 567px) {
     background-color: $menu;
     color: $background;
 
