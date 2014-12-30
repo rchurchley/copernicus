@@ -17,27 +17,28 @@
 
 //  0. Colour definitions
 
-$background:    <%= @site.config[:colours][:background] %>;
-$foreground:    <%= @site.config[:colours][:foreground] %>;
+$background:   #fff;
+$foreground:   #2b303a;
+$headlines:    #0087bd;
+$links:        #08965d;
+$links-hover:  #c03054;
+$minor:        #a7adba;
+$minor-links:  #60c7c4;
 
-$header-bg:     <%= @site.config[:colours][:header_bg] %>;
-$header-fg:     <%= @site.config[:colours][:header_fg] %>;
+$header-bg:    #2b303a;
+$header-fg:    #fff;
 
-$block-bg:      <%= @site.config[:colours][:block_bg] %>;
-$block-fg:      <%= @site.config[:colours][:block_fg] %>;
-$block-border:  <%= @site.config[:colours][:block_border] %>;
+$block-bg:     #eff1f5;
+$block-fg:     #4f5b66;
+$block-border: #dadde5;
 
-$menu:          <%= @site.config[:colours][:menu] %>;
-$headlines:     <%= @site.config[:colours][:headlines] %>;
-$links:         <%= @site.config[:colours][:links] %>;
-$links-hover:   <%= @site.config[:colours][:links_hover] %>;
-$footnote-bg:   <%= @site.config[:colours][:footnote_bg] %>;
-$footnote-fg:   <%= @site.config[:colours][:footnote_fg] %>;
+$menu-bg:      #0087bd;
+$menu-fg:      #fff;
 
-$minor:         <%= @site.config[:colours][:minor] %>;
-$minor-links:   <%= @site.config[:colours][:minor_links] %>;
+$footnote-bg:  #0087bd;
+$footnote-fg:  #fff;
 
-$hr:            <%= @site.config[:colours][:hr] %>;
+$hr:           #dadde5;
 
 
 //  I. Default text
