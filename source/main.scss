@@ -21,6 +21,7 @@
 //
 
 @import 'reset.scss';
+@import 'colour.scss';
 
 //  0. Define constants
 //
@@ -412,6 +413,7 @@ a[rel='footnote']:hover,
 a[rev='footnote']:hover {
   text-decoration: none;
 }
+
 
 //  VI. Site specific styles
 //
