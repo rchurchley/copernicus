@@ -5,66 +5,14 @@
 //  Contents (same section numbers as `main.scss`)
 //  ========
 //
-//  0.    Define colour constants
 //  I.    Text
 //  II.   Blocks
 //  III.  Images and figures
 //  IV.   Site structure
 //  V.    Footnotes
-//  VI.   Site specific styles
 //
 
-
-//  0. Define colour constants
-//
-//  These defaults can be changed however you like, provided the new colours
-//  satisfy a few constraints.
-//
-//  The following must be readable:
-//
-//    - $foreground  on $background
-//    - $headlines   on $background
-//    - $links       on $background
-//    - $links-hover on $background
-//    - $minor       on $background
-//    - $minor-links on $background
-//
-//    - $header-fg   on $header-bg
-//    - $block-fg    on $block-bg
-//    - $menu-fg     on $menu-bg
-//    - $footnote-fg on $footnote-bg
-//
-//  The following should be distinguishable:
-//
-//    - $links       and $foreground
-//    - $footnote-bg and $background
-//    - $hr          and $background
-//
-//
-
-$background:   #fff;
-$foreground:   #2b303a;
-$headlines:    #0087bd;
-$links:        #08965d;
-$links-hover:  #c03054;
-$minor:        #a7adba;
-$minor-links:  #60c7c4;
-
-$header-bg:    #2b303a;
-$header-fg:    #fff;
-
-$block-bg:     #eff1f5;
-$block-fg:     #4f5b66;
-$block-border: #dadde5;
-
-$menu-bg:      #0087bd;
-$menu-fg:      #fff;
-
-$footnote-bg:  #0087bd;
-$footnote-fg:  #fff;
-
-$hr:           #dadde5;
-
+@import 'local_settings.scss'
 
 //  I. Default text
 //

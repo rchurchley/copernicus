@@ -5,7 +5,6 @@
 //  Contents
 //  ========
 //
-//  0.    Define constants
 //  I.    Text
 //  II.   Blocks
 //  III.  Images and figures
@@ -17,27 +16,12 @@
 //        c   Main
 //        d   Footer
 //  V.    Footnotes
-//  VI.   Site specific styles
+//  VI.   Colours
+//  VII.  Site-specific styles
 //
 
 @import 'reset.scss';
-@import 'colour.scss';
-
-//  0. Define constants
-//
-//
-
-$max-width: 800px;
-
-$headline-type: 'Avenir Next Condensed', Avenir, Trebuchet, sans-serif;
-$body-type: 'Avenir Next', Avenir, Trebuchet, sans-serif;
-$code-type: Inconsolata, monospace;
-
-$huge:   2.25rem;
-$large:   1.5rem;
-$default:  large;
-$tiny:     .5rem;
-
+@import 'local_settings.scss'
 
 //  I. Default text
 //
@@ -415,6 +399,12 @@ a[rev='footnote']:hover {
 }
 
 
-//  VI. Site specific styles
+//  VI.  Colours
+//  VII. Site-specific styles
+//
+//  Import colour scheme and custom styles from their respective files.
 //
 //
+
+@import 'colour.scss';
+@import 'local_styles.scss';
