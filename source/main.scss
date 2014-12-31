@@ -19,7 +19,7 @@
 //  V.    Footnotes
 //
 
-@import 'copernicus-reset.scss';
+@import 'reset.scss';
 
 //  0. Define constants
 //
@@ -410,3 +410,4 @@ a[rev='footnote'] {
 a[rel='footnote']:hover,
 a[rev='footnote']:hover {
   text-decoration: none;
+}
