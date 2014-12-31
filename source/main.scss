@@ -17,6 +17,7 @@
 //        c   Main
 //        d   Footer
 //  V.    Footnotes
+//  VI.   Site specific styles
 //
 
 @import 'reset.scss';
@@ -411,3 +412,7 @@ a[rel='footnote']:hover,
 a[rev='footnote']:hover {
   text-decoration: none;
 }
+
+//  VI. Site specific styles
+//
+//
