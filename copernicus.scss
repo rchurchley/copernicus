@@ -241,16 +241,6 @@ figcaption {
   margin-right: 0;
 }
 
-.illustration {
-  @extend %fullwidth-mobile;
-  @extend %halfwidth-widescreen;
-  margin-bottom: 10px;
-
-  @media screen and (min-width: 568px) {
-    @include floatleft;
-  }
-}
-
 .banner {
   @extend %fullwidth-mobile;
   @extend %fullwidth-widescreen;
@@ -258,6 +248,16 @@ figcaption {
 
   @media screen and (max-width: 567px) {
     margin-top: -20px;
+  }
+}
+
+.illustration {
+  @extend %fullwidth-mobile;
+  @extend %halfwidth-widescreen;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 568px) {
+    @include floatleft;
   }
 }
 
@@ -380,7 +380,6 @@ main {
 
 footer {
   text-align: center;
-}
 }
 
 
