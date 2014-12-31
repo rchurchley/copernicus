@@ -1,12 +1,15 @@
-Copernicus
-==========
+# Copernicus
 
-Copernicus is a website theme intended for long-form writing and professional portfolios. Although it began as a WordPress theme, it has been reimplemented as a basic `nanoc` site.
+Copernicus is a SCSS theme to bootstrap your way to a simple, attractive, mobile-friendly website.
 
-Installation
-------------
+
+## Modifications
+
+The colour scheme can be tweaked by changing the constants defined at the top of `source/colour.scss`. Site-specific styles should be added to the bottom of `source/main.scss` and `source/colour.scss`.
+
+
+## Installation
 
 1. Download, clone, or fork this project.
-2. Install [`nanoc`](http://nanoc.ws) and Copernicus' gem dependencies: `redcarpet` and `sass`
-3. Update `nanoc.yaml` with your site's settings.
-4. Run `nanoc` on your site's root folder.
+2. Compile the styles with `sass --scss --update source:copernicus`.
+3. Link to the compiled stylesheets from any webpage following the structure sketched in `template.haml`.
