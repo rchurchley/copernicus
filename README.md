@@ -5,7 +5,7 @@ Copernicus is a SCSS theme to bootstrap your way to a simple, attractive, mobile
 
 ## Modifications
 
-The colour scheme can be tweaked by changing the constants defined at the top of `source/colour.scss`. Site-specific styles should be added to the bottom of `source/main.scss` and `source/colour.scss`.
+The colour scheme (among other things) can be tweaked by changing the constants defined in `source/local_settings.scss`. Site-specific classes and styles should be added to `source/local_styles.scss`.
 
 
 ## Installation
