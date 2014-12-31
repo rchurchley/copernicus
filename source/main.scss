@@ -1,10 +1,10 @@
 //  Main Stylesheet
+//  ===============
 //
-//  Define the main layout and typographic styles (excluding colours).
+//  The main layout and typographic styles.
 //
 //  Contents
-//  ========
-//
+//  --------
 //  I.    Text
 //  II.   Blocks
 //  III.  Images and figures
@@ -25,7 +25,7 @@
 
 //  I. Default text
 //
-//  Define default text and headline styles, and styles for inline tags
+//  Default text and headline styles, and styles for inline tags
 //
 //
 
@@ -90,7 +90,7 @@ code {
 
 //  II. Blocks
 //
-//  Define styles for basic block tags, including pre, lists, blockquote
+//  Styles for basic block tags, including pre, lists, and blockquote.
 //
 //
 
@@ -162,7 +162,7 @@ hr {
 
 //  III. Images and figures
 //
-//  Define default styles for displaying pictures
+//  Default styles for displaying pictures.
 //
 //
 
@@ -256,7 +256,7 @@ figcaption {
 
 //  IV. Site structure
 //
-//  Define the title banner and main content
+//  Styles for the title banner and main content.
 //
 //
 
@@ -318,8 +318,10 @@ figcaption {
     }
 
     @media screen and (max-width: 567px) {
+      border-top: 1px solid;
       display: block;
       float: left;
+      padding: 20px;
       text-align: center;
       width: 50%;
     }
@@ -371,7 +373,7 @@ footer {
 
 //  V. Footnotes
 //
-//  Define styles for the Markdown footnote extension.
+//  Styles for footnote markers.
 //
 //
 

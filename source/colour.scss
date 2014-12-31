@@ -1,10 +1,10 @@
 //  Colour
+//  ======
 //
-//  The default colour scheme.
+//  Defines the colour theme based on the colours chosen in local_settings.
 //
-//  Contents (same section numbers as `main.scss`)
-//  ========
-//
+//  Contents
+//  --------
 //  I.    Text
 //  II.   Blocks
 //  III.  Images and figures
@@ -16,7 +16,7 @@
 
 //  I. Default text
 //
-//  Define default text and headline colours, and colours for inline tags
+//  Default text and headline colours, and colours for inline tags.
 //
 //
 
@@ -56,7 +56,7 @@ code {
 
 //  II. Blocks
 //
-//  Define colours for basic block tags, including pre, lists, blockquote
+//  Colours for basic block tags, including pre, lists, and blockquote.
 //
 //
 
@@ -80,7 +80,7 @@ hr {
 
 //  III. Images and figures
 //
-//  Define default colours for picture borders and backgrounds
+//  Default colours for picture borders and backgrounds.
 //
 //
 
@@ -92,7 +92,7 @@ figcaption {
 
 //  IV. Site structure
 //
-//  Define colours for the title banner and main content
+//  Colours for the title banner and main content.
 //
 //
 
@@ -147,9 +147,13 @@ footer {
 
 //  V. Footnotes
 //
-//  Define colours for the Markdown footnote extension.
+//  Colours for footnotes and footnote markers.
 //
 //
+
+.footnotes {
+  color: $minor;
+}
 
 a[rel="footnote"] {
   background-color: $footnote-bg;
@@ -159,13 +163,4 @@ a[rel="footnote"] {
 a[rev="footnote"] {
   color: $footnote-bg;
 }
-
-.footnotes {
-  color: $minor;
-}
-
-
-//  VI. Site specific styles
-//
-//
 
