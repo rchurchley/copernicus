@@ -1,4 +1,7 @@
+### Temp files and caches ###
 .sass-cache
 crash.log
 tmp
+
+### Compiled output ###
 output
