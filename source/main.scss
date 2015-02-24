@@ -227,10 +227,13 @@ figcaption {
   margin-right: 0;
 }
 
+figure {
+  margin-bottom: 10px;
+}
+
 .banner {
   @extend %fullwidth-mobile;
   @extend %fullwidth-widescreen;
-  margin-bottom: 10px;
 
   @media screen and (max-width: 567px) {
     margin-top: -20px;
@@ -242,6 +245,12 @@ figcaption {
   @extend %halfwidth-widescreen;
   margin-bottom: 10px;
 
+  @media screen and (min-width: 568px) {
+    @include floatleft;
+  }
+}
+
+.left {
   @media screen and (min-width: 568px) {
     @include floatleft;
   }
