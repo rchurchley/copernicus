@@ -289,7 +289,7 @@ figure {
   width: 55%;
 
   @media screen and (max-width: 567px) {
-    padding: 10px 20px;
+    padding: 10px 10px 10px 20px;
     width: calc(100% - 55px);
   }
 
