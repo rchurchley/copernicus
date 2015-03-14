@@ -140,7 +140,7 @@ footer {
   a,
   a:visited,
   a:hover {
-    color: $minor;
+    color: $minor-links;
   }
 }
 
@@ -153,6 +153,12 @@ footer {
 
 .footnotes {
   color: $minor;
+
+  a,
+  a:visited,
+  a:hover {
+    color: $minor-links;
+  }
 }
 
 a[rel="footnote"] {
