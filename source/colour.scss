@@ -85,8 +85,13 @@ hr {
 //
 
 figcaption {
-  background-color: $header-bg;
-  color: $header-fg;
+  color: $minor;
+
+  a,
+  a:visited,
+  a:hover {
+    color: $minor-links;
+  }
 }
 
 
