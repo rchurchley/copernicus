@@ -29,6 +29,11 @@ h1,
 h2,
 h3 {
   color: $headlines;
+
+  a,
+  a:visited {
+    color: $headlines;
+  }
 }
 
 a,
@@ -42,11 +47,6 @@ a:hover {
 
 a:after {
   color: $minor;
-}
-
-h1 a,
-h1 a:visited {
-  color: $headlines;
 }
 
 code {
