@@ -72,7 +72,8 @@ th {
   font-size: $default;
 }
 
-p {
+p,
+figcaption {
   line-height: 1.4;
   margin-bottom: 10px;
 }
@@ -229,6 +230,11 @@ figcaption {
 
 figure {
   margin-bottom: 10px;
+}
+
+figcaption {
+  padding: 5px;
+  text-align: center;
 }
 
 .banner {
