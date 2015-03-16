@@ -243,7 +243,8 @@ figcaption {
 }
 
 @media screen and (max-width: 567px) {
-  article:first-child .banner{
+  main > .banner,
+  article:first-child .banner {
     margin-top: -20px;
   }
 }
