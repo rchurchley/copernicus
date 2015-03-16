@@ -8,7 +8,7 @@
   // The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
   &:before,
   &:after {
-    content: '';
+    content: "";
     display: table;
   }
 

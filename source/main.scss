@@ -20,8 +20,8 @@
 //  VII.  Site-specific styles
 //
 
-@import 'reset.scss';
-@import 'local_settings.scss';
+@import "reset.scss";
+@import "local_settings.scss";
 
 //  I. Default text
 //
@@ -402,8 +402,8 @@ a[rev='footnote'] {
   font-size: $tiny;
 }
 
-a[rel='footnote'],
-a[rev='footnote'] {
+a[rel="footnote"],
+a[rev="footnote"] {
   border-radius: 7px;
   display: inline-block;
   margin: 1px;
@@ -413,8 +413,8 @@ a[rev='footnote'] {
   text-decoration: none;
 }
 
-a[rel='footnote']:hover,
-a[rev='footnote']:hover {
+a[rel="footnote"]:hover,
+a[rev="footnote"]:hover {
   text-decoration: none;
 }
 
@@ -426,5 +426,5 @@ a[rev='footnote']:hover {
 //
 //
 
-@import 'colour.scss';
-@import 'local_styles.scss';
+@import "colour.scss";
+@import "local_styles.scss";
