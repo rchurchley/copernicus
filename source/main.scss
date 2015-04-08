@@ -23,6 +23,10 @@
 @import "reset.scss";
 @import "local_settings.scss";
 
+$header-height: 5rem;
+$article-sep: 1.5rem;
+$gutter-width: 20px;
+
 //  I. Default text
 //
 //  Default text and headline styles, and styles for inline tags
@@ -97,17 +101,17 @@ code {
 
 %gutterblock {
   border-left-style: solid;
-  border-left-width: 20px;
+  border-left-width: $gutter-width;
   clear: both;
   margin-bottom: 10px;
-  padding: 10px 20px;
+  padding: 10px $gutter-width;
 
   p:last-child {
     margin-bottom: 0;
   }
 
   @media screen and (max-width: 567px) {
-    margin-left: -20px;
+    margin-left: -$gutter-width;
     max-width: calc(100% + 40px);
     width: calc(100% + 40px);
   }
@@ -188,10 +192,10 @@ figcaption {
 
 %fullwidth-mobile {
   @media screen and (max-width: 567px) {
-    margin-left: -20px;
-    margin-right: -20px;
-    max-width: calc(100% + 40px);
-    width: calc(100% + 40px);
+    margin-left: -$gutter-width;
+    margin-right: -$gutter-width;
+    max-width: calc(100% + 40px); // 2*$gutter-width
+    width: calc(100% + 40px); // 2*$gutter-width
   }
 }
 
@@ -339,7 +343,7 @@ figcaption {
       border-top: 1px solid;
       display: block;
       float: left;
-      padding: 20px;
+      padding: 20px $gutter-width;
       text-align: center;
       width: 50%;
     }
@@ -385,6 +389,7 @@ main {
 //  IVd. Footer
 
 footer {
+  margin-top: $article-sep;
   text-align: center;
 }
 
