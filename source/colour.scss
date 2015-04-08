@@ -25,6 +25,11 @@ body {
   color: $foreground;
 }
 
+main,
+article {
+  background: $text-background;
+}
+
 h1,
 h2,
 h3 {

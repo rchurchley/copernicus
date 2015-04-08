@@ -60,6 +60,9 @@ h5 {
 h1 {
   font-size: $huge;
   margin-top: 30px;
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 h2 {
@@ -201,9 +204,10 @@ figcaption {
 
 %fullwidth-widescreen {
   @media screen and (min-width: 568px) {
-    float: none;
-    max-width: 100%;
-    width: 100%;
+    margin-left: -$gutter-width;
+    margin-right: -$gutter-width;
+    max-width: calc(100% + 40px); // 2*$gutter-width
+    width: calc(100% + 40px); // 2*$gutter-width
   }
 }
 
@@ -244,11 +248,8 @@ figcaption {
 .banner {
   @extend %fullwidth-mobile;
   @extend %fullwidth-widescreen;
-}
 
-@media screen and (max-width: 567px) {
-  main > .banner,
-  article:first-child .banner {
+  &:first-child{
     margin-top: -20px;
   }
 }
@@ -284,31 +285,42 @@ figcaption {
 
 //  IVa. Header
 
+.site-header {
+  box-shadow: $shadow;
+  height: $header-height;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.site-header + main,
+.site-header + article {
+  margin-top: $header-height + $article-sep;
+}
+
 .site-header div {
   max-width: $max-width;
   margin: 0 auto;
-
-  @media screen and (min-width: 568px) {
-    padding: 10px 20px;
-  }
-
-  * {
-    display: inline-block;
-    vertical-align: middle;
-  }
 }
 
 .site-title {
-  width: 60%;
+  display: inline-block;
+  height: $header-height;
+  line-height: $header-height;
+  padding-left: $gutter-width;
+
+  @media screen and (min-width: 568px) {
+    width: 60%;
+  }
 
   @media screen and (max-width: 567px) {
-    padding: 10px 10px 10px 20px;
-    width: calc(100% - 55px);
+    width: calc(100% - 5rem);
   }
 
   img {
     @extend %smallcircle;
     margin-right: 20px;
+    vertical-align: middle;
 
     @media screen and (max-width: 567px) {
       display: none;
@@ -316,28 +328,35 @@ figcaption {
   }
 
   h1 {
+    display: inline-block;
     margin: 0;
+    vertical-align: middle;
   }
 }
 
 //  IVb. Responsive navigation
 
 #site-navigation {
-  width: 40%;
-  text-align: right;
+  @media screen and (min-width: 568px) {
+    display: inline-block;
+    height: $header-height;
+    line-height: $header-height;
+    padding-right: $gutter-width;
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 40%;
+  }
 
   @media screen and (max-width: 567px) {
+    box-shadow: $shadow;
     display: block;
     width: 100%;
   }
 
   a {
     display: inline-block;
-    padding: 10px 3%;
-
-    @media screen and (min-width: 568px) {
-      border-radius: 5px;
-    }
+    padding: 0 3%;
 
     @media screen and (max-width: 567px) {
       border-top: 1px solid;
@@ -353,10 +372,11 @@ figcaption {
 label.show-navigation {
   display: inline-block;
   font-size: $huge;
-  line-height: 1.2;
-  padding: 15px 0;
+  height: $header-height;
+  line-height: $header-height;
   text-align: center;
-  width: 50px;
+  vertical-align: middle;
+  width: $header-height;
 
   @media screen and (min-width: 568px) {
     display: none;
@@ -375,14 +395,17 @@ label.show-navigation {
 
 //  IVc. Main
 
-main {
-  margin: 30px auto 50px;
-  max-width: $max-width;
-  padding: 0 20px;
+article {
+  margin-top: $article-sep;
+}
 
-  @media screen and (max-width: 567px) {
-    margin: 20px auto;
-  }
+main,
+article {
+  box-shadow: $shadow;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+  padding: $gutter-width;
 }
 
 
