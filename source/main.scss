@@ -23,7 +23,7 @@
 @import "reset.scss";
 @import "local_settings.scss";
 
-$header-height: 5rem;
+$header-height: 4rem;
 $article-sep: 1.5rem;
 $gutter-width: 20px;
 
@@ -314,7 +314,7 @@ figcaption {
   }
 
   @media screen and (max-width: 567px) {
-    width: calc(100% - 5rem);
+    width: calc(100% - 4rem); // 100% - $header-height
   }
 
   img {
