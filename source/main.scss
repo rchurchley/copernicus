@@ -341,7 +341,9 @@ figcaption {
     display: inline-block;
     height: $header-height;
     line-height: $header-height;
-    padding-right: $gutter-width;
+    position: absolute;
+    right: $gutter-width;
+    top: 0;
     text-align: right;
     vertical-align: middle;
     white-space: nowrap;
@@ -374,6 +376,9 @@ label.show-navigation {
   font-size: $huge;
   height: $header-height;
   line-height: $header-height;
+  position: absolute;
+  right: 0;
+  top: 0;
   text-align: center;
   vertical-align: middle;
   width: $header-height;
