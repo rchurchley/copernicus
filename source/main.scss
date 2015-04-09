@@ -347,7 +347,6 @@ figcaption {
     text-align: right;
     vertical-align: middle;
     white-space: nowrap;
-    width: 40%;
   }
 
   @media screen and (max-width: 567px) {
@@ -358,7 +357,7 @@ figcaption {
 
   a {
     display: inline-block;
-    padding: 0 3%;
+    padding: 0 1.5vw;
 
     @media screen and (max-width: 567px) {
       border-top: 1px solid;
