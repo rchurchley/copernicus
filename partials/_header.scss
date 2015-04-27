@@ -20,6 +20,7 @@ $header-height: 4rem  !default;
 
 .site-header div {
   height: $header-height;
+  width: 100%;
   max-width: $max-width;
   margin: 0 auto;
 }

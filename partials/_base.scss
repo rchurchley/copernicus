@@ -3,15 +3,19 @@
 //  Common variables and mixins to be included in all other partials.
 //
 
+
 // Override any of the default settings by creating `_localsettings.scss` and
 // uncommenting the following line:
 
 // @import "localsettings";
 
+
 //  I. Fonts  /////////////////////////////////////////////////////////////////
 
-$headline-font-family:  "Source Sans Pro", "Avenir Next", "News Gothic MT", sans-serif !default;
-$body-font-family:      "Source Sans Pro", "Avenir Next", "News Gothic MT", sans-serif !default;
+$headline-font-family:  "Source Sans Pro", "Avenir Next", "News Gothic MT",
+                          sans-serif !default;
+$body-font-family:      "Source Sans Pro", "Avenir Next", "News Gothic MT",
+                          sans-serif !default;
 $code-font-family:      Inconsolata, monospace !default;
 
 $default-font-size:     100% !default;  // must be numeric
