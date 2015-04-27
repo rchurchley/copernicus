@@ -39,6 +39,11 @@ summary {
   position: relative;
 }
 
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
 }
 
 a {
