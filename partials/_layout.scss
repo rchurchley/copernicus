@@ -1,0 +1,27 @@
+//  LAYOUT  ///////////////////////////////////////////////////////////////////
+//
+//  Set the position and size of major layout elements.
+//
+
+main,
+article {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+  padding: $gutter-width;
+}
+
+article {
+  margin-top: $article-sep;
+}
+
+hr {
+  border-style: solid;
+  border-width: thin;
+  clear: both;
+}
+
+footer {
+  margin-top: $article-sep;
+  text-align: center;
+}
