@@ -10,10 +10,13 @@
 //  III.  Colours
 //
 
-//  I. Text
-//
-//  Customize the typeface and font sizes.
-//
+//  I. Fonts
+
+$headline-font-family:  "Source Sans Pro", "Avenir Next", "News Gothic MT", sans-serif !default;
+$body-font-family:      "Source Sans Pro", "Avenir Next", "News Gothic MT", sans-serif !default;
+$code-font-family:      Inconsolata, monospace !default;
+
+$default-font-size:     100% !default; // must be numeric
 
 $headline-type: "Avenir Next Condensed", "Source Sans Pro", "News Gothic MT", sans-serif;
 $body-type: "Avenir Next", "Source Sans Pro", "News Gothic MT", sans-serif;

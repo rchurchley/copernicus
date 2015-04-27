@@ -1,0 +1,60 @@
+//  FONTS  ////////////////////////////////////////////////////////////////////
+//
+//  Select font family, size, and line height for basic elements.
+//
+
+@import "base";
+
+body {
+  font-family: $body-font-family;
+  font-size: $default-font-size;
+  text-rendering: optimizeLegibility;
+}
+
+header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+thead,
+th,
+%headline {
+  font-family: $headline-font-family;
+}
+
+h1 {
+  font-size: 2 * $default-font-size;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5 * $default-font-size;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.25 * $default-font-size;
+  line-height: 1.2;
+}
+
+code,
+samp,
+kbd {
+  font-family: $code-font-family;
+}
+
+sup,
+sub {
+  font-size: 0.5 * $default-font-size;
+}
+
+footer {
+  font-size: 0.5 * $default-font-size;
+}
+
+p,
+figcaption {
+  line-height: 1.4;
+}
