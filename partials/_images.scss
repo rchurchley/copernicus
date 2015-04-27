@@ -10,40 +10,13 @@ figcaption {
   width: 100%;
 }
 
-@mixin floatleft {
-  float: left;
-  margin-left: 0;
-  margin-right: 20px;
-
-  & + h1,
-  & + h2,
-  & + h3 {
-    margin-top: 0;
-  }
-}
-
-@mixin floatright {
-  float: right;
-  margin-left: 20px;
-  margin-right: 0;
-}
-
-figure {
-  margin-bottom: 10px;
-}
-
 figcaption {
   padding: 5px;
   text-align: center;
 }
 
 .banner {
-  @extend %fullwidth-mobile;
-  @extend %fullwidth-widescreen;
-
-  &:first-child{
-    margin-top: -20px;
-  }
+  @include fullwidth;
 }
 
 .left {
