@@ -3,10 +3,13 @@
 //  Styles for basic block tags, including pre, lists, and blockquote.
 //
 
+@import "base";
 
 aside,
 blockquote,
 pre {
+  @include fullwidth;
+  padding: 10px $gutter-width;
 }
 
 pre {

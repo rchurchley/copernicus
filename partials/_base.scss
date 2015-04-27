@@ -28,6 +28,13 @@ $max-width:             840px  !default;
 $article-sep:           1.5rem !default;
 $gutter-width:          20px   !default;
 
+@mixin fullwidth {
+    margin-left: -$gutter-width;
+    margin-right: -$gutter-width;
+    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
+    width: calc(100% + 40px); // 100% + 2*$gutter-width
+}
+
 
 
 //  II. Site structure
