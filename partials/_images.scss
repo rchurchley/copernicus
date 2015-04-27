@@ -46,16 +46,6 @@ figcaption {
   }
 }
 
-.illustration {
-  @extend %fullwidth-mobile;
-  @extend %halfwidth-widescreen;
-  margin-bottom: 10px;
-
-  @media screen and (min-width: 568px) {
-    @include floatleft;
-  }
-}
-
 .left {
   @include widescreen {
     float: left;
