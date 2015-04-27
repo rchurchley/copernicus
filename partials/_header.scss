@@ -1,0 +1,94 @@
+//  HEADER  ///////////////////////////////////////////////////////////////////
+//
+//  Set the position, size, and behaviour of the site header, including the
+//  site title and navigation menu.
+//
+
+$header-height: 4rem  !default;
+
+.site-header {
+  position: fixed;
+  height: $header-height;
+  width: 100%;
+  z-index: 3;
+  box-shadow: $shadow;
+}
+
+.site-header div {
+  height: $header-height;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.site-title,
+.show-navigation,
+#site-navigation {
+  position: absolute;
+  height: $header-height;
+  line-height: $header-height;
+  vertical-align: middle;
+}
+
+.site-title {
+  top: 0;
+  left: 0.5rem;
+  margin: 0;
+}
+
+#show-navigation {
+  // Checkbox providing menu hide/show functionality. Always invisible; its
+  // value is changed with the hamburger menu icon label.show-navigation.
+  display: none;
+}
+
+#site-navigation a {
+  display: inline-block;
+  padding: 0 0.5rem;
+  text-align: center;
+}
+
+.site-header + main,
+.site-header + article {
+  margin-top: $header-height + $article-sep;
+}
+
+
+@include mobile {
+  .show-navigation {
+    // Hamburger menu icon
+    display: inline-block;
+    right: 0;
+    top: 0;
+    font-size: $huge;
+    text-align: center;
+    width: $header-height;
+  }
+
+  #site-navigation {
+    top: $header-height;
+    height: auto;
+    width: 100%;
+    box-shadow: $shadow;
+  }
+
+  #site-navigation a {
+    width: 50%;
+    border-top: 1px solid;
+  }
+
+  #show-navigation:not(:checked) + #site-navigation {
+    display: none;
+  }
+}
+
+@include widescreen {
+  #site-navigation {
+    top: 0;
+    right: 0;
+    white-space: nowrap;
+  }
+
+  .show-navigation {
+    display: none;
+  }
+}

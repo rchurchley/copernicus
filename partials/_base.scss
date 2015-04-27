@@ -28,6 +28,8 @@ $max-width:             840px  !default;
 $article-sep:           1.5rem !default;
 $gutter-width:          20px   !default;
 
+$mobile-breakpoint:     568px  !default;  // height of iPhone 5s
+
 @mixin fullwidth {
     margin-left: -$gutter-width;
     margin-right: -$gutter-width;
@@ -35,6 +37,19 @@ $gutter-width:          20px   !default;
     width: calc(100% + 40px); // 100% + 2*$gutter-width
 }
 
+@mixin mobile {
+  @media screen and (max-width: $mobile-breakpoint - 1) {
+    @content
+  }
+}
+
+@mixin widescreen {
+  @media screen and (max-width: $mobile-breakpoint) {
+    @content
+  }
+}
+
+$header-height:         4rem  !default;
 
 
 //  II. Site structure
