@@ -69,6 +69,10 @@ table {
   border-spacing: 0;
 }
 
+svg:not(:root) {
+  overflow: hidden;
+}
+
 body,
 article,
 aside,
