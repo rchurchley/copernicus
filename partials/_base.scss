@@ -1,16 +1,14 @@
-//  Defaults
-//  ========
+//  BASE  /////////////////////////////////////////////////////////////////////
 //
-//  Provides easily-tweakable constants to customize the look and feel.
-//
-//  Contents
-//  --------
-//  I.    Text
-//  II.   Site structure
-//  III.  Colours
+//  Common variables and mixins to be included in all other partials.
 //
 
-//  I. Fonts
+// Override any of the default settings by creating `_localsettings.scss` and
+// uncommenting the following line:
+
+// @import "localsettings";
+
+//  I. Fonts  /////////////////////////////////////////////////////////////////
 
 $headline-font-family:  "Source Sans Pro", "Avenir Next", "News Gothic MT", sans-serif !default;
 $body-font-family:      "Source Sans Pro", "Avenir Next", "News Gothic MT", sans-serif !default;
