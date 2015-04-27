@@ -1,0 +1,107 @@
+//  III. Images and figures
+//
+//  Default styles for displaying pictures.
+//
+//
+
+// IIIa. Images
+
+%smallcircle {
+  border: 2px solid;
+  border-radius: 27px;
+  height: 54px;
+  width: 54px;
+}
+
+img,
+figcaption {
+  height: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+
+// IIIb. Figures
+
+%fullwidth-mobile {
+  @media screen and (max-width: 567px) {
+    margin-left: -$gutter-width;
+    margin-right: -$gutter-width;
+    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
+    width: calc(100% + 40px); // 100% + 2*$gutter-width
+  }
+}
+
+%fullwidth-widescreen {
+  @media screen and (min-width: 568px) {
+    margin-left: -$gutter-width;
+    margin-right: -$gutter-width;
+    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
+    width: calc(100% + 40px); // 100% + 2*$gutter-width
+  }
+}
+
+%halfwidth-widescreen {
+  @media screen and (min-width: 568px) {
+    max-width: 50%;
+    width: 50%;
+  }
+}
+
+@mixin floatleft {
+  float: left;
+  margin-left: 0;
+  margin-right: 20px;
+
+  & + h1,
+  & + h2,
+  & + h3 {
+    margin-top: 0;
+  }
+}
+
+@mixin floatright {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+figure {
+  margin-bottom: 10px;
+}
+
+figcaption {
+  padding: 5px;
+  text-align: center;
+}
+
+.banner {
+  @extend %fullwidth-mobile;
+  @extend %fullwidth-widescreen;
+
+  &:first-child{
+    margin-top: -20px;
+  }
+}
+
+.illustration {
+  @extend %fullwidth-mobile;
+  @extend %halfwidth-widescreen;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 568px) {
+    @include floatleft;
+  }
+}
+
+.left {
+  @media screen and (min-width: 568px) {
+    @include floatleft;
+  }
+}
+
+.right {
+  @media screen and (min-width: 568px) {
+    @include floatright;
+  }
+}

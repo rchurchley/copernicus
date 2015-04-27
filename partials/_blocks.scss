@@ -1,0 +1,70 @@
+//  II. Blocks
+//
+//  Styles for basic block tags, including pre, lists, and blockquote.
+//
+//
+
+%gutterblock {
+  border-left-style: solid;
+  border-left-width: $gutter-width;
+  clear: both;
+  margin-bottom: 10px;
+  padding: 10px $gutter-width;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 567px) {
+    margin-left: -$gutter-width;
+    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
+    width: calc(100% + 40px); // 100% + 2*$gutter-width
+  }
+}
+
+aside,
+blockquote,
+pre {
+  @extend %gutterblock;
+}
+
+pre {
+  line-height: 1.2;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+ol,
+ul {
+  line-height: 1.4;
+  margin-bottom: 10px;
+  margin-left: 0;
+  padding-left: 20px;
+
+  li {
+    margin-bottom: 5px;
+    position: relative;
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+hr {
+  border-style: solid;
+  border-width: thin;
+  clear: both;
+  margin: 20px 0;
+}

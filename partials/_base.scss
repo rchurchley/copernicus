@@ -1,5 +1,5 @@
-//  Local settings
-//  ==============
+//  Defaults
+//  ========
 //
 //  Provides easily-tweakable constants to customize the look and feel.
 //
@@ -23,6 +23,10 @@ $huge:   2.25rem;
 $large:   1.5rem;
 $default:  large;
 $tiny:     .5rem;
+
+$header-height: 4rem;
+$article-sep: 1.5rem;
+$gutter-width: 20px;
 
 
 //  II. Site structure

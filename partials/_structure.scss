@@ -1,0 +1,142 @@
+//  IV. Site structure
+//
+//  Styles for the title banner and main content.
+//
+//
+
+//  IVa. Header
+
+.site-header {
+  box-shadow: $shadow;
+  height: $header-height;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.site-header + main,
+.site-header + article {
+  margin-top: $header-height + $article-sep;
+}
+
+.site-header div {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.site-title {
+  display: inline-block;
+  height: $header-height;
+  line-height: $header-height;
+  padding-left: $gutter-width;
+
+  @media screen and (min-width: 568px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 567px) {
+    width: calc(100% - 4rem); // 100% - $header-height
+  }
+
+  img {
+    @extend %smallcircle;
+    margin-right: 20px;
+    vertical-align: middle;
+
+    @media screen and (max-width: 567px) {
+      display: none;
+    }
+  }
+
+  h1 {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+  }
+}
+
+//  IVb. Responsive navigation
+
+#site-navigation {
+  @media screen and (min-width: 568px) {
+    display: inline-block;
+    height: $header-height;
+    line-height: $header-height;
+    position: absolute;
+    right: $gutter-width;
+    top: 0;
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  @media screen and (max-width: 567px) {
+    box-shadow: $shadow;
+    display: block;
+    width: 100%;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0 1.5vw;
+
+    @media screen and (max-width: 567px) {
+      border-top: 1px solid;
+      display: block;
+      float: left;
+      padding: 20px $gutter-width;
+      text-align: center;
+      width: 50%;
+    }
+  }
+}
+
+label.show-navigation {
+  display: inline-block;
+  font-size: $huge;
+  height: $header-height;
+  line-height: $header-height;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  vertical-align: middle;
+  width: $header-height;
+
+  @media screen and (min-width: 568px) {
+    display: none;
+  }
+}
+
+#show-navigation {
+  display: none;
+}
+
+#show-navigation:not(:checked) + #site-navigation {
+  @media screen and (max-width: 567px) {
+    display: none;
+  }
+}
+
+//  IVc. Main
+
+article {
+  margin-top: $article-sep;
+}
+
+main,
+article {
+  box-shadow: $shadow;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $max-width;
+  padding: $gutter-width;
+}
+
+
+//  IVd. Footer
+
+footer {
+  margin-top: $article-sep;
+  text-align: center;
+}

@@ -1,0 +1,35 @@
+//  V. Footnotes
+//
+//  Styles for footnote markers.
+//
+//
+
+.footnotes {
+  font-size: small;
+}
+
+sup[id^="fnref"] {
+  top: 0;
+  vertical-align: bottom;
+}
+
+a[rel="footnote"] {
+  font-size: small;
+}
+
+a[rel="footnote"],
+a[rev="footnote"] {
+  border-radius: 7px;
+  display: inline-block;
+  line-height: 1;
+  min-width: 19px;
+  padding: 3px 1px 2px 1px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: text-bottom;
+}
+
+a[rel="footnote"]:hover,
+a[rev="footnote"]:hover {
+  text-decoration: none;
+}
