@@ -3,28 +3,10 @@
 //  Styles for basic block tags, including pre, lists, and blockquote.
 //
 
-%gutterblock {
-  border-left-style: solid;
-  border-left-width: $gutter-width;
-  clear: both;
-  margin-bottom: 10px;
-  padding: 10px $gutter-width;
-
-  p:last-child {
-    margin-bottom: 0;
-  }
-
-  @media screen and (max-width: 567px) {
-    margin-left: -$gutter-width;
-    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
-    width: calc(100% + 40px); // 100% + 2*$gutter-width
-  }
-}
 
 aside,
 blockquote,
 pre {
-  @extend %gutterblock;
 }
 
 pre {
