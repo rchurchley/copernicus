@@ -12,9 +12,12 @@ pre {
   padding: 10px $gutter-width;
 }
 
-pre {
+pre,
+pre code {
   white-space: pre-wrap;
   word-wrap: break-word;
+  color: $code-colour;
+  background-color: $code-background-colour;
 }
 
 ol,

@@ -1,6 +1,6 @@
 //  FONTS  ////////////////////////////////////////////////////////////////////
 //
-//  Select font family, size, and line height for basic elements.
+//  Select font family, size, line height, and text colour for basic elements.
 //
 
 @import "base";
@@ -8,7 +8,18 @@
 body {
   font-family: $body-font-family;
   font-size: $default-font-size;
+  color: $text-colour;
   text-rendering: optimizeLegibility;
+}
+
+a,
+a:visited {
+  color: $link-colour;
+}
+
+a:hover,
+a:visited:hover {
+  color: $link-hover-colour;
 }
 
 header,
@@ -22,6 +33,12 @@ thead,
 th,
 %headline {
   font-family: $headline-font-family;
+  color: $headline-colour;
+
+  a,
+  a:visited {
+    color: $headline-colour;
+  }
 }
 
 h1 {
@@ -39,21 +56,6 @@ h3 {
   line-height: 1.2;
 }
 
-code,
-samp,
-kbd {
-  font-family: $code-font-family;
-}
-
-sup,
-sub {
-  font-size: 0.75 * $default-font-size;
-}
-
-footer {
-  font-size: 0.75 * $default-font-size;
-}
-
 p,
 dl,
 ol,
@@ -64,4 +66,32 @@ figcaption {
 
 pre {
   line-height: 1.2;
+}
+
+code,
+samp,
+kbd {
+  font-family: $code-font-family;
+}
+
+sup,
+sub,
+footer,
+.footnotes {
+  font-size: 0.75 * $default-font-size;
+}
+
+aside,
+figcaption,
+footer,
+.footnotes,
+%minor {
+  color: $minor-colour;
+
+  a,
+  a:hover,
+  a:visited,
+  a:visited:hover {
+    color: $minor-link-colour;
+  }
 }

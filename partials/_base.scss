@@ -49,59 +49,27 @@ $mobile-breakpoint:     568px  !default;  // height of iPhone 5s
   }
 }
 
-$header-height:         4rem  !default;
 
+//  IV. Colours  //////////////////////////////////////////////////////////////
 
-//  II. Site structure
-//
-//  Set the width of the main body on large screens.
-//
+$text-colour:                  #474f59 !default;
+$link-colour:                  #03a63f !default;
+$link-hover-colour:            #ff347b !default;
+$headline-colour:              #0086cc !default;
+$minor-colour:                 #a6adb8 !default;
+$minor-link-colour:            #a6adb8 !default;
 
-$max-width: 840px;
+$body-background-colour:       #f5f7fc !default;
+$content-background-colour:    #ffffff !default;
+$header-colour:                #ffffff !default;
+$header-background-colour:     #2a3038 !default;
+$menu-background-colour:       #03a63f !default;
+$menu-hover-colour:            #ff347b !default;
+$hr-colour:                    #ffffff !default;
+
+$code-colour:                  #d1d3dc !default;
+$code-background-colour:       #1d2229 !default;
+$footnote-colour:              #d1d3dc !default;
+$footnote-background-colour:   #ff347b !default;
+
 $shadow: 0 2px 5px rgba(29, 34, 41, 0.3);
-
-
-//  III. Colours
-//
-//  Set the colour scheme.
-//
-//  Be sure to choose colours with readable contrast ratios.
-//  The foreground-background pairs that need to be tested are:
-//
-//    - $foreground  on $background
-//    - $headlines   on $background
-//    - $links       on $background
-//    - $links-hover on $background
-//    - $minor       on $background
-//    - $minor-links on $background
-//
-//    - $header-fg   on $header-bg
-//    - $block-fg    on $block-bg
-//    - $menu-fg     on $menu-bg
-//    - $footnote-fg on $footnote-bg
-//
-//
-
-$background:   #f5f7fc;
-$text-background: #ffffff;
-$foreground:   #474f59;
-$headlines:    #0087bd;
-$links:        #16a777;
-$links-hover:  #b04c9c;
-$minor:        #a6adb8;
-$minor-links:  #a6adb8;
-
-$header-bg:    #2a3038;
-$header-fg:    #ffffff;
-
-$block-bg:     #f5f7fc;
-$block-fg:     #474f59;
-$block-border: #d1d3dc;
-
-$menu-bg:      #0087bd;
-$menu-fg:      #ffffff;
-
-$footnote-bg:  #16a777;
-$footnote-fg:  #ffffff;
-
-$hr:           #f5f7fc;

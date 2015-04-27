@@ -3,9 +3,7 @@
 //  Styles for footnote markers.
 //
 
-.footnotes {
-  font-size: 0.75 * $default-font-size;
-}
+@import "base";
 
 sup[id^="fnref"] {
   top: 0;
@@ -28,7 +26,11 @@ a[rev="footnote"] {
   vertical-align: text-bottom;
 }
 
-a[rel="footnote"]:hover,
-a[rev="footnote"]:hover {
-  text-decoration: none;
+a[rel="footnote"] {
+  background-color: $footnote-background-colour;
+  color: $footnote-colour;
+}
+
+a[rev="footnote"] {
+  color: $footnote-background-colour;
 }
