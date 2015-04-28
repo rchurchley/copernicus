@@ -65,7 +65,7 @@ $header-height: 4rem  !default;
 
 #site-navigation a:hover,
 #site-navigation a:visited:hover {
-  background-colour: $menu-hover-colour;
+  background-color: $menu-hover-colour;
 }
 
 .site-header + main,
@@ -90,7 +90,7 @@ $header-height: 4rem  !default;
     height: auto;
     width: 100%;
     box-shadow: $shadow;
-    background-colour: $menu-background-colour;
+    background-color: $menu-background-colour;
   }
 
   #site-navigation a {
@@ -112,7 +112,7 @@ $header-height: 4rem  !default;
     top: 0;
     right: 0;
     white-space: nowrap;
-    background-colour: $header-background-colour;
+    background-color: $header-background-colour;
   }
 
   .current-menu-item {
