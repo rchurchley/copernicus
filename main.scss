@@ -20,8 +20,6 @@
 //  VII.  Site-specific styles
 //
 
-// @import "localsettings";
-
 @import "partials/base";
 @import "partials/reset";
 @import "partials/layout";
@@ -32,4 +30,4 @@
 @import "partials/header";
 @import "partials/footnotes";
 
-// @import "localstyles";
+@import "local/styles";

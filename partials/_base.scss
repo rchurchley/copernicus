@@ -3,11 +3,7 @@
 //  Common variables and mixins to be included in all other partials.
 //
 
-
-// Override any of the default settings by creating `_localsettings.scss` and
-// uncommenting the following line:
-
-// @import "localsettings";
+@import "../local/settings";
 
 
 //  I. Fonts  /////////////////////////////////////////////////////////////////
