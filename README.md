@@ -10,7 +10,7 @@ Its design is inspired by Google's [Material Design](http://www.google.com/desig
 ## Usage
 
 First, make sure your webpage follows the structure illustrated in `TEMPLATE.html`.
-Compile the main stylesheet with `sass main.scss` and add the resulting CSS to your project.
+Compile the main stylesheet with `sass --load-path local main.scss` and add the resulting CSS to your project.
 
 The colour scheme (among other things) can be customized in `local/_settings.scss`.
 Any variables defined here will override the default options in `partials/_base.scss`.
