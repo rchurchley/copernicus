@@ -9,21 +9,14 @@
 $header-height: 4rem  !default;
 
 .site-header {
-  position: fixed;
   height: $header-height;
-  width: 100%;
   z-index: 3;
-  box-shadow: $shadow;
   color: $header-colour;
-  background-color: $header-background-colour;
 }
 
-.site-header div {
-  position: relative;
-  height: $header-height;
-  width: 100%;
-  max-width: $max-width;
-  margin: 0 auto;
+.site-header::before {
+  background-color: $header-background-colour;
+  box-shadow: $shadow;
 }
 
 .site-title,
@@ -67,12 +60,6 @@ $header-height: 4rem  !default;
 #site-navigation a:visited:hover {
   background-color: $menu-hover-colour;
 }
-
-.site-header + main,
-.site-header + article {
-  margin-top: $header-height + $article-sep;
-}
-
 
 @include mobile {
   .show-navigation {
