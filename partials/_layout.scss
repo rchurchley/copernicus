@@ -10,6 +10,7 @@ body {
 }
 
 header,
+main,
 footer,
 article,
 section {
@@ -30,7 +31,7 @@ section {
 }
 
 article,
-section {
+main {
   padding: $gutter-width;
 }
 
