@@ -29,14 +29,11 @@ section {
   }
 }
 
-hr {
-  border-style: solid;
-  border-width: thin;
-  clear: both;
-  border-color: $hr-colour;
+article,
+section {
+  padding: $gutter-width;
 }
 
 footer {
-  margin-top: $article-sep;
   text-align: center;
 }

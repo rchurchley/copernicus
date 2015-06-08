@@ -30,7 +30,7 @@ $header-height: 4rem  !default;
 
 .site-title {
   top: 0;
-  left: 0.5rem;
+  left: $gutter-width;
   margin: 0;
 }
 
@@ -46,14 +46,13 @@ $header-height: 4rem  !default;
 
 #show-navigation {
   // Checkbox providing menu hide/show functionality. Always invisible; its
-  // value is changed with the hamburger menu icon label.show-navigation.
+  // value is changed with the hamburger menu icon `label.show-navigation`.
   display: none;
 }
 
 #site-navigation a {
   display: inline-block;
   padding: 0 0.5rem;
-  text-align: center;
 }
 
 #site-navigation a:hover,
