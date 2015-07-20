@@ -98,13 +98,9 @@ summary,
 %clearfix {
   // Ensure block elements resize to fit their contents, including floats.
   // Based on http://nicolasgallagher.com/micro-clearfix-hack/
-  &:before,
-  &:after {
+  &::after {
     content: "";
     display: table;
-  }
-
-  &:after {
     clear: both;
   }
 }
