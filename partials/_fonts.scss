@@ -34,6 +34,7 @@ th,
 %headline {
   font-family: $headline-font-family;
   color: $headline-colour;
+  line-height: 1.2;
 
   a,
   a:visited {
@@ -42,29 +43,24 @@ th,
 }
 
 h1 {
-  font-size: 200%;
-  line-height: 1.2;
+  font-size: 146%;
 }
 
 h2 {
-  font-size: 150%;
-  line-height: 1.2;
+  font-size: 133%;
 }
 
 h3 {
-  font-size: 125%;
-  line-height: 1.2;
+  font-size: 121%;
 }
 
 p,
 dl,
 ol,
 ul,
+pre,
 figcaption {
-  line-height: 1.4;
-}
-
-pre {
+  font-size: 110%;
   line-height: 1.2;
 }
 
@@ -76,9 +72,8 @@ kbd {
 
 sup,
 sub,
-footer,
-.footnotes {
-  font-size: 75%;
+footer {
+  font-size: 90%;
 }
 
 aside,
