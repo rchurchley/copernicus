@@ -9,6 +9,7 @@
 $header-height: 4rem  !default;
 
 .site-header {
+  @extend %background;
   height: $header-height;
   z-index: 3;
   color: $header-colour;
@@ -16,7 +17,6 @@ $header-height: 4rem  !default;
 
 .site-header::before {
   background-color: $header-background-colour;
-  box-shadow: $shadow;
 }
 
 .site-title,

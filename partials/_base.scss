@@ -49,6 +49,18 @@ $mobile-breakpoint:     640px  !default;
   }
 }
 
+%background::before {
+    // background pseudo-element extending to the edges of the screen
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -50vw;
+    height: 100%;
+    width: 100vw;
+    z-index: -1;
+    box-shadow: $shadow;
+}
 
 //  IV. Colours  //////////////////////////////////////////////////////////////
 

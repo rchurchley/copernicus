@@ -18,16 +18,6 @@ section {
   margin-right: auto;
   max-width: $max-width;
   width: 100%;
-
-  &::before {
-    // background pseudo-element extending to the edges of the screen
-    content: "";
-    position: absolute;
-    left: 50%;
-    margin-left: -50vw;
-    height: 100%;
-    width: 100vw;
-  }
 }
 
 article,
