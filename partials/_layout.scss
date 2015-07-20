@@ -20,9 +20,12 @@ section {
   width: 100%;
 }
 
-article,
 main {
-  padding: $gutter-width;
+  padding: 0 $gutter-width;
+}
+
+section {
+  padding: $parskip-length 0;
 }
 
 footer {
