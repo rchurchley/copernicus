@@ -25,17 +25,9 @@ $parskip-length:        1rem !default;
 //  III. Layout  //////////////////////////////////////////////////////////////
 
 $max-width:             640px  !default;
-$article-sep:           1.5rem !default;
 $gutter-width:          20px   !default;
 
 $mobile-breakpoint:     640px  !default;
-
-@mixin fullwidth {
-    margin-left: -$gutter-width;
-    margin-right: -$gutter-width;
-    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
-    width: calc(100% + 40px); // 100% + 2*$gutter-width
-}
 
 @mixin mobile {
   @media screen and (max-width: $mobile-breakpoint - 1) {
@@ -47,6 +39,13 @@ $mobile-breakpoint:     640px  !default;
   @media screen and (min-width: $mobile-breakpoint) {
     @content
   }
+}
+
+@mixin fullwidth {
+    margin-left: -$gutter-width;
+    margin-right: -$gutter-width;
+    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
+    width: calc(100% + 40px); // 100% + 2*$gutter-width
 }
 
 %background::before {
@@ -72,7 +71,6 @@ $minor-colour:                 #93a1a1 !default;
 $minor-link-colour:            #93a1a1 !default;
 
 $body-background-colour:       #eee8d5 !default;
-$content-background-colour:    #fdf6e3 !default;
 $header-colour:                #fdf6e3 !default;
 $header-background-colour:     #073642 !default;
 $menu-background-colour:       #268bd2 !default;
