@@ -17,22 +17,41 @@ figcaption {
   text-align: center;
 }
 
-figure:not([class]) {
-  clear: left;
-  float: left;
-  margin-left: -$gutter-width;
-  margin-right: 1em;
-  max-width: calc(30% + 20px); // 100% + $gutter-width
-  width: calc(30% + 20px); // 100% + $gutter-width
+@include mobile {
+  section > figure:not([class]):first-child {
+    margin-top: -$parskip-length;
+  }
+
+  figure:not([class]) {
+    @include fullwidth;
+  }
 }
 
-figure.right {
-  clear: right;
-  float: right;
-  margin-left: 1em;
-  margin-right: -$gutter-width;
-  max-width: calc(30% + 20px); // 100% + $gutter-width
-  width: calc(30% + 20px); // 100% + $gutter-width
+@include widescreen {
+  figure:not([class]) {
+    clear: left;
+    display: inline-block;
+    margin: 0 0.5*$gutter-width 0 (-0.5*$gutter-width);
+    max-width: calc(30% + 20px); // 100% + $gutter-width
+    vertical-align: middle;
+    width: calc(30% + 20px); // 100% + $gutter-width
+
+    img {
+      border-radius: 0.5 * $gutter-width;
+    }
+
+    & + p,
+    & + dl,
+    & + ol,
+    & + ul,
+    & + code,
+    & + pre,
+    & + aside {
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(70% - 40px);
+    }
+  }
 }
 
 .banner {
