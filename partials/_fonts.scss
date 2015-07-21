@@ -33,12 +33,11 @@ thead,
 th,
 %headline {
   font-family: $headline-font-family;
-  color: $headline-colour;
   line-height: 1.2;
 
   a,
   a:visited {
-    color: $headline-colour;
+    color: inherit;
   }
 }
 
