@@ -75,16 +75,3 @@ sub,
 footer {
   font-size: 90%;
 }
-
-figcaption,
-footer,
-%minor {
-  color: $minor-colour;
-
-  a,
-  a:hover,
-  a:visited,
-  a:visited:hover {
-    color: $minor-link-colour;
-  }
-}
