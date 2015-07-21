@@ -27,7 +27,7 @@ $parskip-length:        1.25rem !default;
 $max-width:             640px  !default;
 $gutter-width:          20px   !default;
 
-$mobile-breakpoint:     640px  !default;
+$mobile-breakpoint:     512px  !default;
 
 @mixin mobile {
   @media screen and (max-width: $mobile-breakpoint - 1) {
