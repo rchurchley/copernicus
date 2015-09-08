@@ -1,75 +1,43 @@
-//  RESET  ////////////////////////////////////////////////////////////////////
+//  _reset.scss
 //
 //  Reset default CSS rendering for predictable results across modern browsers.
 //  Partially based on normalize.css v3.0.2 | MIT License | git.io/normalize
 //
 
 * {
+  margin: 0;
   box-sizing: border-box;
-  border:  0;
-  margin:  0;
-  padding: 0;
-  font: inherit;
 }
 
 html {
   // Prevent mobile text size adjust after orientation change.
-     -moz-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-          text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-body {
-  line-height: 1;
+%clearfix::after {
+  // Ensure block elements resize to fit their contents, including floats.
+  // Based on http://nicolasgallagher.com/micro-clearfix-hack/
+  display: table;
+  clear: both;
+  content: '';
 }
 
+body,
 article,
 aside,
-details,
 figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
-menu,
 nav,
-section,
-summary {
+section {
+  @extend %clearfix;
   display: block;
   position: relative;
-}
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-}
-
-a {
-  text-decoration: underline;
-  background-color: transparent;
-}
-
-h1 a,
-h2 a,
-h3 a,
-header a,
-nav a {
-  text-decoration: none;
-}
-
-b,
-strong {
-  font-weight: bold;
-}
-
-i,
-em,
-dfn {
-  font-style: italic;
 }
 
 table {
@@ -79,32 +47,4 @@ table {
 
 svg:not(:root) {
   overflow: hidden;
-}
-
-body,
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary,
-%clearfix {
-  // Ensure block elements resize to fit their contents, including floats.
-  // Based on http://nicolasgallagher.com/micro-clearfix-hack/
-  &:before,
-  &:after {
-    content: "";
-    display: table;
-  }
-
-  &:after {
-    clear: both;
-  }
 }
