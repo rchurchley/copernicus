@@ -1,33 +1,6 @@
-//  Main Stylesheet
-//  ===============
-//
-//  The main layout and typographic styles.
-//
-//  Contents
-//  --------
-//  I.    Text
-//  II.   Blocks
-//  III.  Images and figures
-//        a   Default images
-//        b   Figure classes
-//  IV.   Site structure
-//        a   Header
-//        b   Responsive navigation
-//        c   Main
-//        d   Footer
-//  V.    Footnotes
-//  VI.   Colours
-//  VII.  Site-specific styles
-//
-
-@import "partials/base";
-@import "partials/reset";
-@import "partials/layout";
-@import "partials/fonts";
-@import "partials/spacing";
-@import "partials/blocks";
-@import "partials/images";
-@import "partials/header";
-@import "partials/footnotes";
-
-@import "styles";  // append local/_styles
+@import 'partials/reset';
+@import 'partials/layout';
+@import 'partials/text';
+@import 'partials/boxes';
+@import 'partials/header';
+@import 'extras';

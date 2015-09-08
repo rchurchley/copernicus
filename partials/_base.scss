@@ -1,75 +1,68 @@
-//  BASE  /////////////////////////////////////////////////////////////////////
+//  _base.scss
 //
 //  Common variables and mixins to be included in all other partials.
 //
 
-@import "settings";  // override defaults with local/_settings
+@import 'settings';
+
+//  I. Fonts
+
+$body-font:      "Avenir Next", sans-serif !default;
+$body-font-size: large !default;
 
 
-//  I. Fonts  /////////////////////////////////////////////////////////////////
+//  II. Colors
 
-$headline-font-family:  "Source Sans Pro", "Avenir Next", "News Gothic MT",
-                          sans-serif !default;
-$body-font-family:      "Source Sans Pro", "Avenir Next", "News Gothic MT",
-                          sans-serif !default;
-$code-font-family:      Inconsolata, monospace !default;
+$base-colors:    #586e75, #657b83, #93a1a1, #eee8d5, #fdf6e3 !default;
+$splash-colors:  #b58900, #d33682, #073642                   !default;
 
-$default-font-size:     large !default;
-
-
-//  II. Spacing  //////////////////////////////////////////////////////////////
-
-$parskip-length:        1rem !default;
+$header-text:     nth($base-colors, 5)   !default;
+$header-color:    nth($splash-colors, 1) !default;
+$menu-color:      nth($splash-colors, 3) !default;
+$headline-color:  nth($splash-colors, 3) !default;
 
 
-//  III. Layout  //////////////////////////////////////////////////////////////
+//  II. Breakpoints
 
-$max-width:             640px  !default;
-$article-sep:           1.5rem !default;
-$gutter-width:          20px   !default;
-
-$mobile-breakpoint:     640px  !default;
-
-@mixin fullwidth {
-    margin-left: -$gutter-width;
-    margin-right: -$gutter-width;
-    max-width: calc(100% + 40px); // 100% + 2*$gutter-width
-    width: calc(100% + 40px); // 100% + 2*$gutter-width
-}
+$max-width:  640px  !default;
+$breakpoint: 640px  !default;
 
 @mixin mobile {
-  @media screen and (max-width: $mobile-breakpoint - 1) {
+  @media screen and (max-width: $breakpoint - 1) {
     @content
   }
 }
 
 @mixin widescreen {
-  @media screen and (min-width: $mobile-breakpoint) {
+  @media screen and (min-width: $breakpoint) {
     @content
   }
 }
 
 
-//  IV. Colours  //////////////////////////////////////////////////////////////
+//  III. Gutters
 
-$text-colour:                  #586e75 !default;
-$link-colour:                  #268bd2 !default;
-$link-hover-colour:            #dc322f !default;
-$headline-colour:              #d33682 !default;
-$minor-colour:                 #93a1a1 !default;
-$minor-link-colour:            #93a1a1 !default;
+$gutter-fraction: 1/16 !default;
 
-$body-background-colour:       #eee8d5 !default;
-$content-background-colour:    #fdf6e3 !default;
-$header-colour:                #fdf6e3 !default;
-$header-background-colour:     #073642 !default;
-$menu-background-colour:       #268bd2 !default;
-$menu-hover-colour:            #dc322f !default;
-$hr-colour:                    #fdf6e3 !default;
+@mixin gutters {
+  @include widescreen {
+    padding-right: $gutter-fraction * $max-width;
+    padding-left: $gutter-fraction * $max-width;
+  }
 
-$code-colour:                  #93a1a1 !default;
-$code-background-colour:       #002b36 !default;
-$footnote-colour:              #93a1a1 !default;
-$footnote-background-colour:   #dc322f !default;
+  @include mobile {
+    padding-right: $gutter-fraction * 100%;
+    padding-left: $gutter-fraction * 100%;
+  }
+}
 
-$shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !default;
+$gutter-relto-child: $gutter-fraction / (1-2*$gutter-fraction);
+
+@mixin fullwidth {
+  width: (1 + 2 * $gutter-relto-child) * 100%;
+  max-width: (1 + 2 * $gutter-relto-child) * 100%;
+  margin-left: -$gutter-relto-child * 100%;
+  margin-right: -$gutter-relto-child * 100%;
+  padding-left: $gutter-relto-child * 100%;
+  padding-right: $gutter-relto-child * 100%;
+}

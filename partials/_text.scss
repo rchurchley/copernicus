@@ -1,0 +1,80 @@
+//  _text.scss
+//
+//  Select font, spacing, and color for basic elements.
+//
+
+@import 'base';
+
+body {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  color: nth($base-colors, 1);
+  font-family: $body-font;
+  font-size: $body-font-size;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  line-height: 1.4;
+
+  p,
+  h1,
+  h2,
+  h3,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  blockquote,
+  figure,
+  pre {
+    margin-bottom: 1.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {         color: nth($splash-colors, 1); }
+  a:visited { color: nth($splash-colors, 3); }
+  a:hover {   color: nth($splash-colors, 2); }
+
+  h1,
+  h2,
+  h3 {
+    color: $headline-color;
+    font-family: $body-font;
+    font-weight: normal;
+
+    a,
+    a:visited {
+      color: inherit;
+    }
+  }
+
+  h1 { font-size: 200%; }
+  h2 { font-size: 150%; }
+  h3 { font-size: 125%; }
+
+  sup,
+  sub {
+    font-size: 60%;
+  }
+
+  address,
+  figcaption,
+  time,
+  .footnotes {
+    color: nth($base-colors, 2);
+    font-size: 75%;
+    font-style: italic;
+  }
+}
+
+footer {
+  color: nth($base-colors, 2);
+  font-size: 60%;
+  text-transform: uppercase;
+}

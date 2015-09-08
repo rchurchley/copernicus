@@ -1,40 +1,32 @@
 //  LAYOUT  ///////////////////////////////////////////////////////////////////
 //
-//  Set the position, size, and background colour of major layout elements.
+//  Set the position, size, and background color of major layout elements.
 //
 
-@import "base";
+@import 'base';
+
+html,
+body {
+  height: 100%;
+}
 
 body {
-  background-color: $body-background-colour;
+  background-color: nth($base-colors, 4);
+  padding: 0;
 }
 
-header,
-main,
-footer,
-article,
-section {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: $max-width;
-  width: 100%;
-
-  &::before {
-    // background pseudo-element extending to the edges of the screen
-    content: "";
-    position: absolute;
-    left: 50%;
-    margin-left: -50vw;
-    height: 100%;
-    width: 100vw;
-  }
-}
-
-article,
 main {
-  padding: $gutter-width;
+  @include gutters;
+
+  margin: 0 auto;
+  background-color: nth($base-colors, 5);
+  width: 100%;
+  max-width: $max-width;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 footer {
+  padding: 1em;
   text-align: center;
 }

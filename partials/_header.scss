@@ -4,104 +4,66 @@
 //  site title and navigation menu.
 //
 
-@import "base";
+@import 'base';
 
 $header-height: 4rem  !default;
 
 .site-header {
-  height: $header-height;
-  z-index: 3;
-  color: $header-colour;
-}
+  width: 100%;
+  text-align: center;
+  color: $header-text;
 
-.site-header::before {
-  background-color: $header-background-colour;
-  box-shadow: $shadow;
-}
-
-.site-title,
-.show-navigation,
-#site-navigation {
-  position: absolute;
-  height: $header-height;
-  line-height: $header-height;
-  vertical-align: middle;
-}
-
-.site-title {
-  top: 0;
-  left: $gutter-width;
-  margin: 0;
-}
-
-.site-title,
-#site-navigation {
-  a,
-  a:hover,
-  a:visited,
-  a:visited:hover {
-    color: $header-colour;
-  }
-}
-
-#show-navigation {
-  // Checkbox providing menu hide/show functionality. Always invisible; its
-  // value is changed with the hamburger menu icon `label.show-navigation`.
-  display: none;
-}
-
-#site-navigation a {
-  display: inline-block;
-  padding: 0 0.5rem;
-}
-
-#site-navigation a:hover,
-#site-navigation a:visited:hover {
-  background-color: $menu-hover-colour;
-}
-
-@include mobile {
-  .show-navigation {
-    // Hamburger menu icon
-    display: inline-block;
-    right: 0;
-    top: 0;
-    font-size: 200%;
-    text-align: center;
-    width: $header-height;
+  a {
+    color: inherit;
   }
 
-  #site-navigation {
-    top: $header-height;
-    height: auto;
+  h1 {
+    background: $header-color;
+    line-height: $header-height;
+    font-weight: normal;
+  }
+
+  nav {
+    background: $menu-color;
     width: 100%;
-    box-shadow: $shadow;
-    background-color: $menu-background-colour;
+    line-height: 1/2 * $header-height;
+
+    a {
+      display: inline-block;
+      padding: 0 2rem;
+    }
+
+    .current-menu-item {
+      font-weight: bold;
+    }
   }
 
-  #site-navigation a {
-    width: 50%;
-    border-top: 1px solid;
-  }
-
-  #show-navigation:not(:checked) + #site-navigation {
+  input,
+  label { // Hamburger menu hide/show.
     display: none;
   }
-}
 
-@include widescreen {
-  .show-navigation {
-    display: none;
-  }
 
-  #site-navigation {
-    top: 0;
-    right: 0;
-    white-space: nowrap;
-    background-color: $header-background-colour;
-  }
+  @include mobile {
+    label { // Hamburger menu icon
+      display: block;
+      position: absolute;
+      top: 0;
+      padding-right: $gutter-fraction * 100%;
+      width: 100%;
+      height: $header-height;
+      text-align: right;
+      line-height: $header-height;
+      font-size: 200%;
+    }
 
-  .current-menu-item {
-    background-color: $menu-background-colour;
+    input:not(:checked) + nav {
+      max-height: 0;
+    }
+
+    nav a {
+      width: 50%;
+      line-height: 2/3 * $header-height;
+    }
   }
 }

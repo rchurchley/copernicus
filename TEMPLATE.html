@@ -6,27 +6,33 @@
   </head>
   <body>
     <header class="site-header">
-      <h1 class="site-title">
-        <a rel= "home">
-          Copernicus
-        </a>
-      </h1>
+      <h1>Copernicus</h1>
       <label class="show-navigation" for="show-navigation">
         &#9776;
       </label>
       <input id="show-navigation" aria-checked="true" type= "checkbox" />
-      <nav id="site-navigation" role= "navigation">
+      <nav role= "navigation">
         <a class="current-menu-item">Home</a><a>About</a>
       </nav>
     </header>
     <main>
-      <section>
-        <h1>Example Usage</h1>
-        <p>Copernicus is a <a href="http://sass-lang.com">SASS</a> theme to bootstrap your way to a simple mobile-friendly website. Its design is inspired by Google's <a href="http://www.google.com/design/spec/material-design/introduction.html">Material Design</a> and its colours by Ethan Schoonover's <a href="http://ethanschoonover.com/solarized">Solarized</a> colour palette.</p>
-      </section>
+      <h1>Example Usage</h1>
+      <p>Copernicus is a <a href="http://sass-lang.com">SASS</a> theme to bootstrap your way to a simple mobile-friendly website. Its colors are based on Ethan Schoonover's <a href="http://ethanschoonover.com/solarized">Solarized</a> palette.</p>
+
+      <figure class="thumbnail">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Nikolaus_Kopernikus.jpg/206px-Nikolaus_Kopernikus.jpg">
+      </figure>
+      <p><a href="https://en.wikipedia.org/wiki/Nicolaus_Copernicus">Nicolaus Copernicus</a> was a Renaissance mathematician and astronomer who formulated a model of the universe that placed the sun, rather than the Earth, at the center of the universe. The name Copernicus indicated his father's birthplace in a copper-mining and dill-growing Prussian village.</p>
+
+      <h2>Usage</h2>
+      <p>First, make sure your webpage follows the structure illustrated in <code>TEMPLATE.html</code>. Compile the main stylesheet with
+      <pre><code>sass --load-path local main.scss</code></pre> and add the resulting CSS to your project.</p>
+
+      <h2>Customization</h2>
+      <p>The color scheme (among other things) can be customized in <code>local/_settings.scss</code>. Any variables defined there will override the default options in <code>partials/_base.scss</code>. Similarly, site-specific classes and style overrides can be appended to the main stylesheet by adding them to <code>local/_extras.scss</code>.</p>
     </main>
     <footer>
-      <p>&copy; Ross Churchley</p>
+      &copy; Ross Churchley
     </footer>
   </body>
 </html>
