@@ -1,5 +1,2 @@
 ### Temp files and caches ###
 .sass-cache
-
-### Compiled output ###
-*.css

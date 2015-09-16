@@ -1,6 +1,6 @@
 # Copernicus
 
-Copernicus is a [SASS](http://sass-lang.com) theme to bootstrap your way to a simple mobile-friendly website. Its colors are based on Ethan Schoonover's [Solarized](http://ethanschoonover.com/solarized) palette. Check out [the demo](demo/index.html) to see it in action.
+Copernicus is a [SASS](http://sass-lang.com) theme to bootstrap your way to a simple mobile-friendly website. Its colors are based on Ethan Schoonover's [Solarized](http://ethanschoonover.com/solarized) palette. Check out [the demo](https://cdn.rawgit.com/rchurchley/copernicus/master/demo/index.html) to see it in action.
 
 
 ## Usage

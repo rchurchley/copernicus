@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  box-sizing: border-box; }
+
+html {
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%; }
+
+body::after,
+article::after,
+aside::after,
+figcaption::after,
+figure::after,
+footer::after,
+header::after,
+main::after,
+nav::after,
+section::after {
+  display: table;
+  clear: both;
+  content: ''; }
+
+body,
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+  display: block;
+  position: relative; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+html,
+body {
+  height: 100%; }
+
+body {
+  background-color: #eee8d5;
+  padding: 0; }
+
+main {
+  margin: 0 auto;
+  background-color: #fdf6e3;
+  width: 100%;
+  max-width: 640px;
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
+  @media screen and (min-width: 640px) {
+    main {
+      padding-right: 40px;
+      padding-left: 40px; } }
+  @media screen and (max-width: 639px) {
+    main {
+      padding-right: 6.25%;
+      padding-left: 6.25%; } }
+
+footer {
+  padding: 1em;
+  text-align: center; }
+
+body {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  color: #586e75;
+  font-family: "Avenir Next", sans-serif;
+  font-size: large;
+  -webkit-font-smoothing: antialiased; }
+
+main {
+  line-height: 1.4; }
+  main p,
+  main h1,
+  main h2,
+  main h3,
+  main dl,
+  main dt,
+  main dd,
+  main ol,
+  main ul,
+  main li,
+  main blockquote,
+  main figure,
+  main pre {
+    margin-bottom: 1.25rem; }
+    main p:last-child,
+    main h1:last-child,
+    main h2:last-child,
+    main h3:last-child,
+    main dl:last-child,
+    main dt:last-child,
+    main dd:last-child,
+    main ol:last-child,
+    main ul:last-child,
+    main li:last-child,
+    main blockquote:last-child,
+    main figure:last-child,
+    main pre:last-child {
+      margin-bottom: 0; }
+  main a {
+    color: #b58900; }
+  main a:visited {
+    color: #073642; }
+  main a:hover {
+    color: #d33682; }
+  main h1,
+  main h2,
+  main h3 {
+    color: #073642;
+    font-family: "Avenir Next", sans-serif;
+    font-weight: normal; }
+    main h1 a,
+    main h1 a:visited,
+    main h2 a,
+    main h2 a:visited,
+    main h3 a,
+    main h3 a:visited {
+      color: inherit; }
+  main h1 {
+    font-size: 200%; }
+  main h2 {
+    font-size: 150%; }
+  main h3 {
+    font-size: 125%; }
+  main sup,
+  main sub {
+    font-size: 60%; }
+  main address,
+  main figcaption,
+  main time,
+  main .footnotes {
+    color: #657b83;
+    font-size: 75%;
+    font-style: italic; }
+
+footer {
+  color: #657b83;
+  font-size: 60%;
+  text-transform: uppercase; }
+
+aside,
+blockquote,
+pre {
+  width: 114.28571%;
+  max-width: 114.28571%;
+  margin-left: -7.14286%;
+  margin-right: -7.14286%;
+  padding-left: 7.14286%;
+  padding-right: 7.14286%; }
+  @media screen and (min-width: 640px) {
+    aside,
+    blockquote,
+    pre {
+      padding-right: 40px;
+      padding-left: 40px; } }
+  @media screen and (max-width: 639px) {
+    aside,
+    blockquote,
+    pre {
+      padding-right: 6.25%;
+      padding-left: 6.25%; } }
+
+pre,
+pre code {
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+hr {
+  clear: both;
+  border: thin solid #93a1a1; }
+
+img,
+figcaption {
+  width: 100%;
+  max-width: 100%;
+  height: auto; }
+
+figcaption {
+  padding: 5px;
+  text-align: center; }
+
+.banner {
+  width: 114.28571%;
+  max-width: 114.28571%;
+  margin-left: -7.14286%;
+  margin-right: -7.14286%;
+  padding-left: 7.14286%;
+  padding-right: 7.14286%; }
+
+.thumbnail {
+  float: left;
+  clear: left;
+  margin-right: 1em;
+  text-align: center; }
+  .thumbnail img {
+    border-radius: 1em;
+    width: auto;
+    max-width: 6em; }
+
+.site-header {
+  width: 100%;
+  text-align: center;
+  color: #fdf6e3; }
+  .site-header a {
+    color: inherit; }
+  .site-header h1 {
+    background: #b58900;
+    line-height: 4rem;
+    font-weight: normal; }
+  .site-header nav {
+    background: #073642;
+    width: 100%;
+    line-height: 2rem; }
+    .site-header nav a {
+      display: inline-block;
+      padding: 0 2rem; }
+    .site-header nav .current-menu-item {
+      font-weight: bold; }
+  .site-header input,
+  .site-header label {
+    display: none; }
+  @media screen and (max-width: 639px) {
+    .site-header h1 {
+      text-align: left;
+      padding: 0 6.25%; }
+    .site-header label {
+      display: block;
+      position: absolute;
+      top: 0;
+      padding-right: 6.25%;
+      width: 100%;
+      height: 4rem;
+      text-align: right;
+      line-height: 4rem;
+      font-size: 200%; }
+    .site-header input:not(:checked) + nav {
+      max-height: 0; }
+    .site-header nav a {
+      width: 50%;
+      line-height: 2.66667rem; } }
