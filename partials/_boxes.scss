@@ -38,6 +38,12 @@ figcaption {
 
 .banner {
   @include fullwidth;
+
+  padding: 0;
+}
+
+main > .banner:first-child {
+  margin-top: -2rem;
 }
 
 .thumbnail {
