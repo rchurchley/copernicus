@@ -37,9 +37,26 @@ main {
     }
   }
 
-  a {         color: nth($splash-colors, 1); }
-  a:visited { color: nth($splash-colors, 3); }
-  a:hover {   color: nth($splash-colors, 2); }
+  li p {
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    color: nth($splash-colors, 1);
+  }
+
+  a:visited {
+    color: nth($splash-colors, 3);
+  }
+
+  a:hover,
+  a:visited:hover {
+    color: nth($splash-colors, 2);
+  }
 
   h1,
   h2,
