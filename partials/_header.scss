@@ -47,8 +47,8 @@ $header-height: 4rem  !default;
 
   @include mobile {
     h1 {
-      text-align: left;
       padding: 0 $gutter-fraction * 100%;
+      text-align: left;
     }
 
     label { // Hamburger menu icon

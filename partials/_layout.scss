@@ -20,10 +20,10 @@ main {
 
   margin: 0 auto;
   background-color: nth($base-colors, 5);
-  width: 100%;
-  max-width: $max-width;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  width: 100%;
+  max-width: $max-width;
 }
 
 footer {
