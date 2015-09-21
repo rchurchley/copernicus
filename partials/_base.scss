@@ -40,20 +40,28 @@ $breakpoint: 640px  !default;
 }
 
 
-//  III. Gutters
+//  III. Gutters and spacing
+
+$parskip: 1.25rem;
+
+@mixin parskip($ratio) {
+  margin-bottom: $ratio * $parskip;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
 
 $gutter-fraction: 1/16 !default;
 
-@mixin gutters {
-  @include widescreen {
-    padding-right: $gutter-fraction * $max-width;
-    padding-left: $gutter-fraction * $max-width;
-  }
+@mixin gutter($side) {
+  @include widescreen { padding-#{$side}: $gutter-fraction * $max-width; }
+  @include mobile { padding-#{$side}: $gutter-fraction * 100%; }
+}
 
-  @include mobile {
-    padding-right: $gutter-fraction * 100%;
-    padding-left: $gutter-fraction * 100%;
-  }
+@mixin gutters {
+  @include gutter(right);
+  @include gutter(left);
 }
 
 $gutter-relto-child: $gutter-fraction / (1-2*$gutter-fraction);

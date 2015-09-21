@@ -30,19 +30,18 @@ main {
   blockquote,
   figure,
   pre {
-    margin-bottom: 1.25rem;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    @include parskip(1);
   }
 
-  li p {
-    margin-bottom: 1rem;
+  li,
+  li p,
+  dt,
+  dd {
+    @include parskip(.5);
+  }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  dd {
+    @include gutter(left);
   }
 
   a {
